@@ -50572,6 +50572,18 @@
               "description": "The recipient has rejected the invitation.",
               "isDeprecated": false,
               "deprecationReason": null
+            },
+            {
+              "name": "EXPIRED",
+              "description": "The invitation has expired.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "UNKNOWN",
+              "description": "The invitation has an unknown status.",
+              "isDeprecated": false,
+              "deprecationReason": null
             }
           ],
           "possibleTypes": null
@@ -50626,6 +50638,12 @@
             {
               "name": "ENDED",
               "description": "The squad stream has ended.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "UNKNOWN",
+              "description": "The squad stream has an unknown status.",
               "isDeprecated": false,
               "deprecationReason": null
             }
