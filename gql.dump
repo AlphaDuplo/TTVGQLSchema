@@ -14434,27 +14434,31 @@
         },
         {
           "kind": "INPUT_OBJECT",
-          "name": "CreateSquadStreamInvitationInput",
-          "description": "Inputs to the createSquadStreamInvitation mutation.",
+          "name": "CreateSquadStreamInvitationsInput",
+          "description": "Inputs to the createSquadStreamInvitations mutation.",
           "fields": null,
           "inputFields": [
             {
-              "name": "recipientUserID",
-              "description": "The user ID of the broadcaster that should be invited to join the squad stream.",
+              "name": "recipientUserIDs",
+              "description": "The user IDs of the broadcasters that should be invited to join the squad stream.",
               "type": {
-                "kind": "NON_NULL",
+                "kind": "LIST",
                 "name": null,
                 "ofType": {
-                  "kind": "SCALAR",
-                  "name": "ID",
-                  "ofType": null
+                  "kind": "NON_NULL",
+                  "name": null,
+                  "ofType": {
+                    "kind": "SCALAR",
+                    "name": "ID",
+                    "ofType": null
+                  }
                 }
               },
               "defaultValue": null
             },
             {
               "name": "squadStreamID",
-              "description": "The ID of the squad stream that the user should be invited to.\nIf left null, the user should be invited to a new squad stream that the caller owns.",
+              "description": "The ID of the squad stream that the users should be invited to.\nIf left null, the users should be invited to a new squad stream that the caller owns.",
               "type": {
                 "kind": "SCALAR",
                 "name": "ID",
@@ -14469,8 +14473,8 @@
         },
         {
           "kind": "OBJECT",
-          "name": "CreateSquadStreamInvitationPayload",
-          "description": "Outputs from the createSquadStreamInvitation mutation.",
+          "name": "CreateSquadStreamInvitationsPayload",
+          "description": "Outputs from the createSquadStreamInvitations mutation.",
           "fields": [
             {
               "name": "squadStream",
@@ -30154,8 +30158,8 @@
               "deprecationReason": null
             },
             {
-              "name": "createSquadStreamInvitation",
-              "description": "Creates an invitation to a new or existing squad stream.",
+              "name": "createSquadStreamInvitations",
+              "description": "Creates invitations to a new or existing squad stream.",
               "args": [
                 {
                   "name": "input",
@@ -30165,7 +30169,7 @@
                     "name": null,
                     "ofType": {
                       "kind": "INPUT_OBJECT",
-                      "name": "CreateSquadStreamInvitationInput",
+                      "name": "CreateSquadStreamInvitationsInput",
                       "ofType": null
                     }
                   },
@@ -30174,7 +30178,7 @@
               ],
               "type": {
                 "kind": "OBJECT",
-                "name": "CreateSquadStreamInvitationPayload",
+                "name": "CreateSquadStreamInvitationsPayload",
                 "ofType": null
               },
               "isDeprecated": false,
