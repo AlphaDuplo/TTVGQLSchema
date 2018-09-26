@@ -31321,33 +31321,6 @@
               "deprecationReason": null
             },
             {
-              "name": "openCrate",
-              "description": "openCrate allows an authenticated a user to open the specified Twitch Crate. The contents of the crate will be given\nto the user as part of this action. The specified crate must be owned by the requesting user.\nOtherwise, an error will be returned.",
-              "args": [
-                {
-                  "name": "input",
-                  "description": null,
-                  "type": {
-                    "kind": "NON_NULL",
-                    "name": null,
-                    "ofType": {
-                      "kind": "INPUT_OBJECT",
-                      "name": "OpenCrateInput",
-                      "ofType": null
-                    }
-                  },
-                  "defaultValue": null
-                }
-              ],
-              "type": {
-                "kind": "OBJECT",
-                "name": "OpenCratePayload",
-                "ofType": null
-              },
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
               "name": "orderPanels",
               "description": "orderPanels updates the sort order of the provided panels, the input must be a list of panel ids\nall of which are owned by the acting user otherwise the request will fail and a generic GraphQL\nerror will be returned.",
               "args": [
@@ -34575,58 +34548,6 @@
               },
               "isDeprecated": false,
               "deprecationReason": null
-            }
-          ],
-          "inputFields": null,
-          "interfaces": [],
-          "enumValues": null,
-          "possibleTypes": null
-        },
-        {
-          "kind": "INPUT_OBJECT",
-          "name": "OpenCrateInput",
-          "description": null,
-          "fields": null,
-          "inputFields": [
-            {
-              "name": "crateID",
-              "description": "The ID used to uniquely identify the crate.",
-              "type": {
-                "kind": "NON_NULL",
-                "name": null,
-                "ofType": {
-                  "kind": "SCALAR",
-                  "name": "ID",
-                  "ofType": null
-                }
-              },
-              "defaultValue": null
-            }
-          ],
-          "interfaces": null,
-          "enumValues": null,
-          "possibleTypes": null
-        },
-        {
-          "kind": "OBJECT",
-          "name": "OpenCratePayload",
-          "description": null,
-          "fields": [
-            {
-              "name": "crateID",
-              "description": "The ID used to uniquely identify the crate.",
-              "args": [],
-              "type": {
-                "kind": "NON_NULL",
-                "name": null,
-                "ofType": {
-                  "kind": "SCALAR",
-                  "name": "ID",
-                  "ofType": null
-                }
-              },
-              "isDeprecated": true,
-              "deprecationReason": "The mutated data is not in the response. When this functionality is added, the data will be in this response structure."
             }
           ],
           "inputFields": null,
