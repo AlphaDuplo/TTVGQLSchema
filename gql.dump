@@ -12577,6 +12577,24 @@
               "defaultValue": null
             },
             {
+              "name": "blacklistedBroadcasters",
+              "description": "The list of broadcaster IDs to blacklist (if any) for the campaign.",
+              "type": {
+                "kind": "LIST",
+                "name": null,
+                "ofType": {
+                  "kind": "NON_NULL",
+                  "name": null,
+                  "ofType": {
+                    "kind": "SCALAR",
+                    "name": "ID",
+                    "ofType": null
+                  }
+                }
+              },
+              "defaultValue": null
+            },
+            {
               "name": "broadcasterMessage",
               "description": "The message that will be shown to the broadcaster when they view the campaign.",
               "type": {
@@ -12649,6 +12667,26 @@
                   "name": "Time",
                   "ofType": null
                 }
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "targetAllBroadcasters",
+              "description": "Flag to target all broadcaters for the campaign.",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Boolean",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "targetVarietyBroadcasters",
+              "description": "Flag to target variety broadcaters for the campaign.",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Boolean",
+                "ofType": null
               },
               "defaultValue": null
             },
