@@ -4809,6 +4809,38 @@
           "description": "Details about a bounty campaign that only the sponsoring brand should see.",
           "fields": [
             {
+              "name": "blacklistedBroadcasters",
+              "description": "The list of users (if any) blacklisted for the campaign.",
+              "args": [],
+              "type": {
+                "kind": "LIST",
+                "name": null,
+                "ofType": {
+                  "kind": "NON_NULL",
+                  "name": null,
+                  "ofType": {
+                    "kind": "OBJECT",
+                    "name": "User",
+                    "ofType": null
+                  }
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "broadcasterMultiplier",
+              "description": "The multiplier for the broadcaster payout rate.",
+              "args": [],
+              "type": {
+                "kind": "SCALAR",
+                "name": "Float",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
               "name": "campaignReporting",
               "description": "Reporting data for the campaign.",
               "args": [],
@@ -4869,6 +4901,30 @@
               "deprecationReason": "Use 'expandedBountyCount' in 'campaignReporting' instead."
             },
             {
+              "name": "includesAllBroadcasters",
+              "description": "If all broadcasters are targeted for the campaign.",
+              "args": [],
+              "type": {
+                "kind": "SCALAR",
+                "name": "Boolean",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "includesVarietyBroadcasters",
+              "description": "If variety broadcasters are targeted for the campaign.",
+              "args": [],
+              "type": {
+                "kind": "SCALAR",
+                "name": "Boolean",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
               "name": "performanceMetrics",
               "description": "Detailed performance metrics for this campaign.",
               "args": [],
@@ -4920,6 +4976,26 @@
                 "kind": "ENUM",
                 "name": "BountyCampaignStatus",
                 "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "targetedGames",
+              "description": "Targeted Games for the campaign.",
+              "args": [],
+              "type": {
+                "kind": "LIST",
+                "name": null,
+                "ofType": {
+                  "kind": "NON_NULL",
+                  "name": null,
+                  "ofType": {
+                    "kind": "OBJECT",
+                    "name": "Game",
+                    "ofType": null
+                  }
+                }
               },
               "isDeprecated": false,
               "deprecationReason": null
