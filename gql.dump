@@ -43252,68 +43252,6 @@
           "possibleTypes": null
         },
         {
-          "kind": "OBJECT",
-          "name": "RedeemClaimableError",
-          "description": "Redeem claimable error.",
-          "fields": [
-            {
-              "name": "code",
-              "description": "Error code while redeeming.",
-              "args": [],
-              "type": {
-                "kind": "NON_NULL",
-                "name": null,
-                "ofType": {
-                  "kind": "ENUM",
-                  "name": "RedeemClaimableErrorCode",
-                  "ofType": null
-                }
-              },
-              "isDeprecated": false,
-              "deprecationReason": null
-            }
-          ],
-          "inputFields": null,
-          "interfaces": [],
-          "enumValues": null,
-          "possibleTypes": null
-        },
-        {
-          "kind": "ENUM",
-          "name": "RedeemClaimableErrorCode",
-          "description": "Redeem claimable error status codes.",
-          "fields": null,
-          "inputFields": null,
-          "interfaces": null,
-          "enumValues": [
-            {
-              "name": "REQUEST_THROTTLED",
-              "description": "The request has been throttled.",
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
-              "name": "UNAUTHORIZED",
-              "description": "The user is not allowed to redeem this key.",
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
-              "name": "ALREADY_CLAIMED",
-              "description": "The key has already been claimed.",
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
-              "name": "UNKNOWN",
-              "description": "Unknown error being returned from service.",
-              "isDeprecated": false,
-              "deprecationReason": null
-            }
-          ],
-          "possibleTypes": null
-        },
-        {
           "kind": "INPUT_OBJECT",
           "name": "RedeemClaimableInput",
           "description": "The input for claiming a key code.",
@@ -43343,18 +43281,6 @@
           "name": "RedeemClaimablePayload",
           "description": "The payload returned after claiming a key code.",
           "fields": [
-            {
-              "name": "error",
-              "description": "Possible errors returned from the service for this mutation.",
-              "args": [],
-              "type": {
-                "kind": "OBJECT",
-                "name": "RedeemClaimableError",
-                "ofType": null
-              },
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
             {
               "name": "key",
               "description": "The updated key information.",
