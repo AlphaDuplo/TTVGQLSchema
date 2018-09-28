@@ -4809,6 +4809,18 @@
           "description": "Details about a bounty campaign that only the sponsoring brand should see.",
           "fields": [
             {
+              "name": "campaignReporting",
+              "description": "Reporting data for the campaign.",
+              "args": [],
+              "type": {
+                "kind": "OBJECT",
+                "name": "BountyCampaignReporting",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
               "name": "claimedBountyCount",
               "description": "The total number of broadcasters who have claimed the bounty.",
               "args": [],
@@ -4817,8 +4829,8 @@
                 "name": "Int",
                 "ofType": null
               },
-              "isDeprecated": false,
-              "deprecationReason": null
+              "isDeprecated": true,
+              "deprecationReason": "Use 'claimedBountyCount' in 'campaignReporting' instead."
             },
             {
               "name": "claimedBudgetCents",
@@ -4829,8 +4841,8 @@
                 "name": "Int",
                 "ofType": null
               },
-              "isDeprecated": false,
-              "deprecationReason": null
+              "isDeprecated": true,
+              "deprecationReason": "Use 'claimedBudgetCents' in 'campaignReporting' instead."
             },
             {
               "name": "completedBountyCount",
@@ -4841,8 +4853,8 @@
                 "name": "Int",
                 "ofType": null
               },
-              "isDeprecated": false,
-              "deprecationReason": null
+              "isDeprecated": true,
+              "deprecationReason": "Use 'completedBountyCount' in 'campaignReporting' instead."
             },
             {
               "name": "expandedBountyCount",
@@ -4853,8 +4865,8 @@
                 "name": "Int",
                 "ofType": null
               },
-              "isDeprecated": false,
-              "deprecationReason": null
+              "isDeprecated": true,
+              "deprecationReason": "Use 'expandedBountyCount' in 'campaignReporting' instead."
             },
             {
               "name": "performanceMetrics",
@@ -4873,8 +4885,8 @@
                   }
                 }
               },
-              "isDeprecated": false,
-              "deprecationReason": null
+              "isDeprecated": true,
+              "deprecationReason": "Use 'performanceMetrics' in 'campaignReporting' instead."
             },
             {
               "name": "rejectionReason",
@@ -4890,7 +4902,7 @@
             },
             {
               "name": "spentBudgetCents",
-              "description": "How much of the budget has been spent (in cents).",
+              "description": "How much of the budget has been spent (completed bounties) (in cents).",
               "args": [],
               "type": {
                 "kind": "SCALAR",
@@ -4933,8 +4945,8 @@
                 "name": "Int",
                 "ofType": null
               },
-              "isDeprecated": false,
-              "deprecationReason": null
+              "isDeprecated": true,
+              "deprecationReason": "Use 'viewedBountyCount' in 'campaignReporting' instead."
             }
           ],
           "inputFields": null,
@@ -5121,6 +5133,97 @@
                   "name": "Int",
                   "ofType": null
                 }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "OBJECT",
+          "name": "BountyCampaignReporting",
+          "description": "Details about a bounty campaign reporting that only the sponsoring brand should see.",
+          "fields": [
+            {
+              "name": "claimedBountyCount",
+              "description": "The total number of broadcasters who have claimed the bounty.",
+              "args": [],
+              "type": {
+                "kind": "SCALAR",
+                "name": "Int",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "claimedBudgetCents",
+              "description": "How much of the budget has been claimed (live bounties) (in cents).",
+              "args": [],
+              "type": {
+                "kind": "SCALAR",
+                "name": "Int",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "completedBountyCount",
+              "description": "The total number of broadcasters who have completed the bounty.",
+              "args": [],
+              "type": {
+                "kind": "SCALAR",
+                "name": "Int",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "expandedBountyCount",
+              "description": "The total number of broadcasters who have expanded the bounty.",
+              "args": [],
+              "type": {
+                "kind": "SCALAR",
+                "name": "Int",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "performanceMetrics",
+              "description": "Detailed performance metrics for this campaign.",
+              "args": [],
+              "type": {
+                "kind": "LIST",
+                "name": null,
+                "ofType": {
+                  "kind": "NON_NULL",
+                  "name": null,
+                  "ofType": {
+                    "kind": "OBJECT",
+                    "name": "BountyCampaignPerformanceMetric",
+                    "ofType": null
+                  }
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "viewedBountyCount",
+              "description": "The number of broadcasters who have viewed the bounty.",
+              "args": [],
+              "type": {
+                "kind": "SCALAR",
+                "name": "Int",
+                "ofType": null
               },
               "isDeprecated": false,
               "deprecationReason": null
@@ -5503,6 +5606,65 @@
               "deprecationReason": null
             }
           ],
+          "possibleTypes": null
+        },
+        {
+          "kind": "OBJECT",
+          "name": "BroadcasterViewerReach",
+          "description": "An indicator of the viewer reach for a pool of a broadcasters.",
+          "fields": [
+            {
+              "name": "broadcasterPool",
+              "description": "Range of the number of broadcasters in the pool.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "OBJECT",
+                  "name": "Range",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "minutesWatched",
+              "description": "Range of minutes watched for this bounty campaign.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "OBJECT",
+                  "name": "Range",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "viewerPool",
+              "description": "Range of total viewers across the broadcaster pool.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "OBJECT",
+                  "name": "Range",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
+          "enumValues": null,
           "possibleTypes": null
         },
         {
@@ -12066,6 +12228,69 @@
               "type": {
                 "kind": "OBJECT",
                 "name": "BrandPortalSettings",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "estimatedBroadcasterViewerReach",
+              "description": "The estimated viewer reach for the pool of broadcasters this company is considering targeting.",
+              "args": [
+                {
+                  "name": "gameNames",
+                  "description": null,
+                  "type": {
+                    "kind": "NON_NULL",
+                    "name": null,
+                    "ofType": {
+                      "kind": "LIST",
+                      "name": null,
+                      "ofType": {
+                        "kind": "NON_NULL",
+                        "name": null,
+                        "ofType": {
+                          "kind": "SCALAR",
+                          "name": "String",
+                          "ofType": null
+                        }
+                      }
+                    }
+                  },
+                  "defaultValue": null
+                },
+                {
+                  "name": "targetAllBroadcasters",
+                  "description": null,
+                  "type": {
+                    "kind": "NON_NULL",
+                    "name": null,
+                    "ofType": {
+                      "kind": "SCALAR",
+                      "name": "Boolean",
+                      "ofType": null
+                    }
+                  },
+                  "defaultValue": null
+                },
+                {
+                  "name": "targetVarietyBroadcasters",
+                  "description": null,
+                  "type": {
+                    "kind": "NON_NULL",
+                    "name": null,
+                    "ofType": {
+                      "kind": "SCALAR",
+                      "name": "Boolean",
+                      "ofType": null
+                    }
+                  },
+                  "defaultValue": null
+                }
+              ],
+              "type": {
+                "kind": "OBJECT",
+                "name": "BroadcasterViewerReach",
                 "ofType": null
               },
               "isDeprecated": false,
@@ -42266,6 +42491,49 @@
                 "kind": "OBJECT",
                 "name": "WhisperThread",
                 "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "OBJECT",
+          "name": "Range",
+          "description": "An integer range with a minimum and a maximum.",
+          "fields": [
+            {
+              "name": "max",
+              "description": "The maximum value of the Range.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Int",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "min",
+              "description": "The minimum value of the Range.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Int",
+                  "ofType": null
+                }
               },
               "isDeprecated": false,
               "deprecationReason": null
