@@ -6504,6 +6504,26 @@
               "deprecationReason": "Use stream.language instead."
             },
             {
+              "name": "chanlets",
+              "description": "A list of the channel's chanlets (sub-channels) in a multi-view experience.",
+              "args": [],
+              "type": {
+                "kind": "LIST",
+                "name": null,
+                "ofType": {
+                  "kind": "NON_NULL",
+                  "name": null,
+                  "ofType": {
+                    "kind": "OBJECT",
+                    "name": "Channel",
+                    "ofType": null
+                  }
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
               "name": "createdAt",
               "description": null,
               "args": [],
@@ -6700,6 +6720,26 @@
               },
               "isDeprecated": true,
               "deprecationReason": "Use user.stream instead."
+            },
+            {
+              "name": "streams",
+              "description": "A list of streams for a given channel for multi-view.",
+              "args": [],
+              "type": {
+                "kind": "LIST",
+                "name": null,
+                "ofType": {
+                  "kind": "NON_NULL",
+                  "name": null,
+                  "ofType": {
+                    "kind": "OBJECT",
+                    "name": "Stream",
+                    "ofType": null
+                  }
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
             },
             {
               "name": "subscriptionProducts",
@@ -41656,9 +41696,13 @@
                   "kind": "LIST",
                   "name": null,
                   "ofType": {
-                    "kind": "OBJECT",
-                    "name": "PrimeOffer",
-                    "ofType": null
+                    "kind": "NON_NULL",
+                    "name": null,
+                    "ofType": {
+                      "kind": "OBJECT",
+                      "name": "PrimeOffer",
+                      "ofType": null
+                    }
                   }
                 }
               },
@@ -61184,15 +61228,15 @@
             },
             {
               "name": "channel",
-              "description": "The channel which belongs to the user.",
+              "description": "The channel which belongs to the user. This is still deprecated for previous uses.\nThis should only be used for the multi-view experience.",
               "args": [],
               "type": {
                 "kind": "OBJECT",
                 "name": "Channel",
                 "ofType": null
               },
-              "isDeprecated": true,
-              "deprecationReason": "Channel has been deprecated and its fields have been merged into User."
+              "isDeprecated": false,
+              "deprecationReason": null
             },
             {
               "name": "channelAnalyticsContentOverlap",
