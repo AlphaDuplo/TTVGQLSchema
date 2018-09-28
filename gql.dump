@@ -6754,6 +6754,49 @@
               "deprecationReason": "Use user.offlineImageURL instead."
             },
             {
+              "name": "videos",
+              "description": "Get a paginated list of videos for this channel.",
+              "args": [
+                {
+                  "name": "first",
+                  "description": null,
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Int",
+                    "ofType": null
+                  },
+                  "defaultValue": "10"
+                },
+                {
+                  "name": "after",
+                  "description": null,
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Cursor",
+                    "ofType": null
+                  },
+                  "defaultValue": null
+                },
+                {
+                  "name": "type",
+                  "description": null,
+                  "type": {
+                    "kind": "ENUM",
+                    "name": "BroadcastType",
+                    "ofType": null
+                  },
+                  "defaultValue": null
+                }
+              ],
+              "type": {
+                "kind": "OBJECT",
+                "name": "VideoConnection",
+                "ofType": null
+              },
+              "isDeprecated": true,
+              "deprecationReason": "Use user.videos instead."
+            },
+            {
               "name": "viewCount",
               "description": "The number of views a channel has received in its lifetime.",
               "args": [],
