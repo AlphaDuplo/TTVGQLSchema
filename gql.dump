@@ -3952,6 +3952,210 @@
         },
         {
           "kind": "OBJECT",
+          "name": "BitsProduct",
+          "description": "A product for bits that contains all information about a product, except for the pricing.",
+          "fields": [
+            {
+              "name": "amount",
+              "description": "The amount of bits the product is for.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Int",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "id",
+              "description": "The product ID.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "ID",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "maxQuantity",
+              "description": "The maximum quantity a user can purchase at once.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Int",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "promo",
+              "description": "A field that contains promotional information about the product.",
+              "args": [],
+              "type": {
+                "kind": "OBJECT",
+                "name": "BitsProductPromotion",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "type",
+              "description": "The product type, which right now is only \"purchase\".",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "ENUM",
+                  "name": "BitsProductType",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "OBJECT",
+          "name": "BitsProductPromotion",
+          "description": "Promotional information about bits products.",
+          "fields": [
+            {
+              "name": "id",
+              "description": "The unique ID of the bits product promo.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "ID",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "title",
+              "description": "The localized title of the promo product.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "String",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "type",
+              "description": "The type of promotion the product is associated with. This type is not enumerable since it is very dynamic.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "String",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "ENUM",
+          "name": "BitsProductProvider",
+          "description": "An enumberable that identifies the checkout provider the customer is using.",
+          "fields": null,
+          "inputFields": null,
+          "interfaces": null,
+          "enumValues": [
+            {
+              "name": "AMAZON",
+              "description": "Amazon checkout.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "ANDROID",
+              "description": "Android IAP.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "IOS",
+              "description": "iOS IAP.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "PAYPAL",
+              "description": "Paypal checkout.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "possibleTypes": null
+        },
+        {
+          "kind": "ENUM",
+          "name": "BitsProductType",
+          "description": "An enumerable that identifies bits product types.",
+          "fields": null,
+          "inputFields": null,
+          "interfaces": null,
+          "enumValues": [
+            {
+              "name": "PURCHASED_PRODUCT",
+              "description": "A product that has to be purchased.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "UNKNOWN",
+              "description": "An unknown product type.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "possibleTypes": null
+        },
+        {
+          "kind": "OBJECT",
           "name": "BitsPromotion",
           "description": null,
           "fields": [
@@ -61234,6 +61438,73 @@
                   "kind": "INTERFACE",
                   "name": "BitsOffer",
                   "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "bitsProducts",
+              "description": "bitsProducts is a list of bits products that a user is able to purchase.\nUnlike bitsOffers, this does not return any pricing information, only information\nabout the purchaseable. A provider must be supplied, which is the payment platform\nbeing currently used. An optional list of SKUs can be provided if we are looking up\na specific set of products for a user.",
+              "args": [
+                {
+                  "name": "provider",
+                  "description": null,
+                  "type": {
+                    "kind": "NON_NULL",
+                    "name": null,
+                    "ofType": {
+                      "kind": "ENUM",
+                      "name": "BitsProductProvider",
+                      "ofType": null
+                    }
+                  },
+                  "defaultValue": null
+                },
+                {
+                  "name": "locale",
+                  "description": null,
+                  "type": {
+                    "kind": "NON_NULL",
+                    "name": null,
+                    "ofType": {
+                      "kind": "SCALAR",
+                      "name": "String",
+                      "ofType": null
+                    }
+                  },
+                  "defaultValue": null
+                },
+                {
+                  "name": "skus",
+                  "description": null,
+                  "type": {
+                    "kind": "LIST",
+                    "name": null,
+                    "ofType": {
+                      "kind": "NON_NULL",
+                      "name": null,
+                      "ofType": {
+                        "kind": "SCALAR",
+                        "name": "String",
+                        "ofType": null
+                      }
+                    }
+                  },
+                  "defaultValue": null
+                }
+              ],
+              "type": {
+                "kind": "LIST",
+                "name": null,
+                "ofType": {
+                  "kind": "NON_NULL",
+                  "name": null,
+                  "ofType": {
+                    "kind": "OBJECT",
+                    "name": "BitsProduct",
+                    "ofType": null
+                  }
                 }
               },
               "isDeprecated": false,
