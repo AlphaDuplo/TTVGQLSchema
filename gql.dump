@@ -12272,16 +12272,22 @@
               "description": "The bounty board campaigns that the company owns.",
               "args": [
                 {
+                  "name": "campaignID",
+                  "description": null,
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "ID",
+                    "ofType": null
+                  },
+                  "defaultValue": null
+                },
+                {
                   "name": "status",
                   "description": null,
                   "type": {
-                    "kind": "NON_NULL",
-                    "name": null,
-                    "ofType": {
-                      "kind": "ENUM",
-                      "name": "BountyCampaignStatus",
-                      "ofType": null
-                    }
+                    "kind": "ENUM",
+                    "name": "BountyCampaignStatus",
+                    "ofType": null
                   },
                   "defaultValue": null
                 }
