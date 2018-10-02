@@ -14979,6 +14979,56 @@
           "possibleTypes": null
         },
         {
+          "kind": "OBJECT",
+          "name": "CreateSquadStreamInvitationError",
+          "description": "CreateSquadStreamInvitationError is the error associated with a createSquadStreamInvitation.",
+          "fields": [
+            {
+              "name": "code",
+              "description": "The associated error code.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "ENUM",
+                  "name": "CreateSquadStreamInvitationErrorCode",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "ENUM",
+          "name": "CreateSquadStreamInvitationErrorCode",
+          "description": "CreateSquadStreamInvitationErrorCode are the possible errors that this mutation returns.",
+          "fields": null,
+          "inputFields": null,
+          "interfaces": null,
+          "enumValues": [
+            {
+              "name": "SQUAD_FULL",
+              "description": "The squad is already full.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "USER_IN_ANOTHER_SQUAD",
+              "description": "The recipient is in another squad.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "possibleTypes": null
+        },
+        {
           "kind": "INPUT_OBJECT",
           "name": "CreateSquadStreamInvitationInput",
           "description": "Inputs to the createSquadStreamInvitation mutation.",
@@ -15018,6 +15068,18 @@
           "name": "CreateSquadStreamInvitationPayload",
           "description": "Outputs from the createSquadStreamInvitation mutation.",
           "fields": [
+            {
+              "name": "error",
+              "description": "The possible error returned from the service.",
+              "args": [],
+              "type": {
+                "kind": "OBJECT",
+                "name": "CreateSquadStreamInvitationError",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
             {
               "name": "squadStream",
               "description": "The updated squad stream.",
@@ -28359,6 +28421,50 @@
           "possibleTypes": null
         },
         {
+          "kind": "OBJECT",
+          "name": "LeaveSquadStreamError",
+          "description": "LeaveSquadStreamError is the error associated with a leaveSquadStream.",
+          "fields": [
+            {
+              "name": "code",
+              "description": "The associated error code.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "ENUM",
+                  "name": "LeaveSquadStreamErrorCode",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "ENUM",
+          "name": "LeaveSquadStreamErrorCode",
+          "description": "LeaveSquadStreamErrorCode are the possible errors that this mutation returns.",
+          "fields": null,
+          "inputFields": null,
+          "interfaces": null,
+          "enumValues": [
+            {
+              "name": "USER_NOT_IN_SQUAD",
+              "description": "The user is not in the squad specified.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "possibleTypes": null
+        },
+        {
           "kind": "INPUT_OBJECT",
           "name": "LeaveSquadStreamInput",
           "description": "Inputs to the leaveSquadStream mutation.",
@@ -28388,6 +28494,18 @@
           "name": "LeaveSquadStreamPayload",
           "description": "Outputs from the leaveSquadStream mutation.",
           "fields": [
+            {
+              "name": "error",
+              "description": "The possible error returned from the service.",
+              "args": [],
+              "type": {
+                "kind": "OBJECT",
+                "name": "LeaveSquadStreamError",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
             {
               "name": "squadStream",
               "description": "The updated squad stream.",
@@ -44708,6 +44826,56 @@
           "possibleTypes": null
         },
         {
+          "kind": "OBJECT",
+          "name": "RemoveSquadStreamMemberError",
+          "description": "RemoveSquadStreamMemberError is the error associated with a removeSquadStreamMember.",
+          "fields": [
+            {
+              "name": "code",
+              "description": "The associated error code.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "ENUM",
+                  "name": "RemoveSquadStreamMemberErrorCode",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "ENUM",
+          "name": "RemoveSquadStreamMemberErrorCode",
+          "description": "RemoveSquadStreamMemberErrorCode are the possible errors that this mutation returns.",
+          "fields": null,
+          "inputFields": null,
+          "interfaces": null,
+          "enumValues": [
+            {
+              "name": "UNAUTHORIZED",
+              "description": "The user is not authorized to remove members from the squad.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "USER_NOT_IN_SQUAD",
+              "description": "The user to be removed is not in the squad specified.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "possibleTypes": null
+        },
+        {
           "kind": "INPUT_OBJECT",
           "name": "RemoveSquadStreamMemberInput",
           "description": "Inputs to the removeSquadStreamMember mutation.",
@@ -44751,6 +44919,18 @@
           "name": "RemoveSquadStreamMemberPayload",
           "description": "Outputs from the removeSquadStreamMember mutation.",
           "fields": [
+            {
+              "name": "error",
+              "description": "The possible error returned from the service.",
+              "args": [],
+              "type": {
+                "kind": "OBJECT",
+                "name": "RemoveSquadStreamMemberError",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
             {
               "name": "squadStream",
               "description": "The updated squad stream.",
@@ -60440,6 +60620,56 @@
           "possibleTypes": null
         },
         {
+          "kind": "OBJECT",
+          "name": "UpdateSquadStreamError",
+          "description": "UpdateSquadStreamError is the error associated with a updateSquadStream.",
+          "fields": [
+            {
+              "name": "code",
+              "description": "The associated error code.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "ENUM",
+                  "name": "UpdateSquadStreamErrorCode",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "ENUM",
+          "name": "UpdateSquadStreamErrorCode",
+          "description": "UpdateSquadStreamErrorCode are the possible errors that this mutation returns.",
+          "fields": null,
+          "inputFields": null,
+          "interfaces": null,
+          "enumValues": [
+            {
+              "name": "SQUAD_NOT_FOUND",
+              "description": "The squad is not found.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "UNAUTHORIZED",
+              "description": "The user is not authorized to update the squad.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "possibleTypes": null
+        },
+        {
           "kind": "INPUT_OBJECT",
           "name": "UpdateSquadStreamInput",
           "description": "Inputs to the updateSquadStream mutation.",
@@ -60479,6 +60709,18 @@
           "name": "UpdateSquadStreamPayload",
           "description": "Outputs from the updateSquadStream mutation.",
           "fields": [
+            {
+              "name": "error",
+              "description": "The possible error returned from the service.",
+              "args": [],
+              "type": {
+                "kind": "OBJECT",
+                "name": "UpdateSquadStreamError",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
             {
               "name": "squadStream",
               "description": "The updated squad stream.",
