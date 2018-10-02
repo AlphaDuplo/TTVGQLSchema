@@ -45207,109 +45207,133 @@
           "enumValues": [
             {
               "name": "CHANNEL_FEED_COMMENT_REPORT",
-              "description": null,
+              "description": "Report against a channel feed comment.",
               "isDeprecated": false,
               "deprecationReason": null
             },
             {
               "name": "CHANNEL_FEED_POST_REPORT",
-              "description": null,
+              "description": "Report against a channel feed post.",
               "isDeprecated": false,
               "deprecationReason": null
             },
             {
               "name": "CHAT_REPORT",
-              "description": null,
+              "description": "Report against a chat message.",
               "isDeprecated": false,
               "deprecationReason": null
             },
             {
               "name": "CLIP_REPORT",
-              "description": null,
+              "description": "Report against a clip.",
               "isDeprecated": false,
               "deprecationReason": null
             },
             {
               "name": "COLLECTION_REPORT",
-              "description": null,
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
-              "name": "COMMUNITY_REPORT",
-              "description": null,
+              "description": "(Deprecated) Report against a vod collection.",
               "isDeprecated": false,
               "deprecationReason": null
             },
             {
               "name": "CURSE_PRIVATE_GROUP",
-              "description": null,
+              "description": "(Deprecated) Report against a curse private group.",
               "isDeprecated": false,
               "deprecationReason": null
             },
             {
               "name": "CURSE_PUBLIC_GROUP",
-              "description": null,
+              "description": "(Deprecated) Report against a curse public group.",
               "isDeprecated": false,
               "deprecationReason": null
             },
             {
               "name": "CURSE_WHISPER",
-              "description": null,
+              "description": "(Deprecated) Report against a curse whisper.",
               "isDeprecated": false,
               "deprecationReason": null
             },
             {
               "name": "EVENT_REPORT",
-              "description": null,
+              "description": "Report against an oracle event.",
               "isDeprecated": false,
               "deprecationReason": null
             },
             {
               "name": "EXTENSION_REPORT",
-              "description": null,
+              "description": "Report against an extension.",
               "isDeprecated": false,
               "deprecationReason": null
             },
             {
               "name": "LIVE_UP_REPORT",
-              "description": null,
+              "description": "Report against a live up notification.",
               "isDeprecated": false,
               "deprecationReason": null
             },
             {
               "name": "RAID_REPORT",
-              "description": null,
+              "description": "Report against a raid.",
               "isDeprecated": false,
               "deprecationReason": null
             },
             {
               "name": "ROOM_REPORT",
-              "description": null,
+              "description": "Report against a chatroom.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "SINGS_GROUP_NAME_REPORT",
+              "description": "Report against sings group name.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "SINGS_GROUP_BIO_REPORT",
+              "description": "Report against sings group biography.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "SINGS_GROUP_CHAT_REPORT",
+              "description": "Report against sings group chat.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "SINGS_VOD_COMMENT_REPORT",
+              "description": "Report against a sings group vod comment.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "SINGS_DUET_SEED_REPORT",
+              "description": "Report against sings duet seed.",
               "isDeprecated": false,
               "deprecationReason": null
             },
             {
               "name": "USER_REPORT",
-              "description": null,
+              "description": "Report against a live user.",
               "isDeprecated": false,
               "deprecationReason": null
             },
             {
               "name": "VOD_COMMENT_REPORT",
-              "description": null,
+              "description": "Report against a twitch vod comment.",
               "isDeprecated": false,
               "deprecationReason": null
             },
             {
               "name": "VOD_REPORT",
-              "description": null,
+              "description": "Report against a twitch vod.",
               "isDeprecated": false,
               "deprecationReason": null
             },
             {
               "name": "WHISPER_REPORT",
-              "description": null,
+              "description": "Report against a whisper.",
               "isDeprecated": false,
               "deprecationReason": null
             }
