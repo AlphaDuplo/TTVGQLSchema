@@ -4247,6 +4247,47 @@
           "possibleTypes": null
         },
         {
+          "kind": "ENUM",
+          "name": "BitsUserState",
+          "description": "An enumerable that dictates user's Bits usage state.",
+          "fields": null,
+          "inputFields": null,
+          "interfaces": null,
+          "enumValues": [
+            {
+              "name": "NEW_USER",
+              "description": "The user has never used or acquired Bits.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "ACQUIRED",
+              "description": "The user has acquired Bits (purchased, watched ads, etc.) but has never used it.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "SKIPPED",
+              "description": "The user has never used or acquired Bits, but clicked \"Skip\" button to skip the first user experience.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "CHEERED",
+              "description": "The user has cheered before.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "UNKNOWN",
+              "description": "The user state is unknown.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "possibleTypes": null
+        },
+        {
           "kind": "OBJECT",
           "name": "BlizzardUser",
           "description": "Information regarding a Blizzard account that is linked to Twitch.",
@@ -61792,6 +61833,18 @@
                     "ofType": null
                   }
                 }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "bitsUserState",
+              "description": "bitsUserState dictates the state of the Bits user (new to Bits, existing Bits user, etc.)\nIf this isn't the `currentUser` or the user has been banned from using bits this will return null.\nThis field can only be requested if an OAuth token is supplied with the request.",
+              "args": [],
+              "type": {
+                "kind": "ENUM",
+                "name": "BitsUserState",
+                "ofType": null
               },
               "isDeprecated": false,
               "deprecationReason": null
