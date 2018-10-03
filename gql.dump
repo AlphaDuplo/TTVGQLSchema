@@ -2030,6 +2030,45 @@
           "possibleTypes": null
         },
         {
+          "kind": "OBJECT",
+          "name": "AutomodContentResponse",
+          "description": "AutomodContentResponse is the automod response for the text evaulated.",
+          "fields": [
+            {
+              "name": "content",
+              "description": "content are pieces of the content evaulated by automod.",
+              "args": [],
+              "type": {
+                "kind": "OBJECT",
+                "name": "RoomMessageContent",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "text",
+              "description": "text is the original raw string evaluated by automod.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "String",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
           "kind": "ENUM",
           "name": "Availability",
           "description": "The possible computed states for a user or session.",
@@ -41078,6 +41117,47 @@
           "name": "Query",
           "description": "Root fields to access the Twitch API.",
           "fields": [
+            {
+              "name": "automodContent",
+              "description": "Get AutoMod evaluation of text using AutoMod rule.",
+              "args": [
+                {
+                  "name": "text",
+                  "description": null,
+                  "type": {
+                    "kind": "NON_NULL",
+                    "name": null,
+                    "ofType": {
+                      "kind": "SCALAR",
+                      "name": "String",
+                      "ofType": null
+                    }
+                  },
+                  "defaultValue": null
+                },
+                {
+                  "name": "rule",
+                  "description": null,
+                  "type": {
+                    "kind": "NON_NULL",
+                    "name": null,
+                    "ofType": {
+                      "kind": "SCALAR",
+                      "name": "Int",
+                      "ofType": null
+                    }
+                  },
+                  "defaultValue": null
+                }
+              ],
+              "type": {
+                "kind": "OBJECT",
+                "name": "AutomodContentResponse",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
             {
               "name": "badges",
               "description": "A list of global chat badges.",
