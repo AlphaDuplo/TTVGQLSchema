@@ -62414,8 +62414,8 @@
                   }
                 }
               },
-              "isDeprecated": true,
-              "deprecationReason": "Use 'GET /v5/permissions/channels/:channel_id/editors' API; this field will be changed to a connection with edges."
+              "isDeprecated": false,
+              "deprecationReason": null
             },
             {
               "name": "email",
