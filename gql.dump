@@ -16397,6 +16397,119 @@
         },
         {
           "kind": "INPUT_OBJECT",
+          "name": "DeleteChatMessageInput",
+          "description": "The input for deleteChatMessage.",
+          "fields": null,
+          "inputFields": [
+            {
+              "name": "channelID",
+              "description": "The channel the message was sent in.",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "ID",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "messageID",
+              "description": "The UUID of the message to be deleted.",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "ID",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            }
+          ],
+          "interfaces": null,
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "OBJECT",
+          "name": "DeleteChatMessagePayload",
+          "description": "The returned payload for deleteChatMessage.",
+          "fields": [
+            {
+              "name": "message",
+              "description": "The returned message.",
+              "args": [],
+              "type": {
+                "kind": "OBJECT",
+                "name": "DeletedMessage",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "responseCode",
+              "description": "The response codes for this mutation.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "ENUM",
+                  "name": "DeleteChatMessageStatusCode",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "ENUM",
+          "name": "DeleteChatMessageStatusCode",
+          "description": "The response codes for this mutation.",
+          "fields": null,
+          "inputFields": null,
+          "interfaces": null,
+          "enumValues": [
+            {
+              "name": "SUCCESS",
+              "description": "Deletion was successful.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "FORBIDDEN",
+              "description": "User does not have permission to delete messages.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "TARGET_IS_BROADCASTER",
+              "description": "Target is the broadcaster.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "TARGET_IS_MODERATOR",
+              "description": "Target is another moderator.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "possibleTypes": null
+        },
+        {
+          "kind": "INPUT_OBJECT",
           "name": "DeleteClipsInput",
           "description": "DeleteClipsInput accepts either a list of slugs, a video id, or a broadcast id\nto determine the clips to delete.",
           "fields": null,
@@ -17204,6 +17317,61 @@
                   "name": "VideoComment",
                   "ofType": null
                 }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "OBJECT",
+          "name": "DeletedMessage",
+          "description": "A deleted message sent by a user to a stream chat.",
+          "fields": [
+            {
+              "name": "content",
+              "description": "Content of the deleted message.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "OBJECT",
+                  "name": "RoomMessageContent",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "id",
+              "description": "UUID of the deleted message.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "ID",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "sender",
+              "description": "Sender of the message.",
+              "args": [],
+              "type": {
+                "kind": "OBJECT",
+                "name": "User",
+                "ofType": null
               },
               "isDeprecated": false,
               "deprecationReason": null
@@ -31267,6 +31435,33 @@
               "type": {
                 "kind": "OBJECT",
                 "name": "DeleteChannelPermittedTermPayload",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "deleteChatMessage",
+              "description": "deleteChatMessage deletes a single message from stream chat.",
+              "args": [
+                {
+                  "name": "input",
+                  "description": null,
+                  "type": {
+                    "kind": "NON_NULL",
+                    "name": null,
+                    "ofType": {
+                      "kind": "INPUT_OBJECT",
+                      "name": "DeleteChatMessageInput",
+                      "ofType": null
+                    }
+                  },
+                  "defaultValue": null
+                }
+              ],
+              "type": {
+                "kind": "OBJECT",
+                "name": "DeleteChatMessagePayload",
                 "ofType": null
               },
               "isDeprecated": false,
