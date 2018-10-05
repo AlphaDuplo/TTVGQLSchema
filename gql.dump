@@ -5725,18 +5725,6 @@
               "deprecationReason": null
             },
             {
-              "name": "spentBudgetCents",
-              "description": "How much of the budget has been spent (completed bounties) (in cents).",
-              "args": [],
-              "type": {
-                "kind": "SCALAR",
-                "name": "Int",
-                "ofType": null
-              },
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
               "name": "viewedBountyCount",
               "description": "The number of broadcasters who have viewed the bounty.",
               "args": [],
