@@ -19026,6 +19026,112 @@
         },
         {
           "kind": "OBJECT",
+          "name": "EditorConnection",
+          "description": "Paginated list of editors of a channel.",
+          "fields": [
+            {
+              "name": "edges",
+              "description": "The elements of the list.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "LIST",
+                  "name": null,
+                  "ofType": {
+                    "kind": "NON_NULL",
+                    "name": null,
+                    "ofType": {
+                      "kind": "OBJECT",
+                      "name": "EditorEdge",
+                      "ofType": null
+                    }
+                  }
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "pageInfo",
+              "description": "Information about this page.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "OBJECT",
+                  "name": "PageInfo",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "OBJECT",
+          "name": "EditorEdge",
+          "description": "Points to a user with the editor status, with metadata regarding the relationship.",
+          "fields": [
+            {
+              "name": "cursor",
+              "description": "Opaque cursor describing this edge's position in the paginated list.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Cursor",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "grantedAt",
+              "description": "Timestamp of when the editor status was granted.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Time",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "node",
+              "description": "The user who has the editor status.",
+              "args": [],
+              "type": {
+                "kind": "OBJECT",
+                "name": "User",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "OBJECT",
           "name": "EmbeddedEmote",
           "description": "EmbeddedEmote is an encoding format used to describe an emote embedded in a string of text.\n\nExample:\n  body = \"hey KappaHD\"\n  from = 4\n  to = 10\n\n  \"KappaHD\" will be replaced with the KappaHD emote image.",
           "fields": [
@@ -62970,23 +63076,15 @@
             },
             {
               "name": "editors",
-              "description": "Returns a list of channel editors.\nIf this isn't the `currentUser` this will return null.",
+              "description": "A list of channel editors.",
               "args": [],
               "type": {
-                "kind": "LIST",
-                "name": null,
-                "ofType": {
-                  "kind": "NON_NULL",
-                  "name": null,
-                  "ofType": {
-                    "kind": "OBJECT",
-                    "name": "User",
-                    "ofType": null
-                  }
-                }
+                "kind": "OBJECT",
+                "name": "EditorConnection",
+                "ofType": null
               },
-              "isDeprecated": true,
-              "deprecationReason": "Use 'GET /v5/permissions/channels/:channel_id/editors' API; this field will be changed to a connection with edges."
+              "isDeprecated": false,
+              "deprecationReason": null
             },
             {
               "name": "email",
