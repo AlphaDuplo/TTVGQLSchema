@@ -7693,6 +7693,70 @@
         },
         {
           "kind": "OBJECT",
+          "name": "ChannelHistoryAccess",
+          "description": "ChannelHistoryAccess defines the access level of a channel role to the channel history.",
+          "fields": [
+            {
+              "name": "accessLevel",
+              "description": "The access level to channel history.",
+              "args": [],
+              "type": {
+                "kind": "ENUM",
+                "name": "ChannelHistoryAccessLevel",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "channelRole",
+              "description": "The user role.",
+              "args": [],
+              "type": {
+                "kind": "ENUM",
+                "name": "ChannelUserRole",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "ENUM",
+          "name": "ChannelHistoryAccessLevel",
+          "description": "Access levels to channel history.",
+          "fields": null,
+          "inputFields": null,
+          "interfaces": null,
+          "enumValues": [
+            {
+              "name": "NONE",
+              "description": "User cannot read channel history or create new entries.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "READ",
+              "description": "User can read channel history entries.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "WRITE",
+              "description": "User can read and create channel history entries.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "possibleTypes": null
+        },
+        {
+          "kind": "OBJECT",
           "name": "ChannelNotificationSetting",
           "description": null,
           "fields": [
@@ -7957,6 +8021,47 @@
           "inputFields": null,
           "interfaces": [],
           "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "ENUM",
+          "name": "ChannelUserRole",
+          "description": "The possible user roles within a channel.",
+          "fields": null,
+          "inputFields": null,
+          "interfaces": null,
+          "enumValues": [
+            {
+              "name": "BROADCASTER",
+              "description": "The channel owner.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "EDITOR",
+              "description": "An editor for the channel.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "MODERATOR",
+              "description": "A moderator for the channel.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "SUBSCRIBER",
+              "description": "A subscriber of the channel.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "REGULAR",
+              "description": "A user with no roles.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
           "possibleTypes": null
         },
         {
@@ -33545,6 +33650,33 @@
               "deprecationReason": null
             },
             {
+              "name": "setChannelHistoryAccess",
+              "description": "Set access permission to channel history for a given role.",
+              "args": [
+                {
+                  "name": "input",
+                  "description": null,
+                  "type": {
+                    "kind": "NON_NULL",
+                    "name": null,
+                    "ofType": {
+                      "kind": "INPUT_OBJECT",
+                      "name": "SetChannelHistoryAccessInput",
+                      "ofType": null
+                    }
+                  },
+                  "defaultValue": null
+                }
+              ],
+              "type": {
+                "kind": "OBJECT",
+                "name": "SetChannelHistoryAccessPayload",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
               "name": "setChannelNotificationSetting",
               "description": "setChannelNotificationSetting allows a user to set a notification setting.",
               "args": [
@@ -50164,6 +50296,82 @@
                   "name": "User",
                   "ofType": null
                 }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "INPUT_OBJECT",
+          "name": "SetChannelHistoryAccessInput",
+          "description": "The required input to set a role's channel history access.",
+          "fields": null,
+          "inputFields": [
+            {
+              "name": "accessLevel",
+              "description": "The access level to channel history to be given to the role.",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "ENUM",
+                  "name": "ChannelHistoryAccessLevel",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "channelID",
+              "description": "The Channel for which to set channel history access.",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "ID",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "channelRole",
+              "description": "The user role for which to set the channel history access permission.",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "ENUM",
+                  "name": "ChannelUserRole",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            }
+          ],
+          "interfaces": null,
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "OBJECT",
+          "name": "SetChannelHistoryAccessPayload",
+          "description": "Result of a setChannelHistoryAccess mutation.",
+          "fields": [
+            {
+              "name": "channelHistoryAccess",
+              "description": "The access level of the role set.",
+              "args": [],
+              "type": {
+                "kind": "OBJECT",
+                "name": "ChannelHistoryAccess",
+                "ofType": null
               },
               "isDeprecated": false,
               "deprecationReason": null
