@@ -38831,6 +38831,147 @@
           "possibleTypes": null
         },
         {
+          "kind": "ENUM",
+          "name": "PendingSubType",
+          "description": "Denotes the type of pending subscription.",
+          "fields": null,
+          "inputFields": null,
+          "interfaces": null,
+          "enumValues": [
+            {
+              "name": "GIFT_TO_PAID",
+              "description": "This pending subscription was a conversion from a gift sub to a paid sub.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "DNR_TO_RESUB",
+              "description": "This pending subscription was a conversion from a DNRd sub to a renewing sub.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "possibleTypes": null
+        },
+        {
+          "kind": "OBJECT",
+          "name": "PendingSubscription",
+          "description": "Data about a pending future subscription.\nie. a user turns a 1-month gift into a recurring subscription.",
+          "fields": [
+            {
+              "name": "originID",
+              "description": "The id of the pending subscription purchase. Used to cancel the paid upgrade.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "ID",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "price",
+              "description": "The formatted price of the pending subscription in USD.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "String",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": true,
+              "deprecationReason": "Transitioning to priceInfo instead"
+            },
+            {
+              "name": "priceInfo",
+              "description": "PriceInfo holds the pending subscription's pricing information such as currency, cost, and tax information.",
+              "args": [
+                {
+                  "name": "taxCountry",
+                  "description": null,
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "String",
+                    "ofType": null
+                  },
+                  "defaultValue": null
+                }
+              ],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "OBJECT",
+                  "name": "PriceInfo",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "startsAt",
+              "description": "The date the pending subscription begins.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Time",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "tier",
+              "description": "Tier of pending subscription.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "String",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "type",
+              "description": "The type of pending subscription. Ie GIFT_TO_PAID for a gift to paid conversion.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "ENUM",
+                  "name": "PendingSubType",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
           "kind": "OBJECT",
           "name": "PhotoOEmbed",
           "description": null,
@@ -54627,6 +54768,22 @@
               "deprecationReason": null
             },
             {
+              "name": "isDNRd",
+              "description": "Whether the sub is set to \"do not renew\".",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Boolean",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
               "name": "isRefundable",
               "description": "Whether the subscription is in the grace period to be cancelled and refunded.",
               "args": [],
@@ -54661,6 +54818,18 @@
               "type": {
                 "kind": "OBJECT",
                 "name": "PaidUpgrade",
+                "ofType": null
+              },
+              "isDeprecated": true,
+              "deprecationReason": "gift to paid upgrades will now be in the pendingSubscription schema"
+            },
+            {
+              "name": "pendingSubscription",
+              "description": "If the subscriptionBenefit has a pending future dated paid subscription.",
+              "args": [],
+              "type": {
+                "kind": "OBJECT",
+                "name": "PendingSubscription",
                 "ofType": null
               },
               "isDeprecated": false,
