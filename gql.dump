@@ -4213,6 +4213,18 @@
               "deprecationReason": null
             },
             {
+              "name": "self",
+              "description": "The relation of the product to the user.",
+              "args": [],
+              "type": {
+                "kind": "OBJECT",
+                "name": "BitsProductSelfEdge",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
               "name": "type",
               "description": "The product type, which right now is only \"purchase\".",
               "args": [],
@@ -4224,6 +4236,45 @@
                   "name": "BitsProductType",
                   "ofType": null
                 }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "OBJECT",
+          "name": "BitsProductEligibility",
+          "description": "The type used when checking bits product eligibility for a user.",
+          "fields": [
+            {
+              "name": "canPurchase",
+              "description": "A boolean that is true when the user is eligible for the product.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Boolean",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "reasonCode",
+              "description": "If the user is ineligible for the product, then this code is set\nas the reason why the user is ineligible for the product.",
+              "args": [],
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
               },
               "isDeprecated": false,
               "deprecationReason": null
@@ -4326,6 +4377,48 @@
               "deprecationReason": null
             }
           ],
+          "possibleTypes": null
+        },
+        {
+          "kind": "OBJECT",
+          "name": "BitsProductSelfEdge",
+          "description": "The relation of a Bits product to a user.",
+          "fields": [
+            {
+              "name": "eligibility",
+              "description": "Is the user eligible to claim the product at the given quantity.",
+              "args": [
+                {
+                  "name": "quantity",
+                  "description": null,
+                  "type": {
+                    "kind": "NON_NULL",
+                    "name": null,
+                    "ofType": {
+                      "kind": "SCALAR",
+                      "name": "Int",
+                      "ofType": null
+                    }
+                  },
+                  "defaultValue": null
+                }
+              ],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "OBJECT",
+                  "name": "BitsProductEligibility",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
+          "enumValues": null,
           "possibleTypes": null
         },
         {
@@ -62702,7 +62795,7 @@
             },
             {
               "name": "bitsProducts",
-              "description": "bitsProducts is a list of bits products that a user is able to purchase.\nUnlike bitsOffers, this does not return any pricing information, only information\nabout the purchaseable. A provider must be supplied, which is the payment platform\nbeing currently used. An optional list of SKUs can be provided if we are looking up\na specific set of products for a user.",
+              "description": "BitsProductEligibility checks for a given user if they are eligible to purchase a given product from the associated\nprovider, quantity, and locale.\nbitsProduct(id: ID!, provider: BitsProductProvider!, quantity: Int!, locale: String!): BitsProductEligibility!\nbitsProducts is a list of bits products that a user is able to purchase.\nUnlike bitsOffers, this does not return any pricing information, only information\nabout the purchaseable. A provider must be supplied, which is the payment platform\nbeing currently used. An optional list of SKUs can be provided if we are looking up\na specific set of products for a user.",
               "args": [
                 {
                   "name": "provider",
@@ -62713,20 +62806,6 @@
                     "ofType": {
                       "kind": "ENUM",
                       "name": "BitsProductProvider",
-                      "ofType": null
-                    }
-                  },
-                  "defaultValue": null
-                },
-                {
-                  "name": "locale",
-                  "description": null,
-                  "type": {
-                    "kind": "NON_NULL",
-                    "name": null,
-                    "ofType": {
-                      "kind": "SCALAR",
-                      "name": "String",
                       "ofType": null
                     }
                   },
