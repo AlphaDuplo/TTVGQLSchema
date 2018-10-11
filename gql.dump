@@ -65914,18 +65914,6 @@
               "deprecationReason": null
             },
             {
-              "name": "unreadWhisperMessagesCount",
-              "description": "Number of unread whisper messages the user has.",
-              "args": [],
-              "type": {
-                "kind": "SCALAR",
-                "name": "Int",
-                "ofType": null
-              },
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
               "name": "updatedAt",
               "description": "When the user last updated their account.",
               "args": [],
@@ -70782,6 +70770,18 @@
                   "name": "Int",
                   "ofType": null
                 }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "totalUnreadCount",
+              "description": "Total number of whisper threads containing unread messages for the current user.",
+              "args": [],
+              "type": {
+                "kind": "SCALAR",
+                "name": "Int",
+                "ofType": null
               },
               "isDeprecated": false,
               "deprecationReason": null
