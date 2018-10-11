@@ -8361,6 +8361,47 @@
           "possibleTypes": null
         },
         {
+          "kind": "ENUM",
+          "name": "ChatRestrictedReason",
+          "description": "Reasons that a user might not be allowed to chat in a specific channel.",
+          "fields": null,
+          "inputFields": null,
+          "interfaces": null,
+          "enumValues": [
+            {
+              "name": "SUBSCRIBERS_ONLY",
+              "description": "The user is prevented from chatting by subscribers-only mode. They should\nsubscribe to the channel to chat.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "FOLLOWERS_ONLY",
+              "description": "The user is prevented from chatting by followers-only mode. They should\neither follow the channel, or wait longer to satisfy the required time.\nSee user.self.follower.followedAt for when the user followed, and\nuser.self.chatSettings.followersOnlyDurationMinutes for the minimum\nrequired follow time.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "VERIFIED_ONLY",
+              "description": "The user is prevented from chatting by verified-only mode. They should\nverify their account to chat.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "SLOW_MODE",
+              "description": "The user can't chat because they've chatted too recently. See\nuser.self.lastRecentChatMessageAt to calculate how much time is remaining\nbefore they can chat again.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "BANNED",
+              "description": "The user is prevented from chatting due to being banned from the channel.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "possibleTypes": null
+        },
+        {
           "kind": "OBJECT",
           "name": "ChatRoomBanStatus",
           "description": null,
@@ -66809,6 +66850,26 @@
                   "kind": "SCALAR",
                   "name": "Boolean",
                   "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "chatRestrictedReasons",
+              "description": "If the authenticated user cannot chat in this channel, a list of reasons.\nNull if the user can chat.",
+              "args": [],
+              "type": {
+                "kind": "LIST",
+                "name": null,
+                "ofType": {
+                  "kind": "NON_NULL",
+                  "name": null,
+                  "ofType": {
+                    "kind": "ENUM",
+                    "name": "ChatRestrictedReason",
+                    "ofType": null
+                  }
                 }
               },
               "isDeprecated": false,
