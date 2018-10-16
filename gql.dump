@@ -13953,6 +13953,74 @@
           "possibleTypes": null
         },
         {
+          "kind": "INPUT_OBJECT",
+          "name": "CreateChanletInput",
+          "description": "CreateChanletInput creates a chanlet under the given channelID.",
+          "fields": null,
+          "inputFields": [
+            {
+              "name": "channelID",
+              "description": "The ID of the channel the chanlet should belong to.",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "ID",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            }
+          ],
+          "interfaces": null,
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "OBJECT",
+          "name": "CreateChanletPayload",
+          "description": "CreateChanletPayload returns the new chanlet that was created.",
+          "fields": [
+            {
+              "name": "chanlet",
+              "description": "The chanlet that was created.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "OBJECT",
+                  "name": "Channel",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "channelID",
+              "description": "The channelID that the chanlet was created under.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "ID",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
           "kind": "OBJECT",
           "name": "CreateClipError",
           "description": "CreateClipError is an error associated with the createClip mutation.",
@@ -31555,6 +31623,33 @@
               "type": {
                 "kind": "OBJECT",
                 "name": "CreateBountyCampaignPayload",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "createChanlet",
+              "description": "createChanlet creates a new chanlet for a Channel.",
+              "args": [
+                {
+                  "name": "input",
+                  "description": null,
+                  "type": {
+                    "kind": "NON_NULL",
+                    "name": null,
+                    "ofType": {
+                      "kind": "INPUT_OBJECT",
+                      "name": "CreateChanletInput",
+                      "ofType": null
+                    }
+                  },
+                  "defaultValue": null
+                }
+              ],
+              "type": {
+                "kind": "OBJECT",
+                "name": "CreateChanletPayload",
                 "ofType": null
               },
               "isDeprecated": false,
