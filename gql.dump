@@ -23211,6 +23211,22 @@
           "description": "The set of abilities an extension is authorized to use.",
           "fields": [
             {
+              "name": "isBitsEnabled",
+              "description": "Whether the extension can use bits in the current context.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Boolean",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
               "name": "isChatEnabled",
               "description": "Whether the extension can send chat messages in the current context.",
               "args": [],
@@ -23240,6 +23256,22 @@
             {
               "name": "canSendChat",
               "description": "Whether the installer has opted in or out of chat capabilities in extensions.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Boolean",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "canUseBits",
+              "description": "Whether the installer has opted in or out of bit capabilities in extensions.",
               "args": [],
               "type": {
                 "kind": "NON_NULL",
@@ -51033,6 +51065,16 @@
             {
               "name": "canSendChat",
               "description": "Optional value to enable/disable chat for the specified installation.",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Boolean",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "canUseBits",
+              "description": "Optional value to enable/disable bits for the specified installation.",
               "type": {
                 "kind": "SCALAR",
                 "name": "Boolean",
