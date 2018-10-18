@@ -2660,12 +2660,6 @@
               "deprecationReason": null
             },
             {
-              "name": "TARGET_IS_VIP",
-              "description": "User tried to ban a VIP without permission.",
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
               "name": "TARGET_IS_BROADCASTER",
               "description": "User tried to ban broadcaster.",
               "isDeprecated": false,
@@ -8395,6 +8389,12 @@
             {
               "name": "SLOW_MODE",
               "description": "The user can't chat because they've chatted too recently. See\nuser.self.lastRecentChatMessageAt to calculate how much time is remaining\nbefore they can chat again.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "BANNED",
+              "description": "The user is prevented from chatting due to being banned from the channel.",
               "isDeprecated": false,
               "deprecationReason": null
             }
