@@ -14946,6 +14946,98 @@
         },
         {
           "kind": "INPUT_OBJECT",
+          "name": "CreateMultiviewContentAttributesInput",
+          "description": "Contains a list of new content attributes to be created.",
+          "fields": null,
+          "inputFields": [
+            {
+              "name": "params",
+              "description": "params is a list of multi-view content attribute params for creating new records.",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "LIST",
+                  "name": null,
+                  "ofType": {
+                    "kind": "NON_NULL",
+                    "name": null,
+                    "ofType": {
+                      "kind": "INPUT_OBJECT",
+                      "name": "MultiviewContentAttributeParams",
+                      "ofType": null
+                    }
+                  }
+                }
+              },
+              "defaultValue": null
+            }
+          ],
+          "interfaces": null,
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "OBJECT",
+          "name": "CreateMultiviewContentAttributesPayload",
+          "description": "Contains the results from the create request.",
+          "fields": [
+            {
+              "name": "failedCreates",
+              "description": "Unprocessed content attributes.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "LIST",
+                  "name": null,
+                  "ofType": {
+                    "kind": "NON_NULL",
+                    "name": null,
+                    "ofType": {
+                      "kind": "OBJECT",
+                      "name": "MultiviewContentAttribute",
+                      "ofType": null
+                    }
+                  }
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "succeededCreates",
+              "description": "Processed content attributes.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "LIST",
+                  "name": null,
+                  "ofType": {
+                    "kind": "NON_NULL",
+                    "name": null,
+                    "ofType": {
+                      "kind": "OBJECT",
+                      "name": "MultiviewContentAttribute",
+                      "ofType": null
+                    }
+                  }
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "INPUT_OBJECT",
           "name": "CreatePanelInput",
           "description": "CreatePanelInput contains a panel with created data\nThe schema here has arguments for both extension panels and default panels\neach panel needs a PanelType, and channelID it corresponds to,\nbut each panel does not need the other arguments\nextension panels can have a slotID\ndefault panels can have a title, image, link, and/or description.",
           "fields": null,
@@ -17654,6 +17746,98 @@
                 "kind": "INTERFACE",
                 "name": "DeprecatedEvent",
                 "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "INPUT_OBJECT",
+          "name": "DeleteMultiviewContentAttributesInput",
+          "description": "Contains a list of IDs of content attributes that are to be deleted.",
+          "fields": null,
+          "inputFields": [
+            {
+              "name": "IDs",
+              "description": "A list of content attribute IDs.",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "LIST",
+                  "name": null,
+                  "ofType": {
+                    "kind": "NON_NULL",
+                    "name": null,
+                    "ofType": {
+                      "kind": "SCALAR",
+                      "name": "ID",
+                      "ofType": null
+                    }
+                  }
+                }
+              },
+              "defaultValue": null
+            }
+          ],
+          "interfaces": null,
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "OBJECT",
+          "name": "DeleteMultiviewContentAttributesPayload",
+          "description": "Contains the results from the delete request.",
+          "fields": [
+            {
+              "name": "failedDeletes",
+              "description": "Unprocessed content attributes.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "LIST",
+                  "name": null,
+                  "ofType": {
+                    "kind": "NON_NULL",
+                    "name": null,
+                    "ofType": {
+                      "kind": "OBJECT",
+                      "name": "MultiviewContentAttribute",
+                      "ofType": null
+                    }
+                  }
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "succeededDeletes",
+              "description": "Processed content attributes.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "LIST",
+                  "name": null,
+                  "ofType": {
+                    "kind": "NON_NULL",
+                    "name": null,
+                    "ofType": {
+                      "kind": "OBJECT",
+                      "name": "MultiviewContentAttribute",
+                      "ofType": null
+                    }
+                  }
+                }
               },
               "isDeprecated": false,
               "deprecationReason": null
@@ -31098,6 +31282,89 @@
           "possibleTypes": null
         },
         {
+          "kind": "INPUT_OBJECT",
+          "name": "MultiviewContentAttributeParams",
+          "description": "Contains all information to create a new content attribute.",
+          "fields": null,
+          "inputFields": [
+            {
+              "name": "key",
+              "description": "Indicates the type of the attribute.",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "String",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "name",
+              "description": "Human-readable name of the attribute.",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "String",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "parentID",
+              "description": "Optional pointer to a parent content attribute instance.",
+              "type": {
+                "kind": "SCALAR",
+                "name": "ID",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "parentKey",
+              "description": "Optional pointer to a parent content attribute key.",
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "value",
+              "description": "value of the attribute.",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "String",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "valueShortName",
+              "description": "Optional abbreviation of value.",
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              },
+              "defaultValue": null
+            }
+          ],
+          "interfaces": null,
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
           "kind": "OBJECT",
           "name": "Mutation",
           "description": "Operations to update data in the Twitch API.",
@@ -32114,6 +32381,33 @@
               "deprecationReason": null
             },
             {
+              "name": "createMultiviewContentAttributes",
+              "description": "createMultiviewContentAttributes creates new content attributes with server assigned IDs.",
+              "args": [
+                {
+                  "name": "input",
+                  "description": null,
+                  "type": {
+                    "kind": "NON_NULL",
+                    "name": null,
+                    "ofType": {
+                      "kind": "INPUT_OBJECT",
+                      "name": "CreateMultiviewContentAttributesInput",
+                      "ofType": null
+                    }
+                  },
+                  "defaultValue": null
+                }
+              ],
+              "type": {
+                "kind": "OBJECT",
+                "name": "CreateMultiviewContentAttributesPayload",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
               "name": "createPanel",
               "description": "createPanel removes a panel.",
               "args": [
@@ -32702,6 +32996,33 @@
               "type": {
                 "kind": "OBJECT",
                 "name": "DeleteEventLeafPayload",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "deleteMultiviewContentAttributes",
+              "description": "deleteMultiviewContentAttributes deletes content attributes with the provided IDs.",
+              "args": [
+                {
+                  "name": "input",
+                  "description": null,
+                  "type": {
+                    "kind": "NON_NULL",
+                    "name": null,
+                    "ofType": {
+                      "kind": "INPUT_OBJECT",
+                      "name": "DeleteMultiviewContentAttributesInput",
+                      "ofType": null
+                    }
+                  },
+                  "defaultValue": null
+                }
+              ],
+              "type": {
+                "kind": "OBJECT",
+                "name": "DeleteMultiviewContentAttributesPayload",
                 "ofType": null
               },
               "isDeprecated": false,
