@@ -1546,6 +1546,110 @@
         },
         {
           "kind": "INPUT_OBJECT",
+          "name": "AddRecommendationFeedbackInput",
+          "description": "Data required to add recommendation feedback.",
+          "fields": null,
+          "inputFields": [
+            {
+              "name": "category",
+              "description": "Reason for the feedback (ie. Not interested, offensive, etc).",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "ENUM",
+                  "name": "RecommendationFeedbackCategory",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "itemID",
+              "description": "The id of the item (channelID, gameID, etc).",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "ID",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "itemType",
+              "description": "One of CHANNEL, GAME, SHELF, VOD.",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "ENUM",
+                  "name": "RecommendationFeedbackType",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "sourceItemPage",
+              "description": "The page this event was fired from.",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "String",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "sourceItemRequestID",
+              "description": "The unique id given to this request.",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "ID",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            }
+          ],
+          "interfaces": null,
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "OBJECT",
+          "name": "AddRecommendationFeedbackPayload",
+          "description": "Returns the created feedback item back to the client.",
+          "fields": [
+            {
+              "name": "recommendationFeedback",
+              "description": "Feedback item.",
+              "args": [],
+              "type": {
+                "kind": "OBJECT",
+                "name": "RecommendationFeedback",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "INPUT_OBJECT",
           "name": "AllowRejectedChatMessageInput",
           "description": null,
           "fields": null,
@@ -17714,6 +17818,100 @@
         },
         {
           "kind": "INPUT_OBJECT",
+          "name": "DeleteRecommendationFeedbackInput",
+          "description": "Data required to delete recommendation feedback.",
+          "fields": null,
+          "inputFields": [
+            {
+              "name": "feedbackID",
+              "description": "The id of the feedback.",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "ID",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "itemID",
+              "description": "The id of the item (channelID, gameID, etc).",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "ID",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "sourceItemPage",
+              "description": "The page this event was fired from.",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "String",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "sourceItemRequestID",
+              "description": "The unique id given to this request.",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "ID",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            }
+          ],
+          "interfaces": null,
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "OBJECT",
+          "name": "DeleteRecommendationFeedbackPayload",
+          "description": "Returns the created feedback item back to the client.",
+          "fields": [
+            {
+              "name": "feedbackID",
+              "description": "The id of the feedback you just deleted.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "ID",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "INPUT_OBJECT",
           "name": "DeleteRoomInput",
           "description": null,
           "fields": null,
@@ -31190,6 +31388,33 @@
               "deprecationReason": null
             },
             {
+              "name": "addRecommendationFeedback",
+              "description": "addRecommendationFeedback allows a user to add feedback about a recommendation they've received.",
+              "args": [
+                {
+                  "name": "input",
+                  "description": null,
+                  "type": {
+                    "kind": "NON_NULL",
+                    "name": null,
+                    "ofType": {
+                      "kind": "INPUT_OBJECT",
+                      "name": "AddRecommendationFeedbackInput",
+                      "ofType": null
+                    }
+                  },
+                  "defaultValue": null
+                }
+              ],
+              "type": {
+                "kind": "OBJECT",
+                "name": "AddRecommendationFeedbackPayload",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
               "name": "allowRejectedChatMessage",
               "description": "Allows a message rejected on a channel chat.",
               "args": [
@@ -32546,6 +32771,33 @@
               "type": {
                 "kind": "OBJECT",
                 "name": "DeletePostPayload",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "deleteRecommendationFeedback",
+              "description": "deleteRecommendationFeedback deletes all the recommendation feedback that matches the given input.",
+              "args": [
+                {
+                  "name": "input",
+                  "description": null,
+                  "type": {
+                    "kind": "NON_NULL",
+                    "name": null,
+                    "ofType": {
+                      "kind": "INPUT_OBJECT",
+                      "name": "DeleteRecommendationFeedbackInput",
+                      "ofType": null
+                    }
+                  },
+                  "defaultValue": null
+                }
+              ],
+              "type": {
+                "kind": "OBJECT",
+                "name": "DeleteRecommendationFeedbackPayload",
                 "ofType": null
               },
               "isDeprecated": false,
@@ -34517,6 +34769,33 @@
               "type": {
                 "kind": "OBJECT",
                 "name": "UnblockUserPayload",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "undoRecommendationFeedback",
+              "description": "undoRecommendationFeedback allows a user to removes a single piece of feedback.",
+              "args": [
+                {
+                  "name": "input",
+                  "description": null,
+                  "type": {
+                    "kind": "NON_NULL",
+                    "name": null,
+                    "ofType": {
+                      "kind": "INPUT_OBJECT",
+                      "name": "UndoRecommendationFeedbackInput",
+                      "ofType": null
+                    }
+                  },
+                  "defaultValue": null
+                }
+              ],
+              "type": {
+                "kind": "OBJECT",
+                "name": "UndoRecommendationFeedbackPayload",
                 "ofType": null
               },
               "isDeprecated": false,
@@ -44681,6 +44960,299 @@
           "inputFields": null,
           "interfaces": [],
           "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "OBJECT",
+          "name": "RecommendationFeedback",
+          "description": "Feedback from a user about a piece of content.",
+          "fields": [
+            {
+              "name": "category",
+              "description": "Reason for feedback.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "ENUM",
+                  "name": "RecommendationFeedbackCategory",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "content",
+              "description": "Feedback target.",
+              "args": [],
+              "type": {
+                "kind": "UNION",
+                "name": "RecommendationFeedbackContent",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "id",
+              "description": "Recommendation Feedback ID. Generated from the type, category, content id, and user id.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "ID",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "lastUpdated",
+              "description": "Last time this feedback was given.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Time",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "type",
+              "description": "Feedback target type.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "ENUM",
+                  "name": "RecommendationFeedbackType",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "user",
+              "description": "Feedback giver.",
+              "args": [],
+              "type": {
+                "kind": "OBJECT",
+                "name": "User",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "ENUM",
+          "name": "RecommendationFeedbackCategory",
+          "description": "Reason for feedback.",
+          "fields": null,
+          "inputFields": null,
+          "interfaces": null,
+          "enumValues": [
+            {
+              "name": "UNSPECIFIED",
+              "description": "Only returned when there is an issue. Shouldn't be returned, should not be used for fetching.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "NOT_INTERESTED",
+              "description": "The user is not interested in this type of content.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "OFFENSIVE",
+              "description": "The user finds this type of content to be offensive.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "ALREADY_WATCHED",
+              "description": "The user has already seen this content.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "OTHER",
+              "description": "Used when the other reasons do not capture the reason a user is giving feedback.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "possibleTypes": null
+        },
+        {
+          "kind": "OBJECT",
+          "name": "RecommendationFeedbackConnection",
+          "description": "Connection between a user and recommendation feedback.",
+          "fields": [
+            {
+              "name": "edges",
+              "description": "Contains the edges for the recommendation feedback.",
+              "args": [],
+              "type": {
+                "kind": "LIST",
+                "name": null,
+                "ofType": {
+                  "kind": "NON_NULL",
+                  "name": null,
+                  "ofType": {
+                    "kind": "OBJECT",
+                    "name": "RecommendationFeedbackEdge",
+                    "ofType": null
+                  }
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "pageInfo",
+              "description": "Contains pagination metadata.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "OBJECT",
+                  "name": "PageInfo",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "UNION",
+          "name": "RecommendationFeedbackContent",
+          "description": "Feedback target.",
+          "fields": null,
+          "inputFields": null,
+          "interfaces": null,
+          "enumValues": null,
+          "possibleTypes": [
+            {
+              "kind": "OBJECT",
+              "name": "Channel",
+              "ofType": null
+            },
+            {
+              "kind": "OBJECT",
+              "name": "Game",
+              "ofType": null
+            },
+            {
+              "kind": "OBJECT",
+              "name": "Video",
+              "ofType": null
+            }
+          ]
+        },
+        {
+          "kind": "OBJECT",
+          "name": "RecommendationFeedbackEdge",
+          "description": "Edge containing the node and cursor for recommendation feedback items.",
+          "fields": [
+            {
+              "name": "cursor",
+              "description": "Cursor for the feedback edge.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Cursor",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "node",
+              "description": "Node for the feedback edge.",
+              "args": [],
+              "type": {
+                "kind": "OBJECT",
+                "name": "RecommendationFeedback",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "ENUM",
+          "name": "RecommendationFeedbackType",
+          "description": "Feedback target type.",
+          "fields": null,
+          "inputFields": null,
+          "interfaces": null,
+          "enumValues": [
+            {
+              "name": "UNSPECIFIED",
+              "description": "Only returned when there is an issue. Shouldn't be returned, should not be used for fetching.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "CHANNEL",
+              "description": "Feedback given about channels.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "CATEGORY",
+              "description": "Feedback given about a game / category.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "SHELF",
+              "description": "Feedback given about a shelf.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "VOD",
+              "description": "Feedback given about a video.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
           "possibleTypes": null
         },
         {
@@ -59150,6 +59722,86 @@
         },
         {
           "kind": "INPUT_OBJECT",
+          "name": "UndoRecommendationFeedbackInput",
+          "description": "Data required to undo recommendation feedback.",
+          "fields": null,
+          "inputFields": [
+            {
+              "name": "feedbackID",
+              "description": "The id of the feedback.",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "ID",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "sourceItemPage",
+              "description": "The page this event was fired from.",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "String",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "sourceItemRequestID",
+              "description": "The unique id given to this request.",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "ID",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            }
+          ],
+          "interfaces": null,
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "OBJECT",
+          "name": "UndoRecommendationFeedbackPayload",
+          "description": "Returns the created feedback item back to the client.",
+          "fields": [
+            {
+              "name": "feedbackID",
+              "description": "The id of the feedback you just undid.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "ID",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "INPUT_OBJECT",
           "name": "UnfollowCommunityInput",
           "description": null,
           "fields": null,
@@ -65755,6 +66407,53 @@
               "type": {
                 "kind": "OBJECT",
                 "name": "Feed",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "recommendationFeedback",
+              "description": "The feedback a user has given about recommended content.",
+              "args": [
+                {
+                  "name": "limit",
+                  "description": null,
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Int",
+                    "ofType": null
+                  },
+                  "defaultValue": "5"
+                },
+                {
+                  "name": "after",
+                  "description": null,
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Cursor",
+                    "ofType": null
+                  },
+                  "defaultValue": null
+                },
+                {
+                  "name": "type",
+                  "description": null,
+                  "type": {
+                    "kind": "NON_NULL",
+                    "name": null,
+                    "ofType": {
+                      "kind": "SCALAR",
+                      "name": "String",
+                      "ofType": null
+                    }
+                  },
+                  "defaultValue": null
+                }
+              ],
+              "type": {
+                "kind": "OBJECT",
+                "name": "RecommendationFeedbackConnection",
                 "ofType": null
               },
               "isDeprecated": false,
