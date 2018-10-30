@@ -34693,6 +34693,33 @@
               "deprecationReason": null
             },
             {
+              "name": "setBitsUserSettings",
+              "description": "setBitsUserSettings sets a Bits users settings such as skipping the tutorial.",
+              "args": [
+                {
+                  "name": "input",
+                  "description": null,
+                  "type": {
+                    "kind": "NON_NULL",
+                    "name": null,
+                    "ofType": {
+                      "kind": "INPUT_OBJECT",
+                      "name": "SetBitsUserSettingsInput",
+                      "ofType": null
+                    }
+                  },
+                  "defaultValue": null
+                }
+              ],
+              "type": {
+                "kind": "OBJECT",
+                "name": "SetBitsUserSettingsPayload",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
               "name": "setChannelFeedEnabled",
               "description": "Set value for channel_feed_enabled.",
               "args": [
@@ -51780,6 +51807,60 @@
                   "name": "UserTwitchConnection",
                   "ofType": null
                 }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "INPUT_OBJECT",
+          "name": "SetBitsUserSettingsInput",
+          "description": "A useful text description to avoid linting errors.",
+          "fields": null,
+          "inputFields": [
+            {
+              "name": "abandonedFirstCheerTutorial",
+              "description": "Optional field that dictates whether a user has exited out of the first cheer tutorial by clicking out of the experience.",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Boolean",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "skippedFirstCheerTutorial",
+              "description": "Optional field that dictates whether a user has skipped the first cheer tutorial by clicking the skip button.",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Boolean",
+                "ofType": null
+              },
+              "defaultValue": null
+            }
+          ],
+          "interfaces": null,
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "OBJECT",
+          "name": "SetBitsUserSettingsPayload",
+          "description": "A useful text description to avoid linting errors, again.",
+          "fields": [
+            {
+              "name": "currentUser",
+              "description": "currentUser is the authenticated user object which includes the updated `Wallet` info after the message bits have been spent.",
+              "args": [],
+              "type": {
+                "kind": "OBJECT",
+                "name": "User",
+                "ofType": null
               },
               "isDeprecated": false,
               "deprecationReason": null
