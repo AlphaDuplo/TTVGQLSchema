@@ -7999,70 +7999,6 @@
         },
         {
           "kind": "OBJECT",
-          "name": "ChannelHistoryAccess",
-          "description": "ChannelHistoryAccess defines the access level of a channel role to the channel history.",
-          "fields": [
-            {
-              "name": "accessLevel",
-              "description": "The access level to channel history.",
-              "args": [],
-              "type": {
-                "kind": "ENUM",
-                "name": "ChannelHistoryAccessLevel",
-                "ofType": null
-              },
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
-              "name": "channelRole",
-              "description": "The user role.",
-              "args": [],
-              "type": {
-                "kind": "ENUM",
-                "name": "ChannelUserRole",
-                "ofType": null
-              },
-              "isDeprecated": false,
-              "deprecationReason": null
-            }
-          ],
-          "inputFields": null,
-          "interfaces": [],
-          "enumValues": null,
-          "possibleTypes": null
-        },
-        {
-          "kind": "ENUM",
-          "name": "ChannelHistoryAccessLevel",
-          "description": "Access levels to channel history.",
-          "fields": null,
-          "inputFields": null,
-          "interfaces": null,
-          "enumValues": [
-            {
-              "name": "NONE",
-              "description": "User cannot read channel history or create new entries.",
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
-              "name": "READ",
-              "description": "User can read channel history entries.",
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
-              "name": "WRITE",
-              "description": "User can read and create channel history entries.",
-              "isDeprecated": false,
-              "deprecationReason": null
-            }
-          ],
-          "possibleTypes": null
-        },
-        {
-          "kind": "OBJECT",
           "name": "ChannelNotificationSetting",
           "description": null,
           "fields": [
@@ -31148,6 +31084,78 @@
         },
         {
           "kind": "OBJECT",
+          "name": "ModLogsAccess",
+          "description": "ModLogsAccess defines the access level of a channel role to the channel's moderator logs.",
+          "fields": [
+            {
+              "name": "accessLevel",
+              "description": "The access level to moderator logs.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "ENUM",
+                  "name": "ModLogsAccessLevel",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "channelRole",
+              "description": "The user role.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "ENUM",
+                  "name": "ChannelUserRole",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "ENUM",
+          "name": "ModLogsAccessLevel",
+          "description": "Access levels to moderator logs.",
+          "fields": null,
+          "inputFields": null,
+          "interfaces": null,
+          "enumValues": [
+            {
+              "name": "NONE",
+              "description": "User cannot read moderator logs or create new entries.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "READ",
+              "description": "User can read moderator log entries.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "WRITE",
+              "description": "User can read and create moderator log entries.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "possibleTypes": null
+        },
+        {
+          "kind": "OBJECT",
           "name": "ModUserError",
           "description": "ModUserError contains details about a client error that occurred.",
           "fields": [
@@ -34747,33 +34755,6 @@
               "deprecationReason": null
             },
             {
-              "name": "setChannelHistoryAccess",
-              "description": "Set access permission to channel history for a given role.",
-              "args": [
-                {
-                  "name": "input",
-                  "description": null,
-                  "type": {
-                    "kind": "NON_NULL",
-                    "name": null,
-                    "ofType": {
-                      "kind": "INPUT_OBJECT",
-                      "name": "SetChannelHistoryAccessInput",
-                      "ofType": null
-                    }
-                  },
-                  "defaultValue": null
-                }
-              ],
-              "type": {
-                "kind": "OBJECT",
-                "name": "SetChannelHistoryAccessPayload",
-                "ofType": null
-              },
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
               "name": "setChannelNotificationSetting",
               "description": "setChannelNotificationSetting allows a user to set a notification setting.",
               "args": [
@@ -34849,6 +34830,33 @@
               "type": {
                 "kind": "OBJECT",
                 "name": "SetExtensionFeatureFlagsPayload",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "setModLogsAccess",
+              "description": "Set access permission to the channel's moderator logs for a given role.",
+              "args": [
+                {
+                  "name": "input",
+                  "description": null,
+                  "type": {
+                    "kind": "NON_NULL",
+                    "name": null,
+                    "ofType": {
+                      "kind": "INPUT_OBJECT",
+                      "name": "SetModLogsAccessInput",
+                      "ofType": null
+                    }
+                  },
+                  "defaultValue": null
+                }
+              ],
+              "type": {
+                "kind": "OBJECT",
+                "name": "SetModLogsAccessPayload",
                 "ofType": null
               },
               "isDeprecated": false,
@@ -51925,82 +51933,6 @@
         },
         {
           "kind": "INPUT_OBJECT",
-          "name": "SetChannelHistoryAccessInput",
-          "description": "The required input to set a role's channel history access.",
-          "fields": null,
-          "inputFields": [
-            {
-              "name": "accessLevel",
-              "description": "The access level to channel history to be given to the role.",
-              "type": {
-                "kind": "NON_NULL",
-                "name": null,
-                "ofType": {
-                  "kind": "ENUM",
-                  "name": "ChannelHistoryAccessLevel",
-                  "ofType": null
-                }
-              },
-              "defaultValue": null
-            },
-            {
-              "name": "channelID",
-              "description": "The Channel for which to set channel history access.",
-              "type": {
-                "kind": "NON_NULL",
-                "name": null,
-                "ofType": {
-                  "kind": "SCALAR",
-                  "name": "ID",
-                  "ofType": null
-                }
-              },
-              "defaultValue": null
-            },
-            {
-              "name": "channelRole",
-              "description": "The user role for which to set the channel history access permission.",
-              "type": {
-                "kind": "NON_NULL",
-                "name": null,
-                "ofType": {
-                  "kind": "ENUM",
-                  "name": "ChannelUserRole",
-                  "ofType": null
-                }
-              },
-              "defaultValue": null
-            }
-          ],
-          "interfaces": null,
-          "enumValues": null,
-          "possibleTypes": null
-        },
-        {
-          "kind": "OBJECT",
-          "name": "SetChannelHistoryAccessPayload",
-          "description": "Result of a setChannelHistoryAccess mutation.",
-          "fields": [
-            {
-              "name": "channelHistoryAccess",
-              "description": "The access level of the role set.",
-              "args": [],
-              "type": {
-                "kind": "OBJECT",
-                "name": "ChannelHistoryAccess",
-                "ofType": null
-              },
-              "isDeprecated": false,
-              "deprecationReason": null
-            }
-          ],
-          "inputFields": null,
-          "interfaces": [],
-          "enumValues": null,
-          "possibleTypes": null
-        },
-        {
-          "kind": "INPUT_OBJECT",
           "name": "SetChannelNotificationSettingInput",
           "description": null,
           "fields": null,
@@ -52256,6 +52188,82 @@
               "type": {
                 "kind": "OBJECT",
                 "name": "ExtensionInstallation",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "INPUT_OBJECT",
+          "name": "SetModLogsAccessInput",
+          "description": "The required input to set a role's moderator logs' access.",
+          "fields": null,
+          "inputFields": [
+            {
+              "name": "accessLevel",
+              "description": "The access level to moderator logs to be given to the role.",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "ENUM",
+                  "name": "ModLogsAccessLevel",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "channelID",
+              "description": "The Channel for which to set moderator log access.",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "ID",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "channelRole",
+              "description": "The user role for which to set the moderator log access permission.",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "ENUM",
+                  "name": "ChannelUserRole",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            }
+          ],
+          "interfaces": null,
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "OBJECT",
+          "name": "SetModLogsAccessPayload",
+          "description": "Result of a setModLogsAccess mutation.",
+          "fields": [
+            {
+              "name": "modLogsAccess",
+              "description": "The access level of the role set.",
+              "args": [],
+              "type": {
+                "kind": "OBJECT",
+                "name": "ModLogsAccess",
                 "ofType": null
               },
               "isDeprecated": false,
@@ -66438,6 +66446,53 @@
                   "name": "Int",
                   "ofType": null
                 }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "modLogsAccess",
+              "description": "Returns all channel roles' access permissions to moderator logs.",
+              "args": [],
+              "type": {
+                "kind": "LIST",
+                "name": null,
+                "ofType": {
+                  "kind": "NON_NULL",
+                  "name": null,
+                  "ofType": {
+                    "kind": "OBJECT",
+                    "name": "ModLogsAccess",
+                    "ofType": null
+                  }
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "modLogsRoleAccess",
+              "description": "Returns a channel role's access permission to moderator logs.",
+              "args": [
+                {
+                  "name": "role",
+                  "description": null,
+                  "type": {
+                    "kind": "NON_NULL",
+                    "name": null,
+                    "ofType": {
+                      "kind": "ENUM",
+                      "name": "ChannelUserRole",
+                      "ofType": null
+                    }
+                  },
+                  "defaultValue": null
+                }
+              ],
+              "type": {
+                "kind": "OBJECT",
+                "name": "ModLogsAccess",
+                "ofType": null
               },
               "isDeprecated": false,
               "deprecationReason": null
