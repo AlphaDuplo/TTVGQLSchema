@@ -56631,7 +56631,7 @@
             },
             {
               "name": "gifter",
-              "description": "Gifter is the user who sent the gift. Will be nil if isGift is false.",
+              "description": "Gifter is the user who sent the gift. Will be nil if isGift is false or is the gift is anonymous.",
               "args": [],
               "type": {
                 "kind": "OBJECT",
