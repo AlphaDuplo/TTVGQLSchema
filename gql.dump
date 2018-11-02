@@ -7606,6 +7606,22 @@
               "deprecationReason": "Use user.id instead."
             },
             {
+              "name": "isHiddenChanlet",
+              "description": "Whether or not the channel is a hidden multi-view chanlet that is only meant to be accessible through another channel and not exist as a completely independent channel.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Boolean",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
               "name": "isMature",
               "description": null,
               "args": [],
