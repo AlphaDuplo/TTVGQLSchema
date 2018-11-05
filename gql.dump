@@ -31563,6 +31563,18 @@
           "description": "Multi-view content attribute(s) are used to augment the multi-view experience.\nthey are used for filterings and groupings of chanlets to help viewers find content that they are interested in.",
           "fields": [
             {
+              "name": "createdAt",
+              "description": "Time when this content attribute is created.",
+              "args": [],
+              "type": {
+                "kind": "SCALAR",
+                "name": "Time",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
               "name": "id",
               "description": "id is a unique identifier generated on the server side.",
               "args": [],
@@ -31574,6 +31586,18 @@
                   "name": "ID",
                   "ofType": null
                 }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "imageURL",
+              "description": "URL to the image (icon) of the content attribute.",
+              "args": [],
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
               },
               "isDeprecated": false,
               "deprecationReason": null
@@ -31615,13 +31639,9 @@
               "description": "ownerChannel is the channel that this content attribute is created under.",
               "args": [],
               "type": {
-                "kind": "NON_NULL",
-                "name": null,
-                "ofType": {
-                  "kind": "OBJECT",
-                  "name": "Channel",
-                  "ofType": null
-                }
+                "kind": "OBJECT",
+                "name": "Channel",
+                "ofType": null
               },
               "isDeprecated": false,
               "deprecationReason": null
@@ -31645,6 +31665,18 @@
               "type": {
                 "kind": "SCALAR",
                 "name": "String",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "updatedAt",
+              "description": "Time when this content attribute is last modified.",
+              "args": [],
+              "type": {
+                "kind": "SCALAR",
+                "name": "Time",
                 "ofType": null
               },
               "isDeprecated": false,
@@ -31691,6 +31723,26 @@
           "fields": null,
           "inputFields": [
             {
+              "name": "id",
+              "description": "Unique identifier.",
+              "type": {
+                "kind": "SCALAR",
+                "name": "ID",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "imageURL",
+              "description": "Optional an URL to the icon of this content attribute.",
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
               "name": "key",
               "description": "Indicates the type of the attribute.",
               "type": {
@@ -31715,6 +31767,16 @@
                   "name": "String",
                   "ofType": null
                 }
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "ownerChannelID",
+              "description": "The channel that the content attribute is created under.",
+              "type": {
+                "kind": "SCALAR",
+                "name": "ID",
+                "ofType": null
               },
               "defaultValue": null
             },
@@ -36261,6 +36323,33 @@
               "type": {
                 "kind": "OBJECT",
                 "name": "UpdateIsSharingActivityPayload",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "updateMultiviewContentAttributes",
+              "description": "Modifies multi-view content attributes.",
+              "args": [
+                {
+                  "name": "input",
+                  "description": null,
+                  "type": {
+                    "kind": "NON_NULL",
+                    "name": null,
+                    "ofType": {
+                      "kind": "INPUT_OBJECT",
+                      "name": "UpdateMultiviewContentAttributesInput",
+                      "ofType": null
+                    }
+                  },
+                  "defaultValue": null
+                }
+              ],
+              "type": {
+                "kind": "OBJECT",
+                "name": "UpdateMultiviewContentAttributesPayload",
                 "ofType": null
               },
               "isDeprecated": false,
@@ -62724,6 +62813,98 @@
                 "kind": "OBJECT",
                 "name": "User",
                 "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "INPUT_OBJECT",
+          "name": "UpdateMultiviewContentAttributesInput",
+          "description": "Contains a list of multi-view content attributes to be updated.",
+          "fields": null,
+          "inputFields": [
+            {
+              "name": "params",
+              "description": "List of multi-view content attributes to be updated.",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "LIST",
+                  "name": null,
+                  "ofType": {
+                    "kind": "NON_NULL",
+                    "name": null,
+                    "ofType": {
+                      "kind": "INPUT_OBJECT",
+                      "name": "MultiviewContentAttributeParams",
+                      "ofType": null
+                    }
+                  }
+                }
+              },
+              "defaultValue": null
+            }
+          ],
+          "interfaces": null,
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "OBJECT",
+          "name": "UpdateMultiviewContentAttributesPayload",
+          "description": "Contains the server response payload.",
+          "fields": [
+            {
+              "name": "failedUpdates",
+              "description": "Unprocssed content attribute updates.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "LIST",
+                  "name": null,
+                  "ofType": {
+                    "kind": "NON_NULL",
+                    "name": null,
+                    "ofType": {
+                      "kind": "OBJECT",
+                      "name": "MultiviewContentAttribute",
+                      "ofType": null
+                    }
+                  }
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "succeededUpdates",
+              "description": "Processed content attribute updates.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "LIST",
+                  "name": null,
+                  "ofType": {
+                    "kind": "NON_NULL",
+                    "name": null,
+                    "ofType": {
+                      "kind": "OBJECT",
+                      "name": "MultiviewContentAttribute",
+                      "ofType": null
+                    }
+                  }
+                }
               },
               "isDeprecated": false,
               "deprecationReason": null
