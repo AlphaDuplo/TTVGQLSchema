@@ -54132,27 +54132,6 @@
           "possibleTypes": null
         },
         {
-          "kind": "INPUT_OBJECT",
-          "name": "SquadStreamCriteriaInput",
-          "description": "Options to filter collections of SquadStreams.",
-          "fields": null,
-          "inputFields": [
-            {
-              "name": "status",
-              "description": "If specified, return only SquadStreams that have the given status.  Otherwise return SquadStreams\nwith any status.",
-              "type": {
-                "kind": "ENUM",
-                "name": "SquadStreamStatus",
-                "ofType": null
-              },
-              "defaultValue": null
-            }
-          ],
-          "interfaces": null,
-          "enumValues": null,
-          "possibleTypes": null
-        },
-        {
           "kind": "ENUM",
           "name": "SquadStreamIncomingInvitePolicy",
           "description": "Determines who can send the user invitations to join a squad stream.",
@@ -54336,27 +54315,6 @@
           "possibleTypes": null
         },
         {
-          "kind": "INPUT_OBJECT",
-          "name": "SquadStreamInvitationCriteriaInput",
-          "description": "Options to filter a collection of squad stream invitations.",
-          "fields": null,
-          "inputFields": [
-            {
-              "name": "status",
-              "description": "If specified, return only invitations that have the given status.  Otherwise return invitations\nwith any status.",
-              "type": {
-                "kind": "ENUM",
-                "name": "SquadStreamInvitationStatus",
-                "ofType": null
-              },
-              "defaultValue": null
-            }
-          ],
-          "interfaces": null,
-          "enumValues": null,
-          "possibleTypes": null
-        },
-        {
           "kind": "OBJECT",
           "name": "SquadStreamInvitationEdge",
           "description": "Element in a list of Squad Stream invitations.",
@@ -54410,8 +54368,8 @@
               "deprecationReason": null
             },
             {
-              "name": "CANCELED",
-              "description": "A squad stream member has canceled the invitation.",
+              "name": "DELETED",
+              "description": "A squad stream owner has deleted the invitation.",
               "isDeprecated": false,
               "deprecationReason": null
             },
@@ -54424,12 +54382,6 @@
             {
               "name": "REJECTED",
               "description": "The recipient has rejected the invitation.",
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
-              "name": "EXPIRED",
-              "description": "The invitation has expired.",
               "isDeprecated": false,
               "deprecationReason": null
             },
@@ -66175,7 +66127,7 @@
             },
             {
               "name": "incomingSquadStreamInvitations",
-              "description": "A list of the squad stream invitations that the user has recieved.\nThese invitations are sorted by creation time, and returned with the most recent invitation first.\nThis field only resolves for the authenticated user.",
+              "description": "A list of the squad stream invitations that the user has received.\nThese invitations are sorted by creation time, and returned with the most recent invitation first.\nThis field only resolves for the authenticated user.",
               "args": [
                 {
                   "name": "first",
@@ -66193,16 +66145,6 @@
                   "type": {
                     "kind": "SCALAR",
                     "name": "Cursor",
-                    "ofType": null
-                  },
-                  "defaultValue": null
-                },
-                {
-                  "name": "criteria",
-                  "description": null,
-                  "type": {
-                    "kind": "INPUT_OBJECT",
-                    "name": "SquadStreamInvitationCriteriaInput",
                     "ofType": null
                   },
                   "defaultValue": null
