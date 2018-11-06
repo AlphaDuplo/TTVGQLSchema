@@ -2765,7 +2765,7 @@
             },
             {
               "name": "TARGET_IS_VIP",
-              "description": "User tried to ban a VIP without permission.",
+              "description": "DEPRECATED: no longer returned.",
               "isDeprecated": false,
               "deprecationReason": null
             },
