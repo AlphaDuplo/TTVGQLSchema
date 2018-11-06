@@ -8887,6 +8887,29 @@
         },
         {
           "kind": "OBJECT",
+          "name": "ChatUISettings",
+          "description": "Various user specific settings on how to render chat.",
+          "fields": [
+            {
+              "name": "isReadableChatColorsEnabled",
+              "description": "Whether readable chat colors are enabled.",
+              "args": [],
+              "type": {
+                "kind": "SCALAR",
+                "name": "Boolean",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "OBJECT",
           "name": "CheerInfo",
           "description": "CheerInfo is the channel-specific bits/cheer settings and current state.",
           "fields": [
@@ -35403,6 +35426,33 @@
               "deprecationReason": null
             },
             {
+              "name": "setReadableChatColorsEnabled",
+              "description": "Set a user's readable chat colors UI setting.",
+              "args": [
+                {
+                  "name": "input",
+                  "description": null,
+                  "type": {
+                    "kind": "NON_NULL",
+                    "name": null,
+                    "ofType": {
+                      "kind": "INPUT_OBJECT",
+                      "name": "SetReadableChatColorsEnabledInput",
+                      "ofType": null
+                    }
+                  },
+                  "defaultValue": null
+                }
+              ],
+              "type": {
+                "kind": "OBJECT",
+                "name": "SetReadableChatColorsEnabledPayload",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
               "name": "setSessionStatus",
               "description": "setSessionStatus sets the user's status for this session, which influences how they appear (\"online\", \"idle\",\n\"watching SnarfyBobo\") to friends and related users. To maintain a session status, setSessionStatus needs to be sent\nperiodically. The amount of time your application should wait between these status heartbeats is included in the\nresponse payload.",
               "args": [
@@ -52959,6 +53009,54 @@
         },
         {
           "kind": "INPUT_OBJECT",
+          "name": "SetReadableChatColorsEnabledInput",
+          "description": "The required input to set a user's readable chat colors setting.",
+          "fields": null,
+          "inputFields": [
+            {
+              "name": "isReadableChatColorsEnabled",
+              "description": "Whether readable chat colors should be enabled for the current user.",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Boolean",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            }
+          ],
+          "interfaces": null,
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "OBJECT",
+          "name": "SetReadableChatColorsEnabledPayload",
+          "description": "Result of a setReadableChatColorsEnabled mutation.",
+          "fields": [
+            {
+              "name": "isReadableChatColorsEnabled",
+              "description": "Whether readable chat colors are enabled for the current user.",
+              "args": [],
+              "type": {
+                "kind": "SCALAR",
+                "name": "Boolean",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "INPUT_OBJECT",
           "name": "SetSessionStatusInput",
           "description": "SetSessionStatusInput represents a user's status within a single session (browser tab, game, desktop application,\nmobile application, etc.).",
           "fields": null,
@@ -65767,6 +65865,18 @@
               "type": {
                 "kind": "OBJECT",
                 "name": "ChatSettings",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "chatUISettings",
+              "description": "chatUISettings are settings for the user's chat UI.",
+              "args": [],
+              "type": {
+                "kind": "OBJECT",
+                "name": "ChatUISettings",
                 "ofType": null
               },
               "isDeprecated": false,
