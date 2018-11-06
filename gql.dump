@@ -7335,6 +7335,56 @@
           "possibleTypes": null
         },
         {
+          "kind": "OBJECT",
+          "name": "CancelSquadStreamInvitationError",
+          "description": "CancelSquadStreamInvitationError is the error associated with a CancelSquadStreamInvitation.",
+          "fields": [
+            {
+              "name": "code",
+              "description": "The associated error code.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "ENUM",
+                  "name": "CancelSquadStreamInvitationErrorCode",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "ENUM",
+          "name": "CancelSquadStreamInvitationErrorCode",
+          "description": "CancelSquadStreamInvitationErrorCode are the possible errors that this mutation returns.",
+          "fields": null,
+          "inputFields": null,
+          "interfaces": null,
+          "enumValues": [
+            {
+              "name": "INVITATION_NOT_FOUND",
+              "description": "The invitation does not exist.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "UNAUTHORIZED",
+              "description": "The operation is unauthorized.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "possibleTypes": null
+        },
+        {
           "kind": "INPUT_OBJECT",
           "name": "CancelSquadStreamInvitationInput",
           "description": "Inputs to the cancelSquadStreamInvitation mutation.",
@@ -7364,6 +7414,18 @@
           "name": "CancelSquadStreamInvitationPayload",
           "description": "Outputs from the cancelSquadStreamInvitation mutation.",
           "fields": [
+            {
+              "name": "error",
+              "description": "The possible error returned from the service.",
+              "args": [],
+              "type": {
+                "kind": "OBJECT",
+                "name": "CancelSquadStreamInvitationError",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
             {
               "name": "invitation",
               "description": "The cancelled invitation.",
@@ -16105,8 +16167,26 @@
               "deprecationReason": null
             },
             {
-              "name": "USER_IN_ANOTHER_SQUAD",
-              "description": "The recipient is in another squad.",
+              "name": "USER_ALREADY_IN_SQUAD",
+              "description": "The recipient is already in the squad.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "INVITATION_ALREADY_EXISTS",
+              "description": "The recipient is already invited to the squad.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "INVITATION_INVALID",
+              "description": "The invitation is not valid (e.g. the user is inviting themselves).",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "UNAUTHORIZED",
+              "description": "The user is not authorized to invite members to the squad.",
               "isDeprecated": false,
               "deprecationReason": null
             }
@@ -16130,16 +16210,6 @@
                   "name": "ID",
                   "ofType": null
                 }
-              },
-              "defaultValue": null
-            },
-            {
-              "name": "squadStreamID",
-              "description": "The ID of the squad stream that the user should be invited to.\nIf left null, the user should be invited to a new squad stream that the caller owns.",
-              "type": {
-                "kind": "SCALAR",
-                "name": "ID",
-                "ofType": null
               },
               "defaultValue": null
             }
@@ -30251,6 +30321,12 @@
             {
               "name": "USER_NOT_IN_SQUAD",
               "description": "The user is not in the squad specified.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "UNAUTHORIZED",
+              "description": "The operation is unauthorized.",
               "isDeprecated": false,
               "deprecationReason": null
             }
@@ -64195,6 +64271,18 @@
             {
               "name": "SQUAD_NOT_FOUND",
               "description": "The squad is not found.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "SQUAD_CANNOT_BE_UPDATED",
+              "description": "The squad cannot be updated (e.g. squad is not in pending status).",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "SQUAD_TOO_FEW_MEMBERS",
+              "description": "The squad has too few members to be updated to live.",
               "isDeprecated": false,
               "deprecationReason": null
             },
