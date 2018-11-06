@@ -7336,116 +7336,6 @@
         },
         {
           "kind": "OBJECT",
-          "name": "CancelSquadStreamInvitationError",
-          "description": "CancelSquadStreamInvitationError is the error associated with a CancelSquadStreamInvitation.",
-          "fields": [
-            {
-              "name": "code",
-              "description": "The associated error code.",
-              "args": [],
-              "type": {
-                "kind": "NON_NULL",
-                "name": null,
-                "ofType": {
-                  "kind": "ENUM",
-                  "name": "CancelSquadStreamInvitationErrorCode",
-                  "ofType": null
-                }
-              },
-              "isDeprecated": false,
-              "deprecationReason": null
-            }
-          ],
-          "inputFields": null,
-          "interfaces": [],
-          "enumValues": null,
-          "possibleTypes": null
-        },
-        {
-          "kind": "ENUM",
-          "name": "CancelSquadStreamInvitationErrorCode",
-          "description": "CancelSquadStreamInvitationErrorCode are the possible errors that this mutation returns.",
-          "fields": null,
-          "inputFields": null,
-          "interfaces": null,
-          "enumValues": [
-            {
-              "name": "INVITATION_NOT_FOUND",
-              "description": "The invitation does not exist.",
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
-              "name": "UNAUTHORIZED",
-              "description": "The operation is unauthorized.",
-              "isDeprecated": false,
-              "deprecationReason": null
-            }
-          ],
-          "possibleTypes": null
-        },
-        {
-          "kind": "INPUT_OBJECT",
-          "name": "CancelSquadStreamInvitationInput",
-          "description": "Inputs to the cancelSquadStreamInvitation mutation.",
-          "fields": null,
-          "inputFields": [
-            {
-              "name": "invitationID",
-              "description": "ID of the invitation to be cancelled.",
-              "type": {
-                "kind": "NON_NULL",
-                "name": null,
-                "ofType": {
-                  "kind": "SCALAR",
-                  "name": "ID",
-                  "ofType": null
-                }
-              },
-              "defaultValue": null
-            }
-          ],
-          "interfaces": null,
-          "enumValues": null,
-          "possibleTypes": null
-        },
-        {
-          "kind": "OBJECT",
-          "name": "CancelSquadStreamInvitationPayload",
-          "description": "Outputs from the cancelSquadStreamInvitation mutation.",
-          "fields": [
-            {
-              "name": "error",
-              "description": "The possible error returned from the service.",
-              "args": [],
-              "type": {
-                "kind": "OBJECT",
-                "name": "CancelSquadStreamInvitationError",
-                "ofType": null
-              },
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
-              "name": "invitation",
-              "description": "The cancelled invitation.",
-              "args": [],
-              "type": {
-                "kind": "OBJECT",
-                "name": "SquadStreamInvitation",
-                "ofType": null
-              },
-              "isDeprecated": false,
-              "deprecationReason": null
-            }
-          ],
-          "inputFields": null,
-          "interfaces": [],
-          "enumValues": null,
-          "possibleTypes": null
-        },
-        {
-          "kind": "OBJECT",
           "name": "Channel",
           "description": null,
           "fields": [
@@ -18390,6 +18280,128 @@
               "type": {
                 "kind": "OBJECT",
                 "name": "Room",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "OBJECT",
+          "name": "DeleteSquadStreamInvitationError",
+          "description": "Errors from deleteSquadStreamInvitation mutation.",
+          "fields": [
+            {
+              "name": "code",
+              "description": "Error from request to delete invitation.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "ENUM",
+                  "name": "DeleteSquadStreamInvitationErrorCode",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "ENUM",
+          "name": "DeleteSquadStreamInvitationErrorCode",
+          "description": "Possible errors that this mutation returns.",
+          "fields": null,
+          "inputFields": null,
+          "interfaces": null,
+          "enumValues": [
+            {
+              "name": "INVITATION_NOT_FOUND",
+              "description": "Invitation to be deleted does not exist.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "SQUAD_NOT_FOUND",
+              "description": "Squad associated with the invitation does not exist.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "UNAUTHORIZED",
+              "description": "User does not have permissions to delete invitation.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "INVITATION_CANNOT_BE_DELETED",
+              "description": "Invitation not in pending or rejected state cannot be deleted.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "possibleTypes": null
+        },
+        {
+          "kind": "INPUT_OBJECT",
+          "name": "DeleteSquadStreamInvitationInput",
+          "description": "Inputs to the deleteSquadStreamInvitation mutation.",
+          "fields": null,
+          "inputFields": [
+            {
+              "name": "invitationID",
+              "description": "ID of the invitation to be deleted.",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "ID",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            }
+          ],
+          "interfaces": null,
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "OBJECT",
+          "name": "DeleteSquadStreamInvitationPayload",
+          "description": "Outputs from the deleteSquadStreamInvitation mutation.",
+          "fields": [
+            {
+              "name": "error",
+              "description": "Error from mutation if exists.",
+              "args": [],
+              "type": {
+                "kind": "OBJECT",
+                "name": "DeleteSquadStreamInvitationError",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "invitation",
+              "description": "The deleted invitation.",
+              "args": [],
+              "type": {
+                "kind": "OBJECT",
+                "name": "SquadStreamInvitation",
                 "ofType": null
               },
               "isDeprecated": false,
@@ -32505,33 +32517,6 @@
               "deprecationReason": null
             },
             {
-              "name": "cancelSquadStreamInvitation",
-              "description": "cancelSquadStreamInvitation allows a squad stream member to cancel a squad stream invitation.",
-              "args": [
-                {
-                  "name": "input",
-                  "description": null,
-                  "type": {
-                    "kind": "NON_NULL",
-                    "name": null,
-                    "ofType": {
-                      "kind": "INPUT_OBJECT",
-                      "name": "CancelSquadStreamInvitationInput",
-                      "ofType": null
-                    }
-                  },
-                  "defaultValue": null
-                }
-              ],
-              "type": {
-                "kind": "OBJECT",
-                "name": "CancelSquadStreamInvitationPayload",
-                "ofType": null
-              },
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
               "name": "claimAllRewards",
               "description": "claimAllRewards allows the current user to claim all rewards for a given campaign domain (e.g. Overwatch League).\nIf the domain does not exist an error will be returned.",
               "args": [
@@ -33726,6 +33711,33 @@
               "type": {
                 "kind": "OBJECT",
                 "name": "DeleteRoomMessagePayload",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "deleteSquadStreamInvitation",
+              "description": "deleteSquadStreamInvitation allows a squad stream member to delete a squad stream invitation.",
+              "args": [
+                {
+                  "name": "input",
+                  "description": null,
+                  "type": {
+                    "kind": "NON_NULL",
+                    "name": null,
+                    "ofType": {
+                      "kind": "INPUT_OBJECT",
+                      "name": "DeleteSquadStreamInvitationInput",
+                      "ofType": null
+                    }
+                  },
+                  "defaultValue": null
+                }
+              ],
+              "type": {
+                "kind": "OBJECT",
+                "name": "DeleteSquadStreamInvitationPayload",
                 "ofType": null
               },
               "isDeprecated": false,
