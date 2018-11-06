@@ -29246,6 +29246,72 @@
           "possibleTypes": null
         },
         {
+          "kind": "INPUT_OBJECT",
+          "name": "InvalidateEmailAssociationInput",
+          "description": "InvalidateEmailAssociationPayload is input required to mark a user as not owning an email address.",
+          "fields": null,
+          "inputFields": [
+            {
+              "name": "email",
+              "description": "Email address that is incorrectly attributed to a user.",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "String",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "emailAssociationOpaqueID",
+              "description": "EmailAssociationOpaqueID is the OpaqueID of the association to the above email.",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "ID",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            }
+          ],
+          "interfaces": null,
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "OBJECT",
+          "name": "InvalidateEmailAssociationPayload",
+          "description": "InvalidateEmailAssociationPayload is the response payload.",
+          "fields": [
+            {
+              "name": "hasSucceeded",
+              "description": "HasSucceeded indicates whether or not the request has succeeded.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Boolean",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
           "kind": "OBJECT",
           "name": "Inventory",
           "description": "Contains the inventory for a particular user. Inventory consists of\nDrops awarded, Crates, emotes from Crates, badges from Crates, and\nBits.",
@@ -34251,6 +34317,33 @@
               "type": {
                 "kind": "OBJECT",
                 "name": "InstallExtensionPayload",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "invalidateEmailAssociation",
+              "description": "Invalidates an association to an email.",
+              "args": [
+                {
+                  "name": "input",
+                  "description": null,
+                  "type": {
+                    "kind": "NON_NULL",
+                    "name": null,
+                    "ofType": {
+                      "kind": "INPUT_OBJECT",
+                      "name": "InvalidateEmailAssociationInput",
+                      "ofType": null
+                    }
+                  },
+                  "defaultValue": null
+                }
+              ],
+              "type": {
+                "kind": "OBJECT",
+                "name": "InvalidateEmailAssociationPayload",
                 "ofType": null
               },
               "isDeprecated": false,
