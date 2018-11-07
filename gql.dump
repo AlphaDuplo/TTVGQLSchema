@@ -1619,6 +1619,20 @@
                 }
               },
               "defaultValue": null
+            },
+            {
+              "name": "sourceItemTrackingID",
+              "description": "The tracking id of the shelf / shelf card.",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "ID",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
             }
           ],
           "interfaces": null,
@@ -18131,20 +18145,6 @@
               "defaultValue": null
             },
             {
-              "name": "itemID",
-              "description": "The id of the item (channelID, gameID, etc).",
-              "type": {
-                "kind": "NON_NULL",
-                "name": null,
-                "ofType": {
-                  "kind": "SCALAR",
-                  "name": "ID",
-                  "ofType": null
-                }
-              },
-              "defaultValue": null
-            },
-            {
               "name": "sourceItemPage",
               "description": "The page this event was fired from.",
               "type": {
@@ -18153,20 +18153,6 @@
                 "ofType": {
                   "kind": "SCALAR",
                   "name": "String",
-                  "ofType": null
-                }
-              },
-              "defaultValue": null
-            },
-            {
-              "name": "sourceItemRequestID",
-              "description": "The unique id given to this request.",
-              "type": {
-                "kind": "NON_NULL",
-                "name": null,
-                "ofType": {
-                  "kind": "SCALAR",
-                  "name": "ID",
                   "ofType": null
                 }
               },
@@ -60987,6 +60973,20 @@
             {
               "name": "sourceItemRequestID",
               "description": "The unique id given to this request.",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "ID",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "sourceItemTrackingID",
+              "description": "The unique tracking id of the shelf / shelf card.",
               "type": {
                 "kind": "NON_NULL",
                 "name": null,
