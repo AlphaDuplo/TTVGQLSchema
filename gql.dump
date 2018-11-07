@@ -245,6 +245,68 @@
           "possibleTypes": null
         },
         {
+          "kind": "OBJECT",
+          "name": "AcceptSquadStreamInvitationError",
+          "description": "Errors from acceptSquadStreamInvitation mutation.",
+          "fields": [
+            {
+              "name": "code",
+              "description": "Error from request to accept invitation.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "ENUM",
+                  "name": "AcceptSquadStreamInvitationErrorCode",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "ENUM",
+          "name": "AcceptSquadStreamInvitationErrorCode",
+          "description": "Possible errors from this mutation.",
+          "fields": null,
+          "inputFields": null,
+          "interfaces": null,
+          "enumValues": [
+            {
+              "name": "INVITATION_NOT_FOUND",
+              "description": "Invitation to be accepted does not exist.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "SQUAD_NOT_FOUND",
+              "description": "Squad associated with the invitation does not exist.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "UNAUTHORIZED",
+              "description": "User does not have permissions to accept invitation.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "INVITATION_CANNOT_BE_ACCEPTED",
+              "description": "Invitation not in pending state cannot be accepted.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "possibleTypes": null
+        },
+        {
           "kind": "INPUT_OBJECT",
           "name": "AcceptSquadStreamInvitationInput",
           "description": "Inputs to the acceptSquadStreamInvitation mutation.",
@@ -274,6 +336,18 @@
           "name": "AcceptSquadStreamInvitationPayload",
           "description": "Outputs from the acceptSquadStreamInvitation mutation.",
           "fields": [
+            {
+              "name": "error",
+              "description": "Error from mutation if exists.",
+              "args": [],
+              "type": {
+                "kind": "OBJECT",
+                "name": "AcceptSquadStreamInvitationError",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
             {
               "name": "invitation",
               "description": "The accepted invitation.",
@@ -15050,6 +15124,102 @@
                 "kind": "OBJECT",
                 "name": "User",
                 "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "INPUT_OBJECT",
+          "name": "CreateMultiviewContentAttributeImageUploadConfigInput",
+          "description": "Contains the channel ID to create new image upload URL for.",
+          "fields": null,
+          "inputFields": [
+            {
+              "name": "channelID",
+              "description": "The channel for which the content attribute belongs to.",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "ID",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            }
+          ],
+          "interfaces": null,
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "OBJECT",
+          "name": "CreateMultiviewContentAttributeImageUploadConfigPayload",
+          "description": "Payload contains the upload ID and URL, as well as the URL to access the uploaded image.",
+          "fields": [
+            {
+              "name": "channel",
+              "description": "The channel for which the content attribute belongs to.",
+              "args": [],
+              "type": {
+                "kind": "OBJECT",
+                "name": "Channel",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "imageURL",
+              "description": "The URL to access this image once uploaded.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "String",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "uploadID",
+              "description": "Generated unique identifier for this upload.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "ID",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "uploadURL",
+              "description": "Generated unique URL to upload the image to.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "String",
+                  "ofType": null
+                }
               },
               "isDeprecated": false,
               "deprecationReason": null
@@ -32976,6 +33146,33 @@
               "type": {
                 "kind": "OBJECT",
                 "name": "CreateFriendRequestPayload",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "createMultiviewContentAttributeImageUploadConfig",
+              "description": "createMultiviewContentAttributeImageUploadConfig creates and returns a upload configuration for uploading and retrieving content attribute images.",
+              "args": [
+                {
+                  "name": "input",
+                  "description": null,
+                  "type": {
+                    "kind": "NON_NULL",
+                    "name": null,
+                    "ofType": {
+                      "kind": "INPUT_OBJECT",
+                      "name": "CreateMultiviewContentAttributeImageUploadConfigInput",
+                      "ofType": null
+                    }
+                  },
+                  "defaultValue": null
+                }
+              ],
+              "type": {
+                "kind": "OBJECT",
+                "name": "CreateMultiviewContentAttributeImageUploadConfigPayload",
                 "ofType": null
               },
               "isDeprecated": false,
