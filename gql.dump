@@ -42348,7 +42348,7 @@
             },
             {
               "name": "status",
-              "description": "The visual status of the offer to the user, UNSEEN, SEEN, CLAIMED.",
+              "description": "The visual status of the offer to the user, UNSEEN, SEEN, CLAIMED, DISMISSED.",
               "args": [],
               "type": {
                 "kind": "NON_NULL",
