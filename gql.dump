@@ -48160,6 +48160,98 @@
         },
         {
           "kind": "OBJECT",
+          "name": "RejectSquadStreamOutOfNetworkInvitationsError",
+          "description": "RejectSquadStreamOutOfNetworkInvitationsError is the error associated with a rejectSquadStreamOutOfNetworkInvitations.",
+          "fields": [
+            {
+              "name": "code",
+              "description": "The associated error code.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "ENUM",
+                  "name": "RejectSquadStreamOutOfNetworkInvitationsErrorCode",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "ENUM",
+          "name": "RejectSquadStreamOutOfNetworkInvitationsErrorCode",
+          "description": "RejectSquadStreamOutOfNetworkInvitationsErrorCode are the possible errors that this mutation returns.",
+          "fields": null,
+          "inputFields": null,
+          "interfaces": null,
+          "enumValues": [
+            {
+              "name": "UNAUTHORIZED",
+              "description": "The user is not authorized to reject invitations on behalf of the recipient.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "possibleTypes": null
+        },
+        {
+          "kind": "INPUT_OBJECT",
+          "name": "RejectSquadStreamOutOfNetworkInvitationsInput",
+          "description": "Inputs to the rejectSquadStreamOutOfNetworkInvitations mutation.",
+          "fields": null,
+          "inputFields": [
+            {
+              "name": "recipientID",
+              "description": "ID of the user whose out of network invitations will be rejected.",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "ID",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            }
+          ],
+          "interfaces": null,
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "OBJECT",
+          "name": "RejectSquadStreamOutOfNetworkInvitationsPayload",
+          "description": "Outputs from the rejectSquadStreamOutOfNetworkInvitations mutation.",
+          "fields": [
+            {
+              "name": "error",
+              "description": "The possible error returned from the service.",
+              "args": [],
+              "type": {
+                "kind": "OBJECT",
+                "name": "RejectSquadStreamOutOfNetworkInvitationsError",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "OBJECT",
           "name": "RejectedChatMessage",
           "description": null,
           "fields": [
@@ -55002,19 +55094,19 @@
           "enumValues": [
             {
               "name": "NONE",
-              "description": "This user should never recieve invitations.",
+              "description": "This user should never receive invitations.",
               "isDeprecated": false,
               "deprecationReason": null
             },
             {
               "name": "NETWORK",
-              "description": "This user can recieve invitations from friends, teammates and followed channels.",
+              "description": "This user can receive invitations from friends, teammates and followed channels.",
               "isDeprecated": false,
               "deprecationReason": null
             },
             {
               "name": "ALL",
-              "description": "This user can recieve invitations from anyone.",
+              "description": "This user can receive invitations from anyone.",
               "isDeprecated": false,
               "deprecationReason": null
             }
@@ -55224,6 +55316,35 @@
           "inputFields": null,
           "interfaces": [],
           "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "ENUM",
+          "name": "SquadStreamInvitationNetworkType",
+          "description": "Describes the network type of a squad stream invitation.",
+          "fields": null,
+          "inputFields": null,
+          "interfaces": null,
+          "enumValues": [
+            {
+              "name": "IN_NETWORK",
+              "description": "The invitation is from within the recipient's network (friends, teammates and followed channels).",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "OUT_OF_NETWORK",
+              "description": "The invitation is from outside of the recipient's network.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "ALL",
+              "description": "The invitation is from anyone (in network or out of network).",
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
           "possibleTypes": null
         },
         {
@@ -67202,7 +67323,7 @@
             },
             {
               "name": "incomingSquadStreamInvitations",
-              "description": "A list of the squad stream invitations that the user has received.\nThese invitations are sorted by creation time, and returned with the most recent invitation first.\nThis field only resolves for the authenticated user.",
+              "description": "A list of the squad stream invitations that the user has received.\nThese invitations are sorted by creation time, and returned with the earliest invitation first.\nThis field only resolves for the authenticated user.",
               "args": [
                 {
                   "name": "first",
@@ -67221,6 +67342,20 @@
                     "kind": "SCALAR",
                     "name": "Cursor",
                     "ofType": null
+                  },
+                  "defaultValue": null
+                },
+                {
+                  "name": "networkType",
+                  "description": null,
+                  "type": {
+                    "kind": "NON_NULL",
+                    "name": null,
+                    "ofType": {
+                      "kind": "ENUM",
+                      "name": "SquadStreamInvitationNetworkType",
+                      "ofType": null
+                    }
                   },
                   "defaultValue": null
                 }
