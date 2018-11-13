@@ -14091,6 +14091,16 @@
               "defaultValue": null
             },
             {
+              "name": "boxArtURL",
+              "description": "Optional box art URL for the campaign.",
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
               "name": "broadcasterMessage",
               "description": "The message that will be shown to the broadcaster when they view the campaign.",
               "type": {
@@ -14134,6 +14144,26 @@
               "type": {
                 "kind": "SCALAR",
                 "name": "ID",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "coverURL",
+              "description": "Optional cover URL for the campaign.",
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "displayName",
+              "description": "Optional display for the campaign.",
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
                 "ofType": null
               },
               "defaultValue": null
