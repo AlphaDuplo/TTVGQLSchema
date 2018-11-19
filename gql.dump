@@ -28472,6 +28472,29 @@
           "possibleTypes": null
         },
         {
+          "kind": "OBJECT",
+          "name": "GameChangeMomentDetails",
+          "description": "Moment Details specific to a game change.",
+          "fields": [
+            {
+              "name": "game",
+              "description": "The game that the user changed to.",
+              "args": [],
+              "type": {
+                "kind": "OBJECT",
+                "name": "Game",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
           "kind": "INPUT_OBJECT",
           "name": "GameClipsInput",
           "description": "Filtering criteria for paginated game clips results.",
@@ -74184,6 +74207,18 @@
               "deprecationReason": null
             },
             {
+              "name": "moments",
+              "description": "Moments that cover a time range can also contain moments for that time range.",
+              "args": [],
+              "type": {
+                "kind": "OBJECT",
+                "name": "VideoMomentConnection",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
               "name": "positionMilliseconds",
               "description": "The time, in ms, after the start of the video when this moment occurs.",
               "args": [],
@@ -74319,6 +74354,11 @@
           "possibleTypes": [
             {
               "kind": "OBJECT",
+              "name": "GameChangeMomentDetails",
+              "ofType": null
+            },
+            {
+              "kind": "OBJECT",
               "name": "HearthstoneMomentDetails",
               "ofType": null
             },
@@ -74429,6 +74469,12 @@
             {
               "name": "PUBG_VCA",
               "description": "PUBG video content analysis markers.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "VCA",
+              "description": "VCA generic VCA analysis markers.",
               "isDeprecated": false,
               "deprecationReason": null
             }
