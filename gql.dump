@@ -15186,6 +15186,82 @@
         },
         {
           "kind": "INPUT_OBJECT",
+          "name": "CreateModeratorCommentInput",
+          "description": "The required input to create a moderator comment on a channel.",
+          "fields": null,
+          "inputFields": [
+            {
+              "name": "channelID",
+              "description": "The channel where the moderator comment was created.",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "ID",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "targetID",
+              "description": "The target of the moderator comment.",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "ID",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "text",
+              "description": "The body of the comment.",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "String",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            }
+          ],
+          "interfaces": null,
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "OBJECT",
+          "name": "CreateModeratorCommentPayload",
+          "description": "Result of a createModeratorComment mutation.",
+          "fields": [
+            {
+              "name": "comment",
+              "description": "The moderator comment created.",
+              "args": [],
+              "type": {
+                "kind": "OBJECT",
+                "name": "ModLogsComment",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "INPUT_OBJECT",
           "name": "CreateMultiviewContentAttributeImageUploadConfigInput",
           "description": "Contains the channel ID to create new image upload URL for.",
           "fields": null,
@@ -35116,6 +35192,33 @@
               "type": {
                 "kind": "OBJECT",
                 "name": "CreateFriendRequestPayload",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "createModeratorComment",
+              "description": "createModeratorComment creates and returns a comment on the target user in the given channel.\nRequester must be a moderator or higher in the channel.",
+              "args": [
+                {
+                  "name": "input",
+                  "description": null,
+                  "type": {
+                    "kind": "NON_NULL",
+                    "name": null,
+                    "ofType": {
+                      "kind": "INPUT_OBJECT",
+                      "name": "CreateModeratorCommentInput",
+                      "ofType": null
+                    }
+                  },
+                  "defaultValue": null
+                }
+              ],
+              "type": {
+                "kind": "OBJECT",
+                "name": "CreateModeratorCommentPayload",
                 "ofType": null
               },
               "isDeprecated": false,
