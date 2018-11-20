@@ -42730,6 +42730,22 @@
           "description": "Data about a pending future subscription.\nie. a user turns a 1-month gift into a recurring subscription.",
           "fields": [
             {
+              "name": "isCancelable",
+              "description": "Whether the pending sub is cancelable.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Boolean",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
               "name": "originID",
               "description": "The id of the pending subscription purchase. Used to cancel the paid upgrade.",
               "args": [],
