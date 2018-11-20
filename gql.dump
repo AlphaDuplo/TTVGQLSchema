@@ -75536,7 +75536,13 @@
           "enumValues": [
             {
               "name": "LATEST_BROADCASTS",
-              "description": "Archives sorted by recency.",
+              "description": "Broadcasts sorted by recency.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "LATEST_NON_BROADCASTS",
+              "description": "Non broadcasts sorted by recency.",
               "isDeprecated": false,
               "deprecationReason": null
             },
