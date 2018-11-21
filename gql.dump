@@ -8997,6 +8997,81 @@
           "possibleTypes": null
         },
         {
+          "kind": "INPUT_OBJECT",
+          "name": "CheckoutConfigurationInput",
+          "description": "Inputs for checkoutConfiguration.",
+          "fields": null,
+          "inputFields": [
+            {
+              "name": "isAnonymous",
+              "description": "Whether the gift is anonymous.",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Boolean",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "isGift",
+              "description": "Whether the the purchase is a gift.",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Boolean",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "isReactivateRecurring",
+              "description": "Whether the user is reactivating their subscription with a recurring or non-recurring payment plan.",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Boolean",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "mysteryGiftCount",
+              "description": "The number of gifts being purchased.",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Int",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "recipientID",
+              "description": "The ID of the gift recipient.",
+              "type": {
+                "kind": "SCALAR",
+                "name": "ID",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "taxCountryCode",
+              "description": "The country code for tax purposes.",
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              },
+              "defaultValue": null
+            }
+          ],
+          "interfaces": null,
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
           "kind": "OBJECT",
           "name": "CheerInfo",
           "description": "CheerInfo is the channel-specific bits/cheer settings and current state.",
@@ -60269,7 +60344,7 @@
             },
             {
               "name": "checkoutConfigs",
-              "description": "Holds configuration necessary to start subscription purchase checkout flow for this product for current user.\nThe user completing the checkout can get the subscription benefit for themself or for a gift recipient.\nOnly the authenticated user can access their own configs.",
+              "description": "Holds configuration necessary to start subscription purchase checkout flow for this product for current user.\nThe user completing the checkout can get the subscription benefit for themself or for a gift recipient.\nOnly the authenticated user can access their own configs.\nThe user will be able to resubscribe their DNRd (do-not-renew) subs before their benefits expire. isReactivateRecurring allows\nthem to select between a non-recurring (one-month extension) and recurring re-subscription.",
               "args": [
                 {
                   "name": "isAnonymous",
@@ -60322,6 +60397,33 @@
                     "kind": "SCALAR",
                     "name": "String",
                     "ofType": null
+                  },
+                  "defaultValue": null
+                }
+              ],
+              "type": {
+                "kind": "OBJECT",
+                "name": "SubscriptionCheckoutConfigs",
+                "ofType": null
+              },
+              "isDeprecated": true,
+              "deprecationReason": "Transitioning to checkoutConfiguration that supports an input type"
+            },
+            {
+              "name": "checkoutConfiguration",
+              "description": "Holds configuration necessary to start subscription purchase checkout flow for this product for current user.",
+              "args": [
+                {
+                  "name": "config",
+                  "description": null,
+                  "type": {
+                    "kind": "NON_NULL",
+                    "name": null,
+                    "ofType": {
+                      "kind": "INPUT_OBJECT",
+                      "name": "CheckoutConfigurationInput",
+                      "ofType": null
+                    }
                   },
                   "defaultValue": null
                 }
