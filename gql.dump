@@ -37478,6 +37478,33 @@
               "deprecationReason": null
             },
             {
+              "name": "resendVerificationEmail",
+              "description": "resendVerificationEmail resends a verification email to the current user.",
+              "args": [
+                {
+                  "name": "input",
+                  "description": null,
+                  "type": {
+                    "kind": "NON_NULL",
+                    "name": null,
+                    "ofType": {
+                      "kind": "INPUT_OBJECT",
+                      "name": "ResendVerificationEmailInput",
+                      "ofType": null
+                    }
+                  },
+                  "defaultValue": null
+                }
+              ],
+              "type": {
+                "kind": "OBJECT",
+                "name": "ResendVerificationEmailPayload",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
               "name": "restrictVideo",
               "description": "restrictVideo creates a restriction to an Archive type video.",
               "args": [
@@ -51838,6 +51865,54 @@
               "type": {
                 "kind": "OBJECT",
                 "name": "RitualToken",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "INPUT_OBJECT",
+          "name": "ResendVerificationEmailInput",
+          "description": "ResendVerificationEmailInput is input required to resend the verification email.",
+          "fields": null,
+          "inputFields": [
+            {
+              "name": "userID",
+              "description": "ID of the user to resend a verification email to.",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "ID",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            }
+          ],
+          "interfaces": null,
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "OBJECT",
+          "name": "ResendVerificationEmailPayload",
+          "description": "ResendVerificationEmailPayload is the output after resending a verification email.",
+          "fields": [
+            {
+              "name": "user",
+              "description": "The modified user.",
+              "args": [],
+              "type": {
+                "kind": "OBJECT",
+                "name": "User",
                 "ofType": null
               },
               "isDeprecated": false,
@@ -71537,6 +71612,29 @@
               "deprecationReason": null
             },
             {
+              "name": "verificationRequest",
+              "description": "Verification request object for the user and an associated contact address.\nIf no address is provided, the current email address associated with the user account will be used.",
+              "args": [
+                {
+                  "name": "address",
+                  "description": null,
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "String",
+                    "ofType": null
+                  },
+                  "defaultValue": null
+                }
+              ],
+              "type": {
+                "kind": "OBJECT",
+                "name": "VerificationRequest",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
               "name": "videoShelves",
               "description": "A paginated list of video shelves the user has specified for displaying their content.",
               "args": [
@@ -73315,6 +73413,22 @@
                 "ofType": {
                   "kind": "SCALAR",
                   "name": "String",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "modified",
+              "description": "Time at which the verification request was last modified.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Time",
                   "ofType": null
                 }
               },
