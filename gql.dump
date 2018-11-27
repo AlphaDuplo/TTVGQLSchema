@@ -6653,105 +6653,6 @@
         },
         {
           "kind": "OBJECT",
-          "name": "Campaign",
-          "description": "A visible campaign on a given user's channel.",
-          "fields": [
-            {
-              "name": "domain",
-              "description": "The domain that campaign belongs to.",
-              "args": [],
-              "type": {
-                "kind": "NON_NULL",
-                "name": null,
-                "ofType": {
-                  "kind": "SCALAR",
-                  "name": "String",
-                  "ofType": null
-                }
-              },
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
-              "name": "endDate",
-              "description": "The time the campaign ends being active.",
-              "args": [],
-              "type": {
-                "kind": "NON_NULL",
-                "name": null,
-                "ofType": {
-                  "kind": "SCALAR",
-                  "name": "Time",
-                  "ofType": null
-                }
-              },
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
-              "name": "id",
-              "description": "Unique identifier for the campaign.",
-              "args": [],
-              "type": {
-                "kind": "NON_NULL",
-                "name": null,
-                "ofType": {
-                  "kind": "SCALAR",
-                  "name": "ID",
-                  "ofType": null
-                }
-              },
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
-              "name": "objectives",
-              "description": "The objectives users can progress in within this campaign.",
-              "args": [],
-              "type": {
-                "kind": "NON_NULL",
-                "name": null,
-                "ofType": {
-                  "kind": "LIST",
-                  "name": null,
-                  "ofType": {
-                    "kind": "NON_NULL",
-                    "name": null,
-                    "ofType": {
-                      "kind": "OBJECT",
-                      "name": "CampaignObjective",
-                      "ofType": null
-                    }
-                  }
-                }
-              },
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
-              "name": "startDate",
-              "description": "The time the campaign becomes active.",
-              "args": [],
-              "type": {
-                "kind": "NON_NULL",
-                "name": null,
-                "ofType": {
-                  "kind": "SCALAR",
-                  "name": "Time",
-                  "ofType": null
-                }
-              },
-              "isDeprecated": false,
-              "deprecationReason": null
-            }
-          ],
-          "inputFields": null,
-          "interfaces": [],
-          "enumValues": null,
-          "possibleTypes": null
-        },
-        {
-          "kind": "OBJECT",
           "name": "CampaignCheergroup",
           "description": "This type holds the information about the grouping of objectives. Each group has a list of cheermotes that progress objectives in this particular group.",
           "fields": [
@@ -9092,81 +8993,6 @@
           ],
           "inputFields": null,
           "interfaces": [],
-          "enumValues": null,
-          "possibleTypes": null
-        },
-        {
-          "kind": "INPUT_OBJECT",
-          "name": "CheckoutConfigurationInput",
-          "description": "Inputs for checkoutConfiguration.",
-          "fields": null,
-          "inputFields": [
-            {
-              "name": "isAnonymous",
-              "description": "Whether the gift is anonymous.",
-              "type": {
-                "kind": "SCALAR",
-                "name": "Boolean",
-                "ofType": null
-              },
-              "defaultValue": null
-            },
-            {
-              "name": "isGift",
-              "description": "Whether the the purchase is a gift.",
-              "type": {
-                "kind": "NON_NULL",
-                "name": null,
-                "ofType": {
-                  "kind": "SCALAR",
-                  "name": "Boolean",
-                  "ofType": null
-                }
-              },
-              "defaultValue": null
-            },
-            {
-              "name": "isReactivateRecurring",
-              "description": "Whether the user is reactivating their subscription with a recurring or non-recurring payment plan.",
-              "type": {
-                "kind": "SCALAR",
-                "name": "Boolean",
-                "ofType": null
-              },
-              "defaultValue": null
-            },
-            {
-              "name": "mysteryGiftCount",
-              "description": "The number of gifts being purchased.",
-              "type": {
-                "kind": "SCALAR",
-                "name": "Int",
-                "ofType": null
-              },
-              "defaultValue": null
-            },
-            {
-              "name": "recipientID",
-              "description": "The ID of the gift recipient.",
-              "type": {
-                "kind": "SCALAR",
-                "name": "ID",
-                "ofType": null
-              },
-              "defaultValue": null
-            },
-            {
-              "name": "taxCountryCode",
-              "description": "The country code for tax purposes.",
-              "type": {
-                "kind": "SCALAR",
-                "name": "String",
-                "ofType": null
-              },
-              "defaultValue": null
-            }
-          ],
-          "interfaces": null,
           "enumValues": null,
           "possibleTypes": null
         },
@@ -14371,16 +14197,6 @@
               "defaultValue": null
             },
             {
-              "name": "streamLengthMinutes",
-              "description": "How long the broadcaster needs to stream the sponsored content to complete the bounty.",
-              "type": {
-                "kind": "SCALAR",
-                "name": "Int",
-                "ofType": null
-              },
-              "defaultValue": null
-            },
-            {
               "name": "targetAllBroadcasters",
               "description": "Flag to target all broadcaters for the campaign.",
               "type": {
@@ -14429,16 +14245,6 @@
                   "name": "String",
                   "ofType": null
                 }
-              },
-              "defaultValue": null
-            },
-            {
-              "name": "type",
-              "description": "The type of the campaign.",
-              "type": {
-                "kind": "ENUM",
-                "name": "BountyCampaignType",
-                "ofType": null
               },
               "defaultValue": null
             }
@@ -15347,82 +15153,6 @@
               "type": {
                 "kind": "OBJECT",
                 "name": "User",
-                "ofType": null
-              },
-              "isDeprecated": false,
-              "deprecationReason": null
-            }
-          ],
-          "inputFields": null,
-          "interfaces": [],
-          "enumValues": null,
-          "possibleTypes": null
-        },
-        {
-          "kind": "INPUT_OBJECT",
-          "name": "CreateModeratorCommentInput",
-          "description": "The required input to create a moderator comment on a channel.",
-          "fields": null,
-          "inputFields": [
-            {
-              "name": "channelID",
-              "description": "The channel where the moderator comment was created.",
-              "type": {
-                "kind": "NON_NULL",
-                "name": null,
-                "ofType": {
-                  "kind": "SCALAR",
-                  "name": "ID",
-                  "ofType": null
-                }
-              },
-              "defaultValue": null
-            },
-            {
-              "name": "targetID",
-              "description": "The target of the moderator comment.",
-              "type": {
-                "kind": "NON_NULL",
-                "name": null,
-                "ofType": {
-                  "kind": "SCALAR",
-                  "name": "ID",
-                  "ofType": null
-                }
-              },
-              "defaultValue": null
-            },
-            {
-              "name": "text",
-              "description": "The body of the comment.",
-              "type": {
-                "kind": "NON_NULL",
-                "name": null,
-                "ofType": {
-                  "kind": "SCALAR",
-                  "name": "String",
-                  "ofType": null
-                }
-              },
-              "defaultValue": null
-            }
-          ],
-          "interfaces": null,
-          "enumValues": null,
-          "possibleTypes": null
-        },
-        {
-          "kind": "OBJECT",
-          "name": "CreateModeratorCommentPayload",
-          "description": "Result of a createModeratorComment mutation.",
-          "fields": [
-            {
-              "name": "comment",
-              "description": "The moderator comment created.",
-              "args": [],
-              "type": {
-                "kind": "OBJECT",
-                "name": "ModLogsComment",
                 "ofType": null
               },
               "isDeprecated": false,
@@ -23879,18 +23609,6 @@
               "deprecationReason": null
             },
             {
-              "name": "product",
-              "description": "Resolves the product that the expired subscription is to.",
-              "args": [],
-              "type": {
-                "kind": "OBJECT",
-                "name": "SubscriptionProduct",
-                "ofType": null
-              },
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
               "name": "tenure",
               "description": "The total tenure of a user to a broadcaster.",
               "args": [],
@@ -28754,29 +28472,6 @@
           "possibleTypes": null
         },
         {
-          "kind": "OBJECT",
-          "name": "GameChangeMomentDetails",
-          "description": "Moment Details specific to a game change.",
-          "fields": [
-            {
-              "name": "game",
-              "description": "The game that the user changed to.",
-              "args": [],
-              "type": {
-                "kind": "OBJECT",
-                "name": "Game",
-                "ofType": null
-              },
-              "isDeprecated": false,
-              "deprecationReason": null
-            }
-          ],
-          "inputFields": null,
-          "interfaces": [],
-          "enumValues": null,
-          "possibleTypes": null
-        },
-        {
           "kind": "INPUT_OBJECT",
           "name": "GameClipsInput",
           "description": "Filtering criteria for paginated game clips results.",
@@ -33039,33 +32734,6 @@
           "description": "An interface to query subsets of the moderation logs information for a given channel.",
           "fields": [
             {
-              "name": "comments",
-              "description": "The comments left by moderators on a specified user on the given channel.",
-              "args": [
-                {
-                  "name": "targetID",
-                  "description": null,
-                  "type": {
-                    "kind": "NON_NULL",
-                    "name": null,
-                    "ofType": {
-                      "kind": "SCALAR",
-                      "name": "ID",
-                      "ofType": null
-                    }
-                  },
-                  "defaultValue": null
-                }
-              ],
-              "type": {
-                "kind": "OBJECT",
-                "name": "ModLogsCommentConnection",
-                "ofType": null
-              },
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
               "name": "messagesBySender",
               "description": "The chat history for an specified user on a given channel.",
               "args": [
@@ -33320,206 +32988,6 @@
               "deprecationReason": null
             }
           ],
-          "possibleTypes": null
-        },
-        {
-          "kind": "OBJECT",
-          "name": "ModLogsComment",
-          "description": "ModLogsCommentsEntry defines an entry of a user's moderation history on a channel.",
-          "fields": [
-            {
-              "name": "author",
-              "description": "Author is the moderator that created the comment.",
-              "args": [],
-              "type": {
-                "kind": "OBJECT",
-                "name": "User",
-                "ofType": null
-              },
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
-              "name": "channel",
-              "description": "Channel is where the moderator comment was created.",
-              "args": [],
-              "type": {
-                "kind": "OBJECT",
-                "name": "User",
-                "ofType": null
-              },
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
-              "name": "details",
-              "description": "Details about the moderator comment.",
-              "args": [],
-              "type": {
-                "kind": "OBJECT",
-                "name": "ModLogsCommentDetails",
-                "ofType": null
-              },
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
-              "name": "id",
-              "description": "UUID of the moderator comment.",
-              "args": [],
-              "type": {
-                "kind": "NON_NULL",
-                "name": null,
-                "ofType": {
-                  "kind": "SCALAR",
-                  "name": "ID",
-                  "ofType": null
-                }
-              },
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
-              "name": "target",
-              "description": "Target is the target user of the moderator comment.",
-              "args": [],
-              "type": {
-                "kind": "OBJECT",
-                "name": "User",
-                "ofType": null
-              },
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
-              "name": "timestamp",
-              "description": "Timestamp when comment was created.",
-              "args": [],
-              "type": {
-                "kind": "NON_NULL",
-                "name": null,
-                "ofType": {
-                  "kind": "SCALAR",
-                  "name": "Time",
-                  "ofType": null
-                }
-              },
-              "isDeprecated": false,
-              "deprecationReason": null
-            }
-          ],
-          "inputFields": null,
-          "interfaces": [],
-          "enumValues": null,
-          "possibleTypes": null
-        },
-        {
-          "kind": "OBJECT",
-          "name": "ModLogsCommentConnection",
-          "description": "Paginated list of moderator comments on a user in a channel.",
-          "fields": [
-            {
-              "name": "edges",
-              "description": "The elements of the list.",
-              "args": [],
-              "type": {
-                "kind": "LIST",
-                "name": null,
-                "ofType": {
-                  "kind": "NON_NULL",
-                  "name": null,
-                  "ofType": {
-                    "kind": "OBJECT",
-                    "name": "ModLogsCommentEdge",
-                    "ofType": null
-                  }
-                }
-              },
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
-              "name": "pageInfo",
-              "description": "Information about this page of mod logs.",
-              "args": [],
-              "type": {
-                "kind": "NON_NULL",
-                "name": null,
-                "ofType": {
-                  "kind": "OBJECT",
-                  "name": "PageInfo",
-                  "ofType": null
-                }
-              },
-              "isDeprecated": false,
-              "deprecationReason": null
-            }
-          ],
-          "inputFields": null,
-          "interfaces": [],
-          "enumValues": null,
-          "possibleTypes": null
-        },
-        {
-          "kind": "OBJECT",
-          "name": "ModLogsCommentDetails",
-          "description": "ModLogsCommentDetails contains the details of a moderator comment.",
-          "fields": [
-            {
-              "name": "text",
-              "description": "Body of the comment.",
-              "args": [],
-              "type": {
-                "kind": "SCALAR",
-                "name": "String",
-                "ofType": null
-              },
-              "isDeprecated": false,
-              "deprecationReason": null
-            }
-          ],
-          "inputFields": null,
-          "interfaces": [],
-          "enumValues": null,
-          "possibleTypes": null
-        },
-        {
-          "kind": "OBJECT",
-          "name": "ModLogsCommentEdge",
-          "description": "Element in a list of moderator comments on a user in a channel.",
-          "fields": [
-            {
-              "name": "cursor",
-              "description": "Opaque cursor describing this edge's position in the paginated list.",
-              "args": [],
-              "type": {
-                "kind": "NON_NULL",
-                "name": null,
-                "ofType": {
-                  "kind": "SCALAR",
-                  "name": "Cursor",
-                  "ofType": null
-                }
-              },
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
-              "name": "node",
-              "description": "A moderator comment on a user in a channel.",
-              "args": [],
-              "type": {
-                "kind": "OBJECT",
-                "name": "ModLogsComment",
-                "ofType": null
-              },
-              "isDeprecated": false,
-              "deprecationReason": null
-            }
-          ],
-          "inputFields": null,
-          "interfaces": [],
-          "enumValues": null,
           "possibleTypes": null
         },
         {
@@ -35378,33 +34846,6 @@
               "type": {
                 "kind": "OBJECT",
                 "name": "CreateFriendRequestPayload",
-                "ofType": null
-              },
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
-              "name": "createModeratorComment",
-              "description": "createModeratorComment creates and returns a comment on the target user in the given channel.\nRequester must be a moderator or higher in the channel.",
-              "args": [
-                {
-                  "name": "input",
-                  "description": null,
-                  "type": {
-                    "kind": "NON_NULL",
-                    "name": null,
-                    "ofType": {
-                      "kind": "INPUT_OBJECT",
-                      "name": "CreateModeratorCommentInput",
-                      "ofType": null
-                    }
-                  },
-                  "defaultValue": null
-                }
-              ],
-              "type": {
-                "kind": "OBJECT",
-                "name": "CreateModeratorCommentPayload",
                 "ofType": null
               },
               "isDeprecated": false,
@@ -37484,33 +36925,6 @@
               "type": {
                 "kind": "OBJECT",
                 "name": "RequestRitualTokenPayload",
-                "ofType": null
-              },
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
-              "name": "resendVerificationEmail",
-              "description": "resendVerificationEmail resends a verification email to the current user.",
-              "args": [
-                {
-                  "name": "input",
-                  "description": null,
-                  "type": {
-                    "kind": "NON_NULL",
-                    "name": null,
-                    "ofType": {
-                      "kind": "INPUT_OBJECT",
-                      "name": "ResendVerificationEmailInput",
-                      "ofType": null
-                    }
-                  },
-                  "defaultValue": null
-                }
-              ],
-              "type": {
-                "kind": "OBJECT",
-                "name": "ResendVerificationEmailPayload",
                 "ofType": null
               },
               "isDeprecated": false,
@@ -43045,22 +42459,6 @@
           "name": "PendingSubscription",
           "description": "Data about a pending future subscription.\nie. a user turns a 1-month gift into a recurring subscription.",
           "fields": [
-            {
-              "name": "isCancelable",
-              "description": "Whether the pending sub is cancelable.",
-              "args": [],
-              "type": {
-                "kind": "NON_NULL",
-                "name": null,
-                "ofType": {
-                  "kind": "SCALAR",
-                  "name": "Boolean",
-                  "ofType": null
-                }
-              },
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
             {
               "name": "originID",
               "description": "The id of the pending subscription purchase. Used to cancel the paid upgrade.",
@@ -51890,54 +51288,6 @@
         },
         {
           "kind": "INPUT_OBJECT",
-          "name": "ResendVerificationEmailInput",
-          "description": "ResendVerificationEmailInput is input required to resend the verification email.",
-          "fields": null,
-          "inputFields": [
-            {
-              "name": "userID",
-              "description": "ID of the user to resend a verification email to.",
-              "type": {
-                "kind": "NON_NULL",
-                "name": null,
-                "ofType": {
-                  "kind": "SCALAR",
-                  "name": "ID",
-                  "ofType": null
-                }
-              },
-              "defaultValue": null
-            }
-          ],
-          "interfaces": null,
-          "enumValues": null,
-          "possibleTypes": null
-        },
-        {
-          "kind": "OBJECT",
-          "name": "ResendVerificationEmailPayload",
-          "description": "ResendVerificationEmailPayload is the output after resending a verification email.",
-          "fields": [
-            {
-              "name": "user",
-              "description": "The modified user.",
-              "args": [],
-              "type": {
-                "kind": "OBJECT",
-                "name": "User",
-                "ofType": null
-              },
-              "isDeprecated": false,
-              "deprecationReason": null
-            }
-          ],
-          "inputFields": null,
-          "interfaces": [],
-          "enumValues": null,
-          "possibleTypes": null
-        },
-        {
-          "kind": "INPUT_OBJECT",
           "name": "RestrictVideoInput",
           "description": "Inputs to the restrictVideo mutation.",
           "fields": null,
@@ -57581,18 +56931,6 @@
               "deprecationReason": null
             },
             {
-              "name": "networkType",
-              "description": "Network type of the invitation. This field is only non nil when the invitation is fetched for User.IncomingSquadStreamInvitations.",
-              "args": [],
-              "type": {
-                "kind": "ENUM",
-                "name": "SquadStreamInvitationNetworkType",
-                "ofType": null
-              },
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
               "name": "reasonRejected",
               "description": "If the invitation's status is rejected, the reason for the rejection.",
               "args": [],
@@ -57665,10 +57003,10 @@
         {
           "kind": "OBJECT",
           "name": "SquadStreamInvitationConnection",
-          "description": "List of Squad Stream invitations.",
+          "description": "Paginated list of Squad Stream invitations.",
           "fields": [
             {
-              "name": "nodes",
+              "name": "edges",
               "description": "The elements of the list.",
               "args": [],
               "type": {
@@ -57679,9 +57017,25 @@
                   "name": null,
                   "ofType": {
                     "kind": "OBJECT",
-                    "name": "SquadStreamInvitation",
+                    "name": "SquadStreamInvitationEdge",
                     "ofType": null
                   }
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "pageInfo",
+              "description": "Information about this page.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "OBJECT",
+                  "name": "PageInfo",
+                  "ofType": null
                 }
               },
               "isDeprecated": false,
@@ -57694,6 +57048,45 @@
               "type": {
                 "kind": "SCALAR",
                 "name": "Int",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "OBJECT",
+          "name": "SquadStreamInvitationEdge",
+          "description": "Element in a list of Squad Stream invitations.",
+          "fields": [
+            {
+              "name": "cursor",
+              "description": "Opaque cursor describing this edge's position in the paginated list.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Cursor",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "node",
+              "description": "The Squad Stream invitation.",
+              "args": [],
+              "type": {
+                "kind": "OBJECT",
+                "name": "SquadStreamInvitation",
                 "ofType": null
               },
               "isDeprecated": false,
@@ -57722,6 +57115,12 @@
             {
               "name": "OUT_OF_NETWORK",
               "description": "The invitation is from outside of the recipient's network.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "ALL",
+              "description": "The invitation is from anyone (in network or out of network).",
               "isDeprecated": false,
               "deprecationReason": null
             }
@@ -57904,18 +57303,6 @@
             {
               "name": "BOUNTY_NOT_LIVE",
               "description": "The bounty cannot be started because it is not live.",
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
-              "name": "STREAM_TITLE_BANNED_WORDS",
-              "description": "The stream title contains banned words.",
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
-              "name": "STREAM_TITLE_TOO_LONG",
-              "description": "The stream title is too long.",
               "isDeprecated": false,
               "deprecationReason": null
             },
@@ -60481,7 +59868,7 @@
             },
             {
               "name": "checkoutConfigs",
-              "description": "Holds configuration necessary to start subscription purchase checkout flow for this product for current user.\nThe user completing the checkout can get the subscription benefit for themself or for a gift recipient.\nOnly the authenticated user can access their own configs.\nThe user will be able to resubscribe their DNRd (do-not-renew) subs before their benefits expire. isReactivateRecurring allows\nthem to select between a non-recurring (one-month extension) and recurring re-subscription.",
+              "description": "Holds configuration necessary to start subscription purchase checkout flow for this product for current user.\nThe user completing the checkout can get the subscription benefit for themself or for a gift recipient.\nOnly the authenticated user can access their own configs.",
               "args": [
                 {
                   "name": "isAnonymous",
@@ -60534,33 +59921,6 @@
                     "kind": "SCALAR",
                     "name": "String",
                     "ofType": null
-                  },
-                  "defaultValue": null
-                }
-              ],
-              "type": {
-                "kind": "OBJECT",
-                "name": "SubscriptionCheckoutConfigs",
-                "ofType": null
-              },
-              "isDeprecated": true,
-              "deprecationReason": "Transitioning to checkoutConfiguration that supports an input type"
-            },
-            {
-              "name": "checkoutConfiguration",
-              "description": "Holds configuration necessary to start subscription purchase checkout flow for this product for current user.",
-              "args": [
-                {
-                  "name": "config",
-                  "description": null,
-                  "type": {
-                    "kind": "NON_NULL",
-                    "name": null,
-                    "ofType": {
-                      "kind": "INPUT_OBJECT",
-                      "name": "CheckoutConfigurationInput",
-                      "ofType": null
-                    }
                   },
                   "defaultValue": null
                 }
@@ -61048,96 +60408,6 @@
             {
               "name": "INACTIVE",
               "description": "Inactive subscription purchase. User's subscription benefit from the original purchase has ended\nand has not renewed.",
-              "isDeprecated": false,
-              "deprecationReason": null
-            }
-          ],
-          "possibleTypes": null
-        },
-        {
-          "kind": "OBJECT",
-          "name": "SubscriptionTenure",
-          "description": "Tenure to a subscription product.",
-          "fields": [
-            {
-              "name": "end",
-              "description": "The ending date of a user's tenure.",
-              "args": [],
-              "type": {
-                "kind": "SCALAR",
-                "name": "Time",
-                "ofType": null
-              },
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
-              "name": "method",
-              "description": "The method used to calculate the user's tenure.",
-              "args": [],
-              "type": {
-                "kind": "NON_NULL",
-                "name": null,
-                "ofType": {
-                  "kind": "ENUM",
-                  "name": "SubscriptionTenureMethod",
-                  "ofType": null
-                }
-              },
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
-              "name": "months",
-              "description": "The total duration of a user's tenure.",
-              "args": [],
-              "type": {
-                "kind": "NON_NULL",
-                "name": null,
-                "ofType": {
-                  "kind": "SCALAR",
-                  "name": "Int",
-                  "ofType": null
-                }
-              },
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
-              "name": "start",
-              "description": "The starting date of a user's tenure.",
-              "args": [],
-              "type": {
-                "kind": "SCALAR",
-                "name": "Time",
-                "ofType": null
-              },
-              "isDeprecated": false,
-              "deprecationReason": null
-            }
-          ],
-          "inputFields": null,
-          "interfaces": [],
-          "enumValues": null,
-          "possibleTypes": null
-        },
-        {
-          "kind": "ENUM",
-          "name": "SubscriptionTenureMethod",
-          "description": "A type of tenure to a subscription product.",
-          "fields": null,
-          "inputFields": null,
-          "interfaces": null,
-          "enumValues": [
-            {
-              "name": "CUMULATIVE",
-              "description": "Tenure data calculated cumulatively.",
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
-              "name": "STREAK",
-              "description": "Tenure data calculated streak-based.",
               "isDeprecated": false,
               "deprecationReason": null
             }
@@ -68966,33 +68236,6 @@
               "deprecationReason": null
             },
             {
-              "name": "campaign",
-              "description": "A User's campaign for their channel.",
-              "args": [
-                {
-                  "name": "campaignID",
-                  "description": null,
-                  "type": {
-                    "kind": "NON_NULL",
-                    "name": null,
-                    "ofType": {
-                      "kind": "SCALAR",
-                      "name": "ID",
-                      "ofType": null
-                    }
-                  },
-                  "defaultValue": null
-                }
-              ],
-              "type": {
-                "kind": "OBJECT",
-                "name": "Campaign",
-                "ofType": null
-              },
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
               "name": "campaignProperties",
               "description": "A User's campaign properties for their channel.",
               "args": [],
@@ -70102,8 +69345,43 @@
             },
             {
               "name": "incomingSquadStreamInvitations",
-              "description": "A list of the squad stream invitations that the user has received.\nEach invitation has a network type of either in-network or out-of-network. The invitations are sorted by creation\ntime, with the latest invitation first.\nThis field only resolves for the authenticated user.",
-              "args": [],
+              "description": "A list of the squad stream invitations that the user has received.\nThese invitations are sorted by creation time, and returned with the earliest invitation first.\nThis field only resolves for the authenticated user.",
+              "args": [
+                {
+                  "name": "first",
+                  "description": null,
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Int",
+                    "ofType": null
+                  },
+                  "defaultValue": "10"
+                },
+                {
+                  "name": "after",
+                  "description": null,
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Cursor",
+                    "ofType": null
+                  },
+                  "defaultValue": null
+                },
+                {
+                  "name": "networkType",
+                  "description": null,
+                  "type": {
+                    "kind": "NON_NULL",
+                    "name": null,
+                    "ofType": {
+                      "kind": "ENUM",
+                      "name": "SquadStreamInvitationNetworkType",
+                      "ofType": null
+                    }
+                  },
+                  "defaultValue": null
+                }
+              ],
               "type": {
                 "kind": "OBJECT",
                 "name": "SquadStreamInvitationConnection",
@@ -71540,29 +70818,6 @@
               "deprecationReason": null
             },
             {
-              "name": "verificationRequest",
-              "description": "Verification request object for the user and an associated contact address.\nIf no address is provided, the current email address associated with the user account will be used.",
-              "args": [
-                {
-                  "name": "address",
-                  "description": null,
-                  "type": {
-                    "kind": "SCALAR",
-                    "name": "String",
-                    "ofType": null
-                  },
-                  "defaultValue": null
-                }
-              ],
-              "type": {
-                "kind": "OBJECT",
-                "name": "VerificationRequest",
-                "ofType": null
-              },
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
               "name": "videoShelves",
               "description": "A paginated list of video shelves the user has specified for displaying their content.",
               "args": [
@@ -72685,33 +71940,6 @@
               "deprecationReason": null
             },
             {
-              "name": "subscriptionTenure",
-              "description": "Subscription tenure data for the user to this channel.",
-              "args": [
-                {
-                  "name": "tenureMethod",
-                  "description": null,
-                  "type": {
-                    "kind": "NON_NULL",
-                    "name": null,
-                    "ofType": {
-                      "kind": "ENUM",
-                      "name": "SubscriptionTenureMethod",
-                      "ofType": null
-                    }
-                  },
-                  "defaultValue": null
-                }
-              ],
-              "type": {
-                "kind": "OBJECT",
-                "name": "SubscriptionTenure",
-                "ofType": null
-              },
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
               "name": "whisperPermissions",
               "description": "Whether the authenticated user can send or receive Whispers to/from another user.",
               "args": [],
@@ -73341,22 +72569,6 @@
                 "ofType": {
                   "kind": "SCALAR",
                   "name": "String",
-                  "ofType": null
-                }
-              },
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
-              "name": "modified",
-              "description": "Time at which the verification request was last modified.",
-              "args": [],
-              "type": {
-                "kind": "NON_NULL",
-                "name": null,
-                "ofType": {
-                  "kind": "SCALAR",
-                  "name": "Time",
                   "ofType": null
                 }
               },
@@ -74972,18 +74184,6 @@
               "deprecationReason": null
             },
             {
-              "name": "moments",
-              "description": "Moments that cover a time range can also contain moments for that time range.",
-              "args": [],
-              "type": {
-                "kind": "OBJECT",
-                "name": "VideoMomentConnection",
-                "ofType": null
-              },
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
               "name": "positionMilliseconds",
               "description": "The time, in ms, after the start of the video when this moment occurs.",
               "args": [],
@@ -75119,11 +74319,6 @@
           "possibleTypes": [
             {
               "kind": "OBJECT",
-              "name": "GameChangeMomentDetails",
-              "ofType": null
-            },
-            {
-              "kind": "OBJECT",
               "name": "HearthstoneMomentDetails",
               "ofType": null
             },
@@ -75220,12 +74415,6 @@
               "deprecationReason": null
             },
             {
-              "name": "GAME_CHANGE",
-              "description": "GAME_CHANGE is when the streamer changes the game during their stream.",
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
               "name": "HEARTHSTONE_VCA",
               "description": "Hearthstone video content analysis markers.",
               "isDeprecated": false,
@@ -75240,12 +74429,6 @@
             {
               "name": "PUBG_VCA",
               "description": "PUBG video content analysis markers.",
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
-              "name": "VCA",
-              "description": "VCA generic VCA analysis markers.",
               "isDeprecated": false,
               "deprecationReason": null
             }
@@ -75929,13 +75112,7 @@
           "enumValues": [
             {
               "name": "LATEST_BROADCASTS",
-              "description": "Broadcasts sorted by recency.",
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
-              "name": "LATEST_NON_BROADCASTS",
-              "description": "Non broadcasts sorted by recency.",
+              "description": "Archives sorted by recency.",
               "isDeprecated": false,
               "deprecationReason": null
             },
