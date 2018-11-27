@@ -23879,6 +23879,18 @@
               "deprecationReason": null
             },
             {
+              "name": "product",
+              "description": "Resolves the product that the expired subscription is to.",
+              "args": [],
+              "type": {
+                "kind": "OBJECT",
+                "name": "SubscriptionProduct",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
               "name": "tenure",
               "description": "The total tenure of a user to a broadcaster.",
               "args": [],
