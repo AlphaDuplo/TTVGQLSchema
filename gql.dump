@@ -33055,6 +33055,36 @@
                     }
                   },
                   "defaultValue": null
+                },
+                {
+                  "name": "after",
+                  "description": null,
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Cursor",
+                    "ofType": null
+                  },
+                  "defaultValue": null
+                },
+                {
+                  "name": "first",
+                  "description": null,
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Int",
+                    "ofType": null
+                  },
+                  "defaultValue": "100"
+                },
+                {
+                  "name": "order",
+                  "description": null,
+                  "type": {
+                    "kind": "ENUM",
+                    "name": "SortOrder",
+                    "ofType": null
+                  },
+                  "defaultValue": "DESC"
                 }
               ],
               "type": {
@@ -33084,7 +33114,7 @@
                   "defaultValue": null
                 },
                 {
-                  "name": "limit",
+                  "name": "first",
                   "description": null,
                   "type": {
                     "kind": "SCALAR",
@@ -33094,7 +33124,7 @@
                   "defaultValue": "100"
                 },
                 {
-                  "name": "cursor",
+                  "name": "after",
                   "description": null,
                   "type": {
                     "kind": "SCALAR",
@@ -33111,7 +33141,7 @@
                     "name": "SortOrder",
                     "ofType": null
                   },
-                  "defaultValue": "ASC"
+                  "defaultValue": "DESC"
                 },
                 {
                   "name": "includeMessageCount",
@@ -45041,7 +45071,7 @@
             },
             {
               "name": "status",
-              "description": "The visual status of the offer to the user, UNSEEN, SEEN, CLAIMED, DISMISSED.",
+              "description": "The visual status of the offer to the user, UNSEEN, SEEN, CLAIMED, DISMISSED, OVERRIDDEN.",
               "args": [],
               "type": {
                 "kind": "NON_NULL",
@@ -50531,6 +50561,68 @@
           "possibleTypes": null
         },
         {
+          "kind": "OBJECT",
+          "name": "RejectSquadStreamInvitationError",
+          "description": "Errors from rejectSquadStreamInvitation mutation.",
+          "fields": [
+            {
+              "name": "code",
+              "description": "Error from request to reject invitation.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "ENUM",
+                  "name": "RejectSquadStreamInvitationErrorCode",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "ENUM",
+          "name": "RejectSquadStreamInvitationErrorCode",
+          "description": "Possible errors from this mutation.",
+          "fields": null,
+          "inputFields": null,
+          "interfaces": null,
+          "enumValues": [
+            {
+              "name": "INVITATION_NOT_FOUND",
+              "description": "Invitation to be rejected does not exist.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "SQUAD_NOT_FOUND",
+              "description": "Squad associated with the invitation does not exist.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "UNAUTHORIZED",
+              "description": "User does not have permissions to reject invitation.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "INVITATION_CANNOT_BE_REJECTED",
+              "description": "Invitation not in pending state cannot be rejected.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "possibleTypes": null
+        },
+        {
           "kind": "INPUT_OBJECT",
           "name": "RejectSquadStreamInvitationInput",
           "description": "Inputs to the rejectSquadStreamInvitation mutation.",
@@ -50560,6 +50652,18 @@
           "name": "RejectSquadStreamInvitationPayload",
           "description": "Outputs from the rejectSquadStreamInvitation mutation.",
           "fields": [
+            {
+              "name": "error",
+              "description": "Error from mutation if exists.",
+              "args": [],
+              "type": {
+                "kind": "OBJECT",
+                "name": "RejectSquadStreamInvitationError",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
             {
               "name": "invitation",
               "description": "The rejected invitation.",
