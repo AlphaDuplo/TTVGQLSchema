@@ -4346,60 +4346,6 @@
           "possibleTypes": null
         },
         {
-          "kind": "ENUM",
-          "name": "BitsPaymentMethodType",
-          "description": "Enum of payment method types.",
-          "fields": null,
-          "inputFields": null,
-          "interfaces": null,
-          "enumValues": [
-            {
-              "name": "PAYPAL",
-              "description": "Paypal.",
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
-              "name": "AMAZON_PAY",
-              "description": "Amazon Pay.",
-              "isDeprecated": false,
-              "deprecationReason": null
-            }
-          ],
-          "possibleTypes": null
-        },
-        {
-          "kind": "OBJECT",
-          "name": "BitsPaymentMethods",
-          "description": "The type used when checking which payment methods a user can use.",
-          "fields": [
-            {
-              "name": "paymentMethods",
-              "description": "A list of the valid bits payment methods for a user.",
-              "args": [],
-              "type": {
-                "kind": "LIST",
-                "name": null,
-                "ofType": {
-                  "kind": "NON_NULL",
-                  "name": null,
-                  "ofType": {
-                    "kind": "ENUM",
-                    "name": "BitsPaymentMethodType",
-                    "ofType": null
-                  }
-                }
-              },
-              "isDeprecated": false,
-              "deprecationReason": null
-            }
-          ],
-          "inputFields": null,
-          "interfaces": [],
-          "enumValues": null,
-          "possibleTypes": null
-        },
-        {
           "kind": "OBJECT",
           "name": "BitsProduct",
           "description": "A product for bits that contains all information about a product, except for the pricing.",
@@ -68953,18 +68899,6 @@
                   "name": "BitsOffer",
                   "ofType": null
                 }
-              },
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
-              "name": "bitsPaymentMethods",
-              "description": "BitsPaymentMethods has a list of eligible payment methods for a user to transact with.",
-              "args": [],
-              "type": {
-                "kind": "OBJECT",
-                "name": "BitsPaymentMethods",
-                "ofType": null
               },
               "isDeprecated": false,
               "deprecationReason": null
