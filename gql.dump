@@ -5700,6 +5700,18 @@
                   "ofType": null
                 }
               },
+              "isDeprecated": true,
+              "deprecationReason": "Use 'streamLengthSeconds' instead."
+            },
+            {
+              "name": "streamLengthSeconds",
+              "description": "How many seconds a bounty for this campaign must be streamed to complete the bounty.",
+              "args": [],
+              "type": {
+                "kind": "SCALAR",
+                "name": "Int",
+                "ofType": null
+              },
               "isDeprecated": false,
               "deprecationReason": null
             },
@@ -5744,6 +5756,26 @@
               "deprecationReason": "Use 'totalBudgetCents' in 'brandDetails' instead."
             },
             {
+              "name": "trackingPixels",
+              "description": "The tracking URLs for this campaign.",
+              "args": [],
+              "type": {
+                "kind": "LIST",
+                "name": null,
+                "ofType": {
+                  "kind": "NON_NULL",
+                  "name": null,
+                  "ofType": {
+                    "kind": "OBJECT",
+                    "name": "TrackingPixel",
+                    "ofType": null
+                  }
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
               "name": "type",
               "description": "The type of the campaign (ie. PAY_TO_STREAM).",
               "args": [],
@@ -5755,6 +5787,18 @@
                   "name": "BountyCampaignType",
                   "ofType": null
                 }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "videoURL",
+              "description": "The URL of the video for this campaign.",
+              "args": [],
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
               },
               "isDeprecated": false,
               "deprecationReason": null
@@ -14438,7 +14482,17 @@
             },
             {
               "name": "streamLengthMinutes",
-              "description": "How long the broadcaster needs to stream the sponsored content to complete the bounty.",
+              "description": "Deprecated. How long the broadcaster needs to stream the sponsored content to complete the bounty (in minutes).",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Int",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "streamLengthSeconds",
+              "description": "How long the broadcaster needs to stream the sponsored content to complete the bounty (in seconds).",
               "type": {
                 "kind": "SCALAR",
                 "name": "Int",
@@ -14499,11 +14553,39 @@
               "defaultValue": null
             },
             {
+              "name": "trackingPixels",
+              "description": "The tracking URLs for this campaign.",
+              "type": {
+                "kind": "LIST",
+                "name": null,
+                "ofType": {
+                  "kind": "NON_NULL",
+                  "name": null,
+                  "ofType": {
+                    "kind": "INPUT_OBJECT",
+                    "name": "TrackingPixelInput",
+                    "ofType": null
+                  }
+                }
+              },
+              "defaultValue": null
+            },
+            {
               "name": "type",
               "description": "The type of the campaign.",
               "type": {
                 "kind": "ENUM",
                 "name": "BountyCampaignType",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "videoURL",
+              "description": "The URL of the video for this campaign.",
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
                 "ofType": null
               },
               "defaultValue": null
@@ -64020,6 +64102,143 @@
           "inputFields": null,
           "interfaces": [],
           "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "OBJECT",
+          "name": "TrackingPixel",
+          "description": "A tracking pixel is used to measure impressions or demographics.",
+          "fields": [
+            {
+              "name": "origin",
+              "description": "Where this pixel came from.",
+              "args": [],
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "timeOffsetSeconds",
+              "description": "How long a client needs to view the content before firing the pixel.",
+              "args": [],
+              "type": {
+                "kind": "SCALAR",
+                "name": "Int",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "type",
+              "description": "The type of tracker.",
+              "args": [],
+              "type": {
+                "kind": "ENUM",
+                "name": "TrackingPixelType",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "url",
+              "description": "The URL that is requested when the pixel is fired.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "String",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "INPUT_OBJECT",
+          "name": "TrackingPixelInput",
+          "description": "The tracking pixel that will be created as part of this campaign.",
+          "fields": null,
+          "inputFields": [
+            {
+              "name": "timeOffsetSeconds",
+              "description": "How long a client needs to view the content before firing the pixel.",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Int",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "type",
+              "description": "The type of tracker.",
+              "type": {
+                "kind": "ENUM",
+                "name": "TrackingPixelType",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "url",
+              "description": "The URL that is requested when the pixel is fired.",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "String",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            }
+          ],
+          "interfaces": null,
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "ENUM",
+          "name": "TrackingPixelType",
+          "description": "The type of the tracking pixel.",
+          "fields": null,
+          "inputFields": null,
+          "interfaces": null,
+          "enumValues": [
+            {
+              "name": "DAR",
+              "description": "Digital Ad Ratings, a Nielsen product that provides demographic data.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "DCM",
+              "description": "DoubleClick Campaign Manager, a Google product to track ad performance.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "SIZMEK",
+              "description": "An impression tracking product.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
           "possibleTypes": null
         },
         {
