@@ -69070,15 +69070,15 @@
           "description": "UseChatNotificationTokenPayload is the return of the UseChatNotificationToken mutation.",
           "fields": [
             {
-              "name": "token",
-              "description": "Token that was used.",
+              "name": "isSuccess",
+              "description": "If the token was successfully used.",
               "args": [],
               "type": {
                 "kind": "NON_NULL",
                 "name": null,
                 "ofType": {
-                  "kind": "OBJECT",
-                  "name": "ResubNotification",
+                  "kind": "SCALAR",
+                  "name": "Boolean",
                   "ofType": null
                 }
               },
