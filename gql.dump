@@ -39757,6 +39757,33 @@
               "deprecationReason": null
             },
             {
+              "name": "useChatNotificationToken",
+              "description": "Uses a chat notification token.",
+              "args": [
+                {
+                  "name": "input",
+                  "description": null,
+                  "type": {
+                    "kind": "NON_NULL",
+                    "name": null,
+                    "ofType": {
+                      "kind": "INPUT_OBJECT",
+                      "name": "UseChatNotificationTokenInput",
+                      "ofType": null
+                    }
+                  },
+                  "defaultValue": null
+                }
+              ],
+              "type": {
+                "kind": "OBJECT",
+                "name": "UseChatNotificationTokenPayload",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
               "name": "validateVerificationCode",
               "description": "validateVerificationCode validates a given code and sets the address to verified if it matches.",
               "args": [
@@ -68760,6 +68787,92 @@
           "possibleTypes": null
         },
         {
+          "kind": "INPUT_OBJECT",
+          "name": "UseChatNotificationTokenInput",
+          "description": "UseChatNotificationTokenInput is the input required for the UseChatNotificationToken mutation.",
+          "fields": null,
+          "inputFields": [
+            {
+              "name": "channelLogin",
+              "description": "The channel that this token will be used on.",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "String",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "includeStreak",
+              "description": "Whether or not to include user's streak tenure.",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Boolean",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "message",
+              "description": "An optional message that will be displayed when this chat token is used.",
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "tokenID",
+              "description": "An optional ID of token to be used.",
+              "type": {
+                "kind": "SCALAR",
+                "name": "ID",
+                "ofType": null
+              },
+              "defaultValue": null
+            }
+          ],
+          "interfaces": null,
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "OBJECT",
+          "name": "UseChatNotificationTokenPayload",
+          "description": "UseChatNotificationTokenPayload is the return of the UseChatNotificationToken mutation.",
+          "fields": [
+            {
+              "name": "token",
+              "description": "Token that was used.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "OBJECT",
+                  "name": "ResubNotification",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
           "kind": "OBJECT",
           "name": "User",
           "description": "Twitch user.",
@@ -74110,6 +74223,18 @@
               "deprecationReason": null
             },
             {
+              "name": "muteInfo",
+              "description": "Publicly available muted segment info, detailing which parts of the video\nhave had audio removed.",
+              "args": [],
+              "type": {
+                "kind": "OBJECT",
+                "name": "VideoMuteInfo",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
               "name": "offsetSeconds",
               "description": "For highlights, the number of seconds offset from the beginning of the past broadcast the highlight starts.\nFor past broadcasts and uploads, this means nothing.",
               "args": [],
@@ -75484,6 +75609,103 @@
               "deprecationReason": null
             }
           ],
+          "possibleTypes": null
+        },
+        {
+          "kind": "OBJECT",
+          "name": "VideoMuteInfo",
+          "description": "Details about automatic mutes applied to this video.",
+          "fields": [
+            {
+              "name": "mutedSegmentConnection",
+              "description": "List of segments muted.",
+              "args": [],
+              "type": {
+                "kind": "OBJECT",
+                "name": "VideoMutedSegmentConnection",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "OBJECT",
+          "name": "VideoMutedSegment",
+          "description": "Information about one contiguous muted portion of video.",
+          "fields": [
+            {
+              "name": "duration",
+              "description": "Duration in seconds of the mute. Standard length is 360 (6 mins).",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Int",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "offset",
+              "description": "Offset is how many seconds into the video the mute begins. May be 0.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Int",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "OBJECT",
+          "name": "VideoMutedSegmentConnection",
+          "description": "A list of all sections of the video that are muted.\nIf pagination is required at any point in the future, put edges and pageInfo\nin this type.",
+          "fields": [
+            {
+              "name": "nodes",
+              "description": "No pagination functionality. All data returned in initial call.",
+              "args": [],
+              "type": {
+                "kind": "LIST",
+                "name": null,
+                "ofType": {
+                  "kind": "NON_NULL",
+                  "name": null,
+                  "ofType": {
+                    "kind": "OBJECT",
+                    "name": "VideoMutedSegment",
+                    "ofType": null
+                  }
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
+          "enumValues": null,
           "possibleTypes": null
         },
         {
