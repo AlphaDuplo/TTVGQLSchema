@@ -789,6 +789,18 @@
               "deprecationReason": null
             },
             {
+              "name": "requiredAge",
+              "description": "The stream has the required age gate enabled if greater than 0.",
+              "args": [],
+              "type": {
+                "kind": "SCALAR",
+                "name": "Int",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
               "name": "vodArchiveMidrolls",
               "description": "Setting for vod archive midrolls on this channel. Can be 'broadcaster', 'inserted', or 'off'.",
               "args": [],
