@@ -58635,6 +58635,18 @@
               "deprecationReason": "Channel fields have been merged into User. Use stream.broadcaster instead."
             },
             {
+              "name": "clipCount",
+              "description": "Number of clips created since stream start.",
+              "args": [],
+              "type": {
+                "kind": "SCALAR",
+                "name": "Int",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
               "name": "codec",
               "description": null,
               "args": [],
