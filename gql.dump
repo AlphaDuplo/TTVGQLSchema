@@ -3402,6 +3402,49 @@
         },
         {
           "kind": "OBJECT",
+          "name": "BitsBadgeTierNotification",
+          "description": "A notification about achieving a new bits badge tier. Used to send a special message.",
+          "fields": [
+            {
+              "name": "id",
+              "description": "UUID for notification.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "ID",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "threshold",
+              "description": "Represents the badge tier threshold reached by the user on a channel (e.g. 100, 1000, etc).",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Int",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "OBJECT",
           "name": "BitsBundleOffer",
           "description": "BitsBundleOffer is an offer to purchase a number of bits for a certain price.",
           "fields": [
@@ -48593,6 +48636,33 @@
               "deprecationReason": null
             },
             {
+              "name": "verificationRequest",
+              "description": "Get a verification request given an opaqueID.\nThese are generally email verification requests, but could be phone-numbers in the future.",
+              "args": [
+                {
+                  "name": "opaqueID",
+                  "description": null,
+                  "type": {
+                    "kind": "NON_NULL",
+                    "name": null,
+                    "ofType": {
+                      "kind": "SCALAR",
+                      "name": "ID",
+                      "ofType": null
+                    }
+                  },
+                  "defaultValue": null
+                }
+              ],
+              "type": {
+                "kind": "OBJECT",
+                "name": "VerificationRequest",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
               "name": "video",
               "description": "Get a video by its ID.\nBy default, Video queries only return public videos.\nIf the owner should also see their own private videos, set includePrivate flag in the `options` input.\nThis flag does not include other people's private videos.",
               "args": [
@@ -72928,6 +72998,18 @@
                   "name": "Float",
                   "ofType": null
                 }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "tierNotification",
+              "description": "tierNotification represents a notification sent to a user when they have achieved\na new bits badge in a channel. Used to send a special message.\nIf no notification is pending this will be null.",
+              "args": [],
+              "type": {
+                "kind": "OBJECT",
+                "name": "BitsBadgeTierNotification",
+                "ofType": null
               },
               "isDeprecated": false,
               "deprecationReason": null
