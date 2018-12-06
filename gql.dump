@@ -51729,6 +51729,12 @@
               "deprecationReason": null
             },
             {
+              "name": "EMOTE_REPORT",
+              "description": "Report against an emote.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
               "name": "EVENT_REPORT",
               "description": "Report against an oracle event.",
               "isDeprecated": false,
@@ -60723,6 +60729,22 @@
               "deprecationReason": null
             },
             {
+              "name": "state",
+              "description": "The avaliability state of the product. e.g. \"active\" or \"inactive\".",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "ENUM",
+                  "name": "SubscriptionState",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
               "name": "thirdPartyTemplateSKU",
               "description": "ThirdPartytemplateSKU is used by the frontend to retrieve third party product information such\nas price. templateSKU is exposed separately from purchaseSKU since retrieving purchaseSKU is a\nmore expensive operation. A user may not be able to purchase the templateSKU. Use purchaseSKU\nwhen the user has indiciated they want to purchase.\nUses Client-ID to determine platform information and IP address to determine location.",
               "args": [
@@ -61381,6 +61403,35 @@
             {
               "name": "INACTIVE",
               "description": "Inactive subscription purchase. User's subscription benefit from the original purchase has ended\nand has not renewed.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "possibleTypes": null
+        },
+        {
+          "kind": "ENUM",
+          "name": "SubscriptionState",
+          "description": "The availability state of a subscription product.",
+          "fields": null,
+          "inputFields": null,
+          "interfaces": null,
+          "enumValues": [
+            {
+              "name": "ACTIVE",
+              "description": "Active state.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "INACTIVE",
+              "description": "Inactive state.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "UNKNOWN",
+              "description": "Unknown state.",
               "isDeprecated": false,
               "deprecationReason": null
             }
