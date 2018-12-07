@@ -706,7 +706,7 @@
             },
             {
               "name": "adasProperties",
-              "description": "Amazon Digital Ad Servic (ADAS) specific Properties for this channel. Properties should only be nested if it is ADAS specific.",
+              "description": "Amazon Digital Ad Service (ADAS) specific Properties for this channel. Properties should only be nested if it is ADAS specific.",
               "args": [],
               "type": {
                 "kind": "OBJECT",
@@ -796,6 +796,37 @@
                 "kind": "SCALAR",
                 "name": "Int",
                 "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "trackingPixels",
+              "description": "Tracking pixels that channel pages should fire at certain intervals.",
+              "args": [
+                {
+                  "name": "consent",
+                  "description": null,
+                  "type": {
+                    "kind": "INPUT_OBJECT",
+                    "name": "GDPRConsent",
+                    "ofType": null
+                  },
+                  "defaultValue": null
+                }
+              ],
+              "type": {
+                "kind": "LIST",
+                "name": null,
+                "ofType": {
+                  "kind": "NON_NULL",
+                  "name": null,
+                  "ofType": {
+                    "kind": "OBJECT",
+                    "name": "TrackingPixel",
+                    "ofType": null
+                  }
+                }
               },
               "isDeprecated": false,
               "deprecationReason": null
@@ -28316,6 +28347,67 @@
           ],
           "inputFields": null,
           "interfaces": [],
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "INPUT_OBJECT",
+          "name": "GDPRConsent",
+          "description": "GDPR Consent contains user consent on different tracking vendors.",
+          "fields": null,
+          "inputFields": [
+            {
+              "name": "allowAmazon",
+              "description": "Whether Amazon has user GDPR consent.",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Boolean",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "allowComscore",
+              "description": "Whether Comscore has user GDPR consent.",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Boolean",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "allowGoogle",
+              "description": "Whether Google has user GDPR consent.",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Boolean",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "allowNielsen",
+              "description": "Whether Nielson has user GDPR consent.",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Boolean",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "allowSalesforce",
+              "description": "Whether Salesforce has user GDPR consent.",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Boolean",
+                "ofType": null
+              },
+              "defaultValue": null
+            }
+          ],
+          "interfaces": null,
           "enumValues": null,
           "possibleTypes": null
         },
