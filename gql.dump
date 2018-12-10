@@ -19590,6 +19590,54 @@
         },
         {
           "kind": "INPUT_OBJECT",
+          "name": "DeleteModeratorCommentInput",
+          "description": "Output from the DeleteModeratorComment mutation.",
+          "fields": null,
+          "inputFields": [
+            {
+              "name": "ID",
+              "description": "ID of the comment to be deleted.",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "ID",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            }
+          ],
+          "interfaces": null,
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "OBJECT",
+          "name": "DeleteModeratorCommentPayload",
+          "description": "Output from the DeleteModeratorComment mutation.",
+          "fields": [
+            {
+              "name": "comment",
+              "description": "The deleted comment.",
+              "args": [],
+              "type": {
+                "kind": "OBJECT",
+                "name": "ModLogsComment",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "INPUT_OBJECT",
           "name": "DeleteMultiviewContentAttributesInput",
           "description": "Contains a list of IDs of content attributes that are to be deleted.",
           "fields": null,
@@ -36404,6 +36452,33 @@
               "type": {
                 "kind": "OBJECT",
                 "name": "DeleteEventLeafPayload",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "deleteModeratorComment",
+              "description": "deleteModeratorComment deletes a moderator comment with the given ID.\nThe comment must have been created on the requester's channel.",
+              "args": [
+                {
+                  "name": "input",
+                  "description": null,
+                  "type": {
+                    "kind": "NON_NULL",
+                    "name": null,
+                    "ofType": {
+                      "kind": "INPUT_OBJECT",
+                      "name": "DeleteModeratorCommentInput",
+                      "ofType": null
+                    }
+                  },
+                  "defaultValue": null
+                }
+              ],
+              "type": {
+                "kind": "OBJECT",
+                "name": "DeleteModeratorCommentPayload",
                 "ofType": null
               },
               "isDeprecated": false,
