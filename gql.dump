@@ -33077,7 +33077,7 @@
         {
           "kind": "OBJECT",
           "name": "Milestone",
-          "description": "Milestone is a construct is used within a tournament. For a given threshold, when the user \ncheers at or past this amount, they are able to claim a reward for cheering at this level.\nRewards can be fulfilled by different platforms.\nTypes of milestones:\n- **Global milestone**: for a given threshold, this milestone is reached when cheers from all \n  users on the channel is greater than or equal to the threshold. \n  This unlocks a reward for all users who have cheered.\n- **Individual milestone**: for a given threshold, this milestone is reached when an individual \n  user's total cheers in the channel is greater than or equal to the threshold. \n  This unlocks a reward for the individual user who cheered.\n- **Team milestone**: for a given threshold, this milestone is reached when an individual cheers \n  for a specific team in total is greater than or equal to the threshold. \n  This unlocks a reward for the individual user who cheered.\n\nNOTE: Should have been named CheeringTournamentMilestone.",
+          "description": "Milestone is a construct is used within a tournament. For a given threshold, when the user\ncheers at or past this amount, they are able to claim a reward for cheering at this level.\nRewards can be fulfilled by different platforms.\nTypes of milestones:\n- **Global milestone**: for a given threshold, this milestone is reached when cheers from all\n  users on the channel is greater than or equal to the threshold.\n  This unlocks a reward for all users who have cheered.\n- **Individual milestone**: for a given threshold, this milestone is reached when an individual\n  user's total cheers in the channel is greater than or equal to the threshold.\n  This unlocks a reward for the individual user who cheered.\n- **Team milestone**: for a given threshold, this milestone is reached when an individual cheers\n  for a specific team in total is greater than or equal to the threshold.\n  This unlocks a reward for the individual user who cheered.\n\nNOTE: Should have been named CheeringTournamentMilestone.",
           "fields": [
             {
               "name": "endDate",
@@ -33154,6 +33154,26 @@
                   "kind": "SCALAR",
                   "name": "Int",
                   "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "requiredSubscriptions",
+              "description": "The subs that this milestone’s completion requires.",
+              "args": [],
+              "type": {
+                "kind": "LIST",
+                "name": null,
+                "ofType": {
+                  "kind": "NON_NULL",
+                  "name": null,
+                  "ofType": {
+                    "kind": "OBJECT",
+                    "name": "SubscriptionProduct",
+                    "ofType": null
+                  }
                 }
               },
               "isDeprecated": false,
