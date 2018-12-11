@@ -2035,6 +2035,72 @@
           "possibleTypes": null
         },
         {
+          "kind": "INPUT_OBJECT",
+          "name": "ArchiveChannelRestrictionInput",
+          "description": "ArchiveChannelRestrictionInput archives a channel's restriction by restrictionID.",
+          "fields": null,
+          "inputFields": [
+            {
+              "name": "channelID",
+              "description": "The channel where the restriction is being archived.",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "ID",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "restrictionID",
+              "description": "The ID of the restriction being archived.",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "ID",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            }
+          ],
+          "interfaces": null,
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "OBJECT",
+          "name": "ArchiveChannelRestrictionPayload",
+          "description": "ArchiveChannelRestrictionPayload returns the restrictionID that was archived.",
+          "fields": [
+            {
+              "name": "channel",
+              "description": "The channel that owns the restriction that was archived.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "OBJECT",
+                  "name": "Channel",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
           "kind": "OBJECT",
           "name": "AssociatesStore",
           "description": "Information regarding an Amazon Associates store.",
@@ -35218,6 +35284,33 @@
               "type": {
                 "kind": "OBJECT",
                 "name": "ApplyExtensionActivationsPayload",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "archiveChannelRestriction",
+              "description": "Archives a channel restriction to remove the restriction from the channel.",
+              "args": [
+                {
+                  "name": "input",
+                  "description": null,
+                  "type": {
+                    "kind": "NON_NULL",
+                    "name": null,
+                    "ofType": {
+                      "kind": "INPUT_OBJECT",
+                      "name": "ArchiveChannelRestrictionInput",
+                      "ofType": null
+                    }
+                  },
+                  "defaultValue": null
+                }
+              ],
+              "type": {
+                "kind": "OBJECT",
+                "name": "ArchiveChannelRestrictionPayload",
                 "ofType": null
               },
               "isDeprecated": false,
