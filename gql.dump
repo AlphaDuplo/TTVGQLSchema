@@ -7772,6 +7772,29 @@
           "possibleTypes": null
         },
         {
+          "kind": "ENUM",
+          "name": "ChanletSort",
+          "description": "ChanletSort indicates the desired order of chanlets in the list returned by LoadChanletsByUserID.",
+          "fields": null,
+          "inputFields": null,
+          "interfaces": null,
+          "enumValues": [
+            {
+              "name": "NONE",
+              "description": "ChanletSortNone indicates that the order of chanlets returned is insignificant to the client and is allowed to be arbitrary.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "VIEWER_COUNT",
+              "description": "ChanletSortViewerCount indicates chanlets should return sorted by viewer counts, descending.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "possibleTypes": null
+        },
+        {
           "kind": "OBJECT",
           "name": "Channel",
           "description": null,
@@ -7843,7 +7866,18 @@
             {
               "name": "chanlets",
               "description": "A list of the channel's chanlets (sub-channels) in a multi-view experience.",
-              "args": [],
+              "args": [
+                {
+                  "name": "sort",
+                  "description": null,
+                  "type": {
+                    "kind": "ENUM",
+                    "name": "ChanletSort",
+                    "ofType": null
+                  },
+                  "defaultValue": "NONE"
+                }
+              ],
               "type": {
                 "kind": "LIST",
                 "name": null,
