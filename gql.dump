@@ -72305,6 +72305,29 @@
               "deprecationReason": null
             },
             {
+              "name": "relationship",
+              "description": "This user's relationship with another user.",
+              "args": [
+                {
+                  "name": "targetUserID",
+                  "description": null,
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "ID",
+                    "ofType": null
+                  },
+                  "defaultValue": null
+                }
+              ],
+              "type": {
+                "kind": "OBJECT",
+                "name": "UserRelationship",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
               "name": "residence",
               "description": "User's declared country of residence.",
               "args": [],
@@ -73195,6 +73218,68 @@
               "deprecationReason": null
             }
           ],
+          "possibleTypes": null
+        },
+        {
+          "kind": "OBJECT",
+          "name": "UserRelationship",
+          "description": "Subjective data on a User (user/channel) for the target user.",
+          "fields": [
+            {
+              "name": "followedAt",
+              "description": "The time when a follower relationship between the user and the target user was established.",
+              "args": [],
+              "type": {
+                "kind": "SCALAR",
+                "name": "Time",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "subscriptionBenefit",
+              "description": "The subscription benefit relationship between the user and the target user.\nNull if the user is not subscribed to the other user.",
+              "args": [],
+              "type": {
+                "kind": "OBJECT",
+                "name": "SubscriptionBenefit",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "subscriptionTenure",
+              "description": "Subscription tenure data for the user to the target user.",
+              "args": [
+                {
+                  "name": "tenureMethod",
+                  "description": null,
+                  "type": {
+                    "kind": "NON_NULL",
+                    "name": null,
+                    "ofType": {
+                      "kind": "ENUM",
+                      "name": "SubscriptionTenureMethod",
+                      "ofType": null
+                    }
+                  },
+                  "defaultValue": null
+                }
+              ],
+              "type": {
+                "kind": "OBJECT",
+                "name": "SubscriptionTenure",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
+          "enumValues": null,
           "possibleTypes": null
         },
         {
