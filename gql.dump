@@ -3541,6 +3541,35 @@
           "possibleTypes": null
         },
         {
+          "kind": "ENUM",
+          "name": "BitsBadgeTierNotificationState",
+          "description": "Represents the state of the notification.",
+          "fields": null,
+          "inputFields": null,
+          "interfaces": null,
+          "enumValues": [
+            {
+              "name": "SKIPPED",
+              "description": "User dismissed the notification.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "SHARED",
+              "description": "User shared the notification with chat.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "SHOW",
+              "description": "Notification should be shown to user.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "possibleTypes": null
+        },
+        {
           "kind": "OBJECT",
           "name": "BitsBundleOffer",
           "description": "BitsBundleOffer is an offer to purchase a number of bits for a certain price.",
@@ -39305,6 +39334,33 @@
               "deprecationReason": null
             },
             {
+              "name": "updateBitsBadgeTierNotification",
+              "description": "Updates bits badge tier notification.",
+              "args": [
+                {
+                  "name": "input",
+                  "description": null,
+                  "type": {
+                    "kind": "NON_NULL",
+                    "name": null,
+                    "ofType": {
+                      "kind": "INPUT_OBJECT",
+                      "name": "UpdateBitsBadgeTierNotificationInput",
+                      "ofType": null
+                    }
+                  },
+                  "defaultValue": null
+                }
+              ],
+              "type": {
+                "kind": "OBJECT",
+                "name": "UpdateBitsBadgeTierNotificationPayload",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
               "name": "updateBroadcastSettings",
               "description": "updateBroadcastSettings allows the user to update their broadcast setting.",
               "args": [
@@ -66237,6 +66293,78 @@
         },
         {
           "kind": "INPUT_OBJECT",
+          "name": "UpdateBitsBadgeTierNotificationInput",
+          "description": "UpdateBitsBadgeTierNotificationInput is the input required when updating a bits badge tier notification.",
+          "fields": null,
+          "inputFields": [
+            {
+              "name": "message",
+              "description": "Optional message to send when sharing notification. If supplied, will accompany user notice.",
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "notificationID",
+              "description": "Unique Identifier for the notification.",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "ID",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "notificationState",
+              "description": "New state for notification.",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "ENUM",
+                  "name": "BitsBadgeTierNotificationState",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            }
+          ],
+          "interfaces": null,
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "OBJECT",
+          "name": "UpdateBitsBadgeTierNotificationPayload",
+          "description": "UpdateBitsBadgeTierNotificationPayload is the payload returned after updating a bits badge tier notification.",
+          "fields": [
+            {
+              "name": "user",
+              "description": "The user that updated the bits badge tier notification.",
+              "args": [],
+              "type": {
+                "kind": "OBJECT",
+                "name": "User",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "INPUT_OBJECT",
           "name": "UpdateBroadcastSettingsInput",
           "description": "The required input for a updateBroadcastSettings mutation.",
           "fields": null,
@@ -69243,6 +69371,16 @@
             {
               "name": "isGiftCountHidden",
               "description": "Whether the user wants to show how many gifts they've purchased.",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Boolean",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "isSubscriptionStatusHidden",
+              "description": "Whether the user wants to show their subscription tenure and status in the chat viewer card.",
               "type": {
                 "kind": "SCALAR",
                 "name": "Boolean",
@@ -74175,6 +74313,22 @@
             {
               "name": "isGiftCountHidden",
               "description": "If the user wants to hide the number of gifts they've gifted.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Boolean",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "isSubscriptionStatusHidden",
+              "description": "If the user wants to hide their subscription tenure and status in the chat viewer card.",
               "args": [],
               "type": {
                 "kind": "NON_NULL",
