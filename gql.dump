@@ -6809,6 +6809,18 @@
               "deprecationReason": null
             },
             {
+              "name": "liveUpNotification",
+              "description": "The text that will be in the notification that sends when the user starts broadcasting.\nThe default value is \"<user> went live!\", when the user has not set a custom value.",
+              "args": [],
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
               "name": "title",
               "description": "The title of the user's broadcast. The default value is \"\", when the user has not indicated a title.",
               "args": [],
@@ -39774,6 +39786,33 @@
               "deprecationReason": null
             },
             {
+              "name": "updateLiveUpNotification",
+              "description": "Changes the user's activity sharing setting. A user's activity is one part of their status.",
+              "args": [
+                {
+                  "name": "input",
+                  "description": null,
+                  "type": {
+                    "kind": "NON_NULL",
+                    "name": null,
+                    "ofType": {
+                      "kind": "INPUT_OBJECT",
+                      "name": "UpdateLiveUpNotificationInput",
+                      "ofType": null
+                    }
+                  },
+                  "defaultValue": null
+                }
+              ],
+              "type": {
+                "kind": "OBJECT",
+                "name": "UpdateLiveUpNotificationPayload",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
               "name": "updateMultiviewContentAttributes",
               "description": "Modifies multi-view content attributes.",
               "args": [
@@ -67624,6 +67663,136 @@
           "inputFields": null,
           "interfaces": [],
           "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "INPUT_OBJECT",
+          "name": "UpdateLiveUpNotificationInput",
+          "description": "The required input for a updateLiveUpNotification mutation.",
+          "fields": null,
+          "inputFields": [
+            {
+              "name": "liveUpNotification",
+              "description": "The text that will be in the notification that sends when the user starts broadcasting.\nIf updated to \"\", the default value of \"<user> went live!\" will be used/returned.",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "String",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "userID",
+              "description": "The ID of the user whose live up notification is being updated.",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "ID",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            }
+          ],
+          "interfaces": null,
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "OBJECT",
+          "name": "UpdateLiveUpNotificationPayload",
+          "description": "Returned after live up notification state is mutated.",
+          "fields": [
+            {
+              "name": "broadcastSettings",
+              "description": "The modified broadcast settings.",
+              "args": [],
+              "type": {
+                "kind": "OBJECT",
+                "name": "BroadcastSettings",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "error",
+              "description": "If any validation errors occur, this will not be nil.",
+              "args": [],
+              "type": {
+                "kind": "OBJECT",
+                "name": "UpdateLiveUpNotificationValidationError",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "OBJECT",
+          "name": "UpdateLiveUpNotificationValidationError",
+          "description": "Resolver for validation errors that occur on update live up notification.",
+          "fields": [
+            {
+              "name": "code",
+              "description": "Error code that describes the validation error.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "ENUM",
+                  "name": "UpdateLiveUpNotificationValidationErrorCode",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "ENUM",
+          "name": "UpdateLiveUpNotificationValidationErrorCode",
+          "description": "Validation error status codes.",
+          "fields": null,
+          "inputFields": null,
+          "interfaces": null,
+          "enumValues": [
+            {
+              "name": "FAILED_AUTOMOD",
+              "description": "The notification text sent did not pass auto mod.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "TOO_LONG",
+              "description": "The notification text sent is too long.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "USER_NOT_FOUND",
+              "description": "The target user is not found.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
           "possibleTypes": null
         },
         {
