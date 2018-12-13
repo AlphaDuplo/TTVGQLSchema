@@ -7109,6 +7109,29 @@
           "possibleTypes": null
         },
         {
+          "kind": "ENUM",
+          "name": "CampaignDiscoveryEventType",
+          "description": "CampaignDiscoveryEventType contains the different types of discovery events that campaign objectives can track.",
+          "fields": null,
+          "inputFields": null,
+          "interfaces": null,
+          "enumValues": [
+            {
+              "name": "ENGAGE_COMMAND_CENTER",
+              "description": "An event describing a user's interaction with the command center.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "ENGAGE_STREAM",
+              "description": "An event describing a user's interaction with a stream.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "possibleTypes": null
+        },
+        {
           "kind": "OBJECT",
           "name": "CampaignObjective",
           "description": "This type holds information about a campaign objective, which belongs to a campaign.\nAn objective can hold multiple milestones which users can hit and get rewards.\nAn objective can hold a cheer group.",
@@ -22199,6 +22222,72 @@
           "possibleTypes": null
         },
         {
+          "kind": "INPUT_OBJECT",
+          "name": "EmitCampaignDiscoveryEventInput",
+          "description": "EmitCampaignDiscoveryEventInput contains the campaign objective type of the event being emitted\nand the channelID from which this event is born.",
+          "fields": null,
+          "inputFields": [
+            {
+              "name": "channelID",
+              "description": "The channelID from the channel this event is taking place on.",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "ID",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "discoveryType",
+              "description": "The campaign objective type of the event.",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "ENUM",
+                  "name": "CampaignDiscoveryEventType",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            }
+          ],
+          "interfaces": null,
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "OBJECT",
+          "name": "EmitCampaignDiscoveryEventPayload",
+          "description": "EmitCampaignDiscoveryEventPayload is the success response for emitting a campaign discovery event.",
+          "fields": [
+            {
+              "name": "isSuccess",
+              "description": "Whether the call succeeded or not.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Boolean",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
           "kind": "OBJECT",
           "name": "Emote",
           "description": null,
@@ -37114,6 +37203,33 @@
               "type": {
                 "kind": "OBJECT",
                 "name": "EditRoomMessagePayload",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "emitCampaignDiscoveryEvent",
+              "description": "emitCampaignDiscoveryEvent updates a user's progress towards a discovery objective in applicable campaigns.",
+              "args": [
+                {
+                  "name": "input",
+                  "description": null,
+                  "type": {
+                    "kind": "NON_NULL",
+                    "name": null,
+                    "ofType": {
+                      "kind": "INPUT_OBJECT",
+                      "name": "EmitCampaignDiscoveryEventInput",
+                      "ofType": null
+                    }
+                  },
+                  "defaultValue": null
+                }
+              ],
+              "type": {
+                "kind": "OBJECT",
+                "name": "EmitCampaignDiscoveryEventPayload",
                 "ofType": null
               },
               "isDeprecated": false,
