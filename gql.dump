@@ -34344,8 +34344,8 @@
               "description": "The message or targeted moderation action.",
               "args": [],
               "type": {
-                "kind": "OBJECT",
-                "name": "ModLogsMessage",
+                "kind": "UNION",
+                "name": "ModLogsMessageResult",
                 "ofType": null
               },
               "isDeprecated": false,
@@ -34395,6 +34395,27 @@
           "interfaces": [],
           "enumValues": null,
           "possibleTypes": null
+        },
+        {
+          "kind": "UNION",
+          "name": "ModLogsMessageResult",
+          "description": "ModLogsMessageResult defines the types of entries that appear as mod log messages: Mod Logs (Chat) Messages and Targeted Mod Actions.",
+          "fields": null,
+          "inputFields": null,
+          "interfaces": null,
+          "enumValues": null,
+          "possibleTypes": [
+            {
+              "kind": "OBJECT",
+              "name": "ModLogsMessage",
+              "ofType": null
+            },
+            {
+              "kind": "OBJECT",
+              "name": "ModLogsTargetedModActionsEntry",
+              "ofType": null
+            }
+          ]
         },
         {
           "kind": "OBJECT",
