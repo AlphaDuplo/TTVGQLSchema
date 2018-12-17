@@ -38792,6 +38792,33 @@
               "deprecationReason": null
             },
             {
+              "name": "setOverwatchLeagueTeamPreference",
+              "description": "setOverwatchLeagueTeamPreference allows a user to set their preferred Overwatch team.",
+              "args": [
+                {
+                  "name": "input",
+                  "description": null,
+                  "type": {
+                    "kind": "NON_NULL",
+                    "name": null,
+                    "ofType": {
+                      "kind": "INPUT_OBJECT",
+                      "name": "SetOverwatchLeagueTeamPreferenceInput",
+                      "ofType": null
+                    }
+                  },
+                  "defaultValue": null
+                }
+              ],
+              "type": {
+                "kind": "OBJECT",
+                "name": "SetOverwatchLeagueTeamPreferencePayload",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
               "name": "setPreferredLanguageTag",
               "description": "Set a user's preferred language tag.",
               "args": [
@@ -57036,6 +57063,54 @@
                   "name": "String",
                   "ofType": null
                 }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "INPUT_OBJECT",
+          "name": "SetOverwatchLeagueTeamPreferenceInput",
+          "description": "SetOverwatchLeagueTeamPreferenceInput contains the OverwatchLeagueTeamPreference ID to set.",
+          "fields": null,
+          "inputFields": [
+            {
+              "name": "OverwatchTeamPreferenceOptionID",
+              "description": "The channelID from the channel this event is taking place on.",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "ID",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            }
+          ],
+          "interfaces": null,
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "OBJECT",
+          "name": "SetOverwatchLeagueTeamPreferencePayload",
+          "description": "SetOverwatchLeagueTeamPreferencePayload is the success response for setting an Overwatch League Team preference, and\nthe corresponding updated OverwatchLeagueTeamPreference struct.",
+          "fields": [
+            {
+              "name": "overwatchLeagueTeamPreference",
+              "description": "The updated OverwatchLeagueTeamPreference struct.",
+              "args": [],
+              "type": {
+                "kind": "OBJECT",
+                "name": "OverwatchLeagueTeamPreference",
+                "ofType": null
               },
               "isDeprecated": false,
               "deprecationReason": null
