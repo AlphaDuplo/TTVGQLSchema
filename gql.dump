@@ -62458,6 +62458,38 @@
           "description": "Tenure to a subscription product.",
           "fields": [
             {
+              "name": "daysRemaining",
+              "description": "The days remaining in a user's current tenure period.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Int",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "elapsedDays",
+              "description": "The days elapsed in a user's current tenure period.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Int",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
               "name": "end",
               "description": "The ending date of a user's tenure.",
               "args": [],
