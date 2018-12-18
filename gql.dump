@@ -62923,6 +62923,22 @@
               "deprecationReason": null
             },
             {
+              "name": "scope",
+              "description": "Scope of the Tag.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "ENUM",
+                  "name": "TagScope",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
               "name": "tagName",
               "description": "Official Name of this tag in English.",
               "args": [],
