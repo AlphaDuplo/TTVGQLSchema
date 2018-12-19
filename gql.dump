@@ -3503,6 +3503,22 @@
           "description": "A notification about achieving a new bits badge tier. Used to send a special message.",
           "fields": [
             {
+              "name": "canShare",
+              "description": "Whether or not the notification can be shared with chat.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Boolean",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
               "name": "id",
               "description": "UUID for notification.",
               "args": [],
@@ -7904,6 +7920,39 @@
               "deprecationReason": null
             },
             {
+              "name": "bannedUsers",
+              "description": "A paginated list of users who are banned from this channel.",
+              "args": [
+                {
+                  "name": "after",
+                  "description": null,
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Cursor",
+                    "ofType": null
+                  },
+                  "defaultValue": null
+                },
+                {
+                  "name": "first",
+                  "description": null,
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Int",
+                    "ofType": null
+                  },
+                  "defaultValue": "25"
+                }
+              ],
+              "type": {
+                "kind": "OBJECT",
+                "name": "ChannelBannedUserConnection",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
               "name": "broadcasterLanguage",
               "description": null,
               "args": [],
@@ -8397,6 +8446,92 @@
               "type": {
                 "kind": "OBJECT",
                 "name": "User",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "OBJECT",
+          "name": "ChannelBannedUserConnection",
+          "description": "Paginated list of users banned from a channel.",
+          "fields": [
+            {
+              "name": "edges",
+              "description": "The elements of the list.",
+              "args": [],
+              "type": {
+                "kind": "LIST",
+                "name": null,
+                "ofType": {
+                  "kind": "NON_NULL",
+                  "name": null,
+                  "ofType": {
+                    "kind": "OBJECT",
+                    "name": "ChannelBannedUserEdge",
+                    "ofType": null
+                  }
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "pageInfo",
+              "description": "Information about this page of banned users.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "OBJECT",
+                  "name": "PageInfo",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "OBJECT",
+          "name": "ChannelBannedUserEdge",
+          "description": "Element in a list of users banned from a channel.",
+          "fields": [
+            {
+              "name": "cursor",
+              "description": "Opaque cursor describing this edge's position in the paginated list.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Cursor",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "node",
+              "description": "A ban record for a user banned from a channel.",
+              "args": [],
+              "type": {
+                "kind": "OBJECT",
+                "name": "ChannelBannedUser",
                 "ofType": null
               },
               "isDeprecated": false,
@@ -21350,7 +21485,7 @@
         {
           "kind": "INPUT_OBJECT",
           "name": "DismissPurchaseTokenInput",
-          "description": null,
+          "description": "Deprecated: this feature is discontinued.",
           "fields": null,
           "inputFields": [
             {
@@ -34733,6 +34868,22 @@
                 "kind": "OBJECT",
                 "name": "TargetedModActionDetails",
                 "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "id",
+              "description": "The UUID of the entry.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "ID",
+                  "ofType": null
+                }
               },
               "isDeprecated": false,
               "deprecationReason": null
@@ -55866,6 +56017,16 @@
               "defaultValue": null
             },
             {
+              "name": "isAnonymous",
+              "description": "Optional field that dictates the user wants their cheer to appear anonymously (i.e. unassociated with their username).",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Boolean",
+                "ofType": null
+              },
+              "defaultValue": "false"
+            },
+            {
               "name": "isAutoModEnabled",
               "description": "Optional field that dictates whether automod should be enabled for the cheer or not.",
               "type": {
@@ -57477,7 +57638,7 @@
         {
           "kind": "INPUT_OBJECT",
           "name": "SharePurchaseTokenInChatInput",
-          "description": null,
+          "description": "Deprecated: this feature is discontinued.",
           "fields": null,
           "inputFields": [
             {
@@ -72061,7 +72222,7 @@
                 }
               },
               "isDeprecated": true,
-              "deprecationReason": "Use user.settings.isCommerceRevShareEnabled instead."
+              "deprecationReason": "Game sales discontinued"
             },
             {
               "name": "isConnectedToTwitter",
@@ -74625,8 +74786,8 @@
                   }
                 }
               },
-              "isDeprecated": false,
-              "deprecationReason": null
+              "isDeprecated": true,
+              "deprecationReason": "Game sales discontinued"
             },
             {
               "name": "resubNotification",
@@ -74783,8 +74944,8 @@
                 "name": "Boolean",
                 "ofType": null
               },
-              "isDeprecated": false,
-              "deprecationReason": null
+              "isDeprecated": true,
+              "deprecationReason": "Game sales discontinued"
             },
             {
               "name": "isCommerceRevShareEnabled",
@@ -74795,8 +74956,8 @@
                 "name": "Boolean",
                 "ofType": null
               },
-              "isDeprecated": false,
-              "deprecationReason": null
+              "isDeprecated": true,
+              "deprecationReason": "Game sales discontinued"
             },
             {
               "name": "isDirectoryHidden",
