@@ -29177,8 +29177,8 @@
                 "name": "GameProduct",
                 "ofType": null
               },
-              "isDeprecated": false,
-              "deprecationReason": null
+              "isDeprecated": true,
+              "deprecationReason": "Game sales discontinued"
             },
             {
               "name": "self",
@@ -60077,8 +60077,8 @@
                   "ofType": null
                 }
               },
-              "isDeprecated": false,
-              "deprecationReason": null
+              "isDeprecated": true,
+              "deprecationReason": "Retail sales discontinued"
             },
             {
               "name": "self",
@@ -60590,8 +60590,8 @@
                   "ofType": null
                 }
               },
-              "isDeprecated": false,
-              "deprecationReason": null
+              "isDeprecated": true,
+              "deprecationReason": "Retail sales discontinued"
             }
           ],
           "inputFields": null,
