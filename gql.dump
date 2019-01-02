@@ -2036,6 +2036,58 @@
         },
         {
           "kind": "INPUT_OBJECT",
+          "name": "ArchiveChanletInput",
+          "description": "ArchiveChanletInput archives a chanlet by chanlet ID.",
+          "fields": null,
+          "inputFields": [
+            {
+              "name": "chanletID",
+              "description": "The ID of the chanlet being archived.",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "ID",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            }
+          ],
+          "interfaces": null,
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "OBJECT",
+          "name": "ArchiveChanletPayload",
+          "description": "ArchiveChanletPayload returns the Chanlet that was archived.",
+          "fields": [
+            {
+              "name": "chanlet",
+              "description": "The chanlet archived.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "OBJECT",
+                  "name": "Channel",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "INPUT_OBJECT",
           "name": "ArchiveChannelRestrictionInput",
           "description": "ArchiveChannelRestrictionInput archives a channel's restriction by restrictionID.",
           "fields": null,
@@ -35809,6 +35861,33 @@
               "type": {
                 "kind": "OBJECT",
                 "name": "ApplyExtensionActivationsPayload",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "archiveChanlet",
+              "description": "Archives a chanlet to remove the chanlet from the parent channel.",
+              "args": [
+                {
+                  "name": "input",
+                  "description": null,
+                  "type": {
+                    "kind": "NON_NULL",
+                    "name": null,
+                    "ofType": {
+                      "kind": "INPUT_OBJECT",
+                      "name": "ArchiveChanletInput",
+                      "ofType": null
+                    }
+                  },
+                  "defaultValue": null
+                }
+              ],
+              "type": {
+                "kind": "OBJECT",
+                "name": "ArchiveChanletPayload",
                 "ofType": null
               },
               "isDeprecated": false,
