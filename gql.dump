@@ -53541,6 +53541,22 @@
           "description": "A recent resub token to use for sending a special message.",
           "fields": [
             {
+              "name": "cumulativeTenureMonths",
+              "description": "The number of months of total subbing.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Int",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
               "name": "id",
               "description": "A unique ID for the resub notification.",
               "args": [],
@@ -53558,6 +53574,22 @@
             },
             {
               "name": "months",
+              "description": "The number of months of consecutive subbing.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Int",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "streakTenureMonths",
               "description": "The number of months of consecutive subbing.",
               "args": [],
               "type": {
