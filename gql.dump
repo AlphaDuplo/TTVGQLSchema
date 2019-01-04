@@ -42075,8 +42075,8 @@
               "deprecationReason": null
             },
             {
-              "name": "rewardedEmotes",
-              "description": "Lists the emotes rewarded when you select this Overwatch team.",
+              "name": "rewards",
+              "description": "The rewards associated with this team preference.",
               "args": [],
               "type": {
                 "kind": "LIST",
@@ -42086,7 +42086,7 @@
                   "name": null,
                   "ofType": {
                     "kind": "OBJECT",
-                    "name": "Emote",
+                    "name": "TournamentReward",
                     "ofType": null
                   }
                 }
