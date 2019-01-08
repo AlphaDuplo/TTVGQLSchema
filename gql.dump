@@ -17221,6 +17221,20 @@
                 }
               },
               "defaultValue": null
+            },
+            {
+              "name": "senderUserID",
+              "description": "The user ID of the broadcaster that is sending the invitation to join the squad stream.",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "ID",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
             }
           ],
           "interfaces": null,
