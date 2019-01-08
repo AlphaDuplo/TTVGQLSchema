@@ -38462,6 +38462,33 @@
               "deprecationReason": null
             },
             {
+              "name": "rejectSquadStreamOutOfNetworkInvitations",
+              "description": "rejectSquadStreamOutOfNetworkInvitations allows a user to decline all out-of-network invitations to join a squad stream.",
+              "args": [
+                {
+                  "name": "input",
+                  "description": null,
+                  "type": {
+                    "kind": "NON_NULL",
+                    "name": null,
+                    "ofType": {
+                      "kind": "INPUT_OBJECT",
+                      "name": "RejectSquadStreamOutOfNetworkInvitationsInput",
+                      "ofType": null
+                    }
+                  },
+                  "defaultValue": null
+                }
+              ],
+              "type": {
+                "kind": "OBJECT",
+                "name": "RejectSquadStreamOutOfNetworkInvitationsPayload",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
               "name": "removeCollectionItem",
               "description": "removeCollectionItem removes an item from a collection.",
               "args": [
