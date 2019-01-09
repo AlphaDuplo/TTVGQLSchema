@@ -16048,6 +16048,175 @@
         },
         {
           "kind": "INPUT_OBJECT",
+          "name": "CreateMultiVideoHighlightInput",
+          "description": "Input for creating a new highlight with multi-segment support.",
+          "fields": null,
+          "inputFields": [
+            {
+              "name": "metadata",
+              "description": "Metadata used to create the highlight.",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "INPUT_OBJECT",
+                  "name": "CreateMultiVideoHighlightMetadata",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            }
+          ],
+          "interfaces": null,
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "INPUT_OBJECT",
+          "name": "CreateMultiVideoHighlightMetadata",
+          "description": "Metadata to describe the requested highlight to be created.",
+          "fields": null,
+          "inputFields": [
+            {
+              "name": "creatorID",
+              "description": "The ID of the user who created this highlight.",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "ID",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "description",
+              "description": "The long form description of the Highlight content.",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "String",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "game",
+              "description": "The primary game featured in the highlight, if any.",
+              "type": {
+                "kind": "SCALAR",
+                "name": "ID",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "highlightRanges",
+              "description": "List of ordered time ranges from the source VOD used to create the highlight.",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "LIST",
+                  "name": null,
+                  "ofType": {
+                    "kind": "NON_NULL",
+                    "name": null,
+                    "ofType": {
+                      "kind": "INPUT_OBJECT",
+                      "name": "HighlightRange",
+                      "ofType": null
+                    }
+                  }
+                }
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "language",
+              "description": "The language the highlight content is in.",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "String",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "tags",
+              "description": "Discovery tags to associate with the Highlight.",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "LIST",
+                  "name": null,
+                  "ofType": {
+                    "kind": "NON_NULL",
+                    "name": null,
+                    "ofType": {
+                      "kind": "SCALAR",
+                      "name": "String",
+                      "ofType": null
+                    }
+                  }
+                }
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "title",
+              "description": "The title of the the highlight.",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "String",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            }
+          ],
+          "interfaces": null,
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "OBJECT",
+          "name": "CreateMultiVideoHighlightPayload",
+          "description": "Response of highlight creation, the new highlight entering the creation process.",
+          "fields": [
+            {
+              "name": "highlight",
+              "description": "The created Video representing the Highlight.",
+              "args": [],
+              "type": {
+                "kind": "OBJECT",
+                "name": "Video",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "INPUT_OBJECT",
           "name": "CreateMultiviewContentAttributeImageUploadConfigInput",
           "description": "Contains the channel ID to create new image upload URL for.",
           "fields": null,
@@ -30915,6 +31084,59 @@
           "possibleTypes": null
         },
         {
+          "kind": "INPUT_OBJECT",
+          "name": "HighlightRange",
+          "description": "Input to describe a single continuous time range of the source VOD to be included in the highlight.",
+          "fields": null,
+          "inputFields": [
+            {
+              "name": "endMs",
+              "description": "The end time offset in milliseconds into the VOD.",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Int",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "startMs",
+              "description": "The start time offset in milliseconds into the VOD.",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Int",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "vodID",
+              "description": "The ID of the source VOD to create a Highlight from.",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "ID",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            }
+          ],
+          "interfaces": null,
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
           "kind": "OBJECT",
           "name": "HostTargetChannelError",
           "description": "HostTargetChannelError contains a error code.",
@@ -36580,6 +36802,33 @@
               "type": {
                 "kind": "OBJECT",
                 "name": "CreateModeratorCommentPayload",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "createMultiVideoHighlight",
+              "description": "createMultiVideoHighlight creates a video of type Highlight with multi-segment support from an Archive type video.",
+              "args": [
+                {
+                  "name": "input",
+                  "description": null,
+                  "type": {
+                    "kind": "NON_NULL",
+                    "name": null,
+                    "ofType": {
+                      "kind": "INPUT_OBJECT",
+                      "name": "CreateMultiVideoHighlightInput",
+                      "ofType": null
+                    }
+                  },
+                  "defaultValue": null
+                }
+              ],
+              "type": {
+                "kind": "OBJECT",
+                "name": "CreateMultiVideoHighlightPayload",
                 "ofType": null
               },
               "isDeprecated": false,
@@ -57478,6 +57727,18 @@
           "description": "SetOverwatchLeagueTeamPreferencePayload is the success response for setting an Overwatch League Team preference, and\nthe corresponding updated OverwatchLeagueTeamPreference struct.",
           "fields": [
             {
+              "name": "error",
+              "description": "A possible error returned from the service.",
+              "args": [],
+              "type": {
+                "kind": "OBJECT",
+                "name": "SetOverwatchTeamPreferenceError",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
               "name": "overwatchLeagueTeamPreference",
               "description": "The updated OverwatchLeagueTeamPreference struct.",
               "args": [],
@@ -57493,6 +57754,50 @@
           "inputFields": null,
           "interfaces": [],
           "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "OBJECT",
+          "name": "SetOverwatchTeamPreferenceError",
+          "description": "Error code for an error that occurs while claiming the bounty.",
+          "fields": [
+            {
+              "name": "code",
+              "description": "Error code for error that occurred while claiming the bounty.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "ENUM",
+                  "name": "SetOverwatchTeamPreferenceErrorCode",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "ENUM",
+          "name": "SetOverwatchTeamPreferenceErrorCode",
+          "description": "Error types recognized by the SetOverwatchLeagueTeamPreference mutation.",
+          "fields": null,
+          "inputFields": null,
+          "interfaces": null,
+          "enumValues": [
+            {
+              "name": "UNKNOWN",
+              "description": "Unknown error being returned from service.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
           "possibleTypes": null
         },
         {
