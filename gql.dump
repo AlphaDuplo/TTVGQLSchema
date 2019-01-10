@@ -39265,6 +39265,33 @@
               "deprecationReason": null
             },
             {
+              "name": "setChannelRestriction",
+              "description": "setChannelRestriction can create or update a restriction on a channel.",
+              "args": [
+                {
+                  "name": "input",
+                  "description": null,
+                  "type": {
+                    "kind": "NON_NULL",
+                    "name": null,
+                    "ofType": {
+                      "kind": "INPUT_OBJECT",
+                      "name": "SetChannelRestrictionInput",
+                      "ofType": null
+                    }
+                  },
+                  "defaultValue": null
+                }
+              ],
+              "type": {
+                "kind": "OBJECT",
+                "name": "SetChannelRestrictionPayload",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
               "name": "setDefaultPaymentMethod",
               "description": "Sets the default payment method for a user.\nCurrently supports the Zuora (credit card) and Recurly (credit card, Pay-with-Amazon, PayPal) payment providers\nThis is the final step of the payment method management flow. (User.paymentMethods -> User.paymentMethodConfigs -> this mutation).",
               "args": [
@@ -57356,6 +57383,64 @@
                   "name": "String",
                   "ofType": null
                 }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "INPUT_OBJECT",
+          "name": "SetChannelRestrictionInput",
+          "description": "SetChannelRestrictionInput sets a restriction for the given channelID.",
+          "fields": null,
+          "inputFields": [
+            {
+              "name": "channelID",
+              "description": "The ID of the channel to set the restriction on.",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "ID",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "type",
+              "description": "The type of restriction that should be placed onto the channel. If empty, the restriction will be deleted.",
+              "type": {
+                "kind": "ENUM",
+                "name": "ChannelRestrictionType",
+                "ofType": null
+              },
+              "defaultValue": null
+            }
+          ],
+          "interfaces": null,
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "OBJECT",
+          "name": "SetChannelRestrictionPayload",
+          "description": "SetChannelRestrictionPayload returns the updated restriction for a channel.",
+          "fields": [
+            {
+              "name": "channelRestriction",
+              "description": "The restriction that was created/updated/deleted.",
+              "args": [],
+              "type": {
+                "kind": "OBJECT",
+                "name": "ChannelRestriction",
+                "ofType": null
               },
               "isDeprecated": false,
               "deprecationReason": null
