@@ -56818,6 +56818,12 @@
               "description": "The message contained term(s) blocked by the channel.",
               "isDeprecated": false,
               "deprecationReason": null
+            },
+            {
+              "name": "INVALID_ANONYMOUS_MESSAGE",
+              "description": "The anonymous message contained text that is invalid.",
+              "isDeprecated": false,
+              "deprecationReason": null
             }
           ],
           "possibleTypes": null
