@@ -18190,6 +18190,22 @@
               "deprecationReason": null
             },
             {
+              "name": "isAnonymous",
+              "description": "Whether the Cheer was anonymized to other users.\nIf true, then `user` is guaranteed to be null.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Boolean",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
               "name": "timestamp",
               "description": "When the Bits were used.",
               "args": [],
@@ -39508,6 +39524,33 @@
               "deprecationReason": null
             },
             {
+              "name": "setSquadStreamPrimaryPlayer",
+              "description": "Set the ID of the primary player in a squad stream that the user currently has in the primary position.",
+              "args": [
+                {
+                  "name": "input",
+                  "description": null,
+                  "type": {
+                    "kind": "NON_NULL",
+                    "name": null,
+                    "ofType": {
+                      "kind": "INPUT_OBJECT",
+                      "name": "SetSquadStreamPrimaryPlayerInput",
+                      "ofType": null
+                    }
+                  },
+                  "defaultValue": null
+                }
+              ],
+              "type": {
+                "kind": "OBJECT",
+                "name": "SetSquadStreamPrimaryPlayerPayload",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
               "name": "setUserResidence",
               "description": "Set user's country of residence.",
               "args": [
@@ -58072,6 +58115,82 @@
             {
               "name": "user",
               "description": "The modified user.",
+              "args": [],
+              "type": {
+                "kind": "OBJECT",
+                "name": "User",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "INPUT_OBJECT",
+          "name": "SetSquadStreamPrimaryPlayerInput",
+          "description": "Inputs to the setSquadStreamPrimaryPlayer mutation.",
+          "fields": null,
+          "inputFields": [
+            {
+              "name": "deviceID",
+              "description": "ID of the device viewing squad stream.",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "ID",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "primaryPlayerID",
+              "description": "ID of the channel as the current primary player.",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "ID",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "squadID",
+              "description": "ID of the squad stream.",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "ID",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            }
+          ],
+          "interfaces": null,
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "OBJECT",
+          "name": "SetSquadStreamPrimaryPlayerPayload",
+          "description": "Outputs to the setSquadStreamPrimaryPlayer mutation.",
+          "fields": [
+            {
+              "name": "primaryPlayer",
+              "description": "The current primary player of the squad stream.",
               "args": [],
               "type": {
                 "kind": "OBJECT",
