@@ -23039,6 +23039,22 @@
           "description": "Channels have emoticon prefixes.",
           "fields": [
             {
+              "name": "isEditable",
+              "description": "If the prefix can be edited or not.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Boolean",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
               "name": "name",
               "description": "Name of the prefix.",
               "args": [],
