@@ -34627,6 +34627,12 @@
               "description": "Channel Mod creates a mod comment about a user.",
               "isDeprecated": false,
               "deprecationReason": null
+            },
+            {
+              "name": "UNTIMEOUT_USER",
+              "description": "Channel Mod chat untimeouts a user.",
+              "isDeprecated": false,
+              "deprecationReason": null
             }
           ],
           "possibleTypes": null
