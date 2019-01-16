@@ -4886,6 +4886,30 @@
           "description": "Contains the Bits product's preview price and tax info for a Bits purchase, and error if a preview cannot be created.",
           "fields": [
             {
+              "name": "actions",
+              "description": "Lists any additional actions for a bits checkout session.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "LIST",
+                  "name": null,
+                  "ofType": {
+                    "kind": "NON_NULL",
+                    "name": null,
+                    "ofType": {
+                      "kind": "ENUM",
+                      "name": "CheckoutAction",
+                      "ofType": null
+                    }
+                  }
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
               "name": "error",
               "description": "The error is present if purchase info failed to be retrieved.",
               "args": [],
@@ -9667,6 +9691,23 @@
           "inputFields": null,
           "interfaces": [],
           "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "ENUM",
+          "name": "CheckoutAction",
+          "description": "Actions required when initiating a checkout flow.",
+          "fields": null,
+          "inputFields": null,
+          "interfaces": null,
+          "enumValues": [
+            {
+              "name": "BLOCK_SAVED_PAYMENT_METHOD",
+              "description": "Action to block saved payment methods.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
           "possibleTypes": null
         },
         {
@@ -62136,6 +62177,30 @@
           "name": "SubscriptionCheckoutConfigs",
           "description": "Configs that help initiate the subscription checkout flow.",
           "fields": [
+            {
+              "name": "actions",
+              "description": "Lists any additional actions for a subscription checkout session.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "LIST",
+                  "name": null,
+                  "ofType": {
+                    "kind": "NON_NULL",
+                    "name": null,
+                    "ofType": {
+                      "kind": "ENUM",
+                      "name": "CheckoutAction",
+                      "ofType": null
+                    }
+                  }
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
             {
               "name": "canGift",
               "description": "Whether the initiated checkout flow can complete/succeed and gift the recipient the product.",
