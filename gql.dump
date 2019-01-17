@@ -63966,6 +63966,33 @@
               "deprecationReason": null
             },
             {
+              "name": "subscriptionTenure",
+              "description": "Subscription tenure data for the user to this subscription product.",
+              "args": [
+                {
+                  "name": "tenureMethod",
+                  "description": null,
+                  "type": {
+                    "kind": "NON_NULL",
+                    "name": null,
+                    "ofType": {
+                      "kind": "ENUM",
+                      "name": "SubscriptionTenureMethod",
+                      "ofType": null
+                    }
+                  },
+                  "defaultValue": null
+                }
+              ],
+              "type": {
+                "kind": "OBJECT",
+                "name": "SubscriptionTenure",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
               "name": "thirdPartyPurchaseSKU",
               "description": "ThirdPartyPurchaseSKU is different from templateSKU since it represents the SKU of the exact item the\nuser will purchase. It is more expensive to retrieve purchaseSKU than templateSKU, so only\nuse purchaseSKU when the user has indicated they want to checkout. Use templateSKU on channel\npage load to retrieve product information.\n\nWill return an error if the user has no purchasable skus. Will return nil if not on a platform\nwith an external subscription product or if the country is not supported.\nUses Client-ID to determine platform information and IP address to determine location.",
               "args": [
@@ -74001,6 +74028,22 @@
             {
               "name": "isEmailVerified",
               "description": "Whether or not the user has verified their email address by clicking a link sent to their email.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Boolean",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "isFlaggedToDelete",
+              "description": "Indicates that the owner of the email on the account did not signup for this account\nThis mainly implies that the account is being deleted and not eligible for self service reactivation.",
               "args": [],
               "type": {
                 "kind": "NON_NULL",
