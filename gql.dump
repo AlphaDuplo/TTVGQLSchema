@@ -35028,6 +35028,22 @@
           "description": "MobileView holds the view configuration of an extension if mobile is supported.",
           "fields": [
             {
+              "name": "viewerPath",
+              "description": "Relative path of the HTML file to load for this view, used by devsite to specify the layout of assets.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "String",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
               "name": "viewerURL",
               "description": "The URL which should be loaded in for the extension.",
               "args": [],
