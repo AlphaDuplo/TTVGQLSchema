@@ -67187,6 +67187,22 @@
               "deprecationReason": null
             },
             {
+              "name": "service",
+              "description": "What service will be using the pixel.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "String",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
               "name": "timeOffsetSeconds",
               "description": "How long a client needs to view the content before firing the pixel.",
               "args": [],
