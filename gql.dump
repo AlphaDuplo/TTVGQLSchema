@@ -44169,6 +44169,12 @@
               "description": "Pay with Google In-App Billing.",
               "isDeprecated": false,
               "deprecationReason": null
+            },
+            {
+              "name": "APPLE_IAP",
+              "description": "Pay with Apple In-App Purchase.",
+              "isDeprecated": false,
+              "deprecationReason": null
             }
           ],
           "possibleTypes": null
@@ -44390,7 +44396,13 @@
             },
             {
               "name": "GOOGLE_IAB",
-              "description": "Google In-App Billing, for Android subscriptions.",
+              "description": "Google In-App Billing, for Android transactions.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "APPLE_IAP",
+              "description": "Apple In-App Purchases for iOS transactions.",
               "isDeprecated": false,
               "deprecationReason": null
             }
