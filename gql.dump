@@ -44891,7 +44891,7 @@
         {
           "kind": "ENUM",
           "name": "PaymentTransactionType",
-          "description": "Payment transaction type, currently only subscription payments are surfaced. More types to be added soon such as Bits.",
+          "description": "Payment transaction type.",
           "fields": null,
           "inputFields": null,
           "interfaces": null,
@@ -44899,6 +44899,12 @@
             {
               "name": "SUBSCRIPTION",
               "description": "Transaction for a subscription type.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "BITS",
+              "description": "Transaction for a bits type.",
               "isDeprecated": false,
               "deprecationReason": null
             }
