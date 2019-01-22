@@ -59840,6 +59840,27 @@
           ]
         },
         {
+          "kind": "INPUT_OBJECT",
+          "name": "ShelvesOptions",
+          "description": "A set of options to configuring how the shelves data is returned to the consumer.",
+          "fields": null,
+          "inputFields": [
+            {
+              "name": "includeEmpty",
+              "description": "Should indicate whether the response includes empty shelves.",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Boolean",
+                "ofType": null
+              },
+              "defaultValue": "false"
+            }
+          ],
+          "interfaces": null,
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
           "kind": "OBJECT",
           "name": "SingleEvent",
           "description": "SingleEvent represents a one-off, stand-alone event where the content is a live stream on a single channel.",
@@ -75495,6 +75516,16 @@
                     "ofType": null
                   },
                   "defaultValue": null
+                },
+                {
+                  "name": "options",
+                  "description": null,
+                  "type": {
+                    "kind": "INPUT_OBJECT",
+                    "name": "ShelvesOptions",
+                    "ofType": null
+                  },
+                  "defaultValue": null
                 }
               ],
               "type": {
@@ -79954,6 +79985,18 @@
                     "ofType": null
                   }
                 }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "maxShelfCount",
+              "description": "The max number of shelves configuration.",
+              "args": [],
+              "type": {
+                "kind": "SCALAR",
+                "name": "Int",
+                "ofType": null
               },
               "isDeprecated": false,
               "deprecationReason": null
