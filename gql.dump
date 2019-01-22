@@ -302,6 +302,12 @@
               "description": "Invitation not in pending state cannot be accepted.",
               "isDeprecated": false,
               "deprecationReason": null
+            },
+            {
+              "name": "USER_CANNOT_ACCESS_SQUADS",
+              "description": "The recipient does not have access to squad streams.",
+              "isDeprecated": false,
+              "deprecationReason": null
             }
           ],
           "possibleTypes": null
@@ -17414,6 +17420,12 @@
             {
               "name": "SQUAD_FULL",
               "description": "The squad is already full.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "USER_CANNOT_ACCESS_SQUADS",
+              "description": "The recipient does not have access to squad streams.",
               "isDeprecated": false,
               "deprecationReason": null
             },
@@ -61087,17 +61099,29 @@
           "description": "A user's squad stream settings.",
           "fields": [
             {
-              "name": "incomingInvitePolicy",
-              "description": "Determines who can send the user invitations to join a squad stream.",
+              "name": "canAccessSquads",
+              "description": "Denotes whether or not a user can access squad management features like\naccepting/receiving invites and viewing the Squad Stream dashboard widget.",
               "args": [],
               "type": {
                 "kind": "NON_NULL",
                 "name": null,
                 "ofType": {
-                  "kind": "ENUM",
-                  "name": "SquadStreamIncomingInvitePolicy",
+                  "kind": "SCALAR",
+                  "name": "Boolean",
                   "ofType": null
                 }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "incomingInvitePolicy",
+              "description": "Determines who can send the user invitations to join a squad stream.\nResolves for anyone who can access the user's dashboard (editors, staff, etc.).",
+              "args": [],
+              "type": {
+                "kind": "ENUM",
+                "name": "SquadStreamIncomingInvitePolicy",
+                "ofType": null
               },
               "isDeprecated": false,
               "deprecationReason": null
@@ -75326,7 +75350,7 @@
             },
             {
               "name": "squadStreamSettings",
-              "description": "This field only resolves for the authenticated user.",
+              "description": "squadStreamSettings are the user's rules and settings for the squad stream feature.\nSome fields only resolve for the authenticated user. See schema definition for more detail.",
               "args": [],
               "type": {
                 "kind": "OBJECT",
