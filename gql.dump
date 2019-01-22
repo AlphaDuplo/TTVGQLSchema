@@ -34284,6 +34284,26 @@
           "description": null,
           "fields": [
             {
+              "name": "edges",
+              "description": "The list of recommended streams with metadata to display.",
+              "args": [],
+              "type": {
+                "kind": "LIST",
+                "name": null,
+                "ofType": {
+                  "kind": "NON_NULL",
+                  "name": null,
+                  "ofType": {
+                    "kind": "OBJECT",
+                    "name": "StreamRecommendationEdge",
+                    "ofType": null
+                  }
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
               "name": "generationID",
               "description": "Per-generation tracking id for identifying a recommendation model.",
               "args": [],
@@ -34301,7 +34321,7 @@
             },
             {
               "name": "nodes",
-              "description": null,
+              "description": "The list of recommended streams to display.",
               "args": [],
               "type": {
                 "kind": "NON_NULL",
@@ -34316,8 +34336,8 @@
                   }
                 }
               },
-              "isDeprecated": false,
-              "deprecationReason": null
+              "isDeprecated": true,
+              "deprecationReason": "To be replaced by edges which also includes a required trackingID."
             },
             {
               "name": "responseID",
@@ -62313,6 +62333,61 @@
             }
           ],
           "interfaces": null,
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "OBJECT",
+          "name": "StreamRecommendationEdge",
+          "description": "The content to render in a live recommendation item.",
+          "fields": [
+            {
+              "name": "cursor",
+              "description": "As pagination is currently not supported by the backend, this will always be the zero value.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Cursor",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "node",
+              "description": "The underlying stream content to render.",
+              "args": [],
+              "type": {
+                "kind": "OBJECT",
+                "name": "Stream",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "trackingID",
+              "description": "Unique id per stream used in client tracking.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "ID",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
           "enumValues": null,
           "possibleTypes": null
         },
