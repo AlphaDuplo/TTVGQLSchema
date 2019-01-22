@@ -2831,7 +2831,7 @@
         {
           "kind": "ENUM",
           "name": "BadgeDomain",
-          "description": "Domains that badges belong to.",
+          "description": "Deprecated: Domains that badges belong to.",
           "fields": null,
           "inputFields": null,
           "interfaces": null,
@@ -22956,7 +22956,7 @@
         {
           "kind": "ENUM",
           "name": "EmoteSetDomain",
-          "description": "Domains that emotes belong to.",
+          "description": "Deprecated: Domains that emotes belong to.",
           "fields": null,
           "inputFields": null,
           "interfaces": null,
@@ -50529,8 +50529,8 @@
                   }
                 }
               },
-              "isDeprecated": false,
-              "deprecationReason": null
+              "isDeprecated": true,
+              "deprecationReason": "Merch sales discontinued on Twitch"
             },
             {
               "name": "primeOffers",
@@ -72450,8 +72450,8 @@
                 "name": "UserAmazonConnection",
                 "ofType": null
               },
-              "isDeprecated": false,
-              "deprecationReason": null
+              "isDeprecated": true,
+              "deprecationReason": "Retail sales discontinued"
             },
             {
               "name": "amazonMarketplaces",
@@ -72470,8 +72470,8 @@
                   }
                 }
               },
-              "isDeprecated": false,
-              "deprecationReason": null
+              "isDeprecated": true,
+              "deprecationReason": "Game sales discontinued"
             },
             {
               "name": "autoModProperties",
@@ -73114,8 +73114,8 @@
                   }
                 }
               },
-              "isDeprecated": false,
-              "deprecationReason": null
+              "isDeprecated": true,
+              "deprecationReason": "Game sales discontinued."
             },
             {
               "name": "createdAt",
