@@ -7978,8 +7978,8 @@
                   }
                 }
               },
-              "isDeprecated": false,
-              "deprecationReason": null
+              "isDeprecated": true,
+              "deprecationReason": "Use channel.restriction instead."
             },
             {
               "name": "availableContentAttributes",
@@ -8310,6 +8310,18 @@
               },
               "isDeprecated": true,
               "deprecationReason": "Use user.bannerImageURL instead"
+            },
+            {
+              "name": "restriction",
+              "description": "The restriction that is currently active on the channel for restricting a user's access to it.",
+              "args": [],
+              "type": {
+                "kind": "OBJECT",
+                "name": "ResourceRestriction",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
             },
             {
               "name": "self",
@@ -9039,7 +9051,7 @@
                 }
               },
               "isDeprecated": true,
-              "deprecationReason": "Use channelRestriction.type instead."
+              "deprecationReason": "Use resourceRestriction.exemptions instead."
             },
             {
               "name": "id",
@@ -9126,6 +9138,12 @@
           "inputFields": null,
           "interfaces": null,
           "enumValues": [
+            {
+              "name": "UNKNOWN",
+              "description": "The resource is restricted for an unknown reason.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
             {
               "name": "SUB_ONLY_LIVE",
               "description": "The channel is restricted by a subscription.",
@@ -54921,6 +54939,194 @@
           "possibleTypes": null
         },
         {
+          "kind": "OBJECT",
+          "name": "ResourceRestriction",
+          "description": "A restriction for a specific resource.",
+          "fields": [
+            {
+              "name": "exemptions",
+              "description": "The list of exemptions for a given resource restriction.",
+              "args": [],
+              "type": {
+                "kind": "LIST",
+                "name": null,
+                "ofType": {
+                  "kind": "NON_NULL",
+                  "name": null,
+                  "ofType": {
+                    "kind": "OBJECT",
+                    "name": "ResourceRestrictionExemption",
+                    "ofType": null
+                  }
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "type",
+              "description": "The type of restriction on this resource.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "ENUM",
+                  "name": "ResourceRestrictionType",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "OBJECT",
+          "name": "ResourceRestrictionExemption",
+          "description": "Exemption information for a specific resource restriction.",
+          "fields": [
+            {
+              "name": "endsAt",
+              "description": "The time that the restriction is no longer active.",
+              "args": [],
+              "type": {
+                "kind": "SCALAR",
+                "name": "Time",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "keys",
+              "description": "The keys needed for a given restriction.",
+              "args": [],
+              "type": {
+                "kind": "LIST",
+                "name": null,
+                "ofType": {
+                  "kind": "NON_NULL",
+                  "name": null,
+                  "ofType": {
+                    "kind": "SCALAR",
+                    "name": "String",
+                    "ofType": null
+                  }
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "startsAt",
+              "description": "The time that the restriction becomes active.",
+              "args": [],
+              "type": {
+                "kind": "SCALAR",
+                "name": "Time",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "type",
+              "description": "The type of exemption.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "ENUM",
+                  "name": "ResourceRestrictionExemptionType",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "ENUM",
+          "name": "ResourceRestrictionExemptionType",
+          "description": "An enumeration of the different exemption types.",
+          "fields": null,
+          "inputFields": null,
+          "interfaces": null,
+          "enumValues": [
+            {
+              "name": "UNKNOWN",
+              "description": "The restriction is exempt for an unknown reason.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "ALL",
+              "description": "The restriction is exempt for all users.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "STAFF",
+              "description": "The restriction is exempt for staff accounts.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "SITE_ADMIN",
+              "description": "The restriction is exempt for site admins.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "PRODUCT",
+              "description": "The restriction is exempt for owning a product.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "possibleTypes": null
+        },
+        {
+          "kind": "ENUM",
+          "name": "ResourceRestrictionType",
+          "description": "An enumeration of the different restriction types.",
+          "fields": null,
+          "inputFields": null,
+          "interfaces": null,
+          "enumValues": [
+            {
+              "name": "UNKNOWN",
+              "description": "The resource is restricted for an unknown reason.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "SUB_ONLY_LIVE",
+              "description": "The resource is restricted by a subscription.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "ALL_ACCESS_PASS",
+              "description": "The resource is restricted by the All-Access Pass.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "possibleTypes": null
+        },
+        {
           "kind": "INPUT_OBJECT",
           "name": "RestrictVideoInput",
           "description": "Inputs to the restrictVideo mutation.",
@@ -58523,11 +58729,11 @@
               "defaultValue": null
             },
             {
-              "name": "type",
+              "name": "restrictionType",
               "description": "The type of restriction that should be placed onto the channel. If empty, the restriction will be deleted.",
               "type": {
                 "kind": "ENUM",
-                "name": "ChannelRestrictionType",
+                "name": "ResourceRestrictionType",
                 "ofType": null
               },
               "defaultValue": null
@@ -58543,12 +58749,12 @@
           "description": "SetChannelRestrictionPayload returns the updated restriction for a channel.",
           "fields": [
             {
-              "name": "channelRestriction",
+              "name": "restriction",
               "description": "The restriction that was created/updated/deleted.",
               "args": [],
               "type": {
                 "kind": "OBJECT",
-                "name": "ChannelRestriction",
+                "name": "ResourceRestriction",
                 "ofType": null
               },
               "isDeprecated": false,
