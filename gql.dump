@@ -60079,6 +60079,47 @@
         },
         {
           "kind": "INPUT_OBJECT",
+          "name": "ShelvesAvailableOptions",
+          "description": "A set of options for configuring which shelf data to return to the user.",
+          "fields": null,
+          "inputFields": [
+            {
+              "name": "collectionID",
+              "description": "The ID of the collection. Only valid when shelfType is set to\nVideoShelfType.COLLECTION.",
+              "type": {
+                "kind": "SCALAR",
+                "name": "ID",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "gameID",
+              "description": "The ID of the game shelf to query. Only valid when shelfType is set to\nVideoShelfType.GAME_VIDEOS.",
+              "type": {
+                "kind": "SCALAR",
+                "name": "ID",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "shelfType",
+              "description": "Which shelf type to query. Currently required.\nIn future, omitting this option returns all valid shelves.",
+              "type": {
+                "kind": "ENUM",
+                "name": "VideoShelfType",
+                "ofType": null
+              },
+              "defaultValue": null
+            }
+          ],
+          "interfaces": null,
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "INPUT_OBJECT",
           "name": "ShelvesOptions",
           "description": "A set of options to configuring how the shelves data is returned to the consumer.",
           "fields": null,
@@ -74505,6 +74546,22 @@
               "deprecationReason": "Use user.roles.isPartner instead."
             },
             {
+              "name": "isPhoneNumberVerified",
+              "description": "Whether or not the user has verified their phone number.\nThis is currently always true if the user has a phone number.\nWe do not not allow a user to set a phone number without verifying.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Boolean",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
               "name": "isSiteAdmin",
               "description": "Whether or not the user is a site admininistrator.",
               "args": [],
@@ -75232,6 +75289,18 @@
               "deprecationReason": null
             },
             {
+              "name": "phoneNumber",
+              "description": "The user's phone number. Format is always in E.164 format.\nThis is only returned if the request is authenticated by the same user whose phone is requested.",
+              "args": [],
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
               "name": "primaryTeam",
               "description": "The primary team this user belongs to. A user may belong to more than one team at the same time but must select a single\nteam as the primary. If the user doesn't have a primary team this will be null.",
               "args": [],
@@ -75800,7 +75869,7 @@
             },
             {
               "name": "videoShelves",
-              "description": "A paginated list of video shelves the user has specified for displaying their content.",
+              "description": "A paginated list of video shelves to display on the user's channel.",
               "args": [
                 {
                   "name": "first",
@@ -75828,6 +75897,49 @@
                   "type": {
                     "kind": "INPUT_OBJECT",
                     "name": "ShelvesOptions",
+                    "ofType": null
+                  },
+                  "defaultValue": null
+                }
+              ],
+              "type": {
+                "kind": "OBJECT",
+                "name": "VideoShelfConnection",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "videoShelvesAvailable",
+              "description": "A paginated list of video shelves that are available to be displayed on the\nuser's channel. Only accessible for authorized users (user & editors).",
+              "args": [
+                {
+                  "name": "first",
+                  "description": null,
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Int",
+                    "ofType": null
+                  },
+                  "defaultValue": "10"
+                },
+                {
+                  "name": "after",
+                  "description": null,
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Cursor",
+                    "ofType": null
+                  },
+                  "defaultValue": null
+                },
+                {
+                  "name": "options",
+                  "description": null,
+                  "type": {
+                    "kind": "INPUT_OBJECT",
+                    "name": "ShelvesAvailableOptions",
                     "ofType": null
                   },
                   "defaultValue": null
