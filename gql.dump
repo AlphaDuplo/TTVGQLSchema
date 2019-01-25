@@ -62117,6 +62117,18 @@
               "deprecationReason": null
             },
             {
+              "name": "restriction",
+              "description": "The restriction that is currently active on the channel for restricting a user's access to it.",
+              "args": [],
+              "type": {
+                "kind": "OBJECT",
+                "name": "ResourceRestriction",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
               "name": "retailOffers",
               "description": "Retail products to be displayed alongside this stream (broadcaster + game).\nWill only include a small number (<10) of products per stream, so no pagination needed.",
               "args": [],
@@ -62684,6 +62696,22 @@
           "name": "StreamSelfConnection",
           "description": "The relationship between the authenticated user and a stream.",
           "fields": [
+            {
+              "name": "canWatch",
+              "description": "Whether or not the requesting user is authorized to view the channel's stream.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Boolean",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
             {
               "name": "retailOffers",
               "description": "The retail products that sohuld be displayed on this stream for this user.",
