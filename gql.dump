@@ -18691,6 +18691,22 @@
               "deprecationReason": null
             },
             {
+              "name": "isAnonymous",
+              "description": "Whether the subscription gifting was anonymized to other users.\nIf true, then `gifter` is guaranteed to be null.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Boolean",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
               "name": "recipient",
               "description": "User that received the gift.",
               "args": [],
@@ -18698,6 +18714,22 @@
                 "kind": "OBJECT",
                 "name": "User",
                 "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "tier",
+              "description": "The gifted subscription's tier.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "ENUM",
+                  "name": "SubscriptionTier",
+                  "ofType": null
+                }
               },
               "isDeprecated": false,
               "deprecationReason": null
