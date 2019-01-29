@@ -6666,6 +6666,29 @@
           "possibleTypes": null
         },
         {
+          "kind": "ENUM",
+          "name": "BountyCampaignUploadType",
+          "description": "Possible upload types for bounty campaigns.",
+          "fields": null,
+          "inputFields": null,
+          "interfaces": null,
+          "enumValues": [
+            {
+              "name": "BOX_ART",
+              "description": "Upload type related to the box art image.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "COVER",
+              "description": "Upload type related to the cover image.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "possibleTypes": null
+        },
+        {
           "kind": "OBJECT",
           "name": "BountyRestriction",
           "description": "Defines the restrictions that are placed on a bounty.",
@@ -15168,6 +15191,78 @@
               "type": {
                 "kind": "OBJECT",
                 "name": "BountyCampaign",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "INPUT_OBJECT",
+          "name": "CreateBountyCampaignUploadConfigInput",
+          "description": "CreateBountyCampaignUploadConfigInput is the input for create bounty campaign upload configuration.",
+          "fields": null,
+          "inputFields": [
+            {
+              "name": "uploadType",
+              "description": "The image type to be uploaded.",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "ENUM",
+                  "name": "BountyCampaignUploadType",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            }
+          ],
+          "interfaces": null,
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "OBJECT",
+          "name": "CreateBountyCampaignUploadConfigPayload",
+          "description": "Returned information about image upload including URL to upload the image to.",
+          "fields": [
+            {
+              "name": "imageID",
+              "description": "Unique identifier for the image.",
+              "args": [],
+              "type": {
+                "kind": "SCALAR",
+                "name": "ID",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "uploadID",
+              "description": "Unique identifier for the generated URL.",
+              "args": [],
+              "type": {
+                "kind": "SCALAR",
+                "name": "ID",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "uploadURL",
+              "description": "The actual URL to be used by the client to upload the image.",
+              "args": [],
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
                 "ofType": null
               },
               "isDeprecated": false,
@@ -37569,6 +37664,33 @@
               "type": {
                 "kind": "OBJECT",
                 "name": "CreateBountyCampaignPayload",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "createBountyCampaignUploadConfig",
+              "description": "createBountyCampaignUploadConfig creates a upload configuration for assets for bounty campaigns.",
+              "args": [
+                {
+                  "name": "input",
+                  "description": null,
+                  "type": {
+                    "kind": "NON_NULL",
+                    "name": null,
+                    "ofType": {
+                      "kind": "INPUT_OBJECT",
+                      "name": "CreateBountyCampaignUploadConfigInput",
+                      "ofType": null
+                    }
+                  },
+                  "defaultValue": null
+                }
+              ],
+              "type": {
+                "kind": "OBJECT",
+                "name": "CreateBountyCampaignUploadConfigPayload",
                 "ofType": null
               },
               "isDeprecated": false,
