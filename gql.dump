@@ -44339,6 +44339,93 @@
           "possibleTypes": null
         },
         {
+          "kind": "OBJECT",
+          "name": "PaymentIncentiveMetricsRollup",
+          "description": "A monthly rollup of metrics that are relevant to incentive-based contracts for\nsome partnered streamers.",
+          "fields": [
+            {
+              "name": "averageCommercialMinutesPerLiveHourBroadcast",
+              "description": "A measure of how much commercial time broadcasters have during their live\nstreams.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Int",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "liveHoursBroadcast",
+              "description": "The number of live hours the user streamed for the month.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Int",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "liveMinutesWatched",
+              "description": "The number of live minutes watched for the month.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Int",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "timestamp",
+              "description": "The start time for the monthly rollup. These times are in the Pacific Time\nZone and the monthly rollups begin in this time zone. Rather than\nconverting to local time, clients should inform end users of this timing\nquirk and perform custom parsing on these values to show the current year\nand month in Pacific Time.",
+              "args": [],
+              "type": {
+                "kind": "SCALAR",
+                "name": "Time",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "vodMinutesWatched",
+              "description": "The number of VOD minutes watched the user has for the month.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Int",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
           "kind": "ENUM",
           "name": "PaymentInstrumentType",
           "description": "Payment instrument used through the payment provider.",
@@ -75314,6 +75401,26 @@
                   "kind": "SCALAR",
                   "name": "String",
                   "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "paymentIncentiveMetrics",
+              "description": "Metrics that are relevant to incentive-based contracts for some partnered\nstreamers. This API returns a year-to-date, rolling list of the past 12\nmonths and includes the current (in-progress) month.",
+              "args": [],
+              "type": {
+                "kind": "LIST",
+                "name": null,
+                "ofType": {
+                  "kind": "NON_NULL",
+                  "name": null,
+                  "ofType": {
+                    "kind": "OBJECT",
+                    "name": "PaymentIncentiveMetricsRollup",
+                    "ofType": null
+                  }
                 }
               },
               "isDeprecated": false,
