@@ -81330,6 +81330,22 @@
           "description": "The ability for a Twitch user to send or receive Whispers to/from another Twitch user.",
           "fields": [
             {
+              "name": "isStrangerBlocked",
+              "description": "If send is NOT_PERMITTED, true if the reason is that the other Twitch user is considered a stranger.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Boolean",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
               "name": "receive",
               "description": "Capability of the user to receive Whispers from the other Twitch user.",
               "args": [],
