@@ -42206,6 +42206,33 @@
               "deprecationReason": null
             },
             {
+              "name": "updateUserCreateDateHidden",
+              "description": "Set a user's privacy preference for registration date.",
+              "args": [
+                {
+                  "name": "input",
+                  "description": null,
+                  "type": {
+                    "kind": "NON_NULL",
+                    "name": null,
+                    "ofType": {
+                      "kind": "INPUT_OBJECT",
+                      "name": "UpdateUserCreateDateHiddenInput",
+                      "ofType": null
+                    }
+                  },
+                  "defaultValue": null
+                }
+              ],
+              "type": {
+                "kind": "OBJECT",
+                "name": "UpdateUserCreateDateHiddenPayload",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
               "name": "updateUserDirectoryHidden",
               "description": "Set a user's directory hidden field.",
               "args": [
@@ -72474,6 +72501,68 @@
         },
         {
           "kind": "INPUT_OBJECT",
+          "name": "UpdateUserCreateDateHiddenInput",
+          "description": "The required input for a updateUserCreateDateHidden mutation.",
+          "fields": null,
+          "inputFields": [
+            {
+              "name": "isCreateDateHidden",
+              "description": "The hide create date boolean to set onto the user.",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Boolean",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "userID",
+              "description": "The ID of the user whose privacy setting is being updated.",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "ID",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            }
+          ],
+          "interfaces": null,
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "OBJECT",
+          "name": "UpdateUserCreateDateHiddenPayload",
+          "description": "The result of a updateUserCreateDateHidden mutation.",
+          "fields": [
+            {
+              "name": "user",
+              "description": "The modified user.",
+              "args": [],
+              "type": {
+                "kind": "OBJECT",
+                "name": "User",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "INPUT_OBJECT",
           "name": "UpdateUserDirectoryHiddenInput",
           "description": "The required input for a updateUserDirectoryHidden mutation.",
           "fields": null,
@@ -77514,6 +77603,18 @@
               },
               "isDeprecated": true,
               "deprecationReason": "Game sales discontinued"
+            },
+            {
+              "name": "isCreateDateHidden",
+              "description": "Whether or not the user has requested that their registration date be hidden in the viewer card.",
+              "args": [],
+              "type": {
+                "kind": "SCALAR",
+                "name": "Boolean",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
             },
             {
               "name": "isDirectoryHidden",
