@@ -14415,8 +14415,19 @@
             },
             {
               "name": "games",
-              "description": "The games associated with the company.",
-              "args": [],
+              "description": "The games associated with the company. Optionally include games that a company can use for Bounty Board\ncampaigns (ie. \"Just Chatting\" for trailer campaigns).",
+              "args": [
+                {
+                  "name": "includeBountyBoardGames",
+                  "description": null,
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Boolean",
+                    "ofType": null
+                  },
+                  "defaultValue": "false"
+                }
+              ],
               "type": {
                 "kind": "LIST",
                 "name": null,
