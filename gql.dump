@@ -42335,6 +42335,33 @@
               "deprecationReason": null
             },
             {
+              "name": "updateUserVideoShelves",
+              "description": "updateUserVideoShelves adds/removes/reorders for a user's video shelves.",
+              "args": [
+                {
+                  "name": "input",
+                  "description": null,
+                  "type": {
+                    "kind": "NON_NULL",
+                    "name": null,
+                    "ofType": {
+                      "kind": "INPUT_OBJECT",
+                      "name": "UpdateUserVideoShelvesInput",
+                      "ofType": null
+                    }
+                  },
+                  "defaultValue": null
+                }
+              ],
+              "type": {
+                "kind": "OBJECT",
+                "name": "UpdateUserVideoShelvesPayload",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
               "name": "updateVideoComment",
               "description": "updateVideoComment updates a video comment identified by provided comment ID.",
               "args": [
@@ -72746,6 +72773,131 @@
                 "kind": "OBJECT",
                 "name": "UserSubscriptionSettings",
                 "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "OBJECT",
+          "name": "UpdateUserVideoShelvesError",
+          "description": "Error information in the update user video shelves response.",
+          "fields": [
+            {
+              "name": "code",
+              "description": "An http error code to identify the error response.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Int",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "message",
+              "description": "The translated error response message for this given error.",
+              "args": [],
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "INPUT_OBJECT",
+          "name": "UpdateUserVideoShelvesInput",
+          "description": "Input information for updating a user's video shelves. Video shelves are added/removed and reordered based on the provided shelfOptions.",
+          "fields": null,
+          "inputFields": [
+            {
+              "name": "channelID",
+              "description": "Channel for which to update shelves.",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "ID",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "shelfOptions",
+              "description": "A list of different shelf options to populate the user's video shelves.",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "LIST",
+                  "name": null,
+                  "ofType": {
+                    "kind": "NON_NULL",
+                    "name": null,
+                    "ofType": {
+                      "kind": "INPUT_OBJECT",
+                      "name": "ShelvesAvailableOptions",
+                      "ofType": null
+                    }
+                  }
+                }
+              },
+              "defaultValue": null
+            }
+          ],
+          "interfaces": null,
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "OBJECT",
+          "name": "UpdateUserVideoShelvesPayload",
+          "description": "Response to a request to update a user's video shelves.",
+          "fields": [
+            {
+              "name": "error",
+              "description": "The error response for this update request.",
+              "args": [],
+              "type": {
+                "kind": "OBJECT",
+                "name": "UpdateUserVideoShelvesError",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "shelves",
+              "description": "The list of shelves for this user.",
+              "args": [],
+              "type": {
+                "kind": "LIST",
+                "name": null,
+                "ofType": {
+                  "kind": "OBJECT",
+                  "name": "VideoShelf",
+                  "ofType": null
+                }
               },
               "isDeprecated": false,
               "deprecationReason": null
