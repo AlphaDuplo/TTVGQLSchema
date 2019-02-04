@@ -16253,6 +16253,134 @@
         },
         {
           "kind": "INPUT_OBJECT",
+          "name": "CreateExtensionImageUploadInfoInput",
+          "description": "Information needed to generate a URL and UploadId to upload extension images to.",
+          "fields": null,
+          "inputFields": [
+            {
+              "name": "discovery",
+              "description": "Whether to upload new discovery image.",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Boolean",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "extensionID",
+              "description": "The extension:version the images are for.",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "ID",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "logo",
+              "description": "Whether to upload new logo image.",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Boolean",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "screenshots",
+              "description": "Amount of new screenshot image to be uploaded.",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Int",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "taskbar",
+              "description": "Whether to upload new taskbar image.",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Boolean",
+                "ofType": null
+              },
+              "defaultValue": null
+            }
+          ],
+          "interfaces": null,
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "OBJECT",
+          "name": "CreateExtensionImageUploadInfoPayload",
+          "description": "Returned information about images upload including URL to upload the image to.",
+          "fields": [
+            {
+              "name": "discovery",
+              "description": "Url and UploadId for discovery.",
+              "args": [],
+              "type": {
+                "kind": "OBJECT",
+                "name": "ExtensionImageUploadResponse",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "logo",
+              "description": "Url and UploadId for logo.",
+              "args": [],
+              "type": {
+                "kind": "OBJECT",
+                "name": "ExtensionImageUploadResponse",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "screenshots",
+              "description": "Urls and UploadIds for screenshots.",
+              "args": [],
+              "type": {
+                "kind": "LIST",
+                "name": null,
+                "ofType": {
+                  "kind": "OBJECT",
+                  "name": "ExtensionImageUploadResponse",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "taskbar",
+              "description": "Url and UploadId for taskbar.",
+              "args": [],
+              "type": {
+                "kind": "OBJECT",
+                "name": "ExtensionImageUploadResponse",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "INPUT_OBJECT",
           "name": "CreateFriendRequestInput",
           "description": null,
           "fields": null,
@@ -27462,6 +27590,49 @@
         },
         {
           "kind": "OBJECT",
+          "name": "ExtensionImageUploadResponse",
+          "description": "Url and UploadId provided by Upload Service.",
+          "fields": [
+            {
+              "name": "uploadID",
+              "description": "Upload ID.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "ID",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "url",
+              "description": "Upload URL.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "String",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "OBJECT",
           "name": "ExtensionInstallation",
           "description": "Extension Installation are models which contain an Extension and it's associated installation metadata.",
           "fields": [
@@ -38590,6 +38761,33 @@
               "type": {
                 "kind": "OBJECT",
                 "name": "CreateDropImageUploadURLPayload",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "createExtensionImageUploadInfo",
+              "description": "createExtensionImageUploadInfo creates and returns a url and uploadId to use on the client side to upload extension logo, taskbar, discovery and screenshot images.",
+              "args": [
+                {
+                  "name": "input",
+                  "description": null,
+                  "type": {
+                    "kind": "NON_NULL",
+                    "name": null,
+                    "ofType": {
+                      "kind": "INPUT_OBJECT",
+                      "name": "CreateExtensionImageUploadInfoInput",
+                      "ofType": null
+                    }
+                  },
+                  "defaultValue": null
+                }
+              ],
+              "type": {
+                "kind": "OBJECT",
+                "name": "CreateExtensionImageUploadInfoPayload",
                 "ofType": null
               },
               "isDeprecated": false,
