@@ -82473,7 +82473,7 @@
               "deprecationReason": null
             },
             {
-              "name": "GAME_VIDEOS",
+              "name": "GAME",
               "description": "Videos marked with a specified game sorted by recency.",
               "isDeprecated": false,
               "deprecationReason": null
