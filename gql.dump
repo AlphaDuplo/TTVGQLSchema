@@ -76494,7 +76494,7 @@
             },
             {
               "name": "followedLiveUsers",
-              "description": "A list of live-streaming broadcasters this user is following.\nOnly resolves for the authenticated user.\nNOTE: the sort input parameter is not supported and should not be used.",
+              "description": "A list of live-streaming broadcasters this user is following.\nOnly resolves for the authenticated user.",
               "args": [
                 {
                   "name": "first",
@@ -76517,6 +76517,16 @@
                   "defaultValue": null
                 },
                 {
+                  "name": "sort",
+                  "description": null,
+                  "type": {
+                    "kind": "ENUM",
+                    "name": "StreamSort",
+                    "ofType": null
+                  },
+                  "defaultValue": "VIEWER_COUNT"
+                },
+                {
                   "name": "includeRestricted",
                   "description": null,
                   "type": {
@@ -76533,16 +76543,6 @@
                     }
                   },
                   "defaultValue": null
-                },
-                {
-                  "name": "sort",
-                  "description": null,
-                  "type": {
-                    "kind": "ENUM",
-                    "name": "StreamSort",
-                    "ofType": null
-                  },
-                  "defaultValue": "VIEWER_COUNT"
                 }
               ],
               "type": {
