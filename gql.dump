@@ -2659,12 +2659,12 @@
                 "name": "BadgeClickAction",
                 "ofType": null
               },
-              "isDeprecated": false,
-              "deprecationReason": null
+              "isDeprecated": true,
+              "deprecationReason": "Should use onClickAction instead"
             },
             {
               "name": "clickURL",
-              "description": "The URL to redirect to if the badge's clickAction is VISIT_URL.",
+              "description": "The URL to redirect to if the badge's onClickAction is VISIT_URL.",
               "args": [],
               "type": {
                 "kind": "SCALAR",
@@ -2729,6 +2729,18 @@
                   "name": "String",
                   "ofType": null
                 }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "onClickAction",
+              "description": "Identifies an action to trigger when this badge is clicked.",
+              "args": [],
+              "type": {
+                "kind": "ENUM",
+                "name": "BadgeClickAction",
+                "ofType": null
               },
               "isDeprecated": false,
               "deprecationReason": null
