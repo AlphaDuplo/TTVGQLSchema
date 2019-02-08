@@ -16252,6 +16252,103 @@
           "possibleTypes": null
         },
         {
+          "kind": "ENUM",
+          "name": "CreateExtensionClientError",
+          "description": "CreateExtensionClientError is an error associated with the createExtensionClient mutation.",
+          "fields": null,
+          "inputFields": null,
+          "interfaces": null,
+          "enumValues": [
+            {
+              "name": "INVALID_NAME",
+              "description": "The specified name was invalid.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "NAME_IN_USE",
+              "description": "The specified name is already taken by another extension or app.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "possibleTypes": null
+        },
+        {
+          "kind": "INPUT_OBJECT",
+          "name": "CreateExtensionClientInput",
+          "description": "CreateExtensionClientInput creates an extension with a given name.",
+          "fields": null,
+          "inputFields": [
+            {
+              "name": "name",
+              "description": "name is the name of the extension client ID.",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "String",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "redirectURI",
+              "description": "redirectURI is the URI that can be used for OAuth login using the extension's client ID.",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "String",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            }
+          ],
+          "interfaces": null,
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "OBJECT",
+          "name": "CreateExtensionClientPayload",
+          "description": "CreateExtensionClientPayload returns the created extension ID.",
+          "fields": [
+            {
+              "name": "client",
+              "description": "The created extension client.",
+              "args": [],
+              "type": {
+                "kind": "OBJECT",
+                "name": "ExtensionClient",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "error",
+              "description": "The error when the mutation fails to create an extension client.",
+              "args": [],
+              "type": {
+                "kind": "ENUM",
+                "name": "CreateExtensionClientError",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
           "kind": "INPUT_OBJECT",
           "name": "CreateExtensionImageUploadInfoInput",
           "description": "Information needed to generate a URL and UploadId to upload extension images to.",
@@ -20667,6 +20764,82 @@
               "type": {
                 "kind": "INTERFACE",
                 "name": "DeprecatedEvent",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "INPUT_OBJECT",
+          "name": "DeleteLoyaltyBadgeInput",
+          "description": "Inputs for the mutation. Loyalty Badge to be deleted by channelID, badgeID, and channelTenureMethodID.",
+          "fields": null,
+          "inputFields": [
+            {
+              "name": "badgeID",
+              "description": "badgeID correlated to the badge being deleted.",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "ID",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "channelID",
+              "description": "channelID correlated to the badge being deleted.",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "ID",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "channelTenureMethodID",
+              "description": "channelTenureMethodID uniquely identifies the badge being deleted.",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "ID",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            }
+          ],
+          "interfaces": null,
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "OBJECT",
+          "name": "DeleteLoyaltyBadgePayload",
+          "description": "The returned payload from the mutation for Deleting a Loyalty Badge.",
+          "fields": [
+            {
+              "name": "badge",
+              "description": "LoyaltyBadge object that was deleted.",
+              "args": [],
+              "type": {
+                "kind": "OBJECT",
+                "name": "LoyaltyBadge",
                 "ofType": null
               },
               "isDeprecated": false,
@@ -26180,6 +26353,54 @@
               },
               "isDeprecated": false,
               "deprecationReason": null
+            },
+            {
+              "name": "fileName",
+              "description": "The name of the file that was uploaded.",
+              "args": [],
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "fileSize",
+              "description": "The size of the file that was uploaded.",
+              "args": [],
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "uploadedAt",
+              "description": "The time that the assets were uploaded.",
+              "args": [],
+              "type": {
+                "kind": "SCALAR",
+                "name": "Time",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "uploader",
+              "description": "The user that uploaded the assets.",
+              "args": [],
+              "type": {
+                "kind": "OBJECT",
+                "name": "User",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
             }
           ],
           "inputFields": null,
@@ -26905,6 +27126,81 @@
           "possibleTypes": null
         },
         {
+          "kind": "OBJECT",
+          "name": "ExtensionClient",
+          "description": "ExtensionClient is the authorization component of an extension.",
+          "fields": [
+            {
+              "name": "createdAt",
+              "description": "CreatedAt is the timestamp at which this client was created.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Time",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "id",
+              "description": "ID is the OAuth ID representing the extension.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "ID",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "name",
+              "description": "Name is the name of the extension.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "String",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "redirectURI",
+              "description": "RedirectURI is the URI used for client redirect on OAuth login.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "String",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
           "kind": "ENUM",
           "name": "ExtensionConfigurationLocation",
           "description": "Possible locations for Extension Configuration to be hosted.",
@@ -27043,7 +27339,7 @@
               "args": [],
               "type": {
                 "kind": "SCALAR",
-                "name": "String",
+                "name": "Time",
                 "ofType": null
               },
               "isDeprecated": false,
@@ -35371,6 +35667,129 @@
           "possibleTypes": null
         },
         {
+          "kind": "OBJECT",
+          "name": "LoyaltyBadge",
+          "description": "Communicates a Loyalty Badge (usually during upload).",
+          "fields": [
+            {
+              "name": "channelTenureMethodID",
+              "description": "Unique identifier the badges method of tenure by channelid and cumulative months.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "ID",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "id",
+              "description": "The channel's loyalty badge unique identifier.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "ID",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "image1xURL",
+              "description": "image1xURL to retrieve the 1x sized Badge.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "String",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "image2xURL",
+              "description": "Image1xURL to retrieve the 2x sized Badge.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "String",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "image4xURL",
+              "description": "image4xURL to retrieve the 4x sized Badge.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "String",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "requiredTenureMonths",
+              "description": "Identifies the amount of cumulative tenure months to acquire Badge.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Int",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "title",
+              "description": "A localized, human-friendly title for the badge.\nDefaults to English if no translation exists for the requested locale.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "String",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
           "kind": "INPUT_OBJECT",
           "name": "MakeKeyBatchDownloadURLInput",
           "description": "Input for creating a batch download URL for key codes.",
@@ -38767,6 +39186,33 @@
               "deprecationReason": null
             },
             {
+              "name": "createExtensionClient",
+              "description": "createExtensionClient creates an extension with a provided name.",
+              "args": [
+                {
+                  "name": "input",
+                  "description": null,
+                  "type": {
+                    "kind": "NON_NULL",
+                    "name": null,
+                    "ofType": {
+                      "kind": "INPUT_OBJECT",
+                      "name": "CreateExtensionClientInput",
+                      "ofType": null
+                    }
+                  },
+                  "defaultValue": null
+                }
+              ],
+              "type": {
+                "kind": "OBJECT",
+                "name": "CreateExtensionClientPayload",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
               "name": "createExtensionImageUploadInfo",
               "description": "createExtensionImageUploadInfo creates and returns a url and uploadId to use on the client side to upload extension logo, taskbar, discovery and screenshot images.",
               "args": [
@@ -39517,6 +39963,33 @@
               "type": {
                 "kind": "OBJECT",
                 "name": "DeleteEventLeafPayload",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "deleteLoyaltyBadge",
+              "description": "Deletes a Loyalty Badge of a Channel.",
+              "args": [
+                {
+                  "name": "input",
+                  "description": null,
+                  "type": {
+                    "kind": "NON_NULL",
+                    "name": null,
+                    "ofType": {
+                      "kind": "INPUT_OBJECT",
+                      "name": "DeleteLoyaltyBadgeInput",
+                      "ofType": null
+                    }
+                  },
+                  "defaultValue": null
+                }
+              ],
+              "type": {
+                "kind": "OBJECT",
+                "name": "DeleteLoyaltyBadgePayload",
                 "ofType": null
               },
               "isDeprecated": false,
@@ -41866,6 +42339,33 @@
               "type": {
                 "kind": "OBJECT",
                 "name": "TOSBanCommunityPayload",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "transitionExtensionState",
+              "description": "Transitions the state for an existing extension.\nOnly allowed for the owner of the extension.",
+              "args": [
+                {
+                  "name": "input",
+                  "description": null,
+                  "type": {
+                    "kind": "NON_NULL",
+                    "name": null,
+                    "ofType": {
+                      "kind": "INPUT_OBJECT",
+                      "name": "TransitionExtensionStateInput",
+                      "ofType": null
+                    }
+                  },
+                  "defaultValue": null
+                }
+              ],
+              "type": {
+                "kind": "OBJECT",
+                "name": "TransitionExtensionStatePayload",
                 "ofType": null
               },
               "isDeprecated": false,
@@ -51373,7 +51873,7 @@
             },
             {
               "name": "extensionManifest",
-              "description": "Get an ExtensionManifest by ID and version.",
+              "description": "Fetch an ExtensionManifest by ID and version.",
               "args": [
                 {
                   "name": "id",
@@ -63984,6 +64484,29 @@
           "possibleTypes": null
         },
         {
+          "kind": "ENUM",
+          "name": "StreamRestrictionType",
+          "description": "Type of restricted stream. Currently only used as input for user.followedLiveUsers.",
+          "fields": null,
+          "inputFields": null,
+          "interfaces": null,
+          "enumValues": [
+            {
+              "name": "OWL_ALL_ACCESS_PASS",
+              "description": "Represents streams that are restricted by OWL all-access pass.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "SUB_ONLY_LIVE",
+              "description": "Represents streams that are restricted to sub-only.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "possibleTypes": null
+        },
+        {
           "kind": "OBJECT",
           "name": "StreamSelfConnection",
           "description": "The relationship between the authenticated user and a stream.",
@@ -69152,6 +69675,137 @@
               "deprecationReason": null
             }
           ],
+          "possibleTypes": null
+        },
+        {
+          "kind": "ENUM",
+          "name": "TransitionExtensionStateError",
+          "description": "TransitionExtensionStateError is an error associated with the transitionExtensionState mutation.",
+          "fields": null,
+          "inputFields": null,
+          "interfaces": null,
+          "enumValues": [
+            {
+              "name": "UNAUTHORIZED",
+              "description": "User is unable to make modifications to the extension.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "MISSING_ASSET_HASH",
+              "description": "The version does not have an asset hash and it must for the transition.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "MISSING_REVIEW_NOTES",
+              "description": "Review notes were not specified when transitioning an extension to READY_FOR_REVIEW.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "MISSING_TEST_CHANNEL",
+              "description": "Test channel was not specified when transitioning an extension to READY_FOR_REVIEW.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "possibleTypes": null
+        },
+        {
+          "kind": "INPUT_OBJECT",
+          "name": "TransitionExtensionStateInput",
+          "description": "TransitionExtesnsionManifest updates the state of an existing extension.",
+          "fields": null,
+          "inputFields": [
+            {
+              "name": "id",
+              "description": "The extension ID of the extension to update.",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "ID",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "reviewNotes",
+              "description": "Notes provided to the moderation team while reviewing the extension.\nRequired when transitioning to READY_FOR_REVIEW.",
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "state",
+              "description": "The State to transition the extension to.",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "ENUM",
+                  "name": "ExtensionState",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "testChannel",
+              "description": "URL to a test channel, provided to the moderation team while reviewing the extension.\nRequired when transitioning to READY_FOR_REVIEW.",
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "version",
+              "description": "The extension version to update.",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "String",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            }
+          ],
+          "interfaces": null,
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "OBJECT",
+          "name": "TransitionExtensionStatePayload",
+          "description": "TransitionExtensionStatePayload returns any errors that occur during update.",
+          "fields": [
+            {
+              "name": "error",
+              "description": "The error when the mutation fails to update an extension.",
+              "args": [],
+              "type": {
+                "kind": "ENUM",
+                "name": "TransitionExtensionStateError",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
+          "enumValues": null,
           "possibleTypes": null
         },
         {
@@ -75871,6 +76525,24 @@
                     "ofType": null
                   },
                   "defaultValue": "VIEWER_COUNT"
+                },
+                {
+                  "name": "includeRestricted",
+                  "description": null,
+                  "type": {
+                    "kind": "LIST",
+                    "name": null,
+                    "ofType": {
+                      "kind": "NON_NULL",
+                      "name": null,
+                      "ofType": {
+                        "kind": "ENUM",
+                        "name": "StreamRestrictionType",
+                        "ofType": null
+                      }
+                    }
+                  },
+                  "defaultValue": null
                 }
               ],
               "type": {
@@ -76064,6 +76736,22 @@
                 "kind": "OBJECT",
                 "name": "FriendConnection",
                 "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "hasBadgesTimedOut",
+              "description": "Whether this user is timedout for uploading loyalty badges.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Boolean",
+                  "ofType": null
+                }
               },
               "isDeprecated": false,
               "deprecationReason": null
@@ -76567,6 +77255,26 @@
               },
               "isDeprecated": true,
               "deprecationReason": "Replaced by profileImageURL"
+            },
+            {
+              "name": "loyaltyBadges",
+              "description": "Lists a User's Uploaded Loyalty Badge.",
+              "args": [],
+              "type": {
+                "kind": "LIST",
+                "name": null,
+                "ofType": {
+                  "kind": "NON_NULL",
+                  "name": null,
+                  "ofType": {
+                    "kind": "OBJECT",
+                    "name": "LoyaltyBadge",
+                    "ofType": null
+                  }
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
             },
             {
               "name": "managedEventCollections",
