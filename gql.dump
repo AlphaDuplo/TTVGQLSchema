@@ -81292,6 +81292,49 @@
               "deprecationReason": null
             },
             {
+              "name": "topClips",
+              "description": "A paginated list of clips featuring this vod that is, by default, ordered by view count descending.\nWhen criteria is not specified, the default values are used.",
+              "args": [
+                {
+                  "name": "first",
+                  "description": null,
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Int",
+                    "ofType": null
+                  },
+                  "defaultValue": "10"
+                },
+                {
+                  "name": "after",
+                  "description": null,
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Cursor",
+                    "ofType": null
+                  },
+                  "defaultValue": null
+                },
+                {
+                  "name": "criteria",
+                  "description": null,
+                  "type": {
+                    "kind": "INPUT_OBJECT",
+                    "name": "VideoTopClipsInput",
+                    "ofType": null
+                  },
+                  "defaultValue": null
+                }
+              ],
+              "type": {
+                "kind": "OBJECT",
+                "name": "ClipConnection",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
               "name": "updatedAt",
               "description": "The most recent time the video data was updated.",
               "args": [],
@@ -83404,6 +83447,47 @@
               "deprecationReason": null
             }
           ],
+          "possibleTypes": null
+        },
+        {
+          "kind": "INPUT_OBJECT",
+          "name": "VideoTopClipsInput",
+          "description": "Filtering criteria for paginated video top clips results.",
+          "fields": null,
+          "inputFields": [
+            {
+              "name": "curatorID",
+              "description": "The ID of the curator to filter results by.",
+              "type": {
+                "kind": "SCALAR",
+                "name": "ID",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "period",
+              "description": "The time period to restrict clips based on creation time.",
+              "type": {
+                "kind": "ENUM",
+                "name": "ClipsPeriod",
+                "ofType": null
+              },
+              "defaultValue": "LAST_WEEK"
+            },
+            {
+              "name": "sort",
+              "description": "The sort order for the clips results.",
+              "type": {
+                "kind": "ENUM",
+                "name": "ClipsSort",
+                "ofType": null
+              },
+              "defaultValue": "VIEWS_DESC"
+            }
+          ],
+          "interfaces": null,
+          "enumValues": null,
           "possibleTypes": null
         },
         {
