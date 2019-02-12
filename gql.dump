@@ -20804,6 +20804,83 @@
           "possibleTypes": null
         },
         {
+          "kind": "ENUM",
+          "name": "DeleteExtensionError",
+          "description": "Error types returned for the deleteExtension mutation.",
+          "fields": null,
+          "inputFields": null,
+          "interfaces": null,
+          "enumValues": [
+            {
+              "name": "MISSING_EXTENSION_ID",
+              "description": "Returned when the extension id was not specified.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "EXTENSION_NOT_FOUND",
+              "description": "Returned when the id specified could not be found.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "UNAUTHORIZED",
+              "description": "Returned when the calling user does not have access to delete the extension.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "possibleTypes": null
+        },
+        {
+          "kind": "INPUT_OBJECT",
+          "name": "DeleteExtensionInput",
+          "description": "Inputs for the deleteExtension mutation.",
+          "fields": null,
+          "inputFields": [
+            {
+              "name": "id",
+              "description": "ID for the extension being deleted.",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "ID",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            }
+          ],
+          "interfaces": null,
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "OBJECT",
+          "name": "DeleteExtensionPayload",
+          "description": "The returned payload from the deleteExtension mutation.",
+          "fields": [
+            {
+              "name": "error",
+              "description": "Error response from the deleteExtension mutation.\nnull if the delete was successful.",
+              "args": [],
+              "type": {
+                "kind": "ENUM",
+                "name": "DeleteExtensionError",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
           "kind": "INPUT_OBJECT",
           "name": "DeleteLoyaltyBadgeInput",
           "description": "Inputs for the mutation. Loyalty Badge to be deleted by channelID, badgeID, and channelTenureMethodID.",
@@ -40085,6 +40162,33 @@
               "type": {
                 "kind": "OBJECT",
                 "name": "DeleteEventLeafPayload",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "deleteExtension",
+              "description": "deleteExtension allows an extension owner to delete an extension.",
+              "args": [
+                {
+                  "name": "input",
+                  "description": null,
+                  "type": {
+                    "kind": "NON_NULL",
+                    "name": null,
+                    "ofType": {
+                      "kind": "INPUT_OBJECT",
+                      "name": "DeleteExtensionInput",
+                      "ofType": null
+                    }
+                  },
+                  "defaultValue": null
+                }
+              ],
+              "type": {
+                "kind": "OBJECT",
+                "name": "DeleteExtensionPayload",
                 "ofType": null
               },
               "isDeprecated": false,
