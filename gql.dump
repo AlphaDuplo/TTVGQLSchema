@@ -19464,8 +19464,8 @@
                   "ofType": null
                 }
               },
-              "isDeprecated": false,
-              "deprecationReason": null
+              "isDeprecated": true,
+              "deprecationReason": "Renamed to viewerCount"
             },
             {
               "name": "raider",
@@ -19489,6 +19489,22 @@
                 "ofType": {
                   "kind": "SCALAR",
                   "name": "Time",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "viewerCount",
+              "description": "Number of users who participated in the raid.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Int",
                   "ofType": null
                 }
               },
