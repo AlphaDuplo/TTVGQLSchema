@@ -43786,6 +43786,33 @@
               "deprecationReason": null
             },
             {
+              "name": "updateSquadInvitePolicy",
+              "description": "updateSquadInvitePolicy allows a broadcaster to update their squad stream invite policy.",
+              "args": [
+                {
+                  "name": "input",
+                  "description": null,
+                  "type": {
+                    "kind": "NON_NULL",
+                    "name": null,
+                    "ofType": {
+                      "kind": "INPUT_OBJECT",
+                      "name": "UpdateSquadInvitePolicyInput",
+                      "ofType": null
+                    }
+                  },
+                  "defaultValue": null
+                }
+              ],
+              "type": {
+                "kind": "OBJECT",
+                "name": "UpdateSquadInvitePolicyPayload",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
               "name": "updateSquadStream",
               "description": "updateSquadStream allows an owner of a squad stream to update the squad stream.",
               "args": [
@@ -43807,33 +43834,6 @@
               "type": {
                 "kind": "OBJECT",
                 "name": "UpdateSquadStreamPayload",
-                "ofType": null
-              },
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
-              "name": "updateSquadStreamSettings",
-              "description": "updateSquadStreamSettings allows a broadcaster to update their squad stream settings.",
-              "args": [
-                {
-                  "name": "input",
-                  "description": null,
-                  "type": {
-                    "kind": "NON_NULL",
-                    "name": null,
-                    "ofType": {
-                      "kind": "INPUT_OBJECT",
-                      "name": "UpdateSquadStreamSettingsInput",
-                      "ofType": null
-                    }
-                  },
-                  "defaultValue": null
-                }
-              ],
-              "type": {
-                "kind": "OBJECT",
-                "name": "UpdateSquadStreamSettingsPayload",
                 "ofType": null
               },
               "isDeprecated": false,
@@ -74387,6 +74387,68 @@
           "possibleTypes": null
         },
         {
+          "kind": "INPUT_OBJECT",
+          "name": "UpdateSquadInvitePolicyInput",
+          "description": "The required input for an updateSquadInvitePolicy mutation.",
+          "fields": null,
+          "inputFields": [
+            {
+              "name": "incomingInvitePolicy",
+              "description": "The new invite policy that will replace what is currently set for the user.",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "ENUM",
+                  "name": "SquadStreamIncomingInvitePolicy",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "userID",
+              "description": "The ID corresponding to the user whose invite policy should be updated.",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "ID",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            }
+          ],
+          "interfaces": null,
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "OBJECT",
+          "name": "UpdateSquadInvitePolicyPayload",
+          "description": "Returns after the invite policy is mutated.",
+          "fields": [
+            {
+              "name": "user",
+              "description": "The modified user.",
+              "args": [],
+              "type": {
+                "kind": "OBJECT",
+                "name": "User",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
           "kind": "OBJECT",
           "name": "UpdateSquadStreamError",
           "description": "UpdateSquadStreamError is the error associated with a updateSquadStream.",
@@ -74507,50 +74569,6 @@
               "type": {
                 "kind": "OBJECT",
                 "name": "SquadStream",
-                "ofType": null
-              },
-              "isDeprecated": false,
-              "deprecationReason": null
-            }
-          ],
-          "inputFields": null,
-          "interfaces": [],
-          "enumValues": null,
-          "possibleTypes": null
-        },
-        {
-          "kind": "INPUT_OBJECT",
-          "name": "UpdateSquadStreamSettingsInput",
-          "description": "Inputs to the updateSquadStreamSettings mutation.",
-          "fields": null,
-          "inputFields": [
-            {
-              "name": "incomingInvitePolicy",
-              "description": "If specified, update the incomingInvitePolicy to the given value.",
-              "type": {
-                "kind": "ENUM",
-                "name": "SquadStreamIncomingInvitePolicy",
-                "ofType": null
-              },
-              "defaultValue": null
-            }
-          ],
-          "interfaces": null,
-          "enumValues": null,
-          "possibleTypes": null
-        },
-        {
-          "kind": "OBJECT",
-          "name": "UpdateSquadStreamSettingsPayload",
-          "description": "Outputs from the updateSquadStreamSettings mutation.",
-          "fields": [
-            {
-              "name": "squadStreamSettings",
-              "description": "The updated squad stream settings.",
-              "args": [],
-              "type": {
-                "kind": "OBJECT",
-                "name": "SquadStreamSettings",
                 "ofType": null
               },
               "isDeprecated": false,
