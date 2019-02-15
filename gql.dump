@@ -17929,6 +17929,12 @@
               "deprecationReason": null
             },
             {
+              "name": "INVITATION_BLOCKED",
+              "description": "The sender does not have permission to invite the recipient.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
               "name": "INVITATION_INVALID",
               "description": "The invitation is not valid (e.g. the user is inviting themselves).",
               "isDeprecated": false,
@@ -74391,6 +74397,50 @@
           "possibleTypes": null
         },
         {
+          "kind": "OBJECT",
+          "name": "UpdateSquadInvitePolicyError",
+          "description": "UpdateSquadInvitePolicyError is the error associated with an updateSquadInvitePolicy.",
+          "fields": [
+            {
+              "name": "code",
+              "description": "The associated error code.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "ENUM",
+                  "name": "UpdateSquadInvitePolicyErrorCode",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "ENUM",
+          "name": "UpdateSquadInvitePolicyErrorCode",
+          "description": "UpdateSquadInvitePolicyErrorCode are the possible errors that this mutation returns.",
+          "fields": null,
+          "inputFields": null,
+          "interfaces": null,
+          "enumValues": [
+            {
+              "name": "UNAUTHORIZED",
+              "description": "The caller is not authorized to update the user's squad invite policy.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "possibleTypes": null
+        },
+        {
           "kind": "INPUT_OBJECT",
           "name": "UpdateSquadInvitePolicyInput",
           "description": "The required input for an updateSquadInvitePolicy mutation.",
@@ -74434,6 +74484,18 @@
           "name": "UpdateSquadInvitePolicyPayload",
           "description": "Returns after the invite policy is mutated.",
           "fields": [
+            {
+              "name": "error",
+              "description": "The possible error returned from the service.",
+              "args": [],
+              "type": {
+                "kind": "OBJECT",
+                "name": "UpdateSquadInvitePolicyError",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
             {
               "name": "user",
               "description": "The modified user.",
