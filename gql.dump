@@ -16472,6 +16472,284 @@
         },
         {
           "kind": "INPUT_OBJECT",
+          "name": "CreateLoyaltyBadgeInput",
+          "description": "CreateLoyaltyBadge creates a new badge with these settings.",
+          "fields": null,
+          "inputFields": [
+            {
+              "name": "channelID",
+              "description": "The channel ID where the badge will be uploaded.",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "ID",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "image1xID",
+              "description": "The S3 ID of the 1x sized badge.",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "ID",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "image2xID",
+              "description": "The S3 ID of the 2x sized badge.",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "ID",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "image4xID",
+              "description": "The S3 ID of the 4x sized badge.",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "ID",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "requiredTenureMonths",
+              "description": "The number of months of the badge.",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Int",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            }
+          ],
+          "interfaces": null,
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "OBJECT",
+          "name": "CreateLoyaltyBadgePayload",
+          "description": "CreateLoyaltyBadgePayload returns the created badge.",
+          "fields": [
+            {
+              "name": "badge",
+              "description": "The created badge.",
+              "args": [],
+              "type": {
+                "kind": "OBJECT",
+                "name": "LoyaltyBadge",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "errorCode",
+              "description": "A code indicating why the create call failed, if it did.",
+              "args": [],
+              "type": {
+                "kind": "ENUM",
+                "name": "CreateLoyaltyBadgeResponseCode",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "ENUM",
+          "name": "CreateLoyaltyBadgeResponseCode",
+          "description": "A code indicating why the create call failed, if it did.",
+          "fields": null,
+          "inputFields": null,
+          "interfaces": null,
+          "enumValues": [
+            {
+              "name": "ERR_INVALID_USER",
+              "description": "Only eligible users can create a badge.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "ERR_INVALID_BADGE_IMAGE_1X_ID",
+              "description": "The badge image 1x submitted was not valid.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "ERR_INVALID_BADGE_IMAGE_2X_ID",
+              "description": "The badge image 2x submitted was not valid.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "ERR_INVALID_BADGE_IMAGE_4X_ID",
+              "description": "The badge image 4x submitted was not valid.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "ERR_INVALID_BADGE_REQUIRED_TENURE_MONTHS",
+              "description": "The badge tenure submitted was not valid.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "ERR_BADGE_EXISTS",
+              "description": "Badge already exists for this tenure.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "ERR_BADGE_TIMEOUT",
+              "description": "User is timed out of badge creation.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "ERR_UNKNOWN",
+              "description": "Unknown error occurred, most likely a server error.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "possibleTypes": null
+        },
+        {
+          "kind": "INPUT_OBJECT",
+          "name": "CreateLoyaltyBadgeUploadConfigInput",
+          "description": "CreateLoyaltyBadgeUploadConfig creates a config with URL to upload the badge image to.",
+          "fields": null,
+          "inputFields": [
+            {
+              "name": "channelID",
+              "description": "The channel ID where the badge will be uploaded.",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "ID",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "size",
+              "description": "The size of the badge.",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Int",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            }
+          ],
+          "interfaces": null,
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "OBJECT",
+          "name": "CreateLoyaltyBadgeUploadConfigPayload",
+          "description": "CreateLoyaltyBadgeUploadConfigPayload returns the badge upload config.",
+          "fields": [
+            {
+              "name": "errorCode",
+              "description": "A code indicating why the config call failed, if it did.",
+              "args": [],
+              "type": {
+                "kind": "ENUM",
+                "name": "CreateLoyaltyBadgeUploadConfigResponseCode",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "uploadConfig",
+              "description": "The badge upload config.",
+              "args": [],
+              "type": {
+                "kind": "OBJECT",
+                "name": "LoyaltyBadgeUploadConfig",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "ENUM",
+          "name": "CreateLoyaltyBadgeUploadConfigResponseCode",
+          "description": "A code indicating why the config call failed, if it did.",
+          "fields": null,
+          "inputFields": null,
+          "interfaces": null,
+          "enumValues": [
+            {
+              "name": "ERR_INVALID_USER",
+              "description": "Only eligible users can create a badge upload config.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "ERR_INVALID_BADGE_SIZE",
+              "description": "The badge submitted was not valid.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "ERR_UNKNOWN",
+              "description": "Unknown error occurred, most likely a server error.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "possibleTypes": null
+        },
+        {
+          "kind": "INPUT_OBJECT",
           "name": "CreateModeratorCommentInput",
           "description": "The required input to create a moderator comment on a channel.",
           "fields": null,
@@ -36051,6 +36329,65 @@
           "possibleTypes": null
         },
         {
+          "kind": "OBJECT",
+          "name": "LoyaltyBadgeUploadConfig",
+          "description": "LoyaltyBadgeUploadConfig is the upload configuration for creating loyalty badges.",
+          "fields": [
+            {
+              "name": "imageID",
+              "description": "The image ID of the badge image.",
+              "args": [],
+              "type": {
+                "kind": "SCALAR",
+                "name": "ID",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "imageURL",
+              "description": "The resulting URL of the badge image.",
+              "args": [],
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "uploadID",
+              "description": "The upload ID of the badge file.",
+              "args": [],
+              "type": {
+                "kind": "SCALAR",
+                "name": "ID",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "uploadURL",
+              "description": "The URL to upload the badge image to.",
+              "args": [],
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
           "kind": "INPUT_OBJECT",
           "name": "MakeKeyBatchDownloadURLInput",
           "description": "Input for creating a batch download URL for key codes.",
@@ -39495,6 +39832,60 @@
               "type": {
                 "kind": "OBJECT",
                 "name": "CreateFriendRequestPayload",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "createLoyaltyBadge",
+              "description": "CreateLoyaltyBadge creates a new badge with these settings.",
+              "args": [
+                {
+                  "name": "input",
+                  "description": null,
+                  "type": {
+                    "kind": "NON_NULL",
+                    "name": null,
+                    "ofType": {
+                      "kind": "INPUT_OBJECT",
+                      "name": "CreateLoyaltyBadgeInput",
+                      "ofType": null
+                    }
+                  },
+                  "defaultValue": null
+                }
+              ],
+              "type": {
+                "kind": "OBJECT",
+                "name": "CreateLoyaltyBadgePayload",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "createLoyaltyBadgeUploadConfig",
+              "description": "createLoyaltyBadgeUploadConfig creates a config with URL to upload the badge image to.",
+              "args": [
+                {
+                  "name": "input",
+                  "description": null,
+                  "type": {
+                    "kind": "NON_NULL",
+                    "name": null,
+                    "ofType": {
+                      "kind": "INPUT_OBJECT",
+                      "name": "CreateLoyaltyBadgeUploadConfigInput",
+                      "ofType": null
+                    }
+                  },
+                  "defaultValue": null
+                }
+              ],
+              "type": {
+                "kind": "OBJECT",
+                "name": "CreateLoyaltyBadgeUploadConfigPayload",
                 "ofType": null
               },
               "isDeprecated": false,
