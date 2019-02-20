@@ -26522,6 +26522,22 @@
               "deprecationReason": null
             },
             {
+              "name": "subscriptionsSupportLevel",
+              "description": "The subscription support level required by the broadcaster for the extension to operate.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "ENUM",
+                  "name": "ExtensionSubscriptionsSupportLevel",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
               "name": "summary",
               "description": "The summary of the extension specified by the developer's extension manifest\n(max-length: 140 characters).",
               "args": [],
@@ -27022,6 +27038,22 @@
               "deprecationReason": null
             },
             {
+              "name": "subscriptionsSupportLevel",
+              "description": "The subscription support level required by the broadcaster for the extension to operate. Defaults to \"NONE\".",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "ENUM",
+                  "name": "ExtensionSubscriptionsSupportLevel",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
               "name": "whitelists",
               "description": "Whitelists for restricting extension access and behavior.",
               "args": [],
@@ -27114,6 +27146,16 @@
                   "name": "String",
                   "ofType": null
                 }
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "subscriptionsSupportLevel",
+              "description": "The subscription support level required by the broadcaster for the extension to operate. Defaults to \"NONE\".",
+              "type": {
+                "kind": "ENUM",
+                "name": "ExtensionSubscriptionsSupportLevel",
+                "ofType": null
               },
               "defaultValue": null
             },
@@ -28699,6 +28741,22 @@
               },
               "isDeprecated": false,
               "deprecationReason": null
+            },
+            {
+              "name": "isSubscriptionStatusAvailable",
+              "description": "Whether the extension has access to subscription status in the current context.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Boolean",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
             }
           ],
           "inputFields": null,
@@ -28711,6 +28769,22 @@
           "name": "ExtensionInstallationFeatureFlags",
           "description": "The set of extension features an installer can opt in or out of.",
           "fields": [
+            {
+              "name": "canRetrieveSubscriptionStatus",
+              "description": "Whether the installer has granted the extension access to their subscriptions list.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Boolean",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
             {
               "name": "canSendChat",
               "description": "Whether the installer has opted in or out of chat capabilities in extensions.",
@@ -29247,6 +29321,29 @@
             {
               "name": "RELEASED",
               "description": "Released extension.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "possibleTypes": null
+        },
+        {
+          "kind": "ENUM",
+          "name": "ExtensionSubscriptionsSupportLevel",
+          "description": "The support levels for subscriptions features.",
+          "fields": null,
+          "inputFields": null,
+          "interfaces": null,
+          "enumValues": [
+            {
+              "name": "NONE",
+              "description": "This extension doesn't have any support for subscriptions features.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "OPTIONAL",
+              "description": "This extension has support for subscriptions features but can operate in the event\nthe broadcaster disables the permissions.",
               "isDeprecated": false,
               "deprecationReason": null
             }
