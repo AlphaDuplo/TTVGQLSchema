@@ -9711,6 +9711,18 @@
               "description": "Action to block saved payment methods.",
               "isDeprecated": false,
               "deprecationReason": null
+            },
+            {
+              "name": "EXCEEDED_VELOCITY_LIMITS",
+              "description": "Action to show velocity limit CTA.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "VERIFIED_SAVED_PAYMENT_METHOD",
+              "description": "Action to show the user enabled 2FA before saving their payment method.",
+              "isDeprecated": false,
+              "deprecationReason": null
             }
           ],
           "possibleTypes": null
