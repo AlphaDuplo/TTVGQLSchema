@@ -16510,6 +16510,54 @@
         },
         {
           "kind": "INPUT_OBJECT",
+          "name": "CreateExtensionZipUploadInfoInput",
+          "description": "Information needed to generate a URL and UploadId to upload extension zip file to.",
+          "fields": null,
+          "inputFields": [
+            {
+              "name": "extensionID",
+              "description": "The extension:version the zip file is for.",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "ID",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            }
+          ],
+          "interfaces": null,
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "OBJECT",
+          "name": "CreateExtensionZipUploadInfoPayload",
+          "description": "Returned information about zip file upload including URL to upload the zip to.",
+          "fields": [
+            {
+              "name": "response",
+              "description": "Url and UploadId for zip file.",
+              "args": [],
+              "type": {
+                "kind": "OBJECT",
+                "name": "ExtensionZipUploadResponse",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "INPUT_OBJECT",
           "name": "CreateFriendRequestInput",
           "description": null,
           "fields": null,
@@ -29953,6 +30001,49 @@
         },
         {
           "kind": "OBJECT",
+          "name": "ExtensionZipUploadResponse",
+          "description": "Url and UploadId provided by Upload Service.",
+          "fields": [
+            {
+              "name": "uploadID",
+              "description": "Upload ID.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "ID",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "url",
+              "description": "Upload URL.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "String",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "OBJECT",
           "name": "FeatureFlags",
           "description": null,
           "fields": [
@@ -40099,6 +40190,33 @@
               "type": {
                 "kind": "OBJECT",
                 "name": "CreateExtensionImageUploadInfoPayload",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "createExtensionZipUploadInfo",
+              "description": "createExtensionZipUploadInfo creates and returns a url and uploadId to use on the client side to upload zip files.",
+              "args": [
+                {
+                  "name": "input",
+                  "description": null,
+                  "type": {
+                    "kind": "NON_NULL",
+                    "name": null,
+                    "ofType": {
+                      "kind": "INPUT_OBJECT",
+                      "name": "CreateExtensionZipUploadInfoInput",
+                      "ofType": null
+                    }
+                  },
+                  "defaultValue": null
+                }
+              ],
+              "type": {
+                "kind": "OBJECT",
+                "name": "CreateExtensionZipUploadInfoPayload",
                 "ofType": null
               },
               "isDeprecated": false,
