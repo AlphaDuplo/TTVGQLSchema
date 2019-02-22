@@ -42832,6 +42832,33 @@
               "deprecationReason": null
             },
             {
+              "name": "setExtensionInstallationOAuth",
+              "description": "Set the OAuth token for an installation which is retrieved and used for Helix requests from extensions.",
+              "args": [
+                {
+                  "name": "input",
+                  "description": null,
+                  "type": {
+                    "kind": "NON_NULL",
+                    "name": null,
+                    "ofType": {
+                      "kind": "INPUT_OBJECT",
+                      "name": "SetExtensionInstallationOAuthInput",
+                      "ofType": null
+                    }
+                  },
+                  "defaultValue": null
+                }
+              ],
+              "type": {
+                "kind": "OBJECT",
+                "name": "SetExtensionInstallationOAuthPayload",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
               "name": "setModLogsAccess",
               "description": "Set access permission to the channel's moderator logs for a given role.",
               "args": [
@@ -61767,6 +61794,68 @@
             {
               "name": "installedExtension",
               "description": "The new state of the installation after the setExtensionFeatureFlags mutation.",
+              "args": [],
+              "type": {
+                "kind": "OBJECT",
+                "name": "ExtensionInstallation",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "INPUT_OBJECT",
+          "name": "SetExtensionInstallationOAuthInput",
+          "description": "The required input to set oauth on an installation.",
+          "fields": null,
+          "inputFields": [
+            {
+              "name": "id",
+              "description": "The installation ID we're setting the oauth token for.",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "ID",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "oauthToken",
+              "description": "The OAuth token created for the extension.",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "String",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            }
+          ],
+          "interfaces": null,
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "OBJECT",
+          "name": "SetExtensionInstallationOAuthPayload",
+          "description": "The resulting installedExtension state after setting OAuth.",
+          "fields": [
+            {
+              "name": "installedExtension",
+              "description": "The new state of the installation after the setExtensionInstallationOAuth mutation.",
               "args": [],
               "type": {
                 "kind": "OBJECT",
