@@ -19321,6 +19321,22 @@
               "deprecationReason": "Use giftQuantity for total subscriptions"
             },
             {
+              "name": "tier",
+              "description": "The gifted subscription's tier.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "ENUM",
+                  "name": "SubscriptionTier",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
               "name": "timestamp",
               "description": "When the subscriptions were gifted.",
               "args": [],
