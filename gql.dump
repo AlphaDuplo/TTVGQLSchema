@@ -19301,6 +19301,22 @@
               "deprecationReason": null
             },
             {
+              "name": "isAnonymous",
+              "description": "Whether the subscription gifting was anonymized to other users.\nIf true, then `gifter` is guaranteed to be null.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Boolean",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
               "name": "recipients",
               "description": "Users who received the gift.\nMaximum count is currently 100.",
               "args": [],
