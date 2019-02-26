@@ -27093,6 +27093,18 @@
               "deprecationReason": null
             },
             {
+              "name": "baseURI",
+              "description": "Base URI used for extensions out of local test.",
+              "args": [],
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
               "name": "fileName",
               "description": "The name of the file that was uploaded.",
               "args": [],
