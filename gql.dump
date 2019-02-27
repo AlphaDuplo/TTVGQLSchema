@@ -16543,6 +16543,16 @@
                 }
               },
               "defaultValue": null
+            },
+            {
+              "name": "filename",
+              "description": "The file name of the zip file.",
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              },
+              "defaultValue": null
             }
           ],
           "interfaces": null,
