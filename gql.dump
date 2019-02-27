@@ -16397,6 +16397,128 @@
           "possibleTypes": null
         },
         {
+          "kind": "OBJECT",
+          "name": "CreateExtensionImageUploadInfoError",
+          "description": "CreateExtensionImageUploadInfoError is wrapper for error associated with the createExtensionImageUploadInfo mutation.",
+          "fields": [
+            {
+              "name": "code",
+              "description": "Error code.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "ENUM",
+                  "name": "CreateExtensionImageUploadInfoErrorCode",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "maximum",
+              "description": "On TOO_MANY_UPLOAD_DISCOVERY_IMAGE, TOO_MANY_UPLOAD_LOGO_IMAGE ,TOO_MANY_UPLOAD_SCREENSHOT_IMAGE, TOO_MANY_UPLOAD_TASKBAR_IMAGE, the maximum number of specific image allowed (existing + incoming).",
+              "args": [],
+              "type": {
+                "kind": "SCALAR",
+                "name": "Int",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "minimum",
+              "description": "On NOT_ENOUGH_UPLOAD_DISCOVERY_IMAGE, NOT_ENOUGH_UPLOAD_LOGO_IMAGE ,NOT_ENOUGH_UPLOAD_SCREENSHOT_IMAGE, NOT_ENOUGH_UPLOAD_TASKBAR_IMAGE, the minimum number of screenshots allowed (existing + incoming).",
+              "args": [],
+              "type": {
+                "kind": "SCALAR",
+                "name": "Int",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "ENUM",
+          "name": "CreateExtensionImageUploadInfoErrorCode",
+          "description": "CreateExtensionImageUploadInfoErrorCode is an error code associated with CreateExtensionImageUploadInfoError.",
+          "fields": null,
+          "inputFields": null,
+          "interfaces": null,
+          "enumValues": [
+            {
+              "name": "UNAUTHORIZED",
+              "description": "User is unable to make modifications to the extension.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "INVALID_VERSION",
+              "description": "Version specified is invalid.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "NOT_ENOUGH_UPLOAD_DISCOVERY_IMAGE",
+              "description": "Not enough discovery image to upload. Must >= 0.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "NOT_ENOUGH_UPLOAD_LOGO_IMAGE",
+              "description": "Not enough logo image to upload. Must >= 0.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "NOT_ENOUGH_UPLOAD_SCREENSHOT_IMAGE",
+              "description": "Not enough screenshot image to upload. Must >= 0.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "NOT_ENOUGH_UPLOAD_TASKBAR_IMAGE",
+              "description": "Not enough taskbar image to upload. Must >= 0.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "TOO_MANY_UPLOAD_DISCOVERY_IMAGE",
+              "description": "Too many discovery image to upload. Must <= 1.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "TOO_MANY_UPLOAD_LOGO_IMAGE",
+              "description": "Too many logo image to upload. Must <= 1.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "TOO_MANY_UPLOAD_SCREENSHOT_IMAGE",
+              "description": "Too many screenshot image to upload. Must <= 1.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "TOO_MANY_UPLOAD_TASKBAR_IMAGE",
+              "description": "Too many taskbar image to upload. Must <= 1.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "possibleTypes": null
+        },
+        {
           "kind": "INPUT_OBJECT",
           "name": "CreateExtensionImageUploadInfoInput",
           "description": "Information needed to generate a URL and UploadId to upload extension images to.",
@@ -16479,6 +16601,18 @@
               "deprecationReason": null
             },
             {
+              "name": "error",
+              "description": "The error when the mutation fails to create upload information.",
+              "args": [],
+              "type": {
+                "kind": "OBJECT",
+                "name": "CreateExtensionImageUploadInfoError",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
               "name": "logo",
               "description": "Url and UploadId for logo.",
               "args": [],
@@ -16525,6 +16659,29 @@
           "possibleTypes": null
         },
         {
+          "kind": "ENUM",
+          "name": "CreateExtensionZipUploadInfoError",
+          "description": "CreateExtensionZipUploadInfoError is an error associated with the createExtensionZipUploadInfo mutation.",
+          "fields": null,
+          "inputFields": null,
+          "interfaces": null,
+          "enumValues": [
+            {
+              "name": "UNAUTHORIZED",
+              "description": "User is unable to make modifications to the extension.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "INVALID_VERSION",
+              "description": "Version specified is invalid.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "possibleTypes": null
+        },
+        {
           "kind": "INPUT_OBJECT",
           "name": "CreateExtensionZipUploadInfoInput",
           "description": "Information needed to generate a URL and UploadId to upload extension zip file to.",
@@ -16564,6 +16721,18 @@
           "name": "CreateExtensionZipUploadInfoPayload",
           "description": "Returned information about zip file upload including URL to upload the zip to.",
           "fields": [
+            {
+              "name": "error",
+              "description": "The error when the mutation fails to upload a zip file.",
+              "args": [],
+              "type": {
+                "kind": "ENUM",
+                "name": "CreateExtensionZipUploadInfoError",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
             {
               "name": "response",
               "description": "Url and UploadId for zip file.",
@@ -21387,6 +21556,12 @@
             {
               "name": "CANNOT_FIND_URL_IN_MANIFEST",
               "description": "Cannot find url in the manifest.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "INVALID_IMAGE_URL",
+              "description": "Invalid image url.",
               "isDeprecated": false,
               "deprecationReason": null
             }
