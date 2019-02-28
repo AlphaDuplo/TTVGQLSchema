@@ -61322,6 +61322,12 @@
               "description": "The anonymous message contained text that is invalid.",
               "isDeprecated": false,
               "deprecationReason": null
+            },
+            {
+              "name": "ANONYMOUS_CHEERMOTE_NOT_ALLOWED",
+              "description": "The bits message contained an anonymous cheermote when it's not allowed (ex: in public cheers).",
+              "isDeprecated": false,
+              "deprecationReason": null
             }
           ],
           "possibleTypes": null
@@ -71319,6 +71325,18 @@
               },
               "isDeprecated": false,
               "deprecationReason": null
+            },
+            {
+              "name": "manifest",
+              "description": "The updated extension manifest.",
+              "args": [],
+              "type": {
+                "kind": "OBJECT",
+                "name": "ExtensionManifest",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
             }
           ],
           "inputFields": null,
@@ -73993,6 +74011,96 @@
             {
               "name": "INVALID_SUMMARY_LENGTH",
               "description": "Extension summary must be shorter than 140 characters.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "INVALID_AUTHOR_EMAIL",
+              "description": "Extension author email must not be nil. Lenght must be < 254, Parses a single RFC 5322 address.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "INVALID_SUPPORT_EMAIL",
+              "description": "Extension support email must not be nil. Lenght must be < 254, Parses a single RFC 5322 address.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "INVALID_AUTHOR_NAME_LENGTH",
+              "description": "Extension author name length must be > 40.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "INVALID_TESTING_BASE_URI",
+              "description": "Extension testing base uri must not be nil and empty scheme. Scheme should be http or https. User should not be nil.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "INVALID_TERMS_URI",
+              "description": "Extension terms uri must not be nil and empty scheme. Scheme should be http or https. User should not be nil.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "INVALID_PRIVACY_URI",
+              "description": "Extension privacy uri must not be nil and empty scheme. Scheme should be http or https. User should not be nil.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "INVALID_COMPONENT_VIEWER_PATH",
+              "description": "Extension component viewer path must not be nil. Format should be BaseUri/Extension_Path.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "INVALID_PANEL_VIEWER_PATH",
+              "description": "Extension panel viewer path must not be nil. Format should be BaseUri/Extension_Path.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "INVALID_VIDEO_OVERLAY_VIEWER_PATH",
+              "description": "Extension video overlay viewer path must not be nil. Format should be BaseUri/Extension_Path.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "INVALID_CONFIG_VIEWER_PATH",
+              "description": "Extension config viewer path must not be nil. Format should be BaseUri/Extension_Path.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "INVALID_LIVE_CONFIG_VIEWER_PATH",
+              "description": "Extension live config viewer path must not be nil. Format should be BaseUri/Extension_Path.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "INVALID_MOBILE_VIEWER_PATH",
+              "description": "Extension mobile viewer path must not be nil. Format should be BaseUri/Extension_Path.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "INVALID_COMPONENT_ASPECT_WIDTH",
+              "description": "Extension component aspect width must be < 50 or > 1.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "INVALID_COMPONENT_ASPECT_HEIGHT",
+              "description": "Extension component aspect height must be < 50 or > 1.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "INVALID_PANEL_HEIGHT",
+              "description": "Extension panel hiehgt must be < 500 or > 100.",
               "isDeprecated": false,
               "deprecationReason": null
             }
