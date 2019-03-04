@@ -9196,6 +9196,34 @@
               },
               "isDeprecated": false,
               "deprecationReason": null
+            },
+            {
+              "name": "isResourceRestricted",
+              "description": "Whether or not the resource is restricted for the requesting user.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Boolean",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "restrictionType",
+              "description": "If restricted, how the resource is restricted.",
+              "args": [],
+              "type": {
+                "kind": "ENUM",
+                "name": "ResourceRestrictionType",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
             }
           ],
           "inputFields": null,
@@ -66051,6 +66079,34 @@
                   "name": "Boolean",
                   "ofType": null
                 }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "isRestricted",
+              "description": "Whether the stream is restricted.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Boolean",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "restrictionType",
+              "description": "If the stream is restricted, the type indicates how the stream is restricted.",
+              "args": [],
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
               },
               "isDeprecated": false,
               "deprecationReason": null
