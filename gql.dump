@@ -43189,6 +43189,33 @@
               "deprecationReason": null
             },
             {
+              "name": "setContentTags",
+              "description": "setContentTags updates the tags specified and associates it with the piece of content specified.",
+              "args": [
+                {
+                  "name": "input",
+                  "description": null,
+                  "type": {
+                    "kind": "NON_NULL",
+                    "name": null,
+                    "ofType": {
+                      "kind": "INPUT_OBJECT",
+                      "name": "SetContentTagsInput",
+                      "ofType": null
+                    }
+                  },
+                  "defaultValue": null
+                }
+              ],
+              "type": {
+                "kind": "OBJECT",
+                "name": "SetContentTagsPayload",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
               "name": "setDefaultPaymentMethod",
               "description": "Sets the default payment method for a user.\nCurrently supports the Zuora (credit card) and Recurly (credit card, Pay-with-Amazon, PayPal) payment providers\nThis is the final step of the payment method management flow. (User.paymentMethods -> User.paymentMethodConfigs -> this mutation).",
               "args": [
@@ -44562,8 +44589,8 @@
                 "name": "UpdateContentTagsPayload",
                 "ofType": null
               },
-              "isDeprecated": false,
-              "deprecationReason": null
+              "isDeprecated": true,
+              "deprecationReason": "Use setContentTags instead"
             },
             {
               "name": "updateEventBroadcastNotifications",
@@ -62041,6 +62068,104 @@
               "type": {
                 "kind": "OBJECT",
                 "name": "ResourceRestriction",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "INPUT_OBJECT",
+          "name": "SetContentTagsInput",
+          "description": "Update tags associated with CLIP, STREAM, or VOD with contentID.",
+          "fields": null,
+          "inputFields": [
+            {
+              "name": "authorID",
+              "description": "ID of the channel owning the content.",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "ID",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "contentID",
+              "description": "ID of content: Channel ID for Streams, Slugs for Clips, and VOD ids for VODs.",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "ID",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "contentType",
+              "description": "Type of content being returned. Can only be of values CLIP, STREAM, or VOD.",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "ENUM",
+                  "name": "ContentType",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "tagIDs",
+              "description": "List of tag IDs to be replaced from the content.",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "LIST",
+                  "name": null,
+                  "ofType": {
+                    "kind": "NON_NULL",
+                    "name": null,
+                    "ofType": {
+                      "kind": "SCALAR",
+                      "name": "ID",
+                      "ofType": null
+                    }
+                  }
+                }
+              },
+              "defaultValue": null
+            }
+          ],
+          "interfaces": null,
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "OBJECT",
+          "name": "SetContentTagsPayload",
+          "description": "Result of mutation is the contentID.",
+          "fields": [
+            {
+              "name": "content",
+              "description": "Content which tags have been updated.",
+              "args": [],
+              "type": {
+                "kind": "UNION",
+                "name": "TaggedContent",
                 "ofType": null
               },
               "isDeprecated": false,
