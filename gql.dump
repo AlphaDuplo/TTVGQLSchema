@@ -3459,6 +3459,16 @@
               "defaultValue": null
             },
             {
+              "name": "deleteTitle",
+              "description": "Wether to reset the badge title to the default title.",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Boolean",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
               "name": "imageData1x",
               "description": "Base64 encoded binary data of the 18x18px badge (\"1x\") image asset.",
               "type": {
@@ -3509,6 +3519,16 @@
                   "name": "Int",
                   "ofType": null
                 }
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "title",
+              "description": "Badge title as string.",
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
               },
               "defaultValue": null
             }
