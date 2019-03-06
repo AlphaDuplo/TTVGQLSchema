@@ -8937,7 +8937,7 @@
               "deprecationReason": null
             },
             {
-              "name": "SET_CHANNEL_RESTRICTIONS",
+              "name": "SET_CHANNEL_RESTRICTION",
               "description": "Permission to create restrictions on the channel.",
               "isDeprecated": false,
               "deprecationReason": null
