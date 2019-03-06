@@ -35826,8 +35826,14 @@
               "deprecationReason": null
             },
             {
+              "name": "CA",
+              "description": "Català (Catalan).",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
               "name": "CS",
-              "description": "čeština.",
+              "description": "Čeština.",
               "isDeprecated": false,
               "deprecationReason": null
             },
@@ -35874,8 +35880,20 @@
               "deprecationReason": null
             },
             {
+              "name": "HI",
+              "description": "मानक हिन्दी (Hindi).",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
               "name": "HU",
               "description": "Magyar.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "ID",
+              "description": "Bahasa Indonesia (Indonesian).",
               "isDeprecated": false,
               "deprecationReason": null
             },
@@ -35894,6 +35912,12 @@
             {
               "name": "KO",
               "description": "한국어.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "MS",
+              "description": "بهاس ملايو (Malay).",
               "isDeprecated": false,
               "deprecationReason": null
             },
@@ -35958,8 +35982,20 @@
               "deprecationReason": null
             },
             {
+              "name": "TL",
+              "description": "Tagalog.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
               "name": "TR",
               "description": "Türkçe.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "UK",
+              "description": "Українська (Ukrainian).",
               "isDeprecated": false,
               "deprecationReason": null
             },
@@ -49069,6 +49105,12 @@
             {
               "name": "DNR_TO_RESUB_NONRECURRING",
               "description": "This pending subscription was a conversion from a DNRd sub to a one month sub.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "PRIME_TO_PAID",
+              "description": "This pending subscription was a conversion from a prime sub to a paid sub.",
               "isDeprecated": false,
               "deprecationReason": null
             }
