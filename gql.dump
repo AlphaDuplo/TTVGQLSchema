@@ -8923,6 +8923,29 @@
           "possibleTypes": null
         },
         {
+          "kind": "ENUM",
+          "name": "ChannelPermission",
+          "description": "An enumeration of permissions a user can have on a channel.",
+          "fields": null,
+          "inputFields": null,
+          "interfaces": null,
+          "enumValues": [
+            {
+              "name": "MULTIVIEW_ADMIN",
+              "description": "Permission to manage Chanlets, which represent sub-streams in a multiview mode.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "SET_CHANNEL_RESTRICTIONS",
+              "description": "Permission to create restrictions on the channel.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "possibleTypes": null
+        },
+        {
           "kind": "OBJECT",
           "name": "ChannelPermittedTerm",
           "description": "ChannelPermittedTerm is an object that defines things that automod should permit in a channel.",
@@ -9208,6 +9231,30 @@
                   "kind": "SCALAR",
                   "name": "Boolean",
                   "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "permissions",
+              "description": "List of channel feature permissions the logged in user has on the channel.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "LIST",
+                  "name": null,
+                  "ofType": {
+                    "kind": "NON_NULL",
+                    "name": null,
+                    "ofType": {
+                      "kind": "ENUM",
+                      "name": "ChannelPermission",
+                      "ofType": null
+                    }
+                  }
                 }
               },
               "isDeprecated": false,
