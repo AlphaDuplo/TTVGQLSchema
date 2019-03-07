@@ -7951,6 +7951,68 @@
           "possibleTypes": null
         },
         {
+          "kind": "INPUT_OBJECT",
+          "name": "CancelSubscriptionGiftInput",
+          "description": "Inputs for the mutation. Gift to be canceled by productID and originID.",
+          "fields": null,
+          "inputFields": [
+            {
+              "name": "originID",
+              "description": "originID is the origin id created during the gift purchase.",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "ID",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "productID",
+              "description": "productID is the ticket product id for this gift.",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "ID",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            }
+          ],
+          "interfaces": null,
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "OBJECT",
+          "name": "CancelSubscriptionGiftPayload",
+          "description": "The returned payload from the mutation for canceling a Subscription Gift.",
+          "fields": [
+            {
+              "name": "gift",
+              "description": "SubscriptionGift object that was deleted.",
+              "args": [],
+              "type": {
+                "kind": "OBJECT",
+                "name": "SubscriptionGift",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
           "kind": "ENUM",
           "name": "ChanletSort",
           "description": "ChanletSort indicates the desired order of chanlets in the list returned by LoadChanletsByUserID.",
@@ -40122,6 +40184,33 @@
               "type": {
                 "kind": "OBJECT",
                 "name": "CancelPayoutOnboardingWorkflowPayload",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "cancelSubscriptionGift",
+              "description": "cancelSubscriptionGift allows the current user to cancel their gifted subscription to a channel.",
+              "args": [
+                {
+                  "name": "input",
+                  "description": null,
+                  "type": {
+                    "kind": "NON_NULL",
+                    "name": null,
+                    "ofType": {
+                      "kind": "INPUT_OBJECT",
+                      "name": "CancelSubscriptionGiftInput",
+                      "ofType": null
+                    }
+                  },
+                  "defaultValue": null
+                }
+              ],
+              "type": {
+                "kind": "OBJECT",
+                "name": "CancelSubscriptionGiftPayload",
                 "ofType": null
               },
               "isDeprecated": false,
