@@ -67569,6 +67569,288 @@
         },
         {
           "kind": "OBJECT",
+          "name": "SubscriptionGiftOffer",
+          "description": "A gift offer that is available on a particular subscription based\non gift type and platform.",
+          "fields": [
+            {
+              "name": "id",
+              "description": "Unique identifier of a subscription gift offer.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "ID",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "priceInfo",
+              "description": "The subscription gift offer price info which contains information about currency, cost and tax information.",
+              "args": [
+                {
+                  "name": "taxCountry",
+                  "description": null,
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "String",
+                    "ofType": null
+                  },
+                  "defaultValue": null
+                }
+              ],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "OBJECT",
+                  "name": "PriceInfo",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "promotion",
+              "description": "The available promotions on this gift offer.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "OBJECT",
+                  "name": "SubscriptionGiftPromotion",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "quantity",
+              "description": "The amount of gifts in this offer.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Int",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "thirdPartySKU",
+              "description": "thirdPartySKU represents the purchasable third party SKU of the gift the user will purchase. \nWill return an error if the user has no purchasable skus. Will return nil if not on a platform\nwith an external subscription gift offer or if the country is not supported.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "String",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "type",
+              "description": "The type of gift this offer is for.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "ENUM",
+                  "name": "SubscriptionGiftType",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "ENUM",
+          "name": "SubscriptionGiftOfferPlatform",
+          "description": "The different types of platforms available for gift offers.",
+          "fields": null,
+          "inputFields": null,
+          "interfaces": null,
+          "enumValues": [
+            {
+              "name": "WEB",
+              "description": "Gift offers available for the web clients.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "ANDROID",
+              "description": "Gift offers available for the Android clients.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "possibleTypes": null
+        },
+        {
+          "kind": "OBJECT",
+          "name": "SubscriptionGiftPromotion",
+          "description": "The promotion offer on a subscription gift offer.",
+          "fields": [
+            {
+              "name": "discountType",
+              "description": "The subscription gift's discount type for this promotion(e.g. \"PERCENT_OFF\").",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "ENUM",
+                  "name": "SubscriptionPromotionDiscountType",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "discountValue",
+              "description": "The discount value of the subscription gift product (e.g. \"50\").",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "String",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "id",
+              "description": "Unique identifier of a subscription gift promotion.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "ID",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "priceInfo",
+              "description": "The subscription gift offer price info which contains information about currency, cost and tax information.",
+              "args": [
+                {
+                  "name": "taxCountry",
+                  "description": null,
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "String",
+                    "ofType": null
+                  },
+                  "defaultValue": null
+                }
+              ],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "OBJECT",
+                  "name": "PriceInfo",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "quantity",
+              "description": "The quantity of gifts this promotion is for(ex: 11 gifts for a promotion on 10 gifts).",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Int",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "thirdPartySKU",
+              "description": "Promotion consumable SKU used by third party that the user will purchase.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "String",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "ENUM",
+          "name": "SubscriptionGiftType",
+          "description": "The different types of subscription gifting.",
+          "fields": null,
+          "inputFields": null,
+          "interfaces": null,
+          "enumValues": [
+            {
+              "name": "STANDARD",
+              "description": "Standard gifts are gifts to a specific user given by a user.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "COMMUNITY",
+              "description": "Community gifts are one or more gifts given to one or more users by a user.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "possibleTypes": null
+        },
+        {
+          "kind": "OBJECT",
           "name": "SubscriptionInterval",
           "description": "Represents the interval of a subscription product.",
           "fields": [
@@ -67725,6 +68007,51 @@
                   "kind": "OBJECT",
                   "name": "Emote",
                   "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "giftOffers",
+              "description": "A list of GiftOffers that are available on this subscription product\ndepending on which platform and gift type is given\nUsed by clients to display different gift prices, quantities and gift promotion information.",
+              "args": [
+                {
+                  "name": "platform",
+                  "description": null,
+                  "type": {
+                    "kind": "ENUM",
+                    "name": "SubscriptionGiftOfferPlatform",
+                    "ofType": null
+                  },
+                  "defaultValue": null
+                },
+                {
+                  "name": "type",
+                  "description": null,
+                  "type": {
+                    "kind": "NON_NULL",
+                    "name": null,
+                    "ofType": {
+                      "kind": "ENUM",
+                      "name": "SubscriptionGiftType",
+                      "ofType": null
+                    }
+                  },
+                  "defaultValue": null
+                }
+              ],
+              "type": {
+                "kind": "LIST",
+                "name": null,
+                "ofType": {
+                  "kind": "NON_NULL",
+                  "name": null,
+                  "ofType": {
+                    "kind": "OBJECT",
+                    "name": "SubscriptionGiftOffer",
+                    "ofType": null
+                  }
                 }
               },
               "isDeprecated": false,
@@ -68144,6 +68471,51 @@
               },
               "isDeprecated": true,
               "deprecationReason": "Transitioning to promotion field instead"
+            },
+            {
+              "name": "giftOffers",
+              "description": "A list of GiftOffers that are available on this subscription product\ndepending on which platform, giftType and user that is authenticated.\nExposed on the self connection as well since user based promotions can be given in the future\nUsed by clients to display different gift prices, quantities and user based gift promotion information.",
+              "args": [
+                {
+                  "name": "platform",
+                  "description": null,
+                  "type": {
+                    "kind": "ENUM",
+                    "name": "SubscriptionGiftOfferPlatform",
+                    "ofType": null
+                  },
+                  "defaultValue": null
+                },
+                {
+                  "name": "type",
+                  "description": null,
+                  "type": {
+                    "kind": "NON_NULL",
+                    "name": null,
+                    "ofType": {
+                      "kind": "ENUM",
+                      "name": "SubscriptionGiftType",
+                      "ofType": null
+                    }
+                  },
+                  "defaultValue": null
+                }
+              ],
+              "type": {
+                "kind": "LIST",
+                "name": null,
+                "ofType": {
+                  "kind": "NON_NULL",
+                  "name": null,
+                  "ofType": {
+                    "kind": "OBJECT",
+                    "name": "SubscriptionGiftOffer",
+                    "ofType": null
+                  }
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
             },
             {
               "name": "isEligibleForDiscount",
