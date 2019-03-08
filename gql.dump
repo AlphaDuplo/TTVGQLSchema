@@ -3405,6 +3405,18 @@
               "deprecationReason": null
             },
             {
+              "name": "lastUpdated",
+              "description": "Time when this badge tier was last updated.",
+              "args": [],
+              "type": {
+                "kind": "SCALAR",
+                "name": "Time",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
               "name": "threshold",
               "description": "The amount of bits a user must cheer to achieve this tier.",
               "args": [],
@@ -83129,6 +83141,18 @@
               "deprecationReason": null
             },
             {
+              "name": "resourceRestriction",
+              "description": "The reason a video is restricted if the given video is a restricted video.\nFor a video that is not restricted, this field can be null.",
+              "args": [],
+              "type": {
+                "kind": "OBJECT",
+                "name": "ResourceRestriction",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
               "name": "restriction",
               "description": "The reason a video is restricted if the given video is a restricted video.\nFor a video that is not restricted, this field can be null.",
               "args": [],
@@ -83137,8 +83161,8 @@
                 "name": "VideoRestriction",
                 "ofType": null
               },
-              "isDeprecated": false,
-              "deprecationReason": null
+              "isDeprecated": true,
+              "deprecationReason": "Restriction will be moved over to resourceRestriction instead"
             },
             {
               "name": "scope",
