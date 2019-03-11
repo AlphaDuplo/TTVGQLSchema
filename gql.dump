@@ -4876,6 +4876,12 @@
               "description": "Paypal checkout.",
               "isDeprecated": false,
               "deprecationReason": null
+            },
+            {
+              "name": "XSOLLA",
+              "description": "Xsolla checkout.",
+              "isDeprecated": false,
+              "deprecationReason": null
             }
           ],
           "possibleTypes": null
