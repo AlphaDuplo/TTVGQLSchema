@@ -26863,6 +26863,22 @@
               "deprecationReason": null
             },
             {
+              "name": "bitsSupportLevel",
+              "description": "The bits support level required by the broadcaster for the extension to operate.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "ENUM",
+                  "name": "ExtensionBitsSupportLevel",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
               "name": "categories",
               "description": "The list of categories that the developer has set for the extension.",
               "args": [],
@@ -27638,10 +27654,55 @@
           "possibleTypes": null
         },
         {
+          "kind": "ENUM",
+          "name": "ExtensionBitsSupportLevel",
+          "description": "The support levels for Bits features.",
+          "fields": null,
+          "inputFields": null,
+          "interfaces": null,
+          "enumValues": [
+            {
+              "name": "NONE",
+              "description": "This extension doesn't have any support for bit features.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "OPTIONAL",
+              "description": "This extension has support for bit features but can operate in the event\nthe broadcaster disables the permissions.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "REQUIRED",
+              "description": "This extension requires support for bit features and cannot operate in the event\nthe broadcaster disables the permissions.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "possibleTypes": null
+        },
+        {
           "kind": "OBJECT",
           "name": "ExtensionCapabilities",
           "description": "ExtensionCapabilities contains data about what an Extension can do, in general, and at the time of interaction.",
           "fields": [
+            {
+              "name": "bitsSupportLevel",
+              "description": "The bit support level required by the broadcaster for the extension to operate. Defaults to \"NONE\".",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "ENUM",
+                  "name": "ExtensionBitsSupportLevel",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
             {
               "name": "configurationLocation",
               "description": "Location of configuration.",
@@ -27762,6 +27823,16 @@
           "description": "ExtensionCapabilitiesInput contains data about what an Extension can do, in general, and at the time of interaction.",
           "fields": null,
           "inputFields": [
+            {
+              "name": "bitsSupportLevel",
+              "description": "The bits support level required by the broadcaster for the extension to operate. Defaults to \"NONE\".",
+              "type": {
+                "kind": "ENUM",
+                "name": "ExtensionBitsSupportLevel",
+                "ofType": null
+              },
+              "defaultValue": "NONE"
+            },
             {
               "name": "configurationLocation",
               "description": "Location of configuration.",
@@ -74948,6 +75019,12 @@
             {
               "name": "INVALID_PANEL_HEIGHT",
               "description": "Extension panel hiehgt must be < 500 or > 100.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "INVALID_BITS_SUPPORT_LEVEL",
+              "description": "Extension Bits Support Level must ba valid member of the BitsSupportLevelEnum.",
               "isDeprecated": false,
               "deprecationReason": null
             }
