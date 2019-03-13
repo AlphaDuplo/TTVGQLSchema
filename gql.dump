@@ -8187,6 +8187,18 @@
               "deprecationReason": null
             },
             {
+              "name": "communityPointsSettings",
+              "description": "Details about community points in the channel.",
+              "args": [],
+              "type": {
+                "kind": "OBJECT",
+                "name": "CommunityPointsChannelSettings",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
               "name": "contentAttributes",
               "description": "For a multi-view chanlet, this is the list of content attributes that have been associated with the given chanlet.",
               "args": [],
@@ -9284,6 +9296,18 @@
           "name": "ChannelSelfEdge",
           "description": "Information about the requesting user with respect to a channel.",
           "fields": [
+            {
+              "name": "communityPoints",
+              "description": "Properties relating to the authenticated user's community points in a channel.\nNull if community points are not enabled in the channel.",
+              "args": [],
+              "type": {
+                "kind": "OBJECT",
+                "name": "CommunityPointsProperties",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
             {
               "name": "isAuthorized",
               "description": "Whether or not the requesting user is authorized to view the channel's content in a channel restrictions context.",
@@ -14437,6 +14461,60 @@
                 "ofType": {
                   "kind": "SCALAR",
                   "name": "Boolean",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "OBJECT",
+          "name": "CommunityPointsChannelSettings",
+          "description": "Settings for a channel's Community Points.",
+          "fields": [
+            {
+              "name": "isEnabled",
+              "description": "Whether the channel has community points turned on.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Boolean",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "OBJECT",
+          "name": "CommunityPointsProperties",
+          "description": "Properties relating to a user's community points in a channel.",
+          "fields": [
+            {
+              "name": "balance",
+              "description": "The number of community points this user currently has available to use in this channel.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Int",
                   "ofType": null
                 }
               },
