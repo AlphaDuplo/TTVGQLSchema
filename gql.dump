@@ -48783,7 +48783,7 @@
             },
             {
               "name": "PREMIUM_PARTNER",
-              "description": "Assigned for payout onboarding flows to enroll a user into the partner program with the \"standard\" payout plan.",
+              "description": "Assigned for payout onboarding flows to enroll a user into the partner program with the \"premium\" payout plan.",
               "isDeprecated": false,
               "deprecationReason": null
             },
