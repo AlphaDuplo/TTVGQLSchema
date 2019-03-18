@@ -9914,6 +9914,18 @@
           "description": "Various user specific settings on how to render chat.",
           "fields": [
             {
+              "name": "deletedMessageDisplaySetting",
+              "description": "Setting for how deleted messages should be displayed for channel broadcaster or moderator.",
+              "args": [],
+              "type": {
+                "kind": "ENUM",
+                "name": "DeletedMessageDisplaySetting",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
               "name": "isReadableChatColorsEnabled",
               "description": "Whether readable chat colors are enabled.",
               "args": [],
@@ -22715,6 +22727,35 @@
           "inputFields": null,
           "interfaces": [],
           "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "ENUM",
+          "name": "DeletedMessageDisplaySetting",
+          "description": "DeletedMessageDisplaySetting represents the possible settings for how deleted messages should be displayed.",
+          "fields": null,
+          "inputFields": null,
+          "interfaces": null,
+          "enumValues": [
+            {
+              "name": "LEGACY",
+              "description": "LEGACY hides deleted messages behind a clickable '<message_deleted>' chat line.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "BRIEF",
+              "description": "BRIEF removes all deleted messages and inserts a system message that reports the number of deleted messages.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "DETAILED",
+              "description": "DETAILED the deleted message is readable but strikethrough and grayed out.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
           "possibleTypes": null
         },
         {
@@ -43635,6 +43676,33 @@
               "deprecationReason": null
             },
             {
+              "name": "setDeletedMessageDisplaySetting",
+              "description": "Set a user's Deleted Message Display Chat UI setting.",
+              "args": [
+                {
+                  "name": "input",
+                  "description": null,
+                  "type": {
+                    "kind": "NON_NULL",
+                    "name": null,
+                    "ofType": {
+                      "kind": "INPUT_OBJECT",
+                      "name": "SetDeletedMessageDisplaySettingInput",
+                      "ofType": null
+                    }
+                  },
+                  "defaultValue": null
+                }
+              ],
+              "type": {
+                "kind": "OBJECT",
+                "name": "SetDeletedMessageDisplaySettingPayload",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
               "name": "setExtensionFeatureFlags",
               "description": "Sets the feature flag options on a specified extension installation.",
               "args": [
@@ -63155,6 +63223,54 @@
               "type": {
                 "kind": "OBJECT",
                 "name": "User",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "INPUT_OBJECT",
+          "name": "SetDeletedMessageDisplaySettingInput",
+          "description": "The required input to set a user's deleted message display setting.",
+          "fields": null,
+          "inputFields": [
+            {
+              "name": "deletedMessageDisplaySetting",
+              "description": "The desired deleted message display setting to be saved.",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "ENUM",
+                  "name": "DeletedMessageDisplaySetting",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            }
+          ],
+          "interfaces": null,
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "OBJECT",
+          "name": "SetDeletedMessageDisplaySettingPayload",
+          "description": "Result of a setDeletedMessageDisplaySetting mutation.",
+          "fields": [
+            {
+              "name": "deletedMessageDisplaySetting",
+              "description": "The newly saved deleted message display setting.",
+              "args": [],
+              "type": {
+                "kind": "ENUM",
+                "name": "DeletedMessageDisplaySetting",
                 "ofType": null
               },
               "isDeprecated": false,
