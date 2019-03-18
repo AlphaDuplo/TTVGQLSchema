@@ -58759,6 +58759,26 @@
           "description": "Exemption information for a specific resource restriction.",
           "fields": [
             {
+              "name": "actions",
+              "description": "The list of description data a user make take to become exempt for the given restriction.",
+              "args": [],
+              "type": {
+                "kind": "LIST",
+                "name": null,
+                "ofType": {
+                  "kind": "NON_NULL",
+                  "name": null,
+                  "ofType": {
+                    "kind": "OBJECT",
+                    "name": "ResourceRestrictionExemptionAction",
+                    "ofType": null
+                  }
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
               "name": "endsAt",
               "description": "The time that the restriction is no longer active.",
               "args": [],
@@ -58812,6 +58832,49 @@
                 "ofType": {
                   "kind": "ENUM",
                   "name": "ResourceRestrictionExemptionType",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "OBJECT",
+          "name": "ResourceRestrictionExemptionAction",
+          "description": "Description data for clients to get for user actions to get exempt.",
+          "fields": [
+            {
+              "name": "name",
+              "description": "Name of the action need. e.g. Ticket Product short name.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "String",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "title",
+              "description": "The human readable title of the restriction.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "String",
                   "ofType": null
                 }
               },
