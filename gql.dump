@@ -6956,6 +6956,18 @@
                 "name": "String",
                 "ofType": null
               },
+              "isDeprecated": true,
+              "deprecationReason": "Use liveUpNotificationInfo instead."
+            },
+            {
+              "name": "liveUpNotificationInfo",
+              "description": "The information about the live up notification of a user.",
+              "args": [],
+              "type": {
+                "kind": "OBJECT",
+                "name": "LiveUpNotificationInfo",
+                "ofType": null
+              },
               "isDeprecated": false,
               "deprecationReason": null
             },
@@ -37191,6 +37203,41 @@
                   "name": "String",
                   "ofType": null
                 }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "OBJECT",
+          "name": "LiveUpNotificationInfo",
+          "description": "Information about the live up notification of a user.",
+          "fields": [
+            {
+              "name": "isDefault",
+              "description": "Whether the user's liveUpNotification field is the default value (i.e. \"<user> went live!\").",
+              "args": [],
+              "type": {
+                "kind": "SCALAR",
+                "name": "Boolean",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "liveUpNotification",
+              "description": "The text that will be in the notification that sends when the user starts broadcasting.\nThe default value is currently a translated version of \"<user> went live!\" when the user has not set a custom value.",
+              "args": [],
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
               },
               "isDeprecated": false,
               "deprecationReason": null
