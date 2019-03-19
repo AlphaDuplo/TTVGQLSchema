@@ -73026,6 +73026,118 @@
         },
         {
           "kind": "OBJECT",
+          "name": "UnacknowledgedSubscriptionEvent",
+          "description": "Used to provide info on the subscription events that might have happened in another device\nand not acknowledged in the current device.",
+          "fields": [
+            {
+              "name": "channel",
+              "description": "The user of the channel the subscription was for.",
+              "args": [],
+              "type": {
+                "kind": "OBJECT",
+                "name": "User",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "endDate",
+              "description": "The time that the subscription benefits will expire.",
+              "args": [],
+              "type": {
+                "kind": "SCALAR",
+                "name": "Time",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "externalProductID",
+              "description": "The external product id.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "ID",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "status",
+              "description": "The current status of the subscription. One of \"active\", \"will_not_renew\", or \"canceled\".",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "ENUM",
+                  "name": "UnacknowledgedSubscriptionEventState",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "subscriptionID",
+              "description": "The UUID of the subscription.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "ID",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "ENUM",
+          "name": "UnacknowledgedSubscriptionEventState",
+          "description": "Subscrption state of the reported unacknowledged events.",
+          "fields": null,
+          "inputFields": null,
+          "interfaces": null,
+          "enumValues": [
+            {
+              "name": "ACTIVE",
+              "description": "The subscription is active.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "WILL_NOT_RENEW",
+              "description": "Subscription will not renew, but may still be active.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "CANCELLED",
+              "description": "Subscription will not renew and is not active.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "possibleTypes": null
+        },
+        {
+          "kind": "OBJECT",
           "name": "UnbanUserFromChatRoomError",
           "description": null,
           "fields": [
@@ -81719,6 +81831,41 @@
                 "kind": "OBJECT",
                 "name": "UserTwitchConnection",
                 "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "unacknowledgedSubscriptionEvents",
+              "description": "Get unacknowledged subscription events.",
+              "args": [
+                {
+                  "name": "platform",
+                  "description": null,
+                  "type": {
+                    "kind": "NON_NULL",
+                    "name": null,
+                    "ofType": {
+                      "kind": "SCALAR",
+                      "name": "String",
+                      "ofType": null
+                    }
+                  },
+                  "defaultValue": null
+                }
+              ],
+              "type": {
+                "kind": "LIST",
+                "name": null,
+                "ofType": {
+                  "kind": "NON_NULL",
+                  "name": null,
+                  "ofType": {
+                    "kind": "OBJECT",
+                    "name": "UnacknowledgedSubscriptionEvent",
+                    "ofType": null
+                  }
+                }
               },
               "isDeprecated": false,
               "deprecationReason": null
