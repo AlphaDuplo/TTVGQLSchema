@@ -63153,11 +63153,70 @@
           "possibleTypes": null
         },
         {
+          "kind": "ENUM",
+          "name": "SetDefaultPaymentMethodErrorCode",
+          "description": "Enumerates possible errors when setting a default payment method.",
+          "fields": null,
+          "inputFields": null,
+          "interfaces": null,
+          "enumValues": [
+            {
+              "name": "UNAUTHENTICATED",
+              "description": "Must have auth credentials to set default payment method.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "FORBIDDEN",
+              "description": "User does not have permission to set default payment method for the targeted user.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "INVALID_REQUEST",
+              "description": "One or more fields are invalid or missing.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "INTERNAL_ERROR",
+              "description": "An internal error has occurred.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "possibleTypes": null
+        },
+        {
           "kind": "INPUT_OBJECT",
           "name": "SetDefaultPaymentMethodInput",
-          "description": null,
+          "description": "The input to be provided to the setDefaultPaymentMethod mutation.",
           "fields": null,
           "inputFields": [
+            {
+              "name": "billingCountry",
+              "description": "Country (ISO-3166) associated to the billing info for the customer's payment method.",
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "paymentType",
+              "description": "Payment type used via the payment provider.",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "ENUM",
+                  "name": "PaymentInstrumentType",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            },
             {
               "name": "provider",
               "description": "The payment provider we're updating the payment method on.",
@@ -63173,12 +63232,16 @@
               "defaultValue": null
             },
             {
-              "name": "recurlyToken",
-              "description": "If provider you want to set for is Recurly, then this should be specified.",
+              "name": "token",
+              "description": "The token used to verify the selected payment method.",
               "type": {
-                "kind": "SCALAR",
-                "name": "String",
-                "ofType": null
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "String",
+                  "ofType": null
+                }
               },
               "defaultValue": null
             },
@@ -63195,16 +63258,6 @@
                 }
               },
               "defaultValue": null
-            },
-            {
-              "name": "zuoraPaymentMethodID",
-              "description": "If provider you want to set for is Recurly, then new default payment method ID should be specified.",
-              "type": {
-                "kind": "SCALAR",
-                "name": "String",
-                "ofType": null
-              },
-              "defaultValue": null
             }
           ],
           "interfaces": null,
@@ -63214,27 +63267,15 @@
         {
           "kind": "OBJECT",
           "name": "SetDefaultPaymentMethodPayload",
-          "description": null,
+          "description": "The result of the setDefaultPaymentMethod mutation.",
           "fields": [
             {
-              "name": "paymentMethod",
-              "description": "The new default payment method that was just set.",
+              "name": "errorCode",
+              "description": "Code to describe error that occurred while setting the default payment method.",
               "args": [],
               "type": {
-                "kind": "OBJECT",
-                "name": "PaymentMethod",
-                "ofType": null
-              },
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
-              "name": "updatedAt",
-              "description": "Time the payment method was updated at, if it was updated.",
-              "args": [],
-              "type": {
-                "kind": "SCALAR",
-                "name": "Time",
+                "kind": "ENUM",
+                "name": "SetDefaultPaymentMethodErrorCode",
                 "ofType": null
               },
               "isDeprecated": false,
@@ -63242,7 +63283,7 @@
             },
             {
               "name": "user",
-              "description": "User who had their payment method updated. The 'user.paymentMethods' field gets updated list of payment methods.",
+              "description": "User who had their payment method updated.",
               "args": [],
               "type": {
                 "kind": "OBJECT",
