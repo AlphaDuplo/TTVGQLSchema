@@ -2303,7 +2303,7 @@
           "fields": [
             {
               "name": "nodes",
-              "description": null,
+              "description": "The channels.",
               "args": [],
               "type": {
                 "kind": "LIST",
@@ -2468,6 +2468,37 @@
               "deprecationReason": null
             }
           ],
+          "possibleTypes": null
+        },
+        {
+          "kind": "OBJECT",
+          "name": "AutohostedByChannelConnection",
+          "description": "A list of channels that are autohosting the channel\n\nA relay connection type that does not yet support pagination.",
+          "fields": [
+            {
+              "name": "nodes",
+              "description": "The channels.",
+              "args": [],
+              "type": {
+                "kind": "LIST",
+                "name": null,
+                "ofType": {
+                  "kind": "NON_NULL",
+                  "name": null,
+                  "ofType": {
+                    "kind": "OBJECT",
+                    "name": "User",
+                    "ofType": null
+                  }
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
+          "enumValues": null,
           "possibleTypes": null
         },
         {
@@ -79299,7 +79330,7 @@
             },
             {
               "name": "autohostChannels",
-              "description": "The list of channel that this user has configured to automatically host\nwhen their channel is not streaming live. Users can only view their own\nautohost channels.",
+              "description": "The list of channels that this user has configured to automatically host\nwhen their channel is not streaming live. Users can only view their own\nautohost channels.",
               "args": [],
               "type": {
                 "kind": "OBJECT",
@@ -79316,6 +79347,18 @@
               "type": {
                 "kind": "OBJECT",
                 "name": "AutohostSettings",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "autohostedByChannels",
+              "description": "The list of channels that have added this user as a channel to automatically host when their channel is not\nstreaming live. Users can only view their own autohosted by channels.",
+              "args": [],
+              "type": {
+                "kind": "OBJECT",
+                "name": "AutohostedByChannelConnection",
                 "ofType": null
               },
               "isDeprecated": false,
