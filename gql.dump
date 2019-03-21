@@ -69727,6 +69727,84 @@
               "deprecationReason": null
             },
             {
+              "name": "canGiftInChannel",
+              "description": "True if the user in this connection is allowed to gift the product in this connection.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Boolean",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "canGiftTo",
+              "description": "True if the user in this connection can gift the product in this connection to the user with the supplied user ID.",
+              "args": [
+                {
+                  "name": "recipientID",
+                  "description": null,
+                  "type": {
+                    "kind": "NON_NULL",
+                    "name": null,
+                    "ofType": {
+                      "kind": "SCALAR",
+                      "name": "ID",
+                      "ofType": null
+                    }
+                  },
+                  "defaultValue": null
+                }
+              ],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Boolean",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "canGiftToLogin",
+              "description": "True if the user in this connection can gift the product in this connection to the user with the supplied login.\nSince this requires an additonal lookup to get the user ID from the login, this is less preferable than canGift.",
+              "args": [
+                {
+                  "name": "recipientLogin",
+                  "description": null,
+                  "type": {
+                    "kind": "NON_NULL",
+                    "name": null,
+                    "ofType": {
+                      "kind": "SCALAR",
+                      "name": "String",
+                      "ofType": null
+                    }
+                  },
+                  "defaultValue": null
+                }
+              ],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Boolean",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
               "name": "checkoutConfigs",
               "description": "Holds configuration necessary to start subscription purchase checkout flow for this product for current user.\nThe user completing the checkout can get the subscription benefit for themself or for a gift recipient.\nOnly the authenticated user can access their own configs.\nThe user will be able to resubscribe their DNRd (do-not-renew) subs before their benefits expire. isReactivateRecurring allows\nthem to select between a non-recurring (one-month extension) and recurring re-subscription.",
               "args": [
@@ -83463,8 +83541,8 @@
                   "ofType": null
                 }
               },
-              "isDeprecated": false,
-              "deprecationReason": null
+              "isDeprecated": true,
+              "deprecationReason": "Transitioning to SubscriptionProductSelfConnection instead"
             },
             {
               "name": "canGiftInChannel",
@@ -83494,8 +83572,8 @@
                   "ofType": null
                 }
               },
-              "isDeprecated": false,
-              "deprecationReason": null
+              "isDeprecated": true,
+              "deprecationReason": "Transitioning to SubscriptionProductSelfConnection instead"
             },
             {
               "name": "canPrimeSubscribe",
