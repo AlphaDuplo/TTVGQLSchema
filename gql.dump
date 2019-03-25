@@ -6116,6 +6116,26 @@
                 "name": "String",
                 "ofType": null
               },
+              "isDeprecated": true,
+              "deprecationReason": "Use 'videos' instead."
+            },
+            {
+              "name": "videos",
+              "description": "The video URLS for the campaign.",
+              "args": [],
+              "type": {
+                "kind": "LIST",
+                "name": null,
+                "ofType": {
+                  "kind": "NON_NULL",
+                  "name": null,
+                  "ofType": {
+                    "kind": "OBJECT",
+                    "name": "BountyCampaignVideo",
+                    "ofType": null
+                  }
+                }
+              },
               "isDeprecated": false,
               "deprecationReason": null
             }
@@ -6298,6 +6318,26 @@
                 "kind": "ENUM",
                 "name": "BountyCampaignStatus",
                 "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "targetedCountries",
+              "description": "Targeted countries for the campaign (represented by ISO 3166-1 alpha-2).",
+              "args": [],
+              "type": {
+                "kind": "LIST",
+                "name": null,
+                "ofType": {
+                  "kind": "NON_NULL",
+                  "name": null,
+                  "ofType": {
+                    "kind": "SCALAR",
+                    "name": "String",
+                    "ofType": null
+                  }
+                }
               },
               "isDeprecated": false,
               "deprecationReason": null
@@ -6735,6 +6775,88 @@
               "deprecationReason": null
             }
           ],
+          "possibleTypes": null
+        },
+        {
+          "kind": "OBJECT",
+          "name": "BountyCampaignVideo",
+          "description": "A video for a bounty board campaign.",
+          "fields": [
+            {
+              "name": "country",
+              "description": "The country that the video is targeted for (represented by ISO 3166-1 alpha-2).",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "String",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "url",
+              "description": "The URL of the video.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "String",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "INPUT_OBJECT",
+          "name": "BountyCampaignVideoInput",
+          "description": "The video that will be created as part of this campaign.",
+          "fields": null,
+          "inputFields": [
+            {
+              "name": "country",
+              "description": "The country that the video is targeted for (represented by ISO 3166-1 alpha-2).",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "String",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "url",
+              "description": "The URL of the video.",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "String",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            }
+          ],
+          "interfaces": null,
+          "enumValues": null,
           "possibleTypes": null
         },
         {
@@ -15604,6 +15726,24 @@
               "defaultValue": null
             },
             {
+              "name": "targetedCountries",
+              "description": "Targeted countries for the campaign (represented by ISO 3166-1 alpha-2).",
+              "type": {
+                "kind": "LIST",
+                "name": null,
+                "ofType": {
+                  "kind": "NON_NULL",
+                  "name": null,
+                  "ofType": {
+                    "kind": "SCALAR",
+                    "name": "String",
+                    "ofType": null
+                  }
+                }
+              },
+              "defaultValue": null
+            },
+            {
               "name": "targetedGames",
               "description": "Targeted Games (game titles) for the campaign.",
               "type": {
@@ -15665,11 +15805,29 @@
             },
             {
               "name": "videoURL",
-              "description": "The URL of the video for this campaign.",
+              "description": "Deprecated, use videos instead. The URL of the video for this campaign.",
               "type": {
                 "kind": "SCALAR",
                 "name": "String",
                 "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "videos",
+              "description": "The video URLS for the campaign.",
+              "type": {
+                "kind": "LIST",
+                "name": null,
+                "ofType": {
+                  "kind": "NON_NULL",
+                  "name": null,
+                  "ofType": {
+                    "kind": "INPUT_OBJECT",
+                    "name": "BountyCampaignVideoInput",
+                    "ofType": null
+                  }
+                }
               },
               "defaultValue": null
             }
