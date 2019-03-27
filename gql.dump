@@ -61446,12 +61446,12 @@
               "deprecationReason": null
             },
             {
-              "name": "streams",
-              "description": "Contains results for streams.",
+              "name": "liveChannels",
+              "description": "Contains results for live channels.",
               "args": [],
               "type": {
                 "kind": "OBJECT",
-                "name": "SearchForResultStreams",
+                "name": "SearchForResultUsers",
                 "ofType": null
               },
               "isDeprecated": false,
@@ -61546,65 +61546,6 @@
                   "ofType": {
                     "kind": "OBJECT",
                     "name": "Game",
-                    "ofType": null
-                  }
-                }
-              },
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
-              "name": "score",
-              "description": "Order in which the result should be displayed.",
-              "args": [],
-              "type": {
-                "kind": "NON_NULL",
-                "name": null,
-                "ofType": {
-                  "kind": "SCALAR",
-                  "name": "Int",
-                  "ofType": null
-                }
-              },
-              "isDeprecated": false,
-              "deprecationReason": null
-            }
-          ],
-          "inputFields": null,
-          "interfaces": [],
-          "enumValues": null,
-          "possibleTypes": null
-        },
-        {
-          "kind": "OBJECT",
-          "name": "SearchForResultStreams",
-          "description": "Contains stream search results.",
-          "fields": [
-            {
-              "name": "cursor",
-              "description": "Cursor for fetching the next page of results.",
-              "args": [],
-              "type": {
-                "kind": "SCALAR",
-                "name": "String",
-                "ofType": null
-              },
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
-              "name": "items",
-              "description": "List of matching stream results.",
-              "args": [],
-              "type": {
-                "kind": "LIST",
-                "name": null,
-                "ofType": {
-                  "kind": "NON_NULL",
-                  "name": null,
-                  "ofType": {
-                    "kind": "OBJECT",
-                    "name": "Stream",
                     "ofType": null
                   }
                 }
@@ -61814,7 +61755,7 @@
               "deprecationReason": null
             },
             {
-              "name": "LIVE_CHANNEL",
+              "name": "LIVE",
               "description": "Live channel index.",
               "isDeprecated": false,
               "deprecationReason": null
@@ -62062,6 +62003,22 @@
                 "ofType": {
                   "kind": "SCALAR",
                   "name": "Boolean",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "login",
+              "description": "The login of the channel, provided by the endpoint.\nUse this field for lower latency.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "String",
                   "ofType": null
                 }
               },
