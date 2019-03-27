@@ -69262,16 +69262,12 @@
             },
             {
               "name": "thirdPartySKU",
-              "description": "thirdPartySKU represents the purchasable third party SKU of the gift the user will purchase. \nWill return an error if the user has no purchasable skus. Will return nil if not on a platform\nwith an external subscription gift offer or if the country is not supported.",
+              "description": "thirdPartySKU represents the purchasable third party SKU of the gift the user will purchase. \nWill return an nil if the user has no purchasable skus. \nWill return nil if not on a platform with an external subscription gift offer or if the country is not supported.",
               "args": [],
               "type": {
-                "kind": "NON_NULL",
-                "name": null,
-                "ofType": {
-                  "kind": "SCALAR",
-                  "name": "String",
-                  "ofType": null
-                }
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
               },
               "isDeprecated": false,
               "deprecationReason": null
@@ -69422,13 +69418,9 @@
               "description": "Promotion consumable SKU used by third party that the user will purchase.",
               "args": [],
               "type": {
-                "kind": "NON_NULL",
-                "name": null,
-                "ofType": {
-                  "kind": "SCALAR",
-                  "name": "String",
-                  "ofType": null
-                }
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
               },
               "isDeprecated": false,
               "deprecationReason": null
