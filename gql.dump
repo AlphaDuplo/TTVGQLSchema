@@ -45074,6 +45074,33 @@
               "deprecationReason": null
             },
             {
+              "name": "updateBitsBadgeTiers",
+              "description": "Updates bits badge tiers.",
+              "args": [
+                {
+                  "name": "input",
+                  "description": null,
+                  "type": {
+                    "kind": "NON_NULL",
+                    "name": null,
+                    "ofType": {
+                      "kind": "INPUT_OBJECT",
+                      "name": "UpdateBitsBadgeTiersInput",
+                      "ofType": null
+                    }
+                  },
+                  "defaultValue": null
+                }
+              ],
+              "type": {
+                "kind": "OBJECT",
+                "name": "UpdateBitsBadgeTiersPayload",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
               "name": "updateBroadcastSettings",
               "description": "updateBroadcastSettings allows the user to update their broadcast setting.",
               "args": [
@@ -75346,6 +75373,160 @@
                 "kind": "OBJECT",
                 "name": "User",
                 "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "OBJECT",
+          "name": "UpdateBitsBadgeTiersError",
+          "description": "Errors for updating bits badges.",
+          "fields": [
+            {
+              "name": "code",
+              "description": "The associated error code.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "ENUM",
+                  "name": "UpdateBitsBadgeTiersErrorCode",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "ENUM",
+          "name": "UpdateBitsBadgeTiersErrorCode",
+          "description": "Possible error codes returned for updating bits badges.",
+          "fields": null,
+          "inputFields": null,
+          "interfaces": null,
+          "enumValues": [
+            {
+              "name": "INVALID_PARAMETER",
+              "description": "Invalid parameters in the request.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "BADGE_TITLE_EXCEEDS_CHARACTER_LIMIT",
+              "description": "Badge title is too long.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "BADGE_TITLE_FAILED_MODERATION",
+              "description": "Badge title did not pass moderation check.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "INCOMPLETE_BADGE_IMAGE_DATA",
+              "description": "Data for least one of the image sizes is not provided.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "UNKNOWN_ERROR",
+              "description": "Other errors returned from the service.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "possibleTypes": null
+        },
+        {
+          "kind": "INPUT_OBJECT",
+          "name": "UpdateBitsBadgeTiersInput",
+          "description": "Settings related to bits badges.",
+          "fields": null,
+          "inputFields": [
+            {
+              "name": "tiers",
+              "description": "A list of bits badge tiers to be modified.",
+              "type": {
+                "kind": "LIST",
+                "name": null,
+                "ofType": {
+                  "kind": "NON_NULL",
+                  "name": null,
+                  "ofType": {
+                    "kind": "INPUT_OBJECT",
+                    "name": "BitsBadgeTierInput",
+                    "ofType": null
+                  }
+                }
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "userID",
+              "description": "The owner ID of the channel that the badge tiers belong to.",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "ID",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            }
+          ],
+          "interfaces": null,
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "OBJECT",
+          "name": "UpdateBitsBadgeTiersPayload",
+          "description": "Results of bits badge tier updates.",
+          "fields": [
+            {
+              "name": "error",
+              "description": "Service error, if any.",
+              "args": [],
+              "type": {
+                "kind": "OBJECT",
+                "name": "UpdateBitsBadgeTiersError",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "tiers",
+              "description": "Updated bits badge tiers.",
+              "args": [],
+              "type": {
+                "kind": "LIST",
+                "name": null,
+                "ofType": {
+                  "kind": "NON_NULL",
+                  "name": null,
+                  "ofType": {
+                    "kind": "OBJECT",
+                    "name": "BitsBadgeTier",
+                    "ofType": null
+                  }
+                }
               },
               "isDeprecated": false,
               "deprecationReason": null
