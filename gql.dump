@@ -13777,6 +13777,129 @@
           "possibleTypes": null
         },
         {
+          "kind": "ENUM",
+          "name": "CloneExtensionManifestError",
+          "description": "CloneExtensionManifestError is an error associated with the cloneExtensionManifest mutation.",
+          "fields": null,
+          "inputFields": null,
+          "interfaces": null,
+          "enumValues": [
+            {
+              "name": "UNAUTHORIZED",
+              "description": "User is unable to clone the extension.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "INVALID_NEW_VERSION",
+              "description": "Version specified is invalid.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "VERSION_ALREDY_EXISTS",
+              "description": "The version to clone to already exists.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "VERSION_NOT_FOUND",
+              "description": "The Version to clone from does not exist.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "possibleTypes": null
+        },
+        {
+          "kind": "INPUT_OBJECT",
+          "name": "CloneExtensionManifestInput",
+          "description": "TransitionExtesnsionManifest updates the state of an existing extension.",
+          "fields": null,
+          "inputFields": [
+            {
+              "name": "id",
+              "description": "The extension ID of the extension to clone.",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "ID",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "newVersion",
+              "description": "The version of the clone.",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "String",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "version",
+              "description": "The extension version to clone.",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "String",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            }
+          ],
+          "interfaces": null,
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "OBJECT",
+          "name": "CloneExtensionManifestPayload",
+          "description": "CloneExtensionManifestPayload returns any errors that occur during update and the new manifest.",
+          "fields": [
+            {
+              "name": "error",
+              "description": "The error when the mutation fails to update an extension.",
+              "args": [],
+              "type": {
+                "kind": "ENUM",
+                "name": "CloneExtensionManifestError",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "manifest",
+              "description": "The updated extension manifest.",
+              "args": [],
+              "type": {
+                "kind": "OBJECT",
+                "name": "ExtensionManifest",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
           "kind": "OBJECT",
           "name": "Collection",
           "description": "Collection (a.k.a. Playlist) is a backend concept for a list of videos.",
@@ -41011,6 +41134,33 @@
               "type": {
                 "kind": "OBJECT",
                 "name": "ClearUnreadFriendRequestsPayload",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "cloneExtensionManifest",
+              "description": "CloneExtensionManifest creates a new version of an extension that is a clone of a previous version.",
+              "args": [
+                {
+                  "name": "input",
+                  "description": null,
+                  "type": {
+                    "kind": "NON_NULL",
+                    "name": null,
+                    "ofType": {
+                      "kind": "INPUT_OBJECT",
+                      "name": "CloneExtensionManifestInput",
+                      "ofType": null
+                    }
+                  },
+                  "defaultValue": null
+                }
+              ],
+              "type": {
+                "kind": "OBJECT",
+                "name": "CloneExtensionManifestPayload",
                 "ofType": null
               },
               "isDeprecated": false,
