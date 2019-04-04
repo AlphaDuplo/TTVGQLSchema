@@ -73797,13 +73797,19 @@
             },
             {
               "name": "MISSING_REVIEW_NOTES",
-              "description": "Review notes were not specified when transitioning an extension to READY_FOR_REVIEW.",
+              "description": "Review notes were not specified when transitioning an extension to IN_REVIEW.",
               "isDeprecated": false,
               "deprecationReason": null
             },
             {
               "name": "MISSING_TEST_CHANNEL",
-              "description": "Test channel was not specified when transitioning an extension to READY_FOR_REVIEW.",
+              "description": "Test channel was not specified when transitioning an extension to IN_REVIEW.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "MULTIPLE_VERSIONS_IN_REVIEW",
+              "description": "Only one version of an Extension can be in a review state (APPROVED, or in IN_REVIEW) at a time.",
               "isDeprecated": false,
               "deprecationReason": null
             }
