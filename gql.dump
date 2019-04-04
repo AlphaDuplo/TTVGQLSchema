@@ -46709,18 +46709,6 @@
               "deprecationReason": null
             },
             {
-              "name": "destinationChannel",
-              "description": "Specific channel to link to in non-web clients. Present if the destination type is ChannelPage.",
-              "args": [],
-              "type": {
-                "kind": "OBJECT",
-                "name": "Channel",
-                "ofType": null
-              },
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
               "name": "destinationType",
               "description": "Destination type to route users to when they interact with the notification on non-web clients.\nValues include Homepage, ChannelPage, NotificationSettingsPage, and BroadcasterDashboard.",
               "args": [],
@@ -46734,7 +46722,7 @@
             },
             {
               "name": "extra",
-              "description": "Optional extra notification content.\nWhen type is \"vodupload\", extra is Video.\nWhen type is \"hotclipfollower\", extra is Clip.\nWhen type is \"hotclip\", extra is Clip.\nWhen type is \"subgiftreceived\", extra is User.\nWhen type is \"vodcomment\", extra is VideoComment.\nWhen type is \"vodcommentmod\", extra is VideoComment.\nWhen type is \"vodcommentreply\", extra is VideoComment.",
+              "description": "Optional extra notification content.\nWhen type is \"vodupload\", extra is Video.\nWhen type is \"hotclipfollower\", extra is Clip.\nWhen type is \"hotclip\", extra is Clip.\nWhen type is \"subgiftreceived\", extra is User.\nWhen type is \"vodcomment\", extra is VideoComment.\nWhen type is \"vodcommentmod\", extra is VideoComment.\nWhen type is \"vodcommentreply\", extra is VideoComment.\nWhen destination is \"ChannelPage\", extra is User.",
               "args": [],
               "type": {
                 "kind": "UNION",
