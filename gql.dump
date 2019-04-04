@@ -5678,6 +5678,18 @@
               "deprecationReason": null
             },
             {
+              "name": "moderationStatus",
+              "description": "The moderation status of the bounty.",
+              "args": [],
+              "type": {
+                "kind": "ENUM",
+                "name": "BountyModerationStatus",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
               "name": "payoutCents",
               "description": "The actual payout for completing this bounty in USD cents.",
               "args": [],
@@ -6955,6 +6967,29 @@
           ],
           "interfaces": null,
           "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "ENUM",
+          "name": "BountyModerationStatus",
+          "description": "The moderation status of the bounty.",
+          "fields": null,
+          "inputFields": null,
+          "interfaces": null,
+          "enumValues": [
+            {
+              "name": "PASS",
+              "description": "The bounty has passed the moderation check.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "FAIL",
+              "description": "The bounty has failed the moderation check.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
           "possibleTypes": null
         },
         {
