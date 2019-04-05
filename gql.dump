@@ -71576,6 +71576,49 @@
         },
         {
           "kind": "OBJECT",
+          "name": "TagAnalytic",
+          "description": "The frequency of a tag used as filter for a channel.",
+          "fields": [
+            {
+              "name": "percentage",
+              "description": "A decimal that shows how often a Tag is used.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Float",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "tag",
+              "description": "The tag for the analytic.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "OBJECT",
+                  "name": "Tag",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "OBJECT",
           "name": "TagConnection",
           "description": "A paginated list of tags, and its metadata.",
           "fields": [
@@ -83130,6 +83173,26 @@
                 "kind": "OBJECT",
                 "name": "UserSubscriptionSettings",
                 "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "tagAnalytics",
+              "description": "Analytics of the frequency of tags used in discovery.",
+              "args": [],
+              "type": {
+                "kind": "LIST",
+                "name": null,
+                "ofType": {
+                  "kind": "NON_NULL",
+                  "name": null,
+                  "ofType": {
+                    "kind": "OBJECT",
+                    "name": "TagAnalytic",
+                    "ofType": null
+                  }
+                }
               },
               "isDeprecated": false,
               "deprecationReason": null
