@@ -12889,6 +12889,12 @@
               "description": "A key code that has a bits amount associated with it.",
               "isDeprecated": false,
               "deprecationReason": null
+            },
+            {
+              "name": "SUBS_KEY_CODE",
+              "description": "A key code that has a subscription to a product associated with it.",
+              "isDeprecated": false,
+              "deprecationReason": null
             }
           ],
           "possibleTypes": null
@@ -32083,6 +32089,45 @@
               "type": {
                 "kind": "OBJECT",
                 "name": "ExtensionManifest",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "OBJECT",
+          "name": "ExtensionManifestsSummary",
+          "description": "A summary of extension state and the associated manifests.",
+          "fields": [
+            {
+              "name": "isDeleted",
+              "description": "The global deleted state of the extension.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Boolean",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "manifests",
+              "description": "The list of extension manifests.",
+              "args": [],
+              "type": {
+                "kind": "OBJECT",
+                "name": "ExtensionManifestConnection",
                 "ofType": null
               },
               "isDeprecated": false,
@@ -56493,6 +56538,43 @@
               "type": {
                 "kind": "OBJECT",
                 "name": "ExtensionManifestConnection",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "extensionManifestsSummary",
+              "description": "Fetch a Summary of the state of an extension. The Cursor is used to page extension manifests.",
+              "args": [
+                {
+                  "name": "id",
+                  "description": null,
+                  "type": {
+                    "kind": "NON_NULL",
+                    "name": null,
+                    "ofType": {
+                      "kind": "SCALAR",
+                      "name": "ID",
+                      "ofType": null
+                    }
+                  },
+                  "defaultValue": null
+                },
+                {
+                  "name": "after",
+                  "description": null,
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Cursor",
+                    "ofType": null
+                  },
+                  "defaultValue": null
+                }
+              ],
+              "type": {
+                "kind": "OBJECT",
+                "name": "ExtensionManifestsSummary",
                 "ofType": null
               },
               "isDeprecated": false,
