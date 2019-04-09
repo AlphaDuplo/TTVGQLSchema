@@ -8534,6 +8534,59 @@
               "deprecationReason": null
             },
             {
+              "name": "communityPointsRedemptionQueue",
+              "description": "The queue of community points custom reward redemptions in this channel.",
+              "args": [
+                {
+                  "name": "first",
+                  "description": null,
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Int",
+                    "ofType": null
+                  },
+                  "defaultValue": "10"
+                },
+                {
+                  "name": "after",
+                  "description": null,
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Cursor",
+                    "ofType": null
+                  },
+                  "defaultValue": null
+                },
+                {
+                  "name": "order",
+                  "description": null,
+                  "type": {
+                    "kind": "ENUM",
+                    "name": "CommunityPointsCustomRewardRedemptionQueueSortOrder",
+                    "ofType": null
+                  },
+                  "defaultValue": "OLDEST"
+                },
+                {
+                  "name": "status",
+                  "description": null,
+                  "type": {
+                    "kind": "ENUM",
+                    "name": "CommunityPointsCustomRewardRedemptionStatus",
+                    "ofType": null
+                  },
+                  "defaultValue": "UNFULFILLED"
+                }
+              ],
+              "type": {
+                "kind": "OBJECT",
+                "name": "CommunityPointsCustomRewardRedemptionConnection",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
               "name": "communityPointsSettings",
               "description": "Details about community points in the channel.",
               "args": [],
@@ -12298,6 +12351,138 @@
         },
         {
           "kind": "OBJECT",
+          "name": "ClaimCommunityPointsError",
+          "description": "An error from claiming community points.",
+          "fields": [
+            {
+              "name": "code",
+              "description": "An identifier for the error that occurred.",
+              "args": [],
+              "type": {
+                "kind": "ENUM",
+                "name": "ClaimCommunityPointsErrorCode",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "ENUM",
+          "name": "ClaimCommunityPointsErrorCode",
+          "description": "The possible reasons a claim could fail.",
+          "fields": null,
+          "inputFields": null,
+          "interfaces": null,
+          "enumValues": [
+            {
+              "name": "NOT_FOUND",
+              "description": "The point claim was not found.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "FORBIDDEN",
+              "description": "The current user is not allowed to claim these points.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "possibleTypes": null
+        },
+        {
+          "kind": "INPUT_OBJECT",
+          "name": "ClaimCommunityPointsInput",
+          "description": "Input for claiming community points.",
+          "fields": null,
+          "inputFields": [
+            {
+              "name": "channelID",
+              "description": "The channel ID the claim is in.",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "ID",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "claimID",
+              "description": "The claim ID.",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "ID",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            }
+          ],
+          "interfaces": null,
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "OBJECT",
+          "name": "ClaimCommunityPointsPayload",
+          "description": "The response from claiming community points.",
+          "fields": [
+            {
+              "name": "claim",
+              "description": "The points claim that was claimed.",
+              "args": [],
+              "type": {
+                "kind": "OBJECT",
+                "name": "CommunityPointsClaim",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "currentPoints",
+              "description": "The user's point balance in the channel, after the claim.",
+              "args": [],
+              "type": {
+                "kind": "SCALAR",
+                "name": "Int",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "error",
+              "description": "An error that occurred while claiming. If there is an error, the claim did not go through.",
+              "args": [],
+              "type": {
+                "kind": "OBJECT",
+                "name": "ClaimCommunityPointsError",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "OBJECT",
           "name": "ClaimGiftedOfferError",
           "description": "An error that could occur while attempting to claim a gift.",
           "fields": [
@@ -14957,9 +15142,317 @@
         },
         {
           "kind": "OBJECT",
+          "name": "CommunityPointsAutomaticReward",
+          "description": "An automatic community points reward.",
+          "fields": [
+            {
+              "name": "backgroundColor",
+              "description": "The custom background color for this reward.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "String",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "cost",
+              "description": "The point cost of this reward.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Int",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "id",
+              "description": "The unique identifier of this reward in this channel.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "ID",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "imageURL",
+              "description": "The icon image for this reward.",
+              "args": [
+                {
+                  "name": "width",
+                  "description": null,
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Int",
+                    "ofType": null
+                  },
+                  "defaultValue": null
+                },
+                {
+                  "name": "height",
+                  "description": null,
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Int",
+                    "ofType": null
+                  },
+                  "defaultValue": null
+                }
+              ],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "String",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "isEnabled",
+              "description": "Whether this reward is turned on or off in this channel at the moment.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Boolean",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "isSubOnly",
+              "description": "Whether only subscribers are allowed to redeem this reward in this channel.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Boolean",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "minimumCost",
+              "description": "The lowest the broadcaster is allowed to set the cost of this reward.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Int",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "title",
+              "description": "The short title displayed for this reward.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "String",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "type",
+              "description": "The type of automatic reward this is.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "ENUM",
+                  "name": "CommunityPointsAutomaticRewardType",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "ENUM",
+          "name": "CommunityPointsAutomaticRewardType",
+          "description": "Types of CommunityPointsAutomaticRewards.",
+          "fields": null,
+          "inputFields": null,
+          "interfaces": null,
+          "enumValues": [
+            {
+              "name": "SINGLE_MESSAGE_BYPASS_SUB_MODE",
+              "description": "Send a single message through sub-only mode.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "UNLOCK_RANDOM_SUB_EMOTE_24_HR",
+              "description": "Unlock a random subscriber emote for 24 hours.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "UNLOCK_CHOSEN_SUB_EMOTE_24_HR",
+              "description": "Unlock a chosen subscriber emote for 24 hours.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "SEND_HIGHLIGHTED_MESSAGE",
+              "description": "Send a highlighted chat message.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "possibleTypes": null
+        },
+        {
+          "kind": "OBJECT",
           "name": "CommunityPointsChannelSettings",
           "description": "Settings for a channel's Community Points.",
           "fields": [
+            {
+              "name": "automaticRewards",
+              "description": "Automatic rewards for this channel. If no automatic rewards exist, will be an empty array.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "LIST",
+                  "name": null,
+                  "ofType": {
+                    "kind": "NON_NULL",
+                    "name": null,
+                    "ofType": {
+                      "kind": "OBJECT",
+                      "name": "CommunityPointsAutomaticReward",
+                      "ofType": null
+                    }
+                  }
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "customRewards",
+              "description": "Custom rewards for this channel. If no custom rewards exist, will be an empty array.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "LIST",
+                  "name": null,
+                  "ofType": {
+                    "kind": "NON_NULL",
+                    "name": null,
+                    "ofType": {
+                      "kind": "OBJECT",
+                      "name": "CommunityPointsCustomReward",
+                      "ofType": null
+                    }
+                  }
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "imageURL",
+              "description": "The channel's custom community points icon. Null if they have not set an icon.",
+              "args": [
+                {
+                  "name": "width",
+                  "description": null,
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Int",
+                    "ofType": null
+                  },
+                  "defaultValue": null
+                },
+                {
+                  "name": "height",
+                  "description": null,
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Int",
+                    "ofType": null
+                  },
+                  "defaultValue": null
+                }
+              ],
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "isAvailable",
+              "description": "Whether the channel is allowed to turn community points on.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Boolean",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
             {
               "name": "isEnabled",
               "description": "Whether the channel has community points turned on.",
@@ -14975,6 +15468,18 @@
               },
               "isDeprecated": false,
               "deprecationReason": null
+            },
+            {
+              "name": "name",
+              "description": "The channel's custom community points name. Null if they have not set a name.",
+              "args": [],
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
             }
           ],
           "inputFields": null,
@@ -14984,9 +15489,696 @@
         },
         {
           "kind": "OBJECT",
+          "name": "CommunityPointsClaim",
+          "description": "Points that are available for a user to click to claim in a channel.",
+          "fields": [
+            {
+              "name": "id",
+              "description": "The claim's unique ID.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "ID",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "multipliers",
+              "description": "The multipliers that will affect this claim.\nMultipliers start at a base of 1.0, and are additive.\nTwo multipliers of [0.2] and [0.3] will give a final multiplier of 1.5x.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "LIST",
+                  "name": null,
+                  "ofType": {
+                    "kind": "NON_NULL",
+                    "name": null,
+                    "ofType": {
+                      "kind": "OBJECT",
+                      "name": "CommunityPointsMultiplier",
+                      "ofType": null
+                    }
+                  }
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "pointsEarnedBaseline",
+              "description": "The baseline points this claim will grant, before applying multipliers.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Int",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "pointsEarnedTotal",
+              "description": "The total points this claim will grant.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Int",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "OBJECT",
+          "name": "CommunityPointsCustomReward",
+          "description": "A custom community points reward on a channel.",
+          "fields": [
+            {
+              "name": "backgroundColor",
+              "description": "The custom background color for this reward. If no background color specified, will be null.",
+              "args": [],
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "cooldownSeconds",
+              "description": "The amount of time that must pass between two users redeeming this reward. Null if no cooldown is set.",
+              "args": [],
+              "type": {
+                "kind": "SCALAR",
+                "name": "Int",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "cost",
+              "description": "The point cost of this reward.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Int",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "id",
+              "description": "The unique identifier for this reward.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "ID",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "imageURL",
+              "description": "The custom image for this reward. If no image exists, will be null.",
+              "args": [
+                {
+                  "name": "width",
+                  "description": null,
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Int",
+                    "ofType": null
+                  },
+                  "defaultValue": null
+                },
+                {
+                  "name": "height",
+                  "description": null,
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Int",
+                    "ofType": null
+                  },
+                  "defaultValue": null
+                }
+              ],
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "isEnabled",
+              "description": "Whether this reward is turned on or off in this channel at the moment.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Boolean",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "isSubOnly",
+              "description": "Whether only subscribers are allowed to redeem this reward in this channel.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Boolean",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "isUserInputRequired",
+              "description": "Whether this reward requires users to enter text input.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Boolean",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "maxUnfulfilled",
+              "description": "The most rewards of this type that can be in the UNFULFILLED state at a given time. Null if no maximum is set.",
+              "args": [],
+              "type": {
+                "kind": "SCALAR",
+                "name": "Int",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "prompt",
+              "description": "The user-facing prompt for this reward. If no prompt exists, will be null.",
+              "args": [],
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "title",
+              "description": "The short title displayed for this reward.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "String",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "OBJECT",
+          "name": "CommunityPointsCustomRewardRedemption",
+          "description": "A community points custom reward that has been redeemed in a channel.",
+          "fields": [
+            {
+              "name": "id",
+              "description": "The unique ID of this redemption.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "ID",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "input",
+              "description": "The user-provided text input, if it exists.",
+              "args": [],
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "reward",
+              "description": "The custom reward that was redeemed.",
+              "args": [],
+              "type": {
+                "kind": "OBJECT",
+                "name": "CommunityPointsCustomReward",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "status",
+              "description": "The status of this redemption.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "ENUM",
+                  "name": "CommunityPointsCustomRewardRedemptionStatus",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "timestamp",
+              "description": "The time that the reward was redeemed at.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Time",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "user",
+              "description": "The user that redeemed the reward.",
+              "args": [],
+              "type": {
+                "kind": "OBJECT",
+                "name": "User",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "OBJECT",
+          "name": "CommunityPointsCustomRewardRedemptionConnection",
+          "description": "A paginated list of Community Points redemptions, and its metadata.",
+          "fields": [
+            {
+              "name": "edges",
+              "description": "The list of items in this page.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "LIST",
+                  "name": null,
+                  "ofType": {
+                    "kind": "OBJECT",
+                    "name": "CommunityPointsCustomRewardRedemptionEdge",
+                    "ofType": null
+                  }
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "pageInfo",
+              "description": "Information about this page of Community Points redemptions.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "OBJECT",
+                  "name": "PageInfo",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "totalCount",
+              "description": "The total number of redemptions of this status on this channel.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Int",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "OBJECT",
+          "name": "CommunityPointsCustomRewardRedemptionEdge",
+          "description": "A page entry, that contains a CommunityPointsCustomRewardRedemption item and a cursor to\nreturn from the query to allow pagination.",
+          "fields": [
+            {
+              "name": "cursor",
+              "description": "Cursor used for next query.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Cursor",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "node",
+              "description": "The underlying Community Points redemption.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "OBJECT",
+                  "name": "CommunityPointsCustomRewardRedemption",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "ENUM",
+          "name": "CommunityPointsCustomRewardRedemptionQueueSortOrder",
+          "description": "Ways to sort Community Points redemptions.",
+          "fields": null,
+          "inputFields": null,
+          "interfaces": null,
+          "enumValues": [
+            {
+              "name": "OLDEST",
+              "description": "The oldest redemption first.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "NEWEST",
+              "description": "The newest redemption first.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "possibleTypes": null
+        },
+        {
+          "kind": "ENUM",
+          "name": "CommunityPointsCustomRewardRedemptionStatus",
+          "description": "Possible states for a CommunityPointsCustomRewardRedemption.",
+          "fields": null,
+          "inputFields": null,
+          "interfaces": null,
+          "enumValues": [
+            {
+              "name": "UNFULFILLED",
+              "description": "A redemption that has not been acted on by the broadcaster.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "FULFILLED",
+              "description": "A redemption that has been fulfilled by the broadcaster.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "CANCELED",
+              "description": "A redemption that has been canceled by the broadcaster.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "REPORTED",
+              "description": "A redemption that has been reported by the broadcaster.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "possibleTypes": null
+        },
+        {
+          "kind": "OBJECT",
+          "name": "CommunityPointsImageUploadInfo",
+          "description": "The information required for the client to upload an image for Community Points.",
+          "fields": [
+            {
+              "name": "uploadID",
+              "description": "The upload ID.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "ID",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "url",
+              "description": "The URL to upload to.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "String",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "OBJECT",
+          "name": "CommunityPointsMultiplier",
+          "description": "A multiplier affecting the rate of community points earned for a user in a channel.",
+          "fields": [
+            {
+              "name": "factor",
+              "description": "The multiplying factor being applied.\nMultipliers start at a base of 1.0, and are additive.\nTwo multipliers of [0.2] and [0.3] will give a final multiplier of 1.5x.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Float",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "reasonCode",
+              "description": "The reason that the multiplier is being applied.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "ENUM",
+                  "name": "CommunityPointsMultiplierReason",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "ENUM",
+          "name": "CommunityPointsMultiplierReason",
+          "description": "Reasons that community point earning could be multiplied for a user in a channel.",
+          "fields": null,
+          "inputFields": null,
+          "interfaces": null,
+          "enumValues": [
+            {
+              "name": "SUB_T1",
+              "description": "Tier-1 Subscriber.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "SUB_T2",
+              "description": "Tier-2 Subscriber.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "SUB_T3",
+              "description": "Tier-3 Subscriber.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "CHEER_1",
+              "description": "Channel-wide cheer streak level 1.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "possibleTypes": null
+        },
+        {
+          "kind": "OBJECT",
           "name": "CommunityPointsProperties",
           "description": "Properties relating to a user's community points in a channel.",
           "fields": [
+            {
+              "name": "activeMultipliers",
+              "description": "Multipliers currently affecting the logged in user's rate of point gaining in this channel.\nIf there are no multipliers active, will be an empty array.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "LIST",
+                  "name": null,
+                  "ofType": {
+                    "kind": "NON_NULL",
+                    "name": null,
+                    "ofType": {
+                      "kind": "OBJECT",
+                      "name": "CommunityPointsMultiplier",
+                      "ofType": null
+                    }
+                  }
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "availableClaim",
+              "description": "Points that are available for the user to click to claim in this channel. Null if there are no points available to claim.",
+              "args": [],
+              "type": {
+                "kind": "OBJECT",
+                "name": "CommunityPointsClaim",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
             {
               "name": "balance",
               "description": "The number of community points this user currently has available to use in this channel.",
@@ -16812,6 +18004,422 @@
               "type": {
                 "kind": "ENUM",
                 "name": "CreateCommunityError",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "OBJECT",
+          "name": "CreateCommunityPointsCustomRewardError",
+          "description": "An error from creating a custom Community Points reward in a channel.",
+          "fields": [
+            {
+              "name": "code",
+              "description": "An identifier for the error that occurred.",
+              "args": [],
+              "type": {
+                "kind": "ENUM",
+                "name": "CreateCommunityPointsCustomRewardErrorCode",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "maxRewards",
+              "description": "On TOO_MANY_REWARDS, the most custom rewards a channel can have.",
+              "args": [],
+              "type": {
+                "kind": "SCALAR",
+                "name": "Int",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "ENUM",
+          "name": "CreateCommunityPointsCustomRewardErrorCode",
+          "description": "The possible reasons creating a custom Community Points reward in a channel could fail.",
+          "fields": null,
+          "inputFields": null,
+          "interfaces": null,
+          "enumValues": [
+            {
+              "name": "FORBIDDEN",
+              "description": "The current user is not allowed to create a reward in this channel.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "TITLE_AUTOMOD_FAILED",
+              "description": "The title failed AutoMod.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "PROMPT_AUTOMOD_FAILED",
+              "description": "The prompt failed AutoMod.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "COST_INVALID",
+              "description": "The cost is invalid. Costs must be greater than 0.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "COOLDOWN_INVALID",
+              "description": "The cooldown is invalid. Cooldowns must be greater than or equal to 0.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "BACKGROUND_COLOR_INVALID",
+              "description": "The background color is invalid. Backgrounds must be a valid hex color, for example \"FF0000\".",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "MAX_UNFULFILLED_INVALID",
+              "description": "The maxUnfulfilled is invalid. maxUnfulfilled must be greater than 0.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "TOO_MANY_REWARDS",
+              "description": "The channel has too many rewards. An existing reward must be deleted before you can create a new reward.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "possibleTypes": null
+        },
+        {
+          "kind": "INPUT_OBJECT",
+          "name": "CreateCommunityPointsCustomRewardInput",
+          "description": "Input for creating a custom Community Points reward in a channel.",
+          "fields": null,
+          "inputFields": [
+            {
+              "name": "backgroundColor",
+              "description": "The optional custom background color for this reward.\nShould be a hex color string, for example \"FF0000\".",
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "channelID",
+              "description": "The channel ID that the reward is being created in.",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "ID",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "cooldownSeconds",
+              "description": "The amount of time that must pass between two users redeeming this reward. Null if no cooldown is set.",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Int",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "cost",
+              "description": "The point cost of this reward.",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Int",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "isSubOnly",
+              "description": "Whether only subscribers are allowed to redeem this reward in this channel.",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Boolean",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "isUserInputRequired",
+              "description": "Whether this reward requires users to enter text input.",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Boolean",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "maxUnfulfilled",
+              "description": "The most rewards of this type that can be in the UNFULFILLED state at a given time. Null if no maximum is set.",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Int",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "prompt",
+              "description": "The optional user-facing prompt for this reward.",
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "title",
+              "description": "The short title displayed for this reward.",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "String",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            }
+          ],
+          "interfaces": null,
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "OBJECT",
+          "name": "CreateCommunityPointsCustomRewardPayload",
+          "description": "The response from creating a custom Community Points reward in a channel.",
+          "fields": [
+            {
+              "name": "error",
+              "description": "An error that occurred while creating a custom Community Points reward in a channel.",
+              "args": [],
+              "type": {
+                "kind": "OBJECT",
+                "name": "CreateCommunityPointsCustomRewardError",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "reward",
+              "description": "The newly created reward.",
+              "args": [],
+              "type": {
+                "kind": "OBJECT",
+                "name": "CommunityPointsCustomReward",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "OBJECT",
+          "name": "CreateCommunityPointsImageUploadInfoError",
+          "description": "An error from generating upload info for Community Points images.",
+          "fields": [
+            {
+              "name": "code",
+              "description": "An identifier for the error that occurred.",
+              "args": [],
+              "type": {
+                "kind": "ENUM",
+                "name": "CreateCommunityPointsImageUploadInfoErrorCode",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "ENUM",
+          "name": "CreateCommunityPointsImageUploadInfoErrorCode",
+          "description": "The possible reasons generating upload info for Community Points images could fail.",
+          "fields": null,
+          "inputFields": null,
+          "interfaces": null,
+          "enumValues": [
+            {
+              "name": "FORBIDDEN",
+              "description": "The current user is not allowed to upload images for this channel.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "MORE_THAN_ONE_TYPE",
+              "description": "More than one image type was specified in the request.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "CUSTOM_REWARD_NOT_FOUND",
+              "description": "Your provided custom reward ID was not found.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "possibleTypes": null
+        },
+        {
+          "kind": "INPUT_OBJECT",
+          "name": "CreateCommunityPointsImageUploadInfoInput",
+          "description": "Input for generating upload info (urls and upload IDs) for uploading Community Points images.\nChannel ID is required. Only one of the other three fields should be set, to indicate what the image is being uploaded for.",
+          "fields": null,
+          "inputFields": [
+            {
+              "name": "automaticRewardType",
+              "description": "If set, this request is for uploading new images for the given automatic reward.",
+              "type": {
+                "kind": "ENUM",
+                "name": "CommunityPointsAutomaticRewardType",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "channelID",
+              "description": "The channel ID to upload images for.",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "ID",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "customRewardID",
+              "description": "If set, this request is for uploading new images for the given custom reward.",
+              "type": {
+                "kind": "SCALAR",
+                "name": "ID",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "icon",
+              "description": "If set, this request is for uploading new images for the channel Community Points icon.",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Boolean",
+                "ofType": null
+              },
+              "defaultValue": null
+            }
+          ],
+          "interfaces": null,
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "OBJECT",
+          "name": "CreateCommunityPointsImageUploadInfoPayload",
+          "description": "The response from generating upload info for Community Points images.",
+          "fields": [
+            {
+              "name": "error",
+              "description": "An error that occurred retrieving upload info for Community Points.",
+              "args": [],
+              "type": {
+                "kind": "OBJECT",
+                "name": "CreateCommunityPointsImageUploadInfoError",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "uploadInfoLarge",
+              "description": "The upload info (url and upload ID) for the large version of the image.",
+              "args": [],
+              "type": {
+                "kind": "OBJECT",
+                "name": "CommunityPointsImageUploadInfo",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "uploadInfoMedium",
+              "description": "The upload info (url and upload ID) for the medium version of the image.",
+              "args": [],
+              "type": {
+                "kind": "OBJECT",
+                "name": "CommunityPointsImageUploadInfo",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "uploadInfoSmall",
+              "description": "The upload info (url and upload ID) for the small version of the image.",
+              "args": [],
+              "type": {
+                "kind": "OBJECT",
+                "name": "CommunityPointsImageUploadInfo",
                 "ofType": null
               },
               "isDeprecated": false,
@@ -21883,6 +23491,126 @@
                   "name": "Collection",
                   "ofType": null
                 }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "OBJECT",
+          "name": "DeleteCommunityPointsCustomRewardError",
+          "description": "An error from deleting a custom Community Points reward in a channel.",
+          "fields": [
+            {
+              "name": "code",
+              "description": "An identifier for the error that occurred.",
+              "args": [],
+              "type": {
+                "kind": "ENUM",
+                "name": "DeleteCommunityPointsCustomRewardErrorCode",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "ENUM",
+          "name": "DeleteCommunityPointsCustomRewardErrorCode",
+          "description": "The possible reasons deleting a custom Community Points reward in a channel could fail.",
+          "fields": null,
+          "inputFields": null,
+          "interfaces": null,
+          "enumValues": [
+            {
+              "name": "FORBIDDEN",
+              "description": "The current user is not allowed to delete a reward in this channel.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "NOT_FOUND",
+              "description": "The reward was not found.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "possibleTypes": null
+        },
+        {
+          "kind": "INPUT_OBJECT",
+          "name": "DeleteCommunityPointsCustomRewardInput",
+          "description": "Input for deleting a custom Community Points reward in a channel.",
+          "fields": null,
+          "inputFields": [
+            {
+              "name": "channelID",
+              "description": "The channel ID that the reward is being deleted in.",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "ID",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "rewardID",
+              "description": "The ID of the reward being deleted.",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "ID",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            }
+          ],
+          "interfaces": null,
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "OBJECT",
+          "name": "DeleteCommunityPointsCustomRewardPayload",
+          "description": "The response from deleting a custom Community Points reward in a channel.",
+          "fields": [
+            {
+              "name": "error",
+              "description": "An error that occurred while deleting a custom Community Points reward in a channel.",
+              "args": [],
+              "type": {
+                "kind": "OBJECT",
+                "name": "DeleteCommunityPointsCustomRewardError",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "reward",
+              "description": "The now deleted reward.",
+              "args": [],
+              "type": {
+                "kind": "OBJECT",
+                "name": "CommunityPointsCustomReward",
+                "ofType": null
               },
               "isDeprecated": false,
               "deprecationReason": null
@@ -41047,6 +42775,33 @@
               "deprecationReason": null
             },
             {
+              "name": "claimCommunityPoints",
+              "description": "claimCommunityPoints allows a user to claim community points that they have available in a channel.\nIf the user does not have a claim available, an error will be returned.",
+              "args": [
+                {
+                  "name": "input",
+                  "description": null,
+                  "type": {
+                    "kind": "NON_NULL",
+                    "name": null,
+                    "ofType": {
+                      "kind": "INPUT_OBJECT",
+                      "name": "ClaimCommunityPointsInput",
+                      "ofType": null
+                    }
+                  },
+                  "defaultValue": null
+                }
+              ],
+              "type": {
+                "kind": "OBJECT",
+                "name": "ClaimCommunityPointsPayload",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
               "name": "claimGiftedOffer",
               "description": "claimGiftedOffer allows a user to claim an offer that was gifted to them.",
               "args": [
@@ -41350,6 +43105,60 @@
               "type": {
                 "kind": "OBJECT",
                 "name": "CreateCommunityImageUploadURLPayload",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "createCommunityPointsCustomReward",
+              "description": "Create a custom Community Points reward in a channel.",
+              "args": [
+                {
+                  "name": "input",
+                  "description": null,
+                  "type": {
+                    "kind": "NON_NULL",
+                    "name": null,
+                    "ofType": {
+                      "kind": "INPUT_OBJECT",
+                      "name": "CreateCommunityPointsCustomRewardInput",
+                      "ofType": null
+                    }
+                  },
+                  "defaultValue": null
+                }
+              ],
+              "type": {
+                "kind": "OBJECT",
+                "name": "CreateCommunityPointsCustomRewardPayload",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "createCommunityPointsImageUploadInfo",
+              "description": "Generate image upload information (URL and upload ID) for uploading a Community Points image.\nCan upoload a new Community Points icon, an automatic reward icon, or a custom reward icon.",
+              "args": [
+                {
+                  "name": "input",
+                  "description": null,
+                  "type": {
+                    "kind": "NON_NULL",
+                    "name": null,
+                    "ofType": {
+                      "kind": "INPUT_OBJECT",
+                      "name": "CreateCommunityPointsImageUploadInfoInput",
+                      "ofType": null
+                    }
+                  },
+                  "defaultValue": null
+                }
+              ],
+              "type": {
+                "kind": "OBJECT",
+                "name": "CreateCommunityPointsImageUploadInfoPayload",
                 "ofType": null
               },
               "isDeprecated": false,
@@ -42133,6 +43942,29 @@
               "type": {
                 "kind": "OBJECT",
                 "name": "DeleteCollectionPayload",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "deleteCommunityPointsCustomReward",
+              "description": "Deletes a custom Community Points reward from a channel.",
+              "args": [
+                {
+                  "name": "input",
+                  "description": null,
+                  "type": {
+                    "kind": "INPUT_OBJECT",
+                    "name": "DeleteCommunityPointsCustomRewardInput",
+                    "ofType": null
+                  },
+                  "defaultValue": null
+                }
+              ],
+              "type": {
+                "kind": "OBJECT",
+                "name": "DeleteCommunityPointsCustomRewardPayload",
                 "ofType": null
               },
               "isDeprecated": false,
@@ -43429,6 +45261,33 @@
               "type": {
                 "kind": "OBJECT",
                 "name": "RedeemClaimablePayload",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "redeemCommunityPointsCustomReward",
+              "description": "Redeem a Community Points custom reward in a channel.",
+              "args": [
+                {
+                  "name": "input",
+                  "description": null,
+                  "type": {
+                    "kind": "NON_NULL",
+                    "name": null,
+                    "ofType": {
+                      "kind": "INPUT_OBJECT",
+                      "name": "RedeemCommunityPointsCustomRewardInput",
+                      "ofType": null
+                    }
+                  },
+                  "defaultValue": null
+                }
+              ],
+              "type": {
+                "kind": "OBJECT",
+                "name": "RedeemCommunityPointsCustomRewardPayload",
                 "ofType": null
               },
               "isDeprecated": false,
@@ -45589,6 +47448,114 @@
               "type": {
                 "kind": "OBJECT",
                 "name": "UpdateCollectionPayload",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "updateCommunityPointsAutomaticReward",
+              "description": "Update an automatic Community Points reward in a channel.",
+              "args": [
+                {
+                  "name": "input",
+                  "description": null,
+                  "type": {
+                    "kind": "NON_NULL",
+                    "name": null,
+                    "ofType": {
+                      "kind": "INPUT_OBJECT",
+                      "name": "UpdateCommunityPointsAutomaticRewardInput",
+                      "ofType": null
+                    }
+                  },
+                  "defaultValue": null
+                }
+              ],
+              "type": {
+                "kind": "OBJECT",
+                "name": "UpdateCommunityPointsAutomaticRewardPayload",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "updateCommunityPointsChannelSettings",
+              "description": "Update a channel's Community Points channel settings.",
+              "args": [
+                {
+                  "name": "input",
+                  "description": null,
+                  "type": {
+                    "kind": "NON_NULL",
+                    "name": null,
+                    "ofType": {
+                      "kind": "INPUT_OBJECT",
+                      "name": "UpdateCommunityPointsChannelSettingsInput",
+                      "ofType": null
+                    }
+                  },
+                  "defaultValue": null
+                }
+              ],
+              "type": {
+                "kind": "OBJECT",
+                "name": "UpdateCommunityPointsChannelSettingsPayload",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "updateCommunityPointsCustomReward",
+              "description": "Update a custom Community Points reward in a channel.",
+              "args": [
+                {
+                  "name": "input",
+                  "description": null,
+                  "type": {
+                    "kind": "NON_NULL",
+                    "name": null,
+                    "ofType": {
+                      "kind": "INPUT_OBJECT",
+                      "name": "UpdateCommunityPointsCustomRewardInput",
+                      "ofType": null
+                    }
+                  },
+                  "defaultValue": null
+                }
+              ],
+              "type": {
+                "kind": "OBJECT",
+                "name": "UpdateCommunityPointsCustomRewardPayload",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "updateCommunityPointsCustomRewardRedemptionStatus",
+              "description": "Update the status of a Community Points redemption (for example, from unfulfilled to fulfilled).",
+              "args": [
+                {
+                  "name": "input",
+                  "description": null,
+                  "type": {
+                    "kind": "NON_NULL",
+                    "name": null,
+                    "ofType": {
+                      "kind": "INPUT_OBJECT",
+                      "name": "UpdateCommunityPointsCustomRewardRedemptionStatusInput",
+                      "ofType": null
+                    }
+                  },
+                  "defaultValue": null
+                }
+              ],
+              "type": {
+                "kind": "OBJECT",
+                "name": "UpdateCommunityPointsCustomRewardRedemptionStatusPayload",
                 "ofType": null
               },
               "isDeprecated": false,
@@ -57113,6 +59080,190 @@
               "type": {
                 "kind": "INTERFACE",
                 "name": "Claimable",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "OBJECT",
+          "name": "RedeemCommunityPointsCustomRewardError",
+          "description": "An error from redeeming a custom Community Points reward in a channel.",
+          "fields": [
+            {
+              "name": "code",
+              "description": "An identifier for the error that occurred.",
+              "args": [],
+              "type": {
+                "kind": "ENUM",
+                "name": "RedeemCommunityPointsCustomRewardErrorCode",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "cooldownSeconds",
+              "description": "On COOLDOWN_ACTIVE, the cooldown duration of the reward.",
+              "args": [],
+              "type": {
+                "kind": "SCALAR",
+                "name": "Int",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "cost",
+              "description": "On NOT_ENOUGH_POINTS, the number of points the reward costs.",
+              "args": [],
+              "type": {
+                "kind": "SCALAR",
+                "name": "Int",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "currentPoints",
+              "description": "On NOT_ENOUGH_POINTS, the number of points the user has.",
+              "args": [],
+              "type": {
+                "kind": "SCALAR",
+                "name": "Int",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "ENUM",
+          "name": "RedeemCommunityPointsCustomRewardErrorCode",
+          "description": "The possible reasons redeeming a custom Community Points reward in a channel could fail.",
+          "fields": null,
+          "inputFields": null,
+          "interfaces": null,
+          "enumValues": [
+            {
+              "name": "NOT_FOUND",
+              "description": "The reward was not found.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "FORBIDDEN",
+              "description": "The current user is not allowed to redeem this reward in this channel.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "NOT_ENOUGH_POINTS",
+              "description": "The current user does not have enough points to redeem this reward.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "COOLDOWN_ACTIVE",
+              "description": "The reward is on cooldown, and time must pass before it can be redeemed again.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "MAX_UNFULFILLED",
+              "description": "The number of unfulfilled rewards of this type is at the maximum.\nNo users can redeem rewards of this type until the broadcaster acts on pending ones.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "possibleTypes": null
+        },
+        {
+          "kind": "INPUT_OBJECT",
+          "name": "RedeemCommunityPointsCustomRewardInput",
+          "description": "Input for redeeming a custom Community Points reward in a channel.",
+          "fields": null,
+          "inputFields": [
+            {
+              "name": "channelID",
+              "description": "The channel ID that the reward is being redeemed in.",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "ID",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "rewardID",
+              "description": "The unique reward ID.",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "ID",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "textInput",
+              "description": "For rewards that require text input, this is the user-supplied text.\nDiscarded if the reward does not require text input.",
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              },
+              "defaultValue": null
+            }
+          ],
+          "interfaces": null,
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "OBJECT",
+          "name": "RedeemCommunityPointsCustomRewardPayload",
+          "description": "The response from redeeming a custom Community Points reward in a channel.",
+          "fields": [
+            {
+              "name": "error",
+              "description": "An error that occurred while redeeming a custom Community Points reward in a channel.",
+              "args": [],
+              "type": {
+                "kind": "OBJECT",
+                "name": "RedeemCommunityPointsCustomRewardError",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "redemption",
+              "description": "The newly created redemption.",
+              "args": [],
+              "type": {
+                "kind": "OBJECT",
+                "name": "CommunityPointsCustomRewardRedemption",
                 "ofType": null
               },
               "isDeprecated": false,
@@ -76829,6 +78980,686 @@
             }
           ],
           "interfaces": null,
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "OBJECT",
+          "name": "UpdateCommunityPointsAutomaticRewardError",
+          "description": "An error from updating an automatic Community Points reward in a channel.",
+          "fields": [
+            {
+              "name": "code",
+              "description": "An identifier for the error that occurred.",
+              "args": [],
+              "type": {
+                "kind": "ENUM",
+                "name": "UpdateCommunityPointsAutomaticRewardErrorCode",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "minimumCost",
+              "description": "On COST_TOO_LOW, the minimum cost that can be set.",
+              "args": [],
+              "type": {
+                "kind": "SCALAR",
+                "name": "Int",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "ENUM",
+          "name": "UpdateCommunityPointsAutomaticRewardErrorCode",
+          "description": "The possible reasons updating an automatic Community Points reward in a channel could fail.",
+          "fields": null,
+          "inputFields": null,
+          "interfaces": null,
+          "enumValues": [
+            {
+              "name": "FORBIDDEN",
+              "description": "The current user is not allowed to update a reward in this channel.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "COST_TOO_LOW",
+              "description": "The cost is below the minimum.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "COST_INVALID",
+              "description": "The cost is invalid. Must be a positive integer.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "BACKGROUND_COLOR_INVALID",
+              "description": "The background color is invalid. Backgrounds must be a valid hex color, for example \"FF0000\".",
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "possibleTypes": null
+        },
+        {
+          "kind": "INPUT_OBJECT",
+          "name": "UpdateCommunityPointsAutomaticRewardInput",
+          "description": "Input for updating an automatic Community Points reward in a channel.\nOnly the channelID and rewardType are required. All other fields are optional.\nOnly set fields that are intended to be updated.",
+          "fields": null,
+          "inputFields": [
+            {
+              "name": "backgroundColor",
+              "description": "The optional custom background color for this reward.\nShould be a hex color string, for example \"FF0000\".",
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "channelID",
+              "description": "The channel ID that the reward is being updated in.",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "ID",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "cost",
+              "description": "The point cost of this reward.",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Int",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "isEnabled",
+              "description": "Whether the reward is enabled.",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Boolean",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "rewardType",
+              "description": "The ID of the reward being updated.",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "ENUM",
+                  "name": "CommunityPointsAutomaticRewardType",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            }
+          ],
+          "interfaces": null,
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "OBJECT",
+          "name": "UpdateCommunityPointsAutomaticRewardPayload",
+          "description": "The response from updating an automatic Community Points reward in a channel.",
+          "fields": [
+            {
+              "name": "error",
+              "description": "An error that occurred while updating an automatic Community Points reward in a channel.",
+              "args": [],
+              "type": {
+                "kind": "OBJECT",
+                "name": "UpdateCommunityPointsAutomaticRewardError",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "reward",
+              "description": "The newly updated reward.",
+              "args": [],
+              "type": {
+                "kind": "OBJECT",
+                "name": "CommunityPointsAutomaticReward",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "OBJECT",
+          "name": "UpdateCommunityPointsChannelSettingsError",
+          "description": "An error from updating a channel's Community Points channel settings.",
+          "fields": [
+            {
+              "name": "code",
+              "description": "An identifier for the error that occurred.",
+              "args": [],
+              "type": {
+                "kind": "ENUM",
+                "name": "UpdateCommunityPointsChannelSettingsErrorCode",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "ENUM",
+          "name": "UpdateCommunityPointsChannelSettingsErrorCode",
+          "description": "The possible reasons updating a channel's Community Points channel settings could fail.",
+          "fields": null,
+          "inputFields": null,
+          "interfaces": null,
+          "enumValues": [
+            {
+              "name": "FORBIDDEN",
+              "description": "The current user is not allowed to update this channel's settings.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "NAME_AUTOMOD_FAILED",
+              "description": "The custom name failed AutoMod.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "possibleTypes": null
+        },
+        {
+          "kind": "INPUT_OBJECT",
+          "name": "UpdateCommunityPointsChannelSettingsInput",
+          "description": "Input for updating Community Points channel settings..\nOnly the channelID is required. All other fields are optional.\nOnly set fields that are intended to be updated.",
+          "fields": null,
+          "inputFields": [
+            {
+              "name": "channelID",
+              "description": "The channel ID to update the settings of.",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "ID",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "isEnabled",
+              "description": "Whether the channel has community points turned on.",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Boolean",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "name",
+              "description": "The channel's custom community points name.",
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              },
+              "defaultValue": null
+            }
+          ],
+          "interfaces": null,
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "OBJECT",
+          "name": "UpdateCommunityPointsChannelSettingsPayload",
+          "description": "The response from updating a channel's Community Points channel settings.",
+          "fields": [
+            {
+              "name": "error",
+              "description": "An error that occurred while updating a channel's Community Points channel settings.",
+              "args": [],
+              "type": {
+                "kind": "OBJECT",
+                "name": "UpdateCommunityPointsChannelSettingsError",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "settings",
+              "description": "The newly updated settings.",
+              "args": [],
+              "type": {
+                "kind": "OBJECT",
+                "name": "CommunityPointsChannelSettings",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "OBJECT",
+          "name": "UpdateCommunityPointsCustomRewardError",
+          "description": "An error from updating a custom Community Points reward in a channel.",
+          "fields": [
+            {
+              "name": "code",
+              "description": "An identifier for the error that occurred.",
+              "args": [],
+              "type": {
+                "kind": "ENUM",
+                "name": "UpdateCommunityPointsCustomRewardErrorCode",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "ENUM",
+          "name": "UpdateCommunityPointsCustomRewardErrorCode",
+          "description": "The possible reasons updating a custom Community Points reward in a channel could fail.",
+          "fields": null,
+          "inputFields": null,
+          "interfaces": null,
+          "enumValues": [
+            {
+              "name": "FORBIDDEN",
+              "description": "The current user is not allowed to update a reward in this channel.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "NOT_FOUND",
+              "description": "The reward was not found.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "TITLE_AUTOMOD_FAILED",
+              "description": "The title failed AutoMod.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "PROMPT_AUTOMOD_FAILED",
+              "description": "The prompt failed AutoMod.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "COST_INVALID",
+              "description": "The cost is invalid. Costs must be greater than 0.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "COOLDOWN_INVALID",
+              "description": "The cooldown is invalid. Cooldowns must be greater than or equal to 0.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "BACKGROUND_COLOR_INVALID",
+              "description": "The background color is invalid. Backgrounds must be a valid hex color, for example \"FF0000\".",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "MAX_UNFULFILLED_INVALID",
+              "description": "The maxUnfulfilled is invalid. maxUnfulfilled must be greater than 0.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "possibleTypes": null
+        },
+        {
+          "kind": "INPUT_OBJECT",
+          "name": "UpdateCommunityPointsCustomRewardInput",
+          "description": "Input for updating a custom Community Points reward in a channel.\nOnly the channelID and rewardID are required. All other fields are optional.\nOnly set fields that are intended to be updated.",
+          "fields": null,
+          "inputFields": [
+            {
+              "name": "backgroundColor",
+              "description": "The optional custom background color for this reward.\nShould be a hex color string, for example \"FF0000\".",
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "channelID",
+              "description": "The channel ID that the reward is being updated in.",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "ID",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "cooldownSeconds",
+              "description": "The amount of time that must pass between two users redeeming this reward. Null if no cooldown is set.",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Int",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "cost",
+              "description": "The point cost of this reward.",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Int",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "isEnabled",
+              "description": "Whether the reward is enabled.",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Boolean",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "isSubOnly",
+              "description": "Whether only subscribers are allowed to redeem this reward in this channel.",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Boolean",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "isUserInputRequired",
+              "description": "Whether this reward requires users to enter text input.",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Boolean",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "maxUnfulfilled",
+              "description": "The most rewards of this type that can be in the UNFULFILLED state at a given time. Null if no maximum is set.",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Int",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "prompt",
+              "description": "The optional user-facing prompt for this reward.",
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "rewardID",
+              "description": "The ID of the reward being updated.",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "ID",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "title",
+              "description": "The short title displayed for this reward.",
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              },
+              "defaultValue": null
+            }
+          ],
+          "interfaces": null,
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "OBJECT",
+          "name": "UpdateCommunityPointsCustomRewardPayload",
+          "description": "The response from updating a custom Community Points reward in a channel.",
+          "fields": [
+            {
+              "name": "error",
+              "description": "An error that occurred while updating a custom Community Points reward in a channel.",
+              "args": [],
+              "type": {
+                "kind": "OBJECT",
+                "name": "UpdateCommunityPointsCustomRewardError",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "reward",
+              "description": "The newly updated reward.",
+              "args": [],
+              "type": {
+                "kind": "OBJECT",
+                "name": "CommunityPointsCustomReward",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "OBJECT",
+          "name": "UpdateCommunityPointsCustomRewardRedemptionStatusError",
+          "description": "An error from acting on a Community Points redemption.",
+          "fields": [
+            {
+              "name": "code",
+              "description": "An identifier for the error that occurred.",
+              "args": [],
+              "type": {
+                "kind": "ENUM",
+                "name": "UpdateCommunityPointsCustomRewardRedemptionStatusErrorCode",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "ENUM",
+          "name": "UpdateCommunityPointsCustomRewardRedemptionStatusErrorCode",
+          "description": "The possible reasons acting on a Community Points redemption could fail.",
+          "fields": null,
+          "inputFields": null,
+          "interfaces": null,
+          "enumValues": [
+            {
+              "name": "NOT_FOUND",
+              "description": "The redemption was not found.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "FORBIDDEN",
+              "description": "The current user is not allowed to update the status of this redemption.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "possibleTypes": null
+        },
+        {
+          "kind": "INPUT_OBJECT",
+          "name": "UpdateCommunityPointsCustomRewardRedemptionStatusInput",
+          "description": "Input for acting on a Community Points redemption.",
+          "fields": null,
+          "inputFields": [
+            {
+              "name": "channelID",
+              "description": "The channel ID the redemption was made in.",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "ID",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "newStatus",
+              "description": "The new status to set the redemption to.",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "ENUM",
+                  "name": "CommunityPointsCustomRewardRedemptionStatus",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "redemptionID",
+              "description": "The redemption ID.",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "ID",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            }
+          ],
+          "interfaces": null,
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "OBJECT",
+          "name": "UpdateCommunityPointsCustomRewardRedemptionStatusPayload",
+          "description": "The response from acting on a Community Points redemption.",
+          "fields": [
+            {
+              "name": "error",
+              "description": "An error that occurred while updating the redemption status.",
+              "args": [],
+              "type": {
+                "kind": "OBJECT",
+                "name": "UpdateCommunityPointsCustomRewardRedemptionStatusError",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "redemption",
+              "description": "The updated redemption.",
+              "args": [],
+              "type": {
+                "kind": "OBJECT",
+                "name": "CommunityPointsCustomRewardRedemption",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
           "enumValues": null,
           "possibleTypes": null
         },
