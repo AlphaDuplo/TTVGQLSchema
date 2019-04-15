@@ -71767,13 +71767,9 @@
               "description": "The available promotions on this gift offer.",
               "args": [],
               "type": {
-                "kind": "NON_NULL",
-                "name": null,
-                "ofType": {
-                  "kind": "OBJECT",
-                  "name": "SubscriptionGiftPromotion",
-                  "ofType": null
-                }
+                "kind": "OBJECT",
+                "name": "SubscriptionGiftPromotion",
+                "ofType": null
               },
               "isDeprecated": false,
               "deprecationReason": null
