@@ -39343,6 +39343,35 @@
           "possibleTypes": null
         },
         {
+          "kind": "ENUM",
+          "name": "LinkType",
+          "description": "The location that a piece of text should link to.",
+          "fields": null,
+          "inputFields": null,
+          "interfaces": null,
+          "enumValues": [
+            {
+              "name": "NO_LINK",
+              "description": "Do not link to anything.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "CATEGORIES_DIRECTORY",
+              "description": "Link to the categories directory (on web: https://www.twitch.tv/directory).",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "STREAMS_DIRECTORY",
+              "description": "Link to the streams directory (on web: https://www.twitch.tv/directory/all).",
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "possibleTypes": null
+        },
+        {
           "kind": "OBJECT",
           "name": "LiveConfigView",
           "description": "LiveConfigView holds the view configuration of an extension if the live config dashboard page is supported.",
@@ -67850,6 +67879,22 @@
               "deprecationReason": null
             },
             {
+              "name": "fallbackLocalizedTitle",
+              "description": "The fallback localized title, only to be used if client fails to parse the localizedTitleTokens.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "String",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
               "name": "key",
               "description": "An enum of possible title strings. Allows for localization and interpolation.",
               "args": [],
@@ -67860,6 +67905,26 @@
                   "kind": "SCALAR",
                   "name": "String",
                   "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "localizedTitleTokens",
+              "description": "The localized shelf title in the form of a list of tokens.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "LIST",
+                  "name": null,
+                  "ofType": {
+                    "kind": "OBJECT",
+                    "name": "TitleTokenEdge",
+                    "ofType": null
+                  }
                 }
               },
               "isDeprecated": false,
@@ -74529,6 +74594,65 @@
         },
         {
           "kind": "OBJECT",
+          "name": "TextToken",
+          "description": "A shelf title token type that contains text with various formatters.",
+          "fields": [
+            {
+              "name": "hasEmphasis",
+              "description": "If this title token should be emphasized or not.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Boolean",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "location",
+              "description": "The location that this shelf title token should link to.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "ENUM",
+                  "name": "LinkType",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "text",
+              "description": "The text to display for this token.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "String",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "OBJECT",
           "name": "ThumbnailOEmbed",
           "description": null,
           "fields": [
@@ -75203,6 +75327,55 @@
           ],
           "enumValues": null,
           "possibleTypes": null
+        },
+        {
+          "kind": "OBJECT",
+          "name": "TitleTokenEdge",
+          "description": "A piece of the shelf title in the form of a token.",
+          "fields": [
+            {
+              "name": "node",
+              "description": "The token.",
+              "args": [],
+              "type": {
+                "kind": "UNION",
+                "name": "TitleTokenNode",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "UNION",
+          "name": "TitleTokenNode",
+          "description": "The content of a shelf title token.",
+          "fields": null,
+          "inputFields": null,
+          "interfaces": null,
+          "enumValues": null,
+          "possibleTypes": [
+            {
+              "kind": "OBJECT",
+              "name": "Game",
+              "ofType": null
+            },
+            {
+              "kind": "OBJECT",
+              "name": "TextToken",
+              "ofType": null
+            },
+            {
+              "kind": "OBJECT",
+              "name": "User",
+              "ofType": null
+            }
+          ]
         },
         {
           "kind": "INPUT_OBJECT",
