@@ -46093,8 +46093,8 @@
                 "name": "SetChannelRestrictionPayload",
                 "ofType": null
               },
-              "isDeprecated": false,
-              "deprecationReason": null
+              "isDeprecated": true,
+              "deprecationReason": "Use 'setResourceRestriction' instead"
             },
             {
               "name": "setContentTags",
@@ -46361,6 +46361,33 @@
               "type": {
                 "kind": "OBJECT",
                 "name": "SetReadableChatColorsEnabledPayload",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "setResourceRestriction",
+              "description": "setResourceRestriction can create or update a restriction on a resource.",
+              "args": [
+                {
+                  "name": "input",
+                  "description": null,
+                  "type": {
+                    "kind": "NON_NULL",
+                    "name": null,
+                    "ofType": {
+                      "kind": "INPUT_OBJECT",
+                      "name": "SetResourceRestrictionInput",
+                      "ofType": null
+                    }
+                  },
+                  "defaultValue": null
+                }
+              ],
+              "type": {
+                "kind": "OBJECT",
+                "name": "SetResourceRestrictionPayload",
                 "ofType": null
               },
               "isDeprecated": false,
@@ -62025,6 +62052,29 @@
           "possibleTypes": null
         },
         {
+          "kind": "ENUM",
+          "name": "RestrictionResource",
+          "description": "An enumeration of the different restriction types.",
+          "fields": null,
+          "inputFields": null,
+          "interfaces": null,
+          "enumValues": [
+            {
+              "name": "VIDEO",
+              "description": "For non-live video content, e.g. VODs.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "LIVE",
+              "description": "For live video content.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "possibleTypes": null
+        },
+        {
           "kind": "OBJECT",
           "name": "ResubNotification",
           "description": "A recent resub token to use for sending a special message.",
@@ -67143,6 +67193,90 @@
                   "name": "Boolean",
                   "ofType": null
                 }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "INPUT_OBJECT",
+          "name": "SetResourceRestrictionInput",
+          "description": "SetResourceRestrictionInput sets a restriction for the given resourceID.",
+          "fields": null,
+          "inputFields": [
+            {
+              "name": "resourceID",
+              "description": "The ID of the resource to set the restriction on.",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "ID",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "resourceType",
+              "description": "The type of resource that will be restricted.",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "ENUM",
+                  "name": "RestrictionResource",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "restrictionType",
+              "description": "The type of restriction that should be placed onto the channel. If empty, the restriction will be deleted.",
+              "type": {
+                "kind": "ENUM",
+                "name": "ResourceRestrictionType",
+                "ofType": null
+              },
+              "defaultValue": null
+            }
+          ],
+          "interfaces": null,
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "OBJECT",
+          "name": "SetResourceRestrictionPayload",
+          "description": "SetResourceRestrictionPayload returns the updated restriction for a channel.",
+          "fields": [
+            {
+              "name": "stream",
+              "description": "The stream if a live resource restriction was updated.",
+              "args": [],
+              "type": {
+                "kind": "OBJECT",
+                "name": "Stream",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "video",
+              "description": "The video if a video resource restriction was updated.",
+              "args": [],
+              "type": {
+                "kind": "OBJECT",
+                "name": "Video",
+                "ofType": null
               },
               "isDeprecated": false,
               "deprecationReason": null
