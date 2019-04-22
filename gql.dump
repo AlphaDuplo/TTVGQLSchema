@@ -10434,7 +10434,7 @@
             },
             {
               "name": "isGift",
-              "description": "Whether the the purchase is a gift.",
+              "description": "Whether the purchase is a gift.",
               "type": {
                 "kind": "NON_NULL",
                 "name": null,
@@ -10462,6 +10462,16 @@
               "type": {
                 "kind": "SCALAR",
                 "name": "Int",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "paymentSession",
+              "description": "Payment's session tracking.",
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "PaymentSession",
                 "ofType": null
               },
               "defaultValue": null
@@ -50854,6 +50864,67 @@
           ],
           "inputFields": null,
           "interfaces": [],
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "INPUT_OBJECT",
+          "name": "PaymentSession",
+          "description": "Inputs for PaymentSession.",
+          "fields": null,
+          "inputFields": [
+            {
+              "name": "checkoutSessionID",
+              "description": "Payment's Tracking Checkout ID.",
+              "type": {
+                "kind": "SCALAR",
+                "name": "ID",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "deviceID",
+              "description": "User's device ID.",
+              "type": {
+                "kind": "SCALAR",
+                "name": "ID",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "localStorageDeviceID",
+              "description": "Twilight's storage device ID.",
+              "type": {
+                "kind": "SCALAR",
+                "name": "ID",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "pageSessionID",
+              "description": "Twilight's Page Session ID.",
+              "type": {
+                "kind": "SCALAR",
+                "name": "ID",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "tabSessionID",
+              "description": "Twilight's Tab Session ID.",
+              "type": {
+                "kind": "SCALAR",
+                "name": "ID",
+                "ofType": null
+              },
+              "defaultValue": null
+            }
+          ],
+          "interfaces": null,
           "enumValues": null,
           "possibleTypes": null
         },
