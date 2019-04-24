@@ -36438,6 +36438,24 @@
           "fields": null,
           "inputFields": [
             {
+              "name": "includeRestricted",
+              "description": "Filter streams based on restriction types.",
+              "type": {
+                "kind": "LIST",
+                "name": null,
+                "ofType": {
+                  "kind": "NON_NULL",
+                  "name": null,
+                  "ofType": {
+                    "kind": "ENUM",
+                    "name": "StreamRestrictionType",
+                    "ofType": null
+                  }
+                }
+              },
+              "defaultValue": null
+            },
+            {
               "name": "languages",
               "description": "Broadcaster languages to filter streams by.",
               "type": {
@@ -71198,6 +71216,24 @@
           "fields": null,
           "inputFields": [
             {
+              "name": "includeRestricted",
+              "description": "Filter streams based on restriction types.",
+              "type": {
+                "kind": "LIST",
+                "name": null,
+                "ofType": {
+                  "kind": "NON_NULL",
+                  "name": null,
+                  "ofType": {
+                    "kind": "ENUM",
+                    "name": "StreamRestrictionType",
+                    "ofType": null
+                  }
+                }
+              },
+              "defaultValue": null
+            },
+            {
               "name": "languages",
               "description": "Broadcaster languages to filter the streams by.",
               "type": {
@@ -71333,7 +71369,7 @@
         {
           "kind": "ENUM",
           "name": "StreamRestrictionType",
-          "description": "Type of restricted stream. Currently only used as input for user.followedLiveUsers.",
+          "description": "Type of restricted stream. Currently used as inputs for user.followedLiveUsers, StreamOptions, and GameStreamOptions.",
           "fields": null,
           "inputFields": null,
           "interfaces": null,
