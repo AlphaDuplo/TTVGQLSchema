@@ -15199,7 +15199,31 @@
           "fields": [
             {
               "name": "backgroundColor",
-              "description": "The custom background color for this reward.",
+              "description": "The background color for the reward icon.",
+              "args": [],
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "cost",
+              "description": "The point cost of this reward.",
+              "args": [],
+              "type": {
+                "kind": "SCALAR",
+                "name": "Int",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "defaultBackgroundColor",
+              "description": "The default background color for this reward.",
               "args": [],
               "type": {
                 "kind": "NON_NULL",
@@ -15214,8 +15238,8 @@
               "deprecationReason": null
             },
             {
-              "name": "cost",
-              "description": "The point cost of this reward.",
+              "name": "defaultCost",
+              "description": "The default point cost of this reward.",
               "args": [],
               "type": {
                 "kind": "NON_NULL",
@@ -15223,6 +15247,22 @@
                 "ofType": {
                   "kind": "SCALAR",
                   "name": "Int",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "defaultImage",
+              "description": "The default image for this reward.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "OBJECT",
+                  "name": "CommunityPointsImage",
                   "ofType": null
                 }
               },
@@ -15246,38 +15286,13 @@
               "deprecationReason": null
             },
             {
-              "name": "imageURL",
-              "description": "The icon image for this reward.",
-              "args": [
-                {
-                  "name": "width",
-                  "description": null,
-                  "type": {
-                    "kind": "SCALAR",
-                    "name": "Int",
-                    "ofType": null
-                  },
-                  "defaultValue": null
-                },
-                {
-                  "name": "height",
-                  "description": null,
-                  "type": {
-                    "kind": "SCALAR",
-                    "name": "Int",
-                    "ofType": null
-                  },
-                  "defaultValue": null
-                }
-              ],
+              "name": "image",
+              "description": "The custom icon for this reward, if any.",
+              "args": [],
               "type": {
-                "kind": "NON_NULL",
-                "name": null,
-                "ofType": {
-                  "kind": "SCALAR",
-                  "name": "String",
-                  "ofType": null
-                }
+                "kind": "OBJECT",
+                "name": "CommunityPointsImage",
+                "ofType": null
               },
               "isDeprecated": false,
               "deprecationReason": null
@@ -15299,8 +15314,8 @@
               "deprecationReason": null
             },
             {
-              "name": "isSubOnly",
-              "description": "Whether only subscribers are allowed to redeem this reward in this channel.",
+              "name": "isHiddenForSubs",
+              "description": "Whether only non-subscribers are allowed to redeem this reward in this channel.",
               "args": [],
               "type": {
                 "kind": "NON_NULL",
@@ -15324,22 +15339,6 @@
                 "ofType": {
                   "kind": "SCALAR",
                   "name": "Int",
-                  "ofType": null
-                }
-              },
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
-              "name": "title",
-              "description": "The short title displayed for this reward.",
-              "args": [],
-              "type": {
-                "kind": "NON_NULL",
-                "name": null,
-                "ofType": {
-                  "kind": "SCALAR",
-                  "name": "String",
                   "ofType": null
                 }
               },
@@ -15410,22 +15409,18 @@
           "fields": [
             {
               "name": "automaticRewards",
-              "description": "Automatic rewards for this channel. If no automatic rewards exist, will be an empty array.",
+              "description": "Automatic rewards for this channel. If no automatic rewards exist, will be nil.",
               "args": [],
               "type": {
-                "kind": "NON_NULL",
+                "kind": "LIST",
                 "name": null,
                 "ofType": {
-                  "kind": "LIST",
+                  "kind": "NON_NULL",
                   "name": null,
                   "ofType": {
-                    "kind": "NON_NULL",
-                    "name": null,
-                    "ofType": {
-                      "kind": "OBJECT",
-                      "name": "CommunityPointsAutomaticReward",
-                      "ofType": null
-                    }
+                    "kind": "OBJECT",
+                    "name": "CommunityPointsAutomaticReward",
+                    "ofType": null
                   }
                 }
               },
@@ -16067,6 +16062,65 @@
               "deprecationReason": null
             }
           ],
+          "possibleTypes": null
+        },
+        {
+          "kind": "OBJECT",
+          "name": "CommunityPointsImage",
+          "description": "Image URLs of different sizes for community points rewards.",
+          "fields": [
+            {
+              "name": "image1xURL",
+              "description": "The URL for the small size image.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "String",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "image2xURL",
+              "description": "The URL for the medium size image.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "String",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "image4xURL",
+              "description": "The URL for the large size image.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "String",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
+          "enumValues": null,
           "possibleTypes": null
         },
         {
@@ -16937,10 +16991,16 @@
               "deprecationReason": null
             },
             {
-              "name": "LIVE_CHANNEL",
-              "description": "Live Channel is enabled for tagging in v1.",
+              "name": "USER",
+              "description": "User is enabled for tagging in v1.",
               "isDeprecated": false,
               "deprecationReason": null
+            },
+            {
+              "name": "LIVE_CHANNEL",
+              "description": null,
+              "isDeprecated": true,
+              "deprecationReason": "Use 'USER' instead"
             },
             {
               "name": "VOD",
@@ -37242,6 +37302,104 @@
             }
           ],
           "interfaces": null,
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "OBJECT",
+          "name": "HostConnection",
+          "description": "Paginated list of Users hosting a particular target User.",
+          "fields": [
+            {
+              "name": "edges",
+              "description": "Users hosting a target User.",
+              "args": [],
+              "type": {
+                "kind": "LIST",
+                "name": null,
+                "ofType": {
+                  "kind": "NON_NULL",
+                  "name": null,
+                  "ofType": {
+                    "kind": "OBJECT",
+                    "name": "HostEdge",
+                    "ofType": null
+                  }
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "pageInfo",
+              "description": "Pagination information for this connection.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "OBJECT",
+                  "name": "PageInfo",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "totalCount",
+              "description": "The total number of users hosting a target.",
+              "args": [],
+              "type": {
+                "kind": "SCALAR",
+                "name": "Int",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "OBJECT",
+          "name": "HostEdge",
+          "description": "Edge between Users hosting a target.",
+          "fields": [
+            {
+              "name": "cursor",
+              "description": "Unique identifier for each Users hosting.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Cursor",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "node",
+              "description": "A User hosting.",
+              "args": [],
+              "type": {
+                "kind": "OBJECT",
+                "name": "User",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
           "enumValues": null,
           "possibleTypes": null
         },
@@ -62421,6 +62579,22 @@
               "deprecationReason": null
             },
             {
+              "name": "id",
+              "description": "The restriction's unique identifier.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "ID",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
               "name": "type",
               "description": "The type of restriction on this resource.",
               "args": [],
@@ -68413,6 +68587,22 @@
               },
               "isDeprecated": false,
               "deprecationReason": null
+            },
+            {
+              "name": "trackingInfo",
+              "description": "Information used for recommendation tracking.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "OBJECT",
+                  "name": "TrackingInfo",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
             }
           ],
           "inputFields": null,
@@ -68678,7 +68868,7 @@
             },
             {
               "name": "key",
-              "description": "An enum of possible title strings. Allows for localization and interpolation.",
+              "description": "The name of the shelf being presented, used for backwards compatibility. Allows for localization and interpolation.",
               "args": [],
               "type": {
                 "kind": "NON_NULL",
@@ -70783,7 +70973,19 @@
                 "ofType": null
               },
               "isDeprecated": true,
-              "deprecationReason": "Use Channel.restriction"
+              "deprecationReason": "Use Channel.restriction for full restriction data or Stream.restrictionType for stream's restriction type"
+            },
+            {
+              "name": "restrictionType",
+              "description": "The type of restriction this stream currently has.",
+              "args": [],
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
             },
             {
               "name": "retailOffers",
@@ -70827,7 +71029,7 @@
             },
             {
               "name": "tags",
-              "description": "Tag(s) are used as a discovery and search mechanism for tags and tagged content.",
+              "description": "Tags are used as a discovery and search mechanism for tags and tagged content.\nThe tag data is from JAX, which may not be updated immediately after streamers update their tags.\nPlease use User.tags instead if you want real time data from Graffiti.\nFor example, you should use Stream.tags for the channel page and the browse page, but use User.tags for the dashboard.",
               "args": [],
               "type": {
                 "kind": "LIST",
@@ -74869,6 +75071,11 @@
             },
             {
               "kind": "OBJECT",
+              "name": "User",
+              "ofType": null
+            },
+            {
+              "kind": "OBJECT",
               "name": "Video",
               "ofType": null
             }
@@ -77021,6 +77228,73 @@
             {
               "name": "name",
               "description": "Name of the team.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "String",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "OBJECT",
+          "name": "TrackingInfo",
+          "description": "Information used to track recommendation events.",
+          "fields": [
+            {
+              "name": "reasonTarget",
+              "description": "The target object for the shelf, if it exists.",
+              "args": [],
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "reasonTargetType",
+              "description": "The type of the target object, if it exists.",
+              "args": [],
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "reasonType",
+              "description": "The reason why this shelf has been recommended.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "String",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "rowName",
+              "description": "The name of the shelf.",
               "args": [],
               "type": {
                 "kind": "NON_NULL",
@@ -85467,6 +85741,39 @@
               "deprecationReason": null
             },
             {
+              "name": "hostedBy",
+              "description": "The users hosting this user.\nThis field only resolves for the authenticated user, otherwise resolves to null.",
+              "args": [
+                {
+                  "name": "first",
+                  "description": null,
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Int",
+                    "ofType": null
+                  },
+                  "defaultValue": "10"
+                },
+                {
+                  "name": "after",
+                  "description": null,
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Cursor",
+                    "ofType": null
+                  },
+                  "defaultValue": null
+                }
+              ],
+              "type": {
+                "kind": "OBJECT",
+                "name": "HostConnection",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
               "name": "hosting",
               "description": "The user who this user is hosting.",
               "args": [],
@@ -85483,9 +85790,13 @@
               "description": "The user's unique identifier.",
               "args": [],
               "type": {
-                "kind": "SCALAR",
-                "name": "ID",
-                "ofType": null
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "ID",
+                  "ofType": null
+                }
               },
               "isDeprecated": false,
               "deprecationReason": null
@@ -87092,6 +87403,26 @@
                   "ofType": {
                     "kind": "OBJECT",
                     "name": "TagAnalytic",
+                    "ofType": null
+                  }
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "tags",
+              "description": "Tags are used as a discovery and search mechanism for channels.\nThe tag data is from Graffiti directly. Graffiti is not designed to handle huge traffic.\nPlease use Stream.tags instead if know the stream is live and you can accept a 5 min delay in the data.\nFor example, you should use Stream.tags for the channel page and the browse page, but use User.tags for the dashboard.",
+              "args": [],
+              "type": {
+                "kind": "LIST",
+                "name": null,
+                "ofType": {
+                  "kind": "NON_NULL",
+                  "name": null,
+                  "ofType": {
+                    "kind": "OBJECT",
+                    "name": "Tag",
                     "ofType": null
                   }
                 }
@@ -90362,6 +90693,22 @@
               "deprecationReason": null
             },
             {
+              "name": "source",
+              "description": "Where the comment originated.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "ENUM",
+                  "name": "VideoCommentSource",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
               "name": "state",
               "description": "Current state of the comment.",
               "args": [],
@@ -90593,6 +90940,35 @@
           "inputFields": null,
           "interfaces": [],
           "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "ENUM",
+          "name": "VideoCommentSource",
+          "description": "Where a video comment originated.",
+          "fields": null,
+          "inputFields": null,
+          "interfaces": null,
+          "enumValues": [
+            {
+              "name": "CHAT",
+              "description": "The comment originated from the live broadcast.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "COMMENT",
+              "description": "The comment was manually created by a commenter.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "UNKNOWN",
+              "description": "The comment source is unknown.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
           "possibleTypes": null
         },
         {
