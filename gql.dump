@@ -3722,6 +3722,22 @@
           "description": "BitsBundleOffer is an offer to purchase a number of bits for a certain price.",
           "fields": [
             {
+              "name": "amount",
+              "description": "amount is the numerical cost of this offer (ex: 20.00).",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Float",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
               "name": "asin",
               "description": "asin is the Amazon Standard Identification Number for this offer.",
               "args": [],
@@ -3755,7 +3771,7 @@
             },
             {
               "name": "currencyCode",
-              "description": "Currency code that the price is displayed in (USD, CAD, etc.).",
+              "description": "Currency code that the price and amount are displayed in (USD, CAD, etc.).",
               "args": [],
               "type": {
                 "kind": "NON_NULL",
@@ -3846,8 +3862,8 @@
                   "ofType": null
                 }
               },
-              "isDeprecated": false,
-              "deprecationReason": null
+              "isDeprecated": true,
+              "deprecationReason": "Use the 'amount' field and localize it yourself in conjunction with the 'currencyCode' field"
             },
             {
               "name": "promotion",
