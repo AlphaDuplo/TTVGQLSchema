@@ -20076,6 +20076,208 @@
           "possibleTypes": null
         },
         {
+          "kind": "OBJECT",
+          "name": "CreateOrganizationMemberError",
+          "description": "CreateOrganizationMemberError is the error associated with a CreateOrganizationMember.",
+          "fields": [
+            {
+              "name": "code",
+              "description": "The associated error code.",
+              "args": [],
+              "type": {
+                "kind": "ENUM",
+                "name": "CreateOrganizationMemberErrorCode",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "ENUM",
+          "name": "CreateOrganizationMemberErrorCode",
+          "description": "CreateOrganizationMemberErrorCode defines a client error that occurred while creating an organization member.",
+          "fields": null,
+          "inputFields": null,
+          "interfaces": null,
+          "enumValues": [
+            {
+              "name": "ALREADY_EXISTS",
+              "description": "Organization Member already exists.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "INTERNAL_ERROR",
+              "description": "Internal error.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "PERMISSION_DENIED",
+              "description": "User does not have permission to perform action.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "USER_NOT_FOUND",
+              "description": "The user does not exist.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "possibleTypes": null
+        },
+        {
+          "kind": "INPUT_OBJECT",
+          "name": "CreateOrganizationMemberInput",
+          "description": "Inputs to the CreateOrganizationMember mutation.",
+          "fields": null,
+          "inputFields": [
+            {
+              "name": "email",
+              "description": "Users email.",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "String",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "firstName",
+              "description": "Users first name.",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "String",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "lastName",
+              "description": "Users last name.",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "String",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "organizationID",
+              "description": "The ID of the organization.",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "ID",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "role",
+              "description": "The Role a member has in an organization.",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "ENUM",
+                  "name": "OrganizationMemberRole",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "title",
+              "description": "Users title.",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "String",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "userID",
+              "description": "The user's Twitch ID.",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "ID",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            }
+          ],
+          "interfaces": null,
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "OBJECT",
+          "name": "CreateOrganizationMemberPayload",
+          "description": "Outputs from the CreateOrganizationMember mutation.",
+          "fields": [
+            {
+              "name": "error",
+              "description": "The possible error returned from the service.",
+              "args": [],
+              "type": {
+                "kind": "OBJECT",
+                "name": "CreateOrganizationMemberError",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "organizationMember",
+              "description": "The new orgnizationMember.",
+              "args": [],
+              "type": {
+                "kind": "OBJECT",
+                "name": "OrganizationMember",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
           "kind": "INPUT_OBJECT",
           "name": "CreatePanelInput",
           "description": "CreatePanelInput contains a panel with created data\nThe schema here has arguments for both extension panels and default panels\neach panel needs a PanelType, and channelID it corresponds to,\nbut each panel does not need the other arguments\nextension panels can have a slotID\ndefault panels can have a title, image, link, and/or description.",
@@ -43977,6 +44179,33 @@
               "deprecationReason": null
             },
             {
+              "name": "createOrganizationMember",
+              "description": "Adds a user to a developer organization.",
+              "args": [
+                {
+                  "name": "input",
+                  "description": null,
+                  "type": {
+                    "kind": "NON_NULL",
+                    "name": null,
+                    "ofType": {
+                      "kind": "INPUT_OBJECT",
+                      "name": "CreateOrganizationMemberInput",
+                      "ofType": null
+                    }
+                  },
+                  "defaultValue": null
+                }
+              ],
+              "type": {
+                "kind": "OBJECT",
+                "name": "CreateOrganizationMemberPayload",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
               "name": "createPanel",
               "description": "createPanel removes a panel.",
               "args": [
@@ -46046,6 +46275,33 @@
               "type": {
                 "kind": "OBJECT",
                 "name": "RemoveEditorPayload",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "removeOrganizationMember",
+              "description": "Removes a rbac user from a developer organization.",
+              "args": [
+                {
+                  "name": "input",
+                  "description": null,
+                  "type": {
+                    "kind": "NON_NULL",
+                    "name": null,
+                    "ofType": {
+                      "kind": "INPUT_OBJECT",
+                      "name": "RemoveOrganizationMemberInput",
+                      "ofType": null
+                    }
+                  },
+                  "defaultValue": null
+                }
+              ],
+              "type": {
+                "kind": "OBJECT",
+                "name": "RemoveOrganizationMemberPayload",
                 "ofType": null
               },
               "isDeprecated": false,
@@ -50112,7 +50368,7 @@
             },
             {
               "name": "id",
-              "description": "RBAC user id.",
+              "description": "Twitch user id.",
               "args": [],
               "type": {
                 "kind": "NON_NULL",
@@ -61775,6 +62031,132 @@
             {
               "name": "targetUser",
               "description": "The user whose editor status was revoked.",
+              "args": [],
+              "type": {
+                "kind": "OBJECT",
+                "name": "User",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "OBJECT",
+          "name": "RemoveOrganizationMemberError",
+          "description": "RemoveOrganizationMemberError is the error associated with a RemoveOrganizationMember.",
+          "fields": [
+            {
+              "name": "code",
+              "description": "The associated error code.",
+              "args": [],
+              "type": {
+                "kind": "ENUM",
+                "name": "RemoveOrganizationMemberErrorCode",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "ENUM",
+          "name": "RemoveOrganizationMemberErrorCode",
+          "description": "RemoveOrganizationMemberErrorCode defines a client error that occurred while removing an organizaiton member.",
+          "fields": null,
+          "inputFields": null,
+          "interfaces": null,
+          "enumValues": [
+            {
+              "name": "INTERNAL_ERROR",
+              "description": "Internal error.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "PERMISSION_DENIED",
+              "description": "User does not have permission to perform action.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "USER_NOT_FOUND",
+              "description": "The user does not exist.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "possibleTypes": null
+        },
+        {
+          "kind": "INPUT_OBJECT",
+          "name": "RemoveOrganizationMemberInput",
+          "description": "Inputs to the removeOrganizationMember mutation.",
+          "fields": null,
+          "inputFields": [
+            {
+              "name": "organizationID",
+              "description": "The ID of the organization.",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "ID",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "userID",
+              "description": "The twitch ID of the organization member.",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "ID",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            }
+          ],
+          "interfaces": null,
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "OBJECT",
+          "name": "RemoveOrganizationMemberPayload",
+          "description": "Outputs from the removeOrganizationMember mutation.",
+          "fields": [
+            {
+              "name": "error",
+              "description": "The possible error returned from the service.",
+              "args": [],
+              "type": {
+                "kind": "OBJECT",
+                "name": "RemoveOrganizationMemberError",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "targetUser",
+              "description": "The user who is removed from organization.",
               "args": [],
               "type": {
                 "kind": "OBJECT",
