@@ -21131,6 +21131,124 @@
         },
         {
           "kind": "INPUT_OBJECT",
+          "name": "CreateStuccoInput",
+          "description": "Inputs to creating a stucco.",
+          "fields": null,
+          "inputFields": [
+            {
+              "name": "channelID",
+              "description": "ID of the channel this stucco belongs to.",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "ID",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "description",
+              "description": "Description representing the stucco, should be the words contained in the stucco, used by screen readers.",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "String",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "imageData1x",
+              "description": "Base64 encoded binary data of the 92x28px stucco (\"1x\") image asset.",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "String",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "imageData2x",
+              "description": "Base64 encoded binary data of the 182x56px stucco (\"2x\") image asset.",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "String",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "imageData4x",
+              "description": "Base64 encoded binary data of the 368x112px stucco (\"4x\") image asset.",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "String",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "suffix",
+              "description": "Text code representing the stucco without any prefixes (prefixes are added in the backend).",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "String",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            }
+          ],
+          "interfaces": null,
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "OBJECT",
+          "name": "CreateStuccoPayload",
+          "description": "The output for the create update stucco mutation.",
+          "fields": [
+            {
+              "name": "stucco",
+              "description": "The created or updated stucco.",
+              "args": [],
+              "type": {
+                "kind": "OBJECT",
+                "name": "Stucco",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "INPUT_OBJECT",
           "name": "CreateTimetableEventInput",
           "description": "Inputs to the createTimetableEvent mutation.",
           "fields": null,
@@ -44048,6 +44166,33 @@
               "deprecationReason": null
             },
             {
+              "name": "createStucco",
+              "description": "createStucco allows a user to create a stucco.",
+              "args": [
+                {
+                  "name": "input",
+                  "description": null,
+                  "type": {
+                    "kind": "NON_NULL",
+                    "name": null,
+                    "ofType": {
+                      "kind": "INPUT_OBJECT",
+                      "name": "CreateStuccoInput",
+                      "ofType": null
+                    }
+                  },
+                  "defaultValue": null
+                }
+              ],
+              "type": {
+                "kind": "OBJECT",
+                "name": "CreateStuccoPayload",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
               "name": "createTimetableEvent",
               "description": "createTimetableEvent allows a user to create a Timetable type event.",
               "args": [
@@ -45955,6 +46100,33 @@
               "type": {
                 "kind": "OBJECT",
                 "name": "RemoveSquadStreamMemberPayload",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "removeStucco",
+              "description": "removeStucco allows the owner of a stucco to remove an inactive stucco from their library.",
+              "args": [
+                {
+                  "name": "input",
+                  "description": null,
+                  "type": {
+                    "kind": "NON_NULL",
+                    "name": null,
+                    "ofType": {
+                      "kind": "INPUT_OBJECT",
+                      "name": "RemoveStuccoInput",
+                      "ofType": null
+                    }
+                  },
+                  "defaultValue": null
+                }
+              ],
+              "type": {
+                "kind": "OBJECT",
+                "name": "RemoveStuccoPayload",
                 "ofType": null
               },
               "isDeprecated": false,
@@ -48439,6 +48611,60 @@
               "type": {
                 "kind": "OBJECT",
                 "name": "UpdateSquadStreamPayload",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "updateStucco",
+              "description": "updateStucco allows a user to update a stucco (that is currently not active).",
+              "args": [
+                {
+                  "name": "input",
+                  "description": null,
+                  "type": {
+                    "kind": "NON_NULL",
+                    "name": null,
+                    "ofType": {
+                      "kind": "INPUT_OBJECT",
+                      "name": "UpdateStuccoInput",
+                      "ofType": null
+                    }
+                  },
+                  "defaultValue": null
+                }
+              ],
+              "type": {
+                "kind": "OBJECT",
+                "name": "UpdateStuccoPayload",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "updateStuccoPack",
+              "description": "updateStuccoPack allows the updating of the channel's stucco pack. (activating stuccos).",
+              "args": [
+                {
+                  "name": "input",
+                  "description": null,
+                  "type": {
+                    "kind": "NON_NULL",
+                    "name": null,
+                    "ofType": {
+                      "kind": "INPUT_OBJECT",
+                      "name": "UpdateStuccoPackInput",
+                      "ofType": null
+                    }
+                  },
+                  "defaultValue": null
+                }
+              ],
+              "type": {
+                "kind": "OBJECT",
+                "name": "UpdateStuccoPackPayload",
                 "ofType": null
               },
               "isDeprecated": false,
@@ -61756,6 +61982,76 @@
         },
         {
           "kind": "INPUT_OBJECT",
+          "name": "RemoveStuccoInput",
+          "description": "Inputs for removing a stucco (from the library).\n- Active stuccos cannot be removed, they have to be inactive first (not part of a stucco pack).",
+          "fields": null,
+          "inputFields": [
+            {
+              "name": "channelID",
+              "description": "ID of the channel the stucco is removed from.",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "ID",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "stuccoID",
+              "description": "Unique ID of the stucco to be removed.",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "ID",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            }
+          ],
+          "interfaces": null,
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "OBJECT",
+          "name": "RemoveStuccoPayload",
+          "description": "The output payload for removing a stucco, returns the library of stuccos after removal.",
+          "fields": [
+            {
+              "name": "stuccos",
+              "description": "The list of stuccos available in the channel's library after removal.",
+              "args": [],
+              "type": {
+                "kind": "LIST",
+                "name": null,
+                "ofType": {
+                  "kind": "NON_NULL",
+                  "name": null,
+                  "ofType": {
+                    "kind": "OBJECT",
+                    "name": "Stucco",
+                    "ofType": null
+                  }
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "INPUT_OBJECT",
           "name": "ReorderCollectionItemInput",
           "description": "ReorderCollectionItemInput accepts a collectionID and item ID and parameters to update the item order of a collection.",
           "fields": null,
@@ -71762,6 +72058,335 @@
           "inputFields": null,
           "interfaces": null,
           "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "OBJECT",
+          "name": "Stucco",
+          "description": "A stucco (wide emote) represents an image that can be used for user interaction in specific cases.",
+          "fields": [
+            {
+              "name": "description",
+              "description": "The description is used to describe the stucco (e.g. for screenreaders).",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "String",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "id",
+              "description": "The unique ID of this stucco.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "ID",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "imageSet",
+              "description": "The set of URLS to images related to this stucco, contains URLS for 1x, 2x and 4x images.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "OBJECT",
+                  "name": "StuccoImageSet",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "isGlobal",
+              "description": "Indicates if this stucco does not belong to a single channel (available to all channels).",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Boolean",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "ownerID",
+              "description": "The owner of this stucco, usually the channel this has been uploaded to.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "ID",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "state",
+              "description": "The state of the stucco.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "ENUM",
+                  "name": "StuccoState",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "textCode",
+              "description": "The textCode used to represent and identify this stucco, consists of channel prefix + stucco prefix + code.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "String",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "OBJECT",
+          "name": "StuccoImageSet",
+          "description": "Image set of different sizes of the stucco.",
+          "fields": [
+            {
+              "name": "image1xURL",
+              "description": "Image url of the 92x28px stucco (\"1x\") image asset.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "String",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "image2xURL",
+              "description": "Image url of the 182x56px stucco (\"2x\") image asset.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "String",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "image4xURL",
+              "description": "Image url of the 368x112px stucco (\"4x\") image asset.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "String",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "OBJECT",
+          "name": "StuccoPack",
+          "description": "A Stucco pack is a collection of stuccos, the pack can be activated to be used by viewers of that channel.",
+          "fields": [
+            {
+              "name": "id",
+              "description": "The ID of the stucco pack.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "ID",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "ownerID",
+              "description": "User id of the owner of this pack (usually a channel).",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "ID",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "slots",
+              "description": "The stuccos contained in this pack, represented as slots, containing the slot index and the stucco.",
+              "args": [],
+              "type": {
+                "kind": "LIST",
+                "name": null,
+                "ofType": {
+                  "kind": "NON_NULL",
+                  "name": null,
+                  "ofType": {
+                    "kind": "OBJECT",
+                    "name": "StuccoPackSlot",
+                    "ofType": null
+                  }
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "OBJECT",
+          "name": "StuccoPackSlot",
+          "description": "A stucco pack slot represents a single ordered slot in a pack of stuccos.",
+          "fields": [
+            {
+              "name": "index",
+              "description": "The index of this slot (used for ordering).",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Int",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "stucco",
+              "description": "The stucco in this slot.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "OBJECT",
+                  "name": "Stucco",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "ENUM",
+          "name": "StuccoState",
+          "description": "The state a stucco can be in.",
+          "fields": null,
+          "inputFields": null,
+          "interfaces": null,
+          "enumValues": [
+            {
+              "name": "ACTIVE",
+              "description": "- Active: part of a stucco pack.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "INACTIVE",
+              "description": "- Inactive: available in the library.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "MODERATED",
+              "description": "- Moderated: stucco was moderated and is no longer available to the broadcaster or viewers.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "PENDING",
+              "description": "- Pending: stucco is currently going through moderation.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "ARCHIVED",
+              "description": "- Archived: Archived stucco, no longer visible.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
           "possibleTypes": null
         },
         {
@@ -83255,6 +83880,257 @@
         },
         {
           "kind": "INPUT_OBJECT",
+          "name": "UpdateStuccoInput",
+          "description": "Inputs to updating a stucco.",
+          "fields": null,
+          "inputFields": [
+            {
+              "name": "channelID",
+              "description": "ID of the channel this stucco belongs to.",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "ID",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "description",
+              "description": "Description representing the stucco, should be the words contained in the stucco, used by screen readers.",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "String",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "imageData1x",
+              "description": "Base64 encoded binary data of the 92x28px stucco (\"1x\") image asset.",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "String",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "imageData2x",
+              "description": "Base64 encoded binary data of the 182x56px stucco (\"2x\") image asset.",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "String",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "imageData4x",
+              "description": "Base64 encoded binary data of the 368x112px stucco (\"4x\") image asset.",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "String",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "stuccoID",
+              "description": "Unique ID of the stucco to update.",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "ID",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "suffix",
+              "description": "Text code representing the stucco without any prefixes (prefixes are added in the backend).",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "String",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            }
+          ],
+          "interfaces": null,
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "INPUT_OBJECT",
+          "name": "UpdateStuccoPackInput",
+          "description": "Inputs for updating a stucco pack (exchanging stuccos contained in the pack).",
+          "fields": null,
+          "inputFields": [
+            {
+              "name": "channelID",
+              "description": "Id of the channel this pack is part of.",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "ID",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "stuccoPackID",
+              "description": "Id of the stucco pack to update.",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "ID",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "stuccos",
+              "description": "Updated list of stuccos for this pack.",
+              "type": {
+                "kind": "LIST",
+                "name": null,
+                "ofType": {
+                  "kind": "NON_NULL",
+                  "name": null,
+                  "ofType": {
+                    "kind": "INPUT_OBJECT",
+                    "name": "UpdateStuccoPackItemInput",
+                    "ofType": null
+                  }
+                }
+              },
+              "defaultValue": null
+            }
+          ],
+          "interfaces": null,
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "INPUT_OBJECT",
+          "name": "UpdateStuccoPackItemInput",
+          "description": "Single item in a stuccopack, as part of the update stucco pack call, representing one stucco to be used in a certain slot.",
+          "fields": null,
+          "inputFields": [
+            {
+              "name": "slotIndex",
+              "description": "Slot index in the pack (used for ordering).",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Int",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "stuccoID",
+              "description": "Id of the stucco.",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "ID",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            }
+          ],
+          "interfaces": null,
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "OBJECT",
+          "name": "UpdateStuccoPackPayload",
+          "description": "Outputs from the update stucco pack mutation.",
+          "fields": [
+            {
+              "name": "stuccoPack",
+              "description": "The updated stucco pack.",
+              "args": [],
+              "type": {
+                "kind": "OBJECT",
+                "name": "StuccoPack",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "OBJECT",
+          "name": "UpdateStuccoPayload",
+          "description": "The output for the update stucco mutation.",
+          "fields": [
+            {
+              "name": "stucco",
+              "description": "The updated stucco.",
+              "args": [],
+              "type": {
+                "kind": "OBJECT",
+                "name": "Stucco",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "INPUT_OBJECT",
           "name": "UpdateSubscriptionProductInput",
           "description": "Inputs to the updateSubscriptionProduct mutation.",
           "fields": null,
@@ -85909,6 +86785,18 @@
               "deprecationReason": null
             },
             {
+              "name": "integratedLoudness",
+              "description": "Integrated loudness value for the user's stream.",
+              "args": [],
+              "type": {
+                "kind": "SCALAR",
+                "name": "Float",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
               "name": "inventory",
               "description": "Items (crates, drops, etc.) the user owns.",
               "args": [],
@@ -87272,6 +88160,38 @@
                 "kind": "OBJECT",
                 "name": "Stream",
                 "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "stuccoPacksBroadcaster",
+              "description": "Stucco packs displayed in the user's dashboard stucco settings.",
+              "args": [],
+              "type": {
+                "kind": "LIST",
+                "name": null,
+                "ofType": {
+                  "kind": "OBJECT",
+                  "name": "StuccoPack",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "stuccos",
+              "description": "stuccos available in the library in the user's dashboard stucco settings.",
+              "args": [],
+              "type": {
+                "kind": "LIST",
+                "name": null,
+                "ofType": {
+                  "kind": "OBJECT",
+                  "name": "Stucco",
+                  "ofType": null
+                }
               },
               "isDeprecated": false,
               "deprecationReason": null
@@ -88773,6 +89693,22 @@
                 "kind": "OBJECT",
                 "name": "Badge",
                 "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "stuccoPacksViewer",
+              "description": "Stucco packs that are available to viewers of a broadcaster.",
+              "args": [],
+              "type": {
+                "kind": "LIST",
+                "name": null,
+                "ofType": {
+                  "kind": "OBJECT",
+                  "name": "StuccoPack",
+                  "ofType": null
+                }
               },
               "isDeprecated": false,
               "deprecationReason": null
