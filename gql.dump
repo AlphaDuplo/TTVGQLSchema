@@ -10452,6 +10452,16 @@
                     "ofType": null
                   },
                   "defaultValue": null
+                },
+                {
+                  "name": "paymentSession",
+                  "description": null,
+                  "type": {
+                    "kind": "INPUT_OBJECT",
+                    "name": "PaymentSession",
+                    "ofType": null
+                  },
+                  "defaultValue": null
                 }
               ],
               "type": {
@@ -50135,7 +50145,7 @@
         {
           "kind": "OBJECT",
           "name": "Organization",
-          "description": "A company that is on Twitch.",
+          "description": "A developer organization.",
           "fields": [
             {
               "name": "games",
@@ -58405,6 +58415,33 @@
               "deprecationReason": "Merch sales discontinued on Twitch"
             },
             {
+              "name": "organization",
+              "description": "Returns a developer organization by ID.\nUser must be apart of the organization.",
+              "args": [
+                {
+                  "name": "id",
+                  "description": null,
+                  "type": {
+                    "kind": "NON_NULL",
+                    "name": null,
+                    "ofType": {
+                      "kind": "SCALAR",
+                      "name": "ID",
+                      "ofType": null
+                    }
+                  },
+                  "defaultValue": null
+                }
+              ],
+              "type": {
+                "kind": "OBJECT",
+                "name": "Organization",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
               "name": "primeOffers",
               "description": "Get Current PrimeOffers for a given region based on country code (request info or query param)\noptional dateOverride to provide offers that would be displayed on that date\noptional countryCode to provide offers that are displayed for that country\noptional locale to provide offers displayed for the supplied locale.",
               "args": [
@@ -58504,6 +58541,71 @@
                     "ofType": null
                   }
                 }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "recommendedStreams",
+              "description": "Fetch a group of recommended streams.\n`recRequestID` is a tracking id created by the caller. This should be unique per request.\n`location` defines the source location of the recommended streams request (e.g. \"LEFT_NAV\").\n`context` contains parameters that are used to personalize recommendations (e.g. \"Platform\").",
+              "args": [
+                {
+                  "name": "first",
+                  "description": null,
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Int",
+                    "ofType": null
+                  },
+                  "defaultValue": "6"
+                },
+                {
+                  "name": "recRequestID",
+                  "description": null,
+                  "type": {
+                    "kind": "NON_NULL",
+                    "name": null,
+                    "ofType": {
+                      "kind": "SCALAR",
+                      "name": "ID",
+                      "ofType": null
+                    }
+                  },
+                  "defaultValue": null
+                },
+                {
+                  "name": "location",
+                  "description": null,
+                  "type": {
+                    "kind": "NON_NULL",
+                    "name": null,
+                    "ofType": {
+                      "kind": "SCALAR",
+                      "name": "String",
+                      "ofType": null
+                    }
+                  },
+                  "defaultValue": null
+                },
+                {
+                  "name": "context",
+                  "description": null,
+                  "type": {
+                    "kind": "NON_NULL",
+                    "name": null,
+                    "ofType": {
+                      "kind": "INPUT_OBJECT",
+                      "name": "RecommendationsContext",
+                      "ofType": null
+                    }
+                  },
+                  "defaultValue": null
+                }
+              ],
+              "type": {
+                "kind": "OBJECT",
+                "name": "RecommendedStreamsConnection",
+                "ofType": null
               },
               "isDeprecated": false,
               "deprecationReason": null
@@ -60154,6 +60256,140 @@
                 "ofType": {
                   "kind": "INTERFACE",
                   "name": "RecommendedStream",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "OBJECT",
+          "name": "RecommendedStreamsConnection",
+          "description": "The response of a recommended streams request which contains a list of recommended streams.",
+          "fields": [
+            {
+              "name": "edges",
+              "description": "A list of recommended streams.",
+              "args": [],
+              "type": {
+                "kind": "LIST",
+                "name": null,
+                "ofType": {
+                  "kind": "NON_NULL",
+                  "name": null,
+                  "ofType": {
+                    "kind": "OBJECT",
+                    "name": "RecommendedStreamsEdge",
+                    "ofType": null
+                  }
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "generationID",
+              "description": "Per-generation tracking id for identifying a recommendation model.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "ID",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "pageInfo",
+              "description": "As pagination is currently not supported by the backend, this will always be the zero value.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "OBJECT",
+                  "name": "PageInfo",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "responseID",
+              "description": "Unique tracking id per response.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "ID",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "OBJECT",
+          "name": "RecommendedStreamsEdge",
+          "description": "The content to render from a recommended stream.",
+          "fields": [
+            {
+              "name": "cursor",
+              "description": "As pagination is currently not supported by the backend, this will always be the zero value.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Cursor",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "node",
+              "description": "The underlying stream content to render.",
+              "args": [],
+              "type": {
+                "kind": "OBJECT",
+                "name": "Stream",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "trackingID",
+              "description": "Globally unique id per stream used in client tracking.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "ID",
                   "ofType": null
                 }
               },
@@ -87828,7 +88064,7 @@
             },
             {
               "name": "organizations",
-              "description": "Returns a list of organizations.\nReturns null if the user doesn't belong to any organizations.",
+              "description": "Returns a list of developer organizations.\nReturns null if the user doesn't belong to any organizations.",
               "args": [],
               "type": {
                 "kind": "LIST",
