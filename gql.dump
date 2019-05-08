@@ -46662,6 +46662,33 @@
               "deprecationReason": null
             },
             {
+              "name": "sendChatMessageThroughSubscriberMode",
+              "description": "Send a chat message through subscribers-only mode with Channel Points.",
+              "args": [
+                {
+                  "name": "input",
+                  "description": null,
+                  "type": {
+                    "kind": "NON_NULL",
+                    "name": null,
+                    "ofType": {
+                      "kind": "INPUT_OBJECT",
+                      "name": "SendChatMessageThroughSubscriberModeInput",
+                      "ofType": null
+                    }
+                  },
+                  "defaultValue": null
+                }
+              ],
+              "type": {
+                "kind": "OBJECT",
+                "name": "SendChatMessageThroughSubscriberModePayload",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
               "name": "sendCheer",
               "description": "sendCheer sends a chat message that contains cheermotes. The message will\nbe processed, bits deducted from the authenticated user's balance, and then the\nmessage will be passed on to the chat service (client shouldn't send the message itself).\nThis action can only be taken if an OAuth token is supplied with the request.",
               "args": [
@@ -46683,6 +46710,33 @@
               "type": {
                 "kind": "OBJECT",
                 "name": "SendCheerPayload",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "sendHighlightedChatMessage",
+              "description": "Send a highlighted chat message with Channel Points.",
+              "args": [
+                {
+                  "name": "input",
+                  "description": null,
+                  "type": {
+                    "kind": "NON_NULL",
+                    "name": null,
+                    "ofType": {
+                      "kind": "INPUT_OBJECT",
+                      "name": "SendHighlightedChatMessageInput",
+                      "ofType": null
+                    }
+                  },
+                  "defaultValue": null
+                }
+              ],
+              "type": {
+                "kind": "OBJECT",
+                "name": "SendHighlightedChatMessagePayload",
                 "ofType": null
               },
               "isDeprecated": false,
@@ -67212,6 +67266,108 @@
         },
         {
           "kind": "INPUT_OBJECT",
+          "name": "SendChatMessageThroughSubscriberModeInput",
+          "description": "Input for sending a chat message through subscriber-only mode with Channel Points.",
+          "fields": null,
+          "inputFields": [
+            {
+              "name": "channelID",
+              "description": "The channel the message is being sent to.",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "ID",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "cost",
+              "description": "The client's perception of the reward's cost.",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Int",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "message",
+              "description": "The user's message.",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "String",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "transactionID",
+              "description": "Client-set identifier for the transaction. This ID should be universally unique.",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "ID",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            }
+          ],
+          "interfaces": null,
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "OBJECT",
+          "name": "SendChatMessageThroughSubscriberModePayload",
+          "description": "The response from redeeming the skip subs only chat message reward.",
+          "fields": [
+            {
+              "name": "balance",
+              "description": "The user's new Channel Points balance.",
+              "args": [],
+              "type": {
+                "kind": "SCALAR",
+                "name": "Int",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "error",
+              "description": "The error that occurred during redemption, if any.",
+              "args": [],
+              "type": {
+                "kind": "OBJECT",
+                "name": "SendCopoMessageError",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "INPUT_OBJECT",
           "name": "SendCheerInput",
           "description": null,
           "fields": null,
@@ -67558,6 +67714,262 @@
               "deprecationReason": null
             }
           ],
+          "possibleTypes": null
+        },
+        {
+          "kind": "OBJECT",
+          "name": "SendCopoMessageError",
+          "description": "An error from redeeming a chat message Channel Points reward.",
+          "fields": [
+            {
+              "name": "code",
+              "description": "The error code.",
+              "args": [],
+              "type": {
+                "kind": "ENUM",
+                "name": "SendCopoMessageErrorCode",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "ENUM",
+          "name": "SendCopoMessageErrorCode",
+          "description": "Possible errors from redeeming a chat message Channel Points reward.",
+          "fields": null,
+          "inputFields": null,
+          "interfaces": null,
+          "enumValues": [
+            {
+              "name": "MSG_DUPLICATE",
+              "description": "User has previously sent an identical message.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "USER_SUSPENDED",
+              "description": "The user is suspended from Twitch.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "USER_BANNED",
+              "description": "The user is banned in the channel.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "USER_TIMED_OUT",
+              "description": "The user is timed out in the channel.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "EMOTE_ONLY",
+              "description": "The chat is emote-only mode and the message contained text.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "SLOW_MODE",
+              "description": "The chat is in slow mode and the user has recently sent a message.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "FOLLOWERS_ONLY",
+              "description": "The chat is in followers-only mode and the user has not been following long enough.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "FOLLOWERS_ONLY_ZERO",
+              "description": "The chat is in followers-only mode and the user is not following.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "SUBS_ONLY",
+              "description": "The chat is in subs-only mode and the user is not subbed.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "R9K_MODE",
+              "description": "The chat is in r9k-only mode (relatively unique messages) and the message was not unique.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "BLIZZARD_CONNECT_MODE",
+              "description": "The chat is in Blizzard connect mode and the user does not have their Blizzard account connected.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "VERIFIED_ACCOUNT",
+              "description": "The chat is in verified account mode and the user's account is not verified.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "CHANNEL_SETTINGS",
+              "description": "The user's message contained a blocked phrase.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "AUTOMOD_HELD",
+              "description": "The user's message was flagged by Automod and is being reviewed.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "MESSAGE_REJECTED",
+              "description": "The user's message was rejected for another reason- possibly intentionally hidden, such as IP block.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "SERVER_ERROR",
+              "description": "The request failed due to an underlying server error.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "INSUFFICIENT_POINTS",
+              "description": "The user does not have sufficient points to redeem the reward.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "TRANSACTION_ALREADY_COMMITTED",
+              "description": "The client is retrying a reward that has already been redeemed.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "REWARD_COST_MISMATCH",
+              "description": "The reward cost has changed since the user has tried to redeem it.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "UNKNOWN",
+              "description": "An unknown error occurred.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "possibleTypes": null
+        },
+        {
+          "kind": "INPUT_OBJECT",
+          "name": "SendHighlightedChatMessageInput",
+          "description": "Input for sending a highlighted chat message with Channel Points.",
+          "fields": null,
+          "inputFields": [
+            {
+              "name": "channelID",
+              "description": "The channel the message is being sent to.",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "ID",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "cost",
+              "description": "The client's perception of the reward's cost.",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Int",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "message",
+              "description": "The user's message.",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "String",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "transactionID",
+              "description": "Client-set identifier for the transaction. This ID should be universally unique.",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "ID",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            }
+          ],
+          "interfaces": null,
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "OBJECT",
+          "name": "SendHighlightedChatMessagePayload",
+          "description": "The response from redeeming the highlighted chat message reward.",
+          "fields": [
+            {
+              "name": "balance",
+              "description": "The user's new Channel Points balance.",
+              "args": [],
+              "type": {
+                "kind": "SCALAR",
+                "name": "Int",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "error",
+              "description": "The error that occurred during redemption, if any.",
+              "args": [],
+              "type": {
+                "kind": "OBJECT",
+                "name": "SendCopoMessageError",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
+          "enumValues": null,
           "possibleTypes": null
         },
         {
