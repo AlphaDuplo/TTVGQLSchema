@@ -10008,6 +10008,41 @@
         },
         {
           "kind": "ENUM",
+          "name": "ChatPauseSetting",
+          "description": "ChatPauseSetting represents the possible settings for the user's preferred way to pause chat when moderating.",
+          "fields": null,
+          "inputFields": null,
+          "interfaces": null,
+          "enumValues": [
+            {
+              "name": "SCROLL_ONLY",
+              "description": "SCROLL_ONLY is the default behavior and pauses chat every time the users scrolls over the chat list.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "MOUSEOVER",
+              "description": "MOUSEOVER pauses chat whenever a user's mouse hovers over the list, unpauses automatically after 5 seconds if no scroll is performed.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "ALTKEY",
+              "description": "ALTKEY pauses chat when the user presses the alt key (option for mac users). It unpauses when the key is released.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "MOUSEOVER_ALTKEY",
+              "description": "MOUSEOVER_ALTKEY pauses chat on mouse hover and hitting the alt key.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "possibleTypes": null
+        },
+        {
+          "kind": "ENUM",
           "name": "ChatRestrictedReason",
           "description": "Reasons that a user might not be allowed to chat in a specific channel.",
           "fields": null,
@@ -10347,6 +10382,18 @@
           "name": "ChatUISettings",
           "description": "Various user specific settings on how to render chat.",
           "fields": [
+            {
+              "name": "chatPauseSetting",
+              "description": "Setting to store the user's preferred way to pause chat when moderating.",
+              "args": [],
+              "type": {
+                "kind": "ENUM",
+                "name": "ChatPauseSetting",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
             {
               "name": "deletedMessageDisplaySetting",
               "description": "Setting for how deleted messages should be displayed for channel broadcaster or moderator.",
@@ -46831,6 +46878,33 @@
               "deprecationReason": "Use 'setResourceRestriction' instead"
             },
             {
+              "name": "setChatPauseSetting",
+              "description": "Set a user's Chat Pause setting.",
+              "args": [
+                {
+                  "name": "input",
+                  "description": null,
+                  "type": {
+                    "kind": "NON_NULL",
+                    "name": null,
+                    "ofType": {
+                      "kind": "INPUT_OBJECT",
+                      "name": "SetChatPauseSettingInput",
+                      "ofType": null
+                    }
+                  },
+                  "defaultValue": null
+                }
+              ],
+              "type": {
+                "kind": "OBJECT",
+                "name": "SetChatPauseSettingPayload",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
               "name": "setContentTags",
               "description": "setContentTags updates the tags specified and associates it with the piece of content specified.",
               "args": [
@@ -68147,6 +68221,54 @@
               "type": {
                 "kind": "OBJECT",
                 "name": "ResourceRestriction",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "INPUT_OBJECT",
+          "name": "SetChatPauseSettingInput",
+          "description": "The required input to set a user's chat pause setting.",
+          "fields": null,
+          "inputFields": [
+            {
+              "name": "chatPauseSetting",
+              "description": "The desired method for a user to pause chat.",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "ENUM",
+                  "name": "ChatPauseSetting",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            }
+          ],
+          "interfaces": null,
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "OBJECT",
+          "name": "SetChatPauseSettingPayload",
+          "description": "Result of a setChatPauseSetting mutation.",
+          "fields": [
+            {
+              "name": "chatPauseSetting",
+              "description": "The newly saved chat pause setting.",
+              "args": [],
+              "type": {
+                "kind": "ENUM",
+                "name": "ChatPauseSetting",
                 "ofType": null
               },
               "isDeprecated": false,
