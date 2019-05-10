@@ -15525,33 +15525,28 @@
               "deprecationReason": null
             },
             {
-              "name": "imageURL",
-              "description": "The channel's custom community points icon. Null if they have not set an icon.",
-              "args": [
-                {
-                  "name": "width",
-                  "description": null,
-                  "type": {
-                    "kind": "SCALAR",
-                    "name": "Int",
-                    "ofType": null
-                  },
-                  "defaultValue": null
-                },
-                {
-                  "name": "height",
-                  "description": null,
-                  "type": {
-                    "kind": "SCALAR",
-                    "name": "Int",
-                    "ofType": null
-                  },
-                  "defaultValue": null
-                }
-              ],
+              "name": "defaultImage",
+              "description": "The default image for community points.",
+              "args": [],
               "type": {
-                "kind": "SCALAR",
-                "name": "String",
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "OBJECT",
+                  "name": "CommunityPointsImage",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "image",
+              "description": "The channel's custom community points icon. Null if they have not set an icon.",
+              "args": [],
+              "type": {
+                "kind": "OBJECT",
+                "name": "CommunityPointsImage",
                 "ofType": null
               },
               "isDeprecated": false,
@@ -15752,33 +15747,12 @@
               "deprecationReason": null
             },
             {
-              "name": "imageURL",
+              "name": "image",
               "description": "The custom image for this reward. If no image exists, will be null.",
-              "args": [
-                {
-                  "name": "width",
-                  "description": null,
-                  "type": {
-                    "kind": "SCALAR",
-                    "name": "Int",
-                    "ofType": null
-                  },
-                  "defaultValue": null
-                },
-                {
-                  "name": "height",
-                  "description": null,
-                  "type": {
-                    "kind": "SCALAR",
-                    "name": "Int",
-                    "ofType": null
-                  },
-                  "defaultValue": null
-                }
-              ],
+              "args": [],
               "type": {
-                "kind": "SCALAR",
-                "name": "String",
+                "kind": "OBJECT",
+                "name": "CommunityPointsImage",
                 "ofType": null
               },
               "isDeprecated": false,
@@ -16143,7 +16117,7 @@
           "description": "Image URLs of different sizes for community points rewards.",
           "fields": [
             {
-              "name": "image1xURL",
+              "name": "url",
               "description": "The URL for the small size image.",
               "args": [],
               "type": {
@@ -16159,7 +16133,7 @@
               "deprecationReason": null
             },
             {
-              "name": "image2xURL",
+              "name": "url2x",
               "description": "The URL for the medium size image.",
               "args": [],
               "type": {
@@ -16175,7 +16149,7 @@
               "deprecationReason": null
             },
             {
-              "name": "image4xURL",
+              "name": "url4x",
               "description": "The URL for the large size image.",
               "args": [],
               "type": {
