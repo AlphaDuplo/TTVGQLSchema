@@ -21458,6 +21458,111 @@
           "possibleTypes": null
         },
         {
+          "kind": "INPUT_OBJECT",
+          "name": "CreateStuccoPackInput",
+          "description": "Inputs for creating a new stucco pack.",
+          "fields": null,
+          "inputFields": [
+            {
+              "name": "channelID",
+              "description": "Id of the channel this pack is part of.",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "ID",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "stuccos",
+              "description": "Updated list of stuccos for this pack.",
+              "type": {
+                "kind": "LIST",
+                "name": null,
+                "ofType": {
+                  "kind": "NON_NULL",
+                  "name": null,
+                  "ofType": {
+                    "kind": "INPUT_OBJECT",
+                    "name": "CreateStuccoPackItemInput",
+                    "ofType": null
+                  }
+                }
+              },
+              "defaultValue": null
+            }
+          ],
+          "interfaces": null,
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "INPUT_OBJECT",
+          "name": "CreateStuccoPackItemInput",
+          "description": "Single item in a stuccopack, as part of the create stucco pack call, representing one stucco to be used in a certain slot.",
+          "fields": null,
+          "inputFields": [
+            {
+              "name": "slotIndex",
+              "description": "Slot index in the pack (used for ordering).",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Int",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "stuccoID",
+              "description": "Id of the stucco.",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "ID",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            }
+          ],
+          "interfaces": null,
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "OBJECT",
+          "name": "CreateStuccoPackPayload",
+          "description": "Outputs from the create stucco pack mutation.",
+          "fields": [
+            {
+              "name": "stuccoPack",
+              "description": "The created stucco pack.",
+              "args": [],
+              "type": {
+                "kind": "OBJECT",
+                "name": "StuccoPack",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
           "kind": "OBJECT",
           "name": "CreateStuccoPayload",
           "description": "The output for the create update stucco mutation.",
@@ -44453,6 +44558,33 @@
               "deprecationReason": null
             },
             {
+              "name": "createStuccoPack",
+              "description": "createStuccoPack allows the creation a new stucco pack for the channel.",
+              "args": [
+                {
+                  "name": "input",
+                  "description": null,
+                  "type": {
+                    "kind": "NON_NULL",
+                    "name": null,
+                    "ofType": {
+                      "kind": "INPUT_OBJECT",
+                      "name": "CreateStuccoPackInput",
+                      "ofType": null
+                    }
+                  },
+                  "defaultValue": null
+                }
+              ],
+              "type": {
+                "kind": "OBJECT",
+                "name": "CreateStuccoPackPayload",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
               "name": "createTimetableEvent",
               "description": "createTimetableEvent allows a user to create a Timetable type event.",
               "args": [
@@ -49013,7 +49145,7 @@
             },
             {
               "name": "updateStuccoPack",
-              "description": "updateStuccoPack allows the updating of the channel's stucco pack. (activating stuccos).",
+              "description": "updateStuccoPack allows the updating of a channel's stucco pack. (activating stuccos).",
               "args": [
                 {
                   "name": "input",
