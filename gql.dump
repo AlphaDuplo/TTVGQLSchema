@@ -39776,6 +39776,16 @@
           "fields": null,
           "inputFields": [
             {
+              "name": "memberID",
+              "description": "The optional ID of a squad member that is leaving the squad (defaults to ID from auth token).",
+              "type": {
+                "kind": "SCALAR",
+                "name": "ID",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
               "name": "squadStreamID",
               "description": "The ID of the squad stream that the caller wants to leave.",
               "type": {
