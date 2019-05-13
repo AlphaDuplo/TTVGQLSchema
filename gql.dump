@@ -10891,6 +10891,22 @@
           "description": "Bits partner settings associated with the chat message.",
           "fields": [
             {
+              "name": "isOptedOutOfProjectV",
+              "description": "The setting that controls if the user has project v enabled on their channel.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Boolean",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
               "name": "minBitsPerEmote",
               "description": "The minimum setting that controls the minimum bits that must be part of a cheer emote.",
               "args": [],
@@ -81631,6 +81647,16 @@
           "description": "Partner settings related to chat messages with bits.",
           "fields": null,
           "inputFields": [
+            {
+              "name": "isOptedOutOfProjectV",
+              "description": "The setting that controls if the user has project v enabled on their channel.",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Boolean",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
             {
               "name": "minBitsPerEmote",
               "description": "The minimnm setting that controls the minimum bits that must be part of a cheer emote.",
