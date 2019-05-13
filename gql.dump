@@ -15719,18 +15719,6 @@
               "deprecationReason": null
             },
             {
-              "name": "cooldownSeconds",
-              "description": "The amount of time that must pass between two users redeeming this reward. Null if no cooldown is set.",
-              "args": [],
-              "type": {
-                "kind": "SCALAR",
-                "name": "Int",
-                "ofType": null
-              },
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
               "name": "cost",
               "description": "The point cost of this reward.",
               "args": [],
@@ -15823,8 +15811,8 @@
               "deprecationReason": null
             },
             {
-              "name": "maxUnfulfilled",
-              "description": "The most rewards of this type that can be in the UNFULFILLED state at a given time. Null if no maximum is set.",
+              "name": "maxPerStream",
+              "description": "The most rewards of this type that can be redeemed per stream. Null if no maximum is set.",
               "args": [],
               "type": {
                 "kind": "SCALAR",
@@ -18373,16 +18361,6 @@
               "defaultValue": null
             },
             {
-              "name": "cooldownSeconds",
-              "description": "The amount of time that must pass between two users redeeming this reward. Null if no cooldown is set.",
-              "type": {
-                "kind": "SCALAR",
-                "name": "Int",
-                "ofType": null
-              },
-              "defaultValue": null
-            },
-            {
               "name": "cost",
               "description": "The point cost of this reward.",
               "type": {
@@ -18425,8 +18403,8 @@
               "defaultValue": null
             },
             {
-              "name": "maxUnfulfilled",
-              "description": "The most rewards of this type that can be in the UNFULFILLED state at a given time. Null if no maximum is set.",
+              "name": "maxPerStream",
+              "description": "The most rewards of this type that can be redeemed per stream. Null if no maximum is set.",
               "type": {
                 "kind": "SCALAR",
                 "name": "Int",
@@ -61177,6 +61155,34 @@
               "defaultValue": null
             },
             {
+              "name": "cost",
+              "description": "The cost that the client expects this reward to cost.\nIf this cost is different from the reward's true cost, the request will fail.",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Int",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "prompt",
+              "description": "The prompt that the client expects this reward to have.\nIf this prompt is different from the reward's true prompt, the request will fail.",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "String",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            },
+            {
               "name": "rewardID",
               "description": "The unique reward ID.",
               "type": {
@@ -61197,6 +61203,20 @@
                 "kind": "SCALAR",
                 "name": "String",
                 "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "title",
+              "description": "The title that the client expects this reward to have.\nIf this title is different from the reward's true title, the request will fail.",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "String",
+                  "ofType": null
+                }
               },
               "defaultValue": null
             }
@@ -82656,16 +82676,6 @@
               "defaultValue": null
             },
             {
-              "name": "cooldownSeconds",
-              "description": "The amount of time that must pass between two users redeeming this reward. Null if no cooldown is set.",
-              "type": {
-                "kind": "SCALAR",
-                "name": "Int",
-                "ofType": null
-              },
-              "defaultValue": null
-            },
-            {
               "name": "cost",
               "description": "The point cost of this reward.",
               "type": {
@@ -82706,8 +82716,8 @@
               "defaultValue": null
             },
             {
-              "name": "maxUnfulfilled",
-              "description": "The most rewards of this type that can be in the UNFULFILLED state at a given time. Null if no maximum is set.",
+              "name": "maxPerStream",
+              "description": "The most rewards of this type that can be redeemed per stream. Update to -1 to remove maximum.",
               "type": {
                 "kind": "SCALAR",
                 "name": "Int",
