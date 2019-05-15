@@ -49364,6 +49364,33 @@
               "deprecationReason": null
             },
             {
+              "name": "updateUserViewedVideo",
+              "description": "updateUserViewedVideo updates a resume watching entry for a specified user and video.",
+              "args": [
+                {
+                  "name": "input",
+                  "description": null,
+                  "type": {
+                    "kind": "NON_NULL",
+                    "name": null,
+                    "ofType": {
+                      "kind": "INPUT_OBJECT",
+                      "name": "UpdateUserViewedVideoInput",
+                      "ofType": null
+                    }
+                  },
+                  "defaultValue": null
+                }
+              ],
+              "type": {
+                "kind": "OBJECT",
+                "name": "UpdateUserViewedVideoPayload",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
               "name": "updateVideoComment",
               "description": "updateVideoComment updates a video comment identified by provided comment ID.",
               "args": [
@@ -86018,6 +86045,96 @@
         },
         {
           "kind": "INPUT_OBJECT",
+          "name": "UpdateUserViewedVideoInput",
+          "description": "Input information for updating a resume watching entry for a specified user and video.",
+          "fields": null,
+          "inputFields": [
+            {
+              "name": "position",
+              "description": "Position for where in the video to update for the resume watching entry.",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Int",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "userID",
+              "description": "User for which to update the resume watching entry.",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "ID",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "videoID",
+              "description": "Video for which to update the resume watching entry.",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "ID",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "videoType",
+              "description": "Type of the video for which to update the resume watching entry.",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "ENUM",
+                  "name": "VideoType",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            }
+          ],
+          "interfaces": null,
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "OBJECT",
+          "name": "UpdateUserViewedVideoPayload",
+          "description": "Response to a request to update a resume watching entry for a specified user and video.",
+          "fields": [
+            {
+              "name": "video",
+              "description": "The video returned from the request.",
+              "args": [],
+              "type": {
+                "kind": "OBJECT",
+                "name": "Video",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "INPUT_OBJECT",
           "name": "UpdateVideoCommentInput",
           "description": null,
           "fields": null,
@@ -94740,6 +94857,29 @@
           ],
           "interfaces": null,
           "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "ENUM",
+          "name": "VideoType",
+          "description": "Describes what type of content this originated from.\nNOTE: There is already an enum named BroadcastType which should have been named VideoBroadcastType.",
+          "fields": null,
+          "inputFields": null,
+          "interfaces": null,
+          "enumValues": [
+            {
+              "name": "LIVE",
+              "description": "The video type is live.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "VOD",
+              "description": "The video is a vod.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
           "possibleTypes": null
         },
         {
