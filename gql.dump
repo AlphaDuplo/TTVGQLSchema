@@ -92842,6 +92842,18 @@
               "deprecationReason": null
             },
             {
+              "name": "suggestedHighlight",
+              "description": "The suggested details for creating an automated highlight from this video.",
+              "args": [],
+              "type": {
+                "kind": "OBJECT",
+                "name": "VideoSuggestedHighlight",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
               "name": "tags",
               "description": "An array of tags describing the video. This field will be deprecated soon. Please use `Video.contentTag` instead.",
               "args": [],
@@ -95107,6 +95119,96 @@
               "deprecationReason": null
             }
           ],
+          "possibleTypes": null
+        },
+        {
+          "kind": "OBJECT",
+          "name": "VideoSuggestedHighlight",
+          "description": "Details about creating an automated highlight from this video.",
+          "fields": [
+            {
+              "name": "isDismissed",
+              "description": "Boolean for whether this set of suggested segments were addressed and dismissed.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Boolean",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "segments",
+              "description": "List of suggested video segments.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "LIST",
+                  "name": null,
+                  "ofType": {
+                    "kind": "OBJECT",
+                    "name": "VideoSuggestedHighlightSegment",
+                    "ofType": null
+                  }
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "OBJECT",
+          "name": "VideoSuggestedHighlightSegment",
+          "description": "Information for one suggested video segment.",
+          "fields": [
+            {
+              "name": "endTimeMS",
+              "description": "Ending time of the suggested segment in milliseconds.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Int",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "startTimeMS",
+              "description": "Starting time of the suggested segment in milliseconds.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Int",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
+          "enumValues": null,
           "possibleTypes": null
         },
         {
