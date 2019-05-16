@@ -36482,6 +36482,18 @@
               },
               "isDeprecated": false,
               "deprecationReason": null
+            },
+            {
+              "name": "trackingID",
+              "description": "Unique id per game response item, used by clients to attribute displays/clicks to items.",
+              "args": [],
+              "type": {
+                "kind": "SCALAR",
+                "name": "ID",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
             }
           ],
           "inputFields": null,
@@ -36537,6 +36549,65 @@
           ],
           "inputFields": null,
           "interfaces": [],
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "INPUT_OBJECT",
+          "name": "GameOptions",
+          "description": "Optional input to filter categories.\nAdd any additional optional fields to this input.",
+          "fields": null,
+          "inputFields": [
+            {
+              "name": "locale",
+              "description": "The locale of the user.",
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "recommendationsContext",
+              "description": "If sorted by relevance, this provides additional context used to influence recommendations.",
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "RecommendationsContext",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "sort",
+              "description": "The sort param can be used to change the default sorting of results.",
+              "type": {
+                "kind": "ENUM",
+                "name": "GameSort",
+                "ofType": null
+              },
+              "defaultValue": "VIEWER_COUNT"
+            },
+            {
+              "name": "tags",
+              "description": "Tags are an array of tag IDs as optional filters for categories.",
+              "type": {
+                "kind": "LIST",
+                "name": null,
+                "ofType": {
+                  "kind": "NON_NULL",
+                  "name": null,
+                  "ofType": {
+                    "kind": "SCALAR",
+                    "name": "String",
+                    "ofType": null
+                  }
+                }
+              },
+              "defaultValue": null
+            }
+          ],
+          "interfaces": null,
           "enumValues": null,
           "possibleTypes": null
         },
@@ -36955,6 +37026,29 @@
           "inputFields": null,
           "interfaces": [],
           "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "ENUM",
+          "name": "GameSort",
+          "description": "Possible ways of sorting collections of categories.",
+          "fields": null,
+          "inputFields": null,
+          "interfaces": null,
+          "enumValues": [
+            {
+              "name": "VIEWER_COUNT",
+              "description": "Sort by number of concurrent viewers, descending (most viewers first).",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "RELEVANCE",
+              "description": "Sort by relevance to the current user.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
           "possibleTypes": null
         },
         {
@@ -58546,7 +58640,7 @@
             },
             {
               "name": "games",
-              "description": "Fetch games in order of descending popularity.\nBy default returns 10.\nTags are an array of ID as optional filters for games.",
+              "description": "Fetch games based on a variety of sorting options.\nBy default returns 10 games, sorted by highest ccu.\nDEPRECATED field arguments: locale, tags\nUse GameOptions instead.",
               "args": [
                 {
                   "name": "first",
@@ -58564,6 +58658,16 @@
                   "type": {
                     "kind": "SCALAR",
                     "name": "Cursor",
+                    "ofType": null
+                  },
+                  "defaultValue": null
+                },
+                {
+                  "name": "options",
+                  "description": null,
+                  "type": {
+                    "kind": "INPUT_OBJECT",
+                    "name": "GameOptions",
                     "ofType": null
                   },
                   "defaultValue": null
