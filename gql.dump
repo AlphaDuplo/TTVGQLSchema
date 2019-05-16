@@ -37152,7 +37152,7 @@
             },
             {
               "name": "languages",
-              "description": "Broadcaster languages to filter streams by.",
+              "description": "Broadcaster languages to filter streams by.\nDeprecated: use language tags instead.",
               "type": {
                 "kind": "LIST",
                 "name": null,
@@ -73271,7 +73271,7 @@
             },
             {
               "name": "languages",
-              "description": "Broadcaster languages to filter the streams by.",
+              "description": "Broadcaster languages to filter the streams by.\nDeprecated: use language tags instead.",
               "type": {
                 "kind": "LIST",
                 "name": null,
@@ -73306,6 +73306,16 @@
                 "ofType": null
               },
               "defaultValue": "all"
+            },
+            {
+              "name": "sort",
+              "description": "The sort param can be used to change the default sorting.",
+              "type": {
+                "kind": "ENUM",
+                "name": "StreamSort",
+                "ofType": null
+              },
+              "defaultValue": "VIEWER_COUNT"
             },
             {
               "name": "tags",
@@ -73507,6 +73517,18 @@
             {
               "name": "VIEWER_COUNT",
               "description": "Sort streams by number of concurrent viewers, descending (most viewers first).",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "VIEWER_COUNT_ASC",
+              "description": "Sort streams by number of concurrent viewers, ascending (least viewers first).",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "RECENT",
+              "description": "Sort by stream creation time, most recently started streams first.",
               "isDeprecated": false,
               "deprecationReason": null
             },
