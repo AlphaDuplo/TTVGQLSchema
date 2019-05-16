@@ -59523,6 +59523,18 @@
               "deprecationReason": null
             },
             {
+              "name": "subscriptionTokenProductConfig",
+              "description": "Gets the Token Product Config.",
+              "args": [],
+              "type": {
+                "kind": "OBJECT",
+                "name": "SubscriptionTokenProductConfig",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
               "name": "team",
               "description": "Gets a team by its Twitch name.",
               "args": [
@@ -76618,6 +76630,52 @@
         },
         {
           "kind": "OBJECT",
+          "name": "SubscriptionToken",
+          "description": "Token that a User uses for redeeming Subscriptions.",
+          "fields": [
+            {
+              "name": "balance",
+              "description": "Current token balance of user.",
+              "args": [],
+              "type": {
+                "kind": "SCALAR",
+                "name": "Int",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "OBJECT",
+          "name": "SubscriptionTokenProductConfig",
+          "description": "Describes configurable values for the token product line.",
+          "fields": [
+            {
+              "name": "maxBalance",
+              "description": "Max token balance a user can have.",
+              "args": [],
+              "type": {
+                "kind": "SCALAR",
+                "name": "Int",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "OBJECT",
           "name": "SupportedPlatform",
           "description": "Platform information for a game.\nNOTE: Should have been named GameSupportedPlatform.\nFor Commerce.",
           "fields": [
@@ -89921,6 +89979,18 @@
               "type": {
                 "kind": "OBJECT",
                 "name": "UserSubscriptionSettings",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "subscriptionToken",
+              "description": "Subtoken information associated with the user.\nIncludes balance of tokens which can be used to redeem Subscriptions.",
+              "args": [],
+              "type": {
+                "kind": "OBJECT",
+                "name": "SubscriptionToken",
                 "ofType": null
               },
               "isDeprecated": false,
