@@ -16066,22 +16066,6 @@
               },
               "isDeprecated": false,
               "deprecationReason": null
-            },
-            {
-              "name": "totalCount",
-              "description": "The total number of redemptions of this status on this channel.",
-              "args": [],
-              "type": {
-                "kind": "NON_NULL",
-                "name": null,
-                "ofType": {
-                  "kind": "SCALAR",
-                  "name": "Int",
-                  "ofType": null
-                }
-              },
-              "isDeprecated": false,
-              "deprecationReason": null
             }
           ],
           "inputFields": null,
@@ -61268,42 +61252,6 @@
               },
               "isDeprecated": false,
               "deprecationReason": null
-            },
-            {
-              "name": "cooldownSeconds",
-              "description": "On COOLDOWN_ACTIVE, the cooldown duration of the reward.",
-              "args": [],
-              "type": {
-                "kind": "SCALAR",
-                "name": "Int",
-                "ofType": null
-              },
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
-              "name": "cost",
-              "description": "On NOT_ENOUGH_POINTS, the number of points the reward costs.",
-              "args": [],
-              "type": {
-                "kind": "SCALAR",
-                "name": "Int",
-                "ofType": null
-              },
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
-              "name": "currentPoints",
-              "description": "On NOT_ENOUGH_POINTS, the number of points the user has.",
-              "args": [],
-              "type": {
-                "kind": "SCALAR",
-                "name": "Int",
-                "ofType": null
-              },
-              "isDeprecated": false,
-              "deprecationReason": null
             }
           ],
           "inputFields": null,
@@ -61333,19 +61281,19 @@
             },
             {
               "name": "NOT_ENOUGH_POINTS",
-              "description": "The current user does not have enough points to redeem this reward.",
+              "description": "The user does not have sufficient points to redeem the reward.",
               "isDeprecated": false,
               "deprecationReason": null
             },
             {
-              "name": "COOLDOWN_ACTIVE",
-              "description": "The reward is on cooldown, and time must pass before it can be redeemed again.",
+              "name": "PROPERTIES_MISMATCH",
+              "description": "The client-provided properties (title, cost, or prompt) did not match the reward's true properties.",
               "isDeprecated": false,
               "deprecationReason": null
             },
             {
-              "name": "MAX_UNFULFILLED",
-              "description": "The number of unfulfilled rewards of this type is at the maximum.\nNo users can redeem rewards of this type until the broadcaster acts on pending ones.",
+              "name": "DUPLICATE_TRANSACTION",
+              "description": "The transaction ID used was a duplicate of another transaction.",
               "isDeprecated": false,
               "deprecationReason": null
             }
@@ -61433,6 +61381,20 @@
                 "ofType": {
                   "kind": "SCALAR",
                   "name": "String",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "transactionID",
+              "description": "Client-set identifier for the transaction. This ID should be universally unique.",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "ID",
                   "ofType": null
                 }
               },
