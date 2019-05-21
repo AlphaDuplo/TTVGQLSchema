@@ -66381,6 +66381,18 @@
           "description": "Contains results for a searchFor query.",
           "fields": [
             {
+              "name": "channels",
+              "description": "Contains results for channels.",
+              "args": [],
+              "type": {
+                "kind": "OBJECT",
+                "name": "SearchForResultUsers",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
               "name": "games",
               "description": "Contains results for games.",
               "args": [],
@@ -66515,6 +66527,22 @@
               },
               "isDeprecated": false,
               "deprecationReason": null
+            },
+            {
+              "name": "totalMatches",
+              "description": "Total number of results.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Int",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
             }
           ],
           "inputFields": null,
@@ -66562,6 +66590,22 @@
             {
               "name": "score",
               "description": "Order in which the result should be displayed.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Int",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "totalMatches",
+              "description": "Total number of results.",
               "args": [],
               "type": {
                 "kind": "NON_NULL",
@@ -66633,6 +66677,22 @@
               },
               "isDeprecated": false,
               "deprecationReason": null
+            },
+            {
+              "name": "totalMatches",
+              "description": "Total number of results.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Int",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
             }
           ],
           "inputFields": null,
@@ -66667,6 +66727,16 @@
                   "name": "SearchIndex",
                   "ofType": null
                 }
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "limit",
+              "description": "Limit the number of results returned.",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Int",
+                "ofType": null
               },
               "defaultValue": null
             }
@@ -66710,6 +66780,12 @@
             {
               "name": "COMMUNITY",
               "description": "Community index.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "CHANNEL",
+              "description": "Channel index.",
               "isDeprecated": false,
               "deprecationReason": null
             }
