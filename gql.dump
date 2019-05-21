@@ -26799,6 +26799,54 @@
           "possibleTypes": null
         },
         {
+          "kind": "INPUT_OBJECT",
+          "name": "DismissVideoSuggestedHighlightInput",
+          "description": "Input for dismissing a video's suggested highlight.",
+          "fields": null,
+          "inputFields": [
+            {
+              "name": "videoID",
+              "description": "VideoID of the video whos automated highlight suggestions were dismissed.",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "ID",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            }
+          ],
+          "interfaces": null,
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "OBJECT",
+          "name": "DismissVideoSuggestedHighlightPayload",
+          "description": "Ouput for dismissing a video's suggested highlight.",
+          "fields": [
+            {
+              "name": "video",
+              "description": "Video whos automated highlight suggestions were dismissed.",
+              "args": [],
+              "type": {
+                "kind": "OBJECT",
+                "name": "Video",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
           "kind": "OBJECT",
           "name": "Drop",
           "description": "Contains all of the information about a Drop awarded to a user.",
@@ -45693,6 +45741,33 @@
               "type": {
                 "kind": "OBJECT",
                 "name": "DismissRitualTokenPayload",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "dismissVideoSuggestedHighlight",
+              "description": "dismissVideoSuggestedHighlight dismisses the automated highlight suggestion for a video.",
+              "args": [
+                {
+                  "name": "input",
+                  "description": null,
+                  "type": {
+                    "kind": "NON_NULL",
+                    "name": null,
+                    "ofType": {
+                      "kind": "INPUT_OBJECT",
+                      "name": "DismissVideoSuggestedHighlightInput",
+                      "ofType": null
+                    }
+                  },
+                  "defaultValue": null
+                }
+              ],
+              "type": {
+                "kind": "OBJECT",
+                "name": "DismissVideoSuggestedHighlightPayload",
                 "ofType": null
               },
               "isDeprecated": false,
