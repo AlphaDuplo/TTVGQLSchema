@@ -64076,6 +64076,30 @@
               "deprecationReason": null
             },
             {
+              "name": "options",
+              "description": "The list of options that were applied at time of creation for a given resource restriction.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "LIST",
+                  "name": null,
+                  "ofType": {
+                    "kind": "NON_NULL",
+                    "name": null,
+                    "ofType": {
+                      "kind": "ENUM",
+                      "name": "ResourceRestrictionOption",
+                      "ofType": null
+                    }
+                  }
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
               "name": "type",
               "description": "The type of restriction on this resource.",
               "args": [],
@@ -64266,6 +64290,29 @@
             {
               "name": "PRODUCT",
               "description": "The restriction is exempt for owning a product.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "possibleTypes": null
+        },
+        {
+          "kind": "ENUM",
+          "name": "ResourceRestrictionOption",
+          "description": "An enumeration of the different restriction options.",
+          "fields": null,
+          "inputFields": null,
+          "interfaces": null,
+          "enumValues": [
+            {
+              "name": "ALLOW_CHANNEL_VIP",
+              "description": "Allows users holding the channel VIP role to access the resource.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "ALLOW_CHANNEL_MODERATOR",
+              "description": "Allows users holding the channel moderator role to access the resource.",
               "isDeprecated": false,
               "deprecationReason": null
             }
@@ -70018,6 +70065,24 @@
                   "kind": "ENUM",
                   "name": "RestrictionResource",
                   "ofType": null
+                }
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "restrictionOptions",
+              "description": "The restriction options, if any, to apply to the restriction being created.",
+              "type": {
+                "kind": "LIST",
+                "name": null,
+                "ofType": {
+                  "kind": "NON_NULL",
+                  "name": null,
+                  "ofType": {
+                    "kind": "ENUM",
+                    "name": "ResourceRestrictionOption",
+                    "ofType": null
+                  }
                 }
               },
               "defaultValue": null
