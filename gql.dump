@@ -51138,6 +51138,22 @@
               "deprecationReason": null
             },
             {
+              "name": "canRemoveMember",
+              "description": "Whether or not the current user is able to remove a member from the organization.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Boolean",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
               "name": "role",
               "description": "The current users role in the organization.",
               "args": [],
