@@ -43413,8 +43413,8 @@
                 "name": "AddReactionPayload",
                 "ofType": null
               },
-              "isDeprecated": false,
-              "deprecationReason": null
+              "isDeprecated": true,
+              "deprecationReason": "No longer supported"
             },
             {
               "name": "addRecommendationFeedback",
@@ -44640,8 +44640,8 @@
                 "name": "CreatePostPayload",
                 "ofType": null
               },
-              "isDeprecated": false,
-              "deprecationReason": null
+              "isDeprecated": true,
+              "deprecationReason": "No longer supported"
             },
             {
               "name": "createRoom",
@@ -45446,8 +45446,8 @@
                 "name": "DeletePostPayload",
                 "ofType": null
               },
-              "isDeprecated": false,
-              "deprecationReason": null
+              "isDeprecated": true,
+              "deprecationReason": "No longer supported"
             },
             {
               "name": "deleteRecommendationFeedback",
@@ -46742,8 +46742,8 @@
                 "name": "RemoveReactionPayload",
                 "ofType": null
               },
-              "isDeprecated": false,
-              "deprecationReason": null
+              "isDeprecated": true,
+              "deprecationReason": "No longer supported"
             },
             {
               "name": "removeSquadStreamMember",
@@ -47228,8 +47228,8 @@
                 "name": "SetChannelFeedEnabledPayload",
                 "ofType": null
               },
-              "isDeprecated": false,
-              "deprecationReason": null
+              "isDeprecated": true,
+              "deprecationReason": "No longer supported"
             },
             {
               "name": "setChannelNotificationSetting",
@@ -58708,8 +58708,8 @@
                 "name": "Feed",
                 "ofType": null
               },
-              "isDeprecated": false,
-              "deprecationReason": null
+              "isDeprecated": true,
+              "deprecationReason": "No longer supported"
             },
             {
               "name": "feedEmbed",
@@ -58735,8 +58735,8 @@
                 "name": "FeedEmbed",
                 "ofType": null
               },
-              "isDeprecated": false,
-              "deprecationReason": null
+              "isDeprecated": true,
+              "deprecationReason": "No longer supported"
             },
             {
               "name": "feedItemContent",
@@ -58762,8 +58762,8 @@
                 "name": "FeedItemContent",
                 "ofType": null
               },
-              "isDeprecated": false,
-              "deprecationReason": null
+              "isDeprecated": true,
+              "deprecationReason": "No longer supported"
             },
             {
               "name": "game",
@@ -91553,8 +91553,8 @@
                   "ofType": null
                 }
               },
-              "isDeprecated": false,
-              "deprecationReason": null
+              "isDeprecated": true,
+              "deprecationReason": "No longer supported"
             },
             {
               "name": "cheer",
