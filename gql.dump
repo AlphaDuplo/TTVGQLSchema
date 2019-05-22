@@ -3944,7 +3944,7 @@
             },
             {
               "name": "description",
-              "description": "An optional description of this notification.",
+              "description": "Description of this notification.",
               "args": [],
               "type": {
                 "kind": "NON_NULL",
@@ -3992,7 +3992,7 @@
             },
             {
               "name": "title",
-              "description": "An optional title of this notification.",
+              "description": "The title of this notification.",
               "args": [],
               "type": {
                 "kind": "NON_NULL",
@@ -10504,6 +10504,54 @@
               "type": {
                 "kind": "SCALAR",
                 "name": "Boolean",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "INPUT_OBJECT",
+          "name": "CheckGemNotificationInput",
+          "description": "Input to the checkGemNotification mutation.",
+          "fields": null,
+          "inputFields": [
+            {
+              "name": "notificationID",
+              "description": "The id of the gem notification to be marked as checked.",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "ID",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            }
+          ],
+          "interfaces": null,
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "OBJECT",
+          "name": "CheckGemNotificationPayload",
+          "description": "Payload from the checkGemNotification mutation.",
+          "fields": [
+            {
+              "name": "updatedNotification",
+              "description": "The gem notification that was successfully checked.",
+              "args": [],
+              "type": {
+                "kind": "OBJECT",
+                "name": "BitsGemNotification",
                 "ofType": null
               },
               "isDeprecated": false,
@@ -43762,6 +43810,33 @@
               "type": {
                 "kind": "OBJECT",
                 "name": "CancelSubscriptionGiftPayload",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "checkGemNotification",
+              "description": "Mark a gem notification as checked.",
+              "args": [
+                {
+                  "name": "input",
+                  "description": null,
+                  "type": {
+                    "kind": "NON_NULL",
+                    "name": null,
+                    "ofType": {
+                      "kind": "INPUT_OBJECT",
+                      "name": "CheckGemNotificationInput",
+                      "ofType": null
+                    }
+                  },
+                  "defaultValue": null
+                }
+              ],
+              "type": {
+                "kind": "OBJECT",
+                "name": "CheckGemNotificationPayload",
                 "ofType": null
               },
               "isDeprecated": false,
