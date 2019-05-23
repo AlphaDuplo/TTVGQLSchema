@@ -40060,9 +40060,13 @@
               "name": "memberID",
               "description": "The optional ID of a squad member that is leaving the squad (defaults to ID from auth token).",
               "type": {
-                "kind": "SCALAR",
-                "name": "ID",
-                "ofType": null
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "ID",
+                  "ofType": null
+                }
               },
               "defaultValue": null
             },
