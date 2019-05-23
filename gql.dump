@@ -19056,6 +19056,16 @@
               "defaultValue": null
             },
             {
+              "name": "organizationID",
+              "description": "organizationID is the organization ID that the extension will be binded with in RBAC.",
+              "type": {
+                "kind": "SCALAR",
+                "name": "ID",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
               "name": "redirectURI",
               "description": "redirectURI is the URI that can be used for OAuth login using the extension's client ID.",
               "type": {
@@ -31557,6 +31567,18 @@
                   "name": "String",
                   "ofType": null
                 }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "organization",
+              "description": "Organization is the Organization entity of the extension, it means which organization the extension belongs to.",
+              "args": [],
+              "type": {
+                "kind": "OBJECT",
+                "name": "Organization",
+                "ofType": null
               },
               "isDeprecated": false,
               "deprecationReason": null
@@ -50801,6 +50823,16 @@
                     "ofType": null
                   },
                   "defaultValue": null
+                },
+                {
+                  "name": "input",
+                  "description": null,
+                  "type": {
+                    "kind": "INPUT_OBJECT",
+                    "name": "OrganizationMembersInput",
+                    "ofType": null
+                  },
+                  "defaultValue": null
                 }
               ],
               "type": {
@@ -51123,6 +51155,27 @@
               "deprecationReason": null
             }
           ],
+          "possibleTypes": null
+        },
+        {
+          "kind": "INPUT_OBJECT",
+          "name": "OrganizationMembersInput",
+          "description": "Parameters for filtering OrganizationMembers.",
+          "fields": null,
+          "inputFields": [
+            {
+              "name": "role",
+              "description": "Filter members with this role.",
+              "type": {
+                "kind": "ENUM",
+                "name": "OrganizationMemberRole",
+                "ofType": null
+              },
+              "defaultValue": null
+            }
+          ],
+          "interfaces": null,
+          "enumValues": null,
           "possibleTypes": null
         },
         {
@@ -58409,6 +58462,16 @@
               "name": "extensionClients",
               "description": "Fetch a paginated list of Extension Clients.",
               "args": [
+                {
+                  "name": "organizationID",
+                  "description": null,
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "ID",
+                    "ofType": null
+                  },
+                  "defaultValue": null
+                },
                 {
                   "name": "after",
                   "description": null,
