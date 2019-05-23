@@ -52345,8 +52345,8 @@
           "description": "A monthly rollup of metrics that are relevant to incentive-based contracts for\nsome partnered streamers.",
           "fields": [
             {
-              "name": "averageCommercialMinutesPerLiveHourBroadcast",
-              "description": "A measure of how much commercial time broadcasters have during their live\nstreams.",
+              "name": "advertisingDensity",
+              "description": "A measure of how much advertising time broadcasters have during their live\nstreams.",
               "args": [],
               "type": {
                 "kind": "NON_NULL",
