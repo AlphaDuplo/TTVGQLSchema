@@ -49943,6 +49943,324 @@
           "possibleTypes": null
         },
         {
+          "kind": "OBJECT",
+          "name": "OAuthApp",
+          "description": "Information about a registered developer OAuth application.",
+          "fields": [
+            {
+              "name": "category",
+              "description": "The category that describes the app's type.",
+              "args": [],
+              "type": {
+                "kind": "ENUM",
+                "name": "OAuthAppCategory",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "createdAt",
+              "description": "The timestamp when the app was created.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Time",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "id",
+              "description": "The ID of the app. It is the value of the `Client-ID` header when the app makes API requests.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "ID",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "name",
+              "description": "The name of the app.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "String",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "otherDescription",
+              "description": "The user-provided description of the app's type. Used if `Category` is Other.",
+              "args": [],
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "owner",
+              "description": "Owner is the user that owns this app.",
+              "args": [],
+              "type": {
+                "kind": "OBJECT",
+                "name": "User",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "redirectURI",
+              "description": "The URI to which users should be redirected after authorizing the app.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "String",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "secret",
+              "description": "The client secret of the app.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "String",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "updatedAt",
+              "description": "The timestamp when the app was last updated.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Time",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "willTokensExpire",
+              "description": "Whether the app's OAuth tokens expire.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Boolean",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "ENUM",
+          "name": "OAuthAppCategory",
+          "description": "Possible categories of developer apps.",
+          "fields": null,
+          "inputFields": null,
+          "interfaces": null,
+          "enumValues": [
+            {
+              "name": "GAME_INTEGRATION",
+              "description": "Game integration category.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "WEBSITE_INTEGRATION",
+              "description": "Website integration category.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "APPLICATION_INTEGRATION",
+              "description": "Application integration category.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "BROWSER_EXTENSION",
+              "description": "Browser extension category.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "BROADCASTER_SUITE",
+              "description": "Broadcaster suite category.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "CHAT_BOT",
+              "description": "Chat bot category.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "GIVEAWAY_LOYALTY_TOOL",
+              "description": "Giveaway loyalty tool category.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "ANALYTICS_TOOL",
+              "description": "Analytics tool category.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "OTHER",
+              "description": "Category for when the other categories do not describe.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "possibleTypes": null
+        },
+        {
+          "kind": "OBJECT",
+          "name": "OAuthAppConnection",
+          "description": "A list of applications.",
+          "fields": [
+            {
+              "name": "edges",
+              "description": "The applications.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "LIST",
+                  "name": null,
+                  "ofType": {
+                    "kind": "NON_NULL",
+                    "name": null,
+                    "ofType": {
+                      "kind": "OBJECT",
+                      "name": "OAuthAppEdge",
+                      "ofType": null
+                    }
+                  }
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "pageInfo",
+              "description": "Pagination.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "OBJECT",
+                  "name": "PageInfo",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "OBJECT",
+          "name": "OAuthAppEdge",
+          "description": "A broadcaster user with cursor.",
+          "fields": [
+            {
+              "name": "cursor",
+              "description": "Cursor represents the position of the current edge/node.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Cursor",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "node",
+              "description": "Node represents the app for the current edge.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "OBJECT",
+                  "name": "OAuthApp",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
           "kind": "INTERFACE",
           "name": "OEmbed",
           "description": "OEmbed is a universal spec converted to GraphQL from http://oembed.com/.",
@@ -89459,6 +89777,29 @@
               "type": {
                 "kind": "OBJECT",
                 "name": "OnsiteNotificationConnection",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "oauthApps",
+              "description": "OAuth applications developed by the current user.",
+              "args": [
+                {
+                  "name": "after",
+                  "description": null,
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Cursor",
+                    "ofType": null
+                  },
+                  "defaultValue": null
+                }
+              ],
+              "type": {
+                "kind": "OBJECT",
+                "name": "OAuthAppConnection",
                 "ofType": null
               },
               "isDeprecated": false,
