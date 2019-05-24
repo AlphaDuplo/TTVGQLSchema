@@ -51475,6 +51475,18 @@
               "description": "Marketer role.",
               "isDeprecated": false,
               "deprecationReason": null
+            },
+            {
+              "name": "OWNER",
+              "description": "Owner Role.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "BILLING_MANAGER",
+              "description": "Billing Manager Role.",
+              "isDeprecated": false,
+              "deprecationReason": null
             }
           ],
           "possibleTypes": null
