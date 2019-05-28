@@ -37297,6 +37297,16 @@
               "defaultValue": null
             },
             {
+              "name": "recommendationsContext",
+              "description": "If sorted by relevance, this provides additional context used to influence recommendations.",
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "RecommendationsContext",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
               "name": "requestID",
               "description": "RequestID must be specified if sort=RELEVANCE.",
               "type": {
@@ -74210,7 +74220,7 @@
           "enumValues": [
             {
               "name": "VIEWER_COUNT",
-              "description": "Sort streams by number of concurrent viewers, descending (most viewers first).",
+              "description": "Sort streams by number of concurrent viewers, descending (most viewers first).\nThis is the default if StreamSort is not set or is a deprecated field.",
               "isDeprecated": false,
               "deprecationReason": null
             },
@@ -74234,13 +74244,13 @@
             },
             {
               "name": "CSGO_SKILL",
-              "description": "Sort streams for the game \"Counter-Strike: Global Offensive\" by skill, descending (highest skill first).\nOther streams are included last, sorted at random.",
+              "description": "Sort streams for the game \"Counter-Strike: Global Offensive\" by skill, descending (highest skill first).\nOther streams are included last, sorted at random.\nDeprecated: this sort option no longer exists.",
               "isDeprecated": false,
               "deprecationReason": null
             },
             {
               "name": "LOL_SUMMONER_RANK",
-              "description": "Sort streams for the game \"League of Legends\" by summoner rank, descending (highest rank first).\nOther streams are included last, sorted at random.",
+              "description": "Sort streams for the game \"League of Legends\" by summoner rank, descending (highest rank first).\nOther streams are included last, sorted at random.\nDeprecated: this sort option no longer exists.",
               "isDeprecated": false,
               "deprecationReason": null
             }
