@@ -36772,6 +36772,16 @@
               "defaultValue": null
             },
             {
+              "name": "requestID",
+              "description": "A GUID that is created by the caller for tracking. This should be globally unique per request and is required if sort=RELEVANCE.",
+              "type": {
+                "kind": "SCALAR",
+                "name": "ID",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
               "name": "sort",
               "description": "The sort param can be used to change the default sorting of results.",
               "type": {
