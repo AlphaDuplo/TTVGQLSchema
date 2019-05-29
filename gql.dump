@@ -5785,6 +5785,18 @@
               "deprecationReason": null
             },
             {
+              "name": "moderationMetadata",
+              "description": "The node includes all bounty moderation metadata.",
+              "args": [],
+              "type": {
+                "kind": "OBJECT",
+                "name": "BountyModerationMetadata",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
               "name": "moderationStatus",
               "description": "The moderation status of the bounty.",
               "args": [],
@@ -5793,8 +5805,8 @@
                 "name": "BountyModerationStatus",
                 "ofType": null
               },
-              "isDeprecated": false,
-              "deprecationReason": null
+              "isDeprecated": true,
+              "deprecationReason": "Replacing with 'status' within moderationMetadata."
             },
             {
               "name": "payoutCents",
@@ -7187,6 +7199,106 @@
               "type": {
                 "kind": "OBJECT",
                 "name": "Bounty",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "ENUM",
+          "name": "BountyModerationFailReason",
+          "description": "The reason why bounty failed moderation.",
+          "fields": null,
+          "inputFields": null,
+          "interfaces": null,
+          "enumValues": [
+            {
+              "name": "MINIMUM_TIME_NOT_MET",
+              "description": "Moderation failed because broadcast does not meet minimal stream length requirement.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "INCORRECT_CONTENT",
+              "description": "Moderation failed because broadcast is not with required content.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "BADMOUTHING",
+              "description": "Moderation failed because broadcaster did badmouthing during stream.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "OTHER_CONTENT_VISIBLE",
+              "description": "Moderation failed because other content layered over/under required content.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "IDLE",
+              "description": "Moderation failed because broadcaster had exessive idle time during sponsored stream.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "NO_VOD",
+              "description": "Moderation failed because missing sponsored stream VOD.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "OTHER",
+              "description": "Other reason caused moderation failed.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "possibleTypes": null
+        },
+        {
+          "kind": "OBJECT",
+          "name": "BountyModerationMetadata",
+          "description": "Bounty Moderation metadata includes moderation metadata for a specific bounty.",
+          "fields": [
+            {
+              "name": "reason",
+              "description": "The moderation fail reason of the bounty.",
+              "args": [],
+              "type": {
+                "kind": "ENUM",
+                "name": "BountyModerationFailReason",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "status",
+              "description": "The moderation status of the bounty.",
+              "args": [],
+              "type": {
+                "kind": "ENUM",
+                "name": "BountyModerationStatus",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "updatedAt",
+              "description": "When the bounty was last moderated.",
+              "args": [],
+              "type": {
+                "kind": "SCALAR",
+                "name": "Time",
                 "ofType": null
               },
               "isDeprecated": false,
