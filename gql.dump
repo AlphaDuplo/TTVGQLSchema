@@ -7113,6 +7113,92 @@
           "possibleTypes": null
         },
         {
+          "kind": "OBJECT",
+          "name": "BountyConnection",
+          "description": "A list of bounty related to the subject.",
+          "fields": [
+            {
+              "name": "edges",
+              "description": "The bounties.",
+              "args": [],
+              "type": {
+                "kind": "LIST",
+                "name": null,
+                "ofType": {
+                  "kind": "NON_NULL",
+                  "name": null,
+                  "ofType": {
+                    "kind": "OBJECT",
+                    "name": "BountyEdge",
+                    "ofType": null
+                  }
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "pageInfo",
+              "description": "Information about pagination in this connection.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "OBJECT",
+                  "name": "PageInfo",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "OBJECT",
+          "name": "BountyEdge",
+          "description": "Information about the relationship to the bounty and the subject.\nAlso includes the bounty itself.",
+          "fields": [
+            {
+              "name": "cursor",
+              "description": "Uniquely identifies this bounty's position in a connection.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Cursor",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "node",
+              "description": "The bounty.",
+              "args": [],
+              "type": {
+                "kind": "OBJECT",
+                "name": "Bounty",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
           "kind": "ENUM",
           "name": "BountyModerationStatus",
           "description": "The moderation status of the bounty.",
@@ -87928,6 +88014,53 @@
                     "ofType": null
                   }
                 }
+              },
+              "isDeprecated": true,
+              "deprecationReason": "Use user.bountiesPage instead"
+            },
+            {
+              "name": "bountiesPage",
+              "description": "bountiesPage is a paginated list of bounty board bounties for this user.",
+              "args": [
+                {
+                  "name": "first",
+                  "description": null,
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Int",
+                    "ofType": null
+                  },
+                  "defaultValue": "10"
+                },
+                {
+                  "name": "after",
+                  "description": null,
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Cursor",
+                    "ofType": null
+                  },
+                  "defaultValue": null
+                },
+                {
+                  "name": "status",
+                  "description": null,
+                  "type": {
+                    "kind": "NON_NULL",
+                    "name": null,
+                    "ofType": {
+                      "kind": "SCALAR",
+                      "name": "String",
+                      "ofType": null
+                    }
+                  },
+                  "defaultValue": null
+                }
+              ],
+              "type": {
+                "kind": "OBJECT",
+                "name": "BountyConnection",
+                "ofType": null
               },
               "isDeprecated": false,
               "deprecationReason": null
