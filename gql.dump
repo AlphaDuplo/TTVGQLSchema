@@ -8821,12 +8821,16 @@
             },
             {
               "name": "broadcasterLanguage",
-              "description": null,
+              "description": "The language the broadcaster has chosen to stream in.",
               "args": [],
               "type": {
-                "kind": "SCALAR",
-                "name": "String",
-                "ofType": null
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "String",
+                  "ofType": null
+                }
               },
               "isDeprecated": true,
               "deprecationReason": "Use stream.language instead."
@@ -8961,12 +8965,16 @@
             },
             {
               "name": "createdAt",
-              "description": null,
+              "description": "The time the owner created the channel.",
               "args": [],
               "type": {
-                "kind": "SCALAR",
-                "name": "Time",
-                "ofType": null
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Time",
+                  "ofType": null
+                }
               },
               "isDeprecated": true,
               "deprecationReason": "Use user.createdAt instead."
@@ -9051,24 +9059,32 @@
             },
             {
               "name": "game",
-              "description": null,
+              "description": "The name of the last game played on this channel.",
               "args": [],
               "type": {
-                "kind": "SCALAR",
-                "name": "String",
-                "ofType": null
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "String",
+                  "ofType": null
+                }
               },
               "isDeprecated": true,
               "deprecationReason": "Use user.lastBroadcast.game.name instead."
             },
             {
               "name": "id",
-              "description": null,
+              "description": "The channel's unique identfier.",
               "args": [],
               "type": {
-                "kind": "SCALAR",
-                "name": "ID",
-                "ofType": null
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "ID",
+                  "ofType": null
+                }
               },
               "isDeprecated": true,
               "deprecationReason": "Use user.id instead."
@@ -9091,12 +9107,16 @@
             },
             {
               "name": "isMature",
-              "description": null,
+              "description": "Whether the broadcaster has designated the channel's broadcast for mature audiences only.",
               "args": [],
               "type": {
-                "kind": "SCALAR",
-                "name": "Boolean",
-                "ofType": null
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Boolean",
+                  "ofType": null
+                }
               },
               "isDeprecated": true,
               "deprecationReason": "Use stream.isMature instead."
@@ -9106,9 +9126,13 @@
               "description": "The channel's name.",
               "args": [],
               "type": {
-                "kind": "SCALAR",
-                "name": "String",
-                "ofType": null
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "String",
+                  "ofType": null
+                }
               },
               "isDeprecated": true,
               "deprecationReason": "Use user.login instead."
@@ -9127,7 +9151,7 @@
             },
             {
               "name": "partnership",
-              "description": null,
+              "description": "Channel partnership information; whether the channel is a Twitch partner.",
               "args": [],
               "type": {
                 "kind": "OBJECT",
@@ -9139,19 +9163,23 @@
             },
             {
               "name": "profileBannerBackgroundColor",
-              "description": null,
+              "description": "The legacy setting for the background color of a channel banner.",
               "args": [],
               "type": {
-                "kind": "SCALAR",
-                "name": "String",
-                "ofType": null
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "String",
+                  "ofType": null
+                }
               },
               "isDeprecated": true,
               "deprecationReason": "This field will be removed since it's unused."
             },
             {
               "name": "profileBannerURL",
-              "description": null,
+              "description": "The legacy setting for the channel banner image URL.",
               "args": [],
               "type": {
                 "kind": "SCALAR",
@@ -9190,16 +9218,20 @@
               "description": "A user-defined status message.",
               "args": [],
               "type": {
-                "kind": "SCALAR",
-                "name": "String",
-                "ofType": null
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "String",
+                  "ofType": null
+                }
               },
               "isDeprecated": true,
               "deprecationReason": "Use user.lastBroadcast.title instead."
             },
             {
               "name": "stream",
-              "description": null,
+              "description": "The live broadcast associated with this channel, if currently broadcasting.",
               "args": [],
               "type": {
                 "kind": "OBJECT",
@@ -9231,7 +9263,7 @@
             },
             {
               "name": "subscriptionProducts",
-              "description": null,
+              "description": "A list of subscription products available for purchase on this channel.",
               "args": [],
               "type": {
                 "kind": "LIST",
@@ -9247,31 +9279,39 @@
             },
             {
               "name": "updatedAt",
-              "description": null,
+              "description": "The most recent time this channel was updated.",
               "args": [],
               "type": {
-                "kind": "SCALAR",
-                "name": "Time",
-                "ofType": null
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Time",
+                  "ofType": null
+                }
               },
               "isDeprecated": true,
               "deprecationReason": "Use user.updatedAt instead."
             },
             {
               "name": "url",
-              "description": null,
+              "description": "The URL to view the channel in a browser.",
               "args": [],
               "type": {
-                "kind": "SCALAR",
-                "name": "String",
-                "ofType": null
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "String",
+                  "ofType": null
+                }
               },
               "isDeprecated": true,
               "deprecationReason": "Use user.profileURL instead."
             },
             {
               "name": "videoBannerURL",
-              "description": null,
+              "description": "The channel's offline image URL.",
               "args": [],
               "type": {
                 "kind": "SCALAR",
@@ -9286,9 +9326,13 @@
               "description": "The number of views a channel has received in its lifetime.",
               "args": [],
               "type": {
-                "kind": "SCALAR",
-                "name": "Int",
-                "ofType": null
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Int",
+                  "ofType": null
+                }
               },
               "isDeprecated": true,
               "deprecationReason": "Use user.profileViewCount instead."
