@@ -83940,24 +83940,24 @@
           "description": "The response from updating a channel's Community Points channel settings.",
           "fields": [
             {
-              "name": "error",
-              "description": "An error that occurred while updating a channel's Community Points channel settings.",
+              "name": "channel",
+              "description": "The channel with the newly updated settings.",
               "args": [],
               "type": {
                 "kind": "OBJECT",
-                "name": "UpdateCommunityPointsChannelSettingsError",
+                "name": "Channel",
                 "ofType": null
               },
               "isDeprecated": false,
               "deprecationReason": null
             },
             {
-              "name": "settings",
-              "description": "The newly updated settings.",
+              "name": "error",
+              "description": "An error that occurred while updating a channel's Community Points channel settings.",
               "args": [],
               "type": {
                 "kind": "OBJECT",
-                "name": "CommunityPointsChannelSettings",
+                "name": "UpdateCommunityPointsChannelSettingsError",
                 "ofType": null
               },
               "isDeprecated": false,
