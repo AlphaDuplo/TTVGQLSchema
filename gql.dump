@@ -51413,6 +51413,26 @@
           "description": "A developer organization.",
           "fields": [
             {
+              "name": "dropCampaigns",
+              "description": "Drop Campaigns developed by the organization.",
+              "args": [],
+              "type": {
+                "kind": "LIST",
+                "name": null,
+                "ofType": {
+                  "kind": "NON_NULL",
+                  "name": null,
+                  "ofType": {
+                    "kind": "OBJECT",
+                    "name": "DropCampaign",
+                    "ofType": null
+                  }
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
               "name": "games",
               "description": "The games associated with the company. Optionally include games that a company can use for Bounty Board\ncampaigns (ie. \"Just Chatting\" for trailer campaigns).",
               "args": [
