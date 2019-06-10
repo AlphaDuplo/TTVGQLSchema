@@ -5944,6 +5944,22 @@
                   "ofType": null
                 }
               },
+              "isDeprecated": true,
+              "deprecationReason": "Use 'status' instead."
+            },
+            {
+              "name": "status",
+              "description": "The user's status on Bounty Board.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "ENUM",
+                  "name": "BountyBoardUserStatus",
+                  "ofType": null
+                }
+              },
               "isDeprecated": false,
               "deprecationReason": null
             }
@@ -5951,6 +5967,41 @@
           "inputFields": null,
           "interfaces": [],
           "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "ENUM",
+          "name": "BountyBoardUserStatus",
+          "description": "Represents the user's status on Bounty Board.",
+          "fields": null,
+          "inputFields": null,
+          "interfaces": null,
+          "enumValues": [
+            {
+              "name": "INVITED",
+              "description": "The user has been invited to join the Bounty Board program but cannot participate in bounties yet.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "ACCEPTED",
+              "description": "The user has been accepted into the Bounty Board program and can participate in bounties.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "BANNED",
+              "description": "The user has been banned from the Bounty Board program.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "NONE",
+              "description": "The user is not part of the Bounty Board program.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
           "possibleTypes": null
         },
         {
@@ -14485,6 +14536,123 @@
         },
         {
           "kind": "ENUM",
+          "name": "CloneExtensionDiscoveryDataError",
+          "description": "CloneExtensionDiscoveryDataError is an error associated with the cloneExtensionDiscoveryData mutation.",
+          "fields": null,
+          "inputFields": null,
+          "interfaces": null,
+          "enumValues": [
+            {
+              "name": "UNAUTHORIZED",
+              "description": "User is unable to clone the extension.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "INVALID_NEW_VERSION",
+              "description": "Version specified is invalid.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "VERSION_NOT_FOUND",
+              "description": "The Version to clone from does not exist.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "possibleTypes": null
+        },
+        {
+          "kind": "INPUT_OBJECT",
+          "name": "CloneExtensionDiscoveryDataInput",
+          "description": "CloneExtensionDiscoveryData copies a given version's discovery data to another version.",
+          "fields": null,
+          "inputFields": [
+            {
+              "name": "id",
+              "description": "The extension ID of the extension to clone.",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "ID",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "newVersion",
+              "description": "The version to clone to.",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "String",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "version",
+              "description": "The extension version to clone from.",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "String",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            }
+          ],
+          "interfaces": null,
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "OBJECT",
+          "name": "CloneExtensionDiscoveryDataPayload",
+          "description": "CloneExtensionDiscoveryDataPayload returns any errors that occur during the copying of the discovery data.",
+          "fields": [
+            {
+              "name": "discoveryManifest",
+              "description": "The updated extension discovery data.",
+              "args": [],
+              "type": {
+                "kind": "OBJECT",
+                "name": "ExtensionDiscoveryManifest",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "error",
+              "description": "The error when the mutation fails to update an extension.",
+              "args": [],
+              "type": {
+                "kind": "ENUM",
+                "name": "CloneExtensionDiscoveryDataError",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "ENUM",
           "name": "CloneExtensionManifestError",
           "description": "CloneExtensionManifestError is an error associated with the cloneExtensionManifest mutation.",
           "fields": null,
@@ -14521,7 +14689,7 @@
         {
           "kind": "INPUT_OBJECT",
           "name": "CloneExtensionManifestInput",
-          "description": "TransitionExtesnsionManifest updates the state of an existing extension.",
+          "description": "CloneExtensionManifest copies the data in a given extension version to a new version.",
           "fields": null,
           "inputFields": [
             {
@@ -44380,8 +44548,35 @@
               "deprecationReason": null
             },
             {
+              "name": "cloneExtensionDiscoveryData",
+              "description": "cloneExtensionDiscoveryData copies the discovery data of an extension from one version to another.",
+              "args": [
+                {
+                  "name": "input",
+                  "description": null,
+                  "type": {
+                    "kind": "NON_NULL",
+                    "name": null,
+                    "ofType": {
+                      "kind": "INPUT_OBJECT",
+                      "name": "CloneExtensionDiscoveryDataInput",
+                      "ofType": null
+                    }
+                  },
+                  "defaultValue": null
+                }
+              ],
+              "type": {
+                "kind": "OBJECT",
+                "name": "CloneExtensionDiscoveryDataPayload",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
               "name": "cloneExtensionManifest",
-              "description": "CloneExtensionManifest creates a new version of an extension that is a clone of a previous version.",
+              "description": "cloneExtensionManifest creates a new version of an extension that is a clone of a previous version.",
               "args": [
                 {
                   "name": "input",
@@ -49365,6 +49560,33 @@
               "type": {
                 "kind": "OBJECT",
                 "name": "UpdateEventBroadcastNotificationsPayload",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "updateExtensionDiscoveryData",
+              "description": "updateExtensionDiscoveryData allows a user to update the discovery data for an extension.",
+              "args": [
+                {
+                  "name": "input",
+                  "description": null,
+                  "type": {
+                    "kind": "NON_NULL",
+                    "name": null,
+                    "ofType": {
+                      "kind": "INPUT_OBJECT",
+                      "name": "UpdateExtensionDiscoveryDataInput",
+                      "ofType": null
+                    }
+                  },
+                  "defaultValue": null
+                }
+              ],
+              "type": {
+                "kind": "OBJECT",
+                "name": "UpdateExtensionDiscoveryDataPayload",
                 "ofType": null
               },
               "isDeprecated": false,
@@ -84518,6 +84740,171 @@
               "type": {
                 "kind": "OBJECT",
                 "name": "EventBroadcast",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "ENUM",
+          "name": "UpdateExtensionDiscoveryDataError",
+          "description": "UpdateExtensionDiscoveryDataError is an error associated with the updateExtensionDiscoveryData mutation.",
+          "fields": null,
+          "inputFields": null,
+          "interfaces": null,
+          "enumValues": [
+            {
+              "name": "UNAUTHORIZED",
+              "description": "User is unable to make modifications to the extension.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "INVALID_VERSION",
+              "description": "Version specified is invalid.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "INVALID_NAME_LENGTH",
+              "description": "Extension names must be shorter than 40 characters.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "INVALID_DESCRIPTION_LENGTH",
+              "description": "Extension description must be shorter than 1024 characters.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "INVALID_SUMMARY_LENGTH",
+              "description": "Extension summary must be shorter than 140 characters.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "INVALID_AUTHOR_EMAIL",
+              "description": "Extension author email must not be nil. Lenght must be < 254, Parses a single RFC 5322 address.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "INVALID_SUPPORT_EMAIL",
+              "description": "Extension support email must not be nil. Lenght must be < 254, Parses a single RFC 5322 address.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "INVALID_AUTHOR_NAME_LENGTH",
+              "description": "Extension author name length must be > 40.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "INVALID_TESTING_BASE_URI",
+              "description": "Extension testing base uri must not be nil and empty scheme. Scheme should be http or https. User should not be nil.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "INVALID_TERMS_URI",
+              "description": "Extension terms uri must not be nil and empty scheme. Scheme should be http or https. User should not be nil.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "INVALID_PRIVACY_URI",
+              "description": "Extension privacy uri must not be nil and empty scheme. Scheme should be http or https. User should not be nil.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "possibleTypes": null
+        },
+        {
+          "kind": "INPUT_OBJECT",
+          "name": "UpdateExtensionDiscoveryDataInput",
+          "description": "UpdateExtensionDiscoveryDataInput updates the discovery data of a given extension version.",
+          "fields": null,
+          "inputFields": [
+            {
+              "name": "discoveryManifest",
+              "description": "Extension metadata used for discovery,\n(declared in update_extension_manifest.graphql).",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "INPUT_OBJECT",
+                  "name": "ExtensionDiscoveryManifestInput",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "id",
+              "description": "The extension ID of the manifest to update.",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "ID",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "version",
+              "description": "The extension version to update.",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "String",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            }
+          ],
+          "interfaces": null,
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "OBJECT",
+          "name": "UpdateExtensionDiscoveryDataPayload",
+          "description": "UpdateExtensionDiscoveryDataPayload returns the update Extension discovery metadata.",
+          "fields": [
+            {
+              "name": "discoveryManifest",
+              "description": "The updated extension discovery data.",
+              "args": [],
+              "type": {
+                "kind": "OBJECT",
+                "name": "ExtensionDiscoveryManifest",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "error",
+              "description": "The error when the mutation fails to update an extension.",
+              "args": [],
+              "type": {
+                "kind": "ENUM",
+                "name": "UpdateExtensionDiscoveryDataError",
                 "ofType": null
               },
               "isDeprecated": false,
