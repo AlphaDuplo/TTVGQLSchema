@@ -8954,24 +8954,14 @@
                   "defaultValue": null
                 },
                 {
-                  "name": "order",
+                  "name": "options",
                   "description": null,
                   "type": {
-                    "kind": "ENUM",
-                    "name": "CommunityPointsCustomRewardRedemptionQueueSortOrder",
+                    "kind": "INPUT_OBJECT",
+                    "name": "CommunityPointsRedemptionQueueOptions",
                     "ofType": null
                   },
-                  "defaultValue": "OLDEST"
-                },
-                {
-                  "name": "status",
-                  "description": null,
-                  "type": {
-                    "kind": "ENUM",
-                    "name": "CommunityPointsCustomRewardRedemptionStatus",
-                    "ofType": null
-                  },
-                  "defaultValue": "UNFULFILLED"
+                  "defaultValue": null
                 }
               ],
               "type": {
@@ -16888,6 +16878,47 @@
           ],
           "inputFields": null,
           "interfaces": [],
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "INPUT_OBJECT",
+          "name": "CommunityPointsRedemptionQueueOptions",
+          "description": "Optional filters that can be applied to a redemption queue query.",
+          "fields": null,
+          "inputFields": [
+            {
+              "name": "order",
+              "description": "The order of the results, either oldest first or newest first.",
+              "type": {
+                "kind": "ENUM",
+                "name": "CommunityPointsCustomRewardRedemptionQueueSortOrder",
+                "ofType": null
+              },
+              "defaultValue": "OLDEST"
+            },
+            {
+              "name": "rewardID",
+              "description": "Filter results to only redemptions of this reward.",
+              "type": {
+                "kind": "SCALAR",
+                "name": "ID",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "status",
+              "description": "Filter results to only redemptions of this status.",
+              "type": {
+                "kind": "ENUM",
+                "name": "CommunityPointsCustomRewardRedemptionStatus",
+                "ofType": null
+              },
+              "defaultValue": null
+            }
+          ],
+          "interfaces": null,
           "enumValues": null,
           "possibleTypes": null
         },
