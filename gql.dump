@@ -17370,6 +17370,38 @@
               "deprecationReason": null
             },
             {
+              "name": "aspectRatioX",
+              "description": "Specifies the width of a component extension in relation to it's targetHeight and aspectRatioY.\n\nNOTE:  targetHeight and aspectRatio will replace aspectHeight and aspectWidth.\n       however, since both will be used for a short time during the rollout of the new UI,\n       aspectWidth and aspectHeight will not be deprecated until later.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Int",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "aspectRatioY",
+              "description": "Specifies the height of a component extension in relation to it's targetHeight and aspectRatioX.\n\nNOTE:  targetHeight and aspectRatio will replace aspectHeight and aspectWidth, \n       however, since both will be used for a short time during the rollout of the new UI, \n       aspectWidth and aspectHeight will not be deprecated until later.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Int",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
               "name": "aspectWidth",
               "description": "The developer configured width of the extension as a ratio relative to it's height.",
               "args": [],
@@ -17402,6 +17434,22 @@
               "deprecationReason": null
             },
             {
+              "name": "hasAutoscale",
+              "description": "Specifies whether to automatically scale the extension iframe using css zoom as the video \nplayer dimensions change.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Boolean",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
               "name": "hasZoom",
               "description": "Specifies whether CSS zooming should be applied to the CE container, creating a consistent\nsize of 1024 pixels along the long edge of the component. Default: true.",
               "args": [],
@@ -17418,6 +17466,18 @@
               "deprecationReason": null
             },
             {
+              "name": "scalePixels",
+              "description": "If Autoscale is true, this indicates the baseline width of the extension.\nThis fields is optional, but is required if hasAutoscale is true.",
+              "args": [],
+              "type": {
+                "kind": "SCALAR",
+                "name": "Int",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
               "name": "size",
               "description": "Size of the long edge of the Component Extension, relative to the length of the corresponding\ninteractable dimension of the video.",
               "args": [],
@@ -17427,6 +17487,22 @@
                 "ofType": {
                   "kind": "SCALAR",
                   "name": "Float",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "targetHeight",
+              "description": "The percentage of the available space (0-100) (between the top and bottom player controls) \nthat the extension aims to consume.\n\nNOTE:  targetHeight and aspectRatio will replace aspectHeight and aspectWidth, \n       however, since both will be used for a short time during the rollout of the new UI, \n       aspectWidth and aspectHeight will not be deprecated until later.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Int",
                   "ofType": null
                 }
               },
@@ -47894,6 +47970,33 @@
               "deprecationReason": null
             },
             {
+              "name": "saveExtensionManifest",
+              "description": "saveExtensionManifest allows a user to update the manifest for an extension in development.",
+              "args": [
+                {
+                  "name": "input",
+                  "description": null,
+                  "type": {
+                    "kind": "NON_NULL",
+                    "name": null,
+                    "ofType": {
+                      "kind": "INPUT_OBJECT",
+                      "name": "SaveExtensionManifestInput",
+                      "ofType": null
+                    }
+                  },
+                  "defaultValue": null
+                }
+              ],
+              "type": {
+                "kind": "OBJECT",
+                "name": "SaveExtensionManifestPayload",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
               "name": "sendChatMessageThroughSubscriberMode",
               "description": "Send a chat message through subscribers-only mode with Channel Points.",
               "args": [
@@ -49861,8 +49964,8 @@
                 "name": "UpdateExtensionManifestPayload",
                 "ofType": null
               },
-              "isDeprecated": false,
-              "deprecationReason": null
+              "isDeprecated": true,
+              "deprecationReason": "Switching to saveExtensionManifest"
             },
             {
               "name": "updateIsSharingActivity",
@@ -67807,6 +67910,1162 @@
           ],
           "inputFields": null,
           "interfaces": [],
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "INPUT_OBJECT",
+          "name": "SaveComponentViewInput",
+          "description": "The view configuration of an extension if the component anchor is supported.",
+          "fields": null,
+          "inputFields": [
+            {
+              "name": "aspectHeight",
+              "description": "The developer configured height of the extension as a ratio relative to it's width.",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Int",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "aspectRatioX",
+              "description": "Specifies the width of a component extension in relation to it's targetHeight and aspectRatioY.\n\nNOTE:  targetHeight and aspectRatio will replace aspectHeight and aspectWidth.\n       however, since both will be used for a short time during the rollout of the new UI,\n       aspectWidth and aspectHeight will not be deprecated until later.",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Int",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "aspectRatioY",
+              "description": "Specifies the height of a component extension in relation to it's targetHeight and aspectRatioX.\n\nNOTE:  targetHeight and aspectRatio will replace aspectHeight and aspectWidth, \n       however, since both will be used for a short time during the rollout of the new UI, \n       aspectWidth and aspectHeight will not be deprecated until later.",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Int",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "aspectWidth",
+              "description": "The developer configured width of the extension as a ratio relative to it's height.",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Int",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "hasAutoscale",
+              "description": "Specifies whether to automatically scale the extension iframe using css zoom as the video \nplayer dimensions change.",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Boolean",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "hasZoom",
+              "description": "Specifies whether CSS zooming should be applied to the CE container, creating a consistent\nsize of 1024 pixels along the long edge of the component. Default: true.",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Boolean",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "scalePixels",
+              "description": "If Autoscale is true, this indicates the baseline width of the extension.\nThis fields is optional, but is required if hasAutoscale is true.",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Int",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "size",
+              "description": "Size of the long edge of the Component Extension, relative to the length of the corresponding\ninteractable dimension of the video.",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Float",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "targetHeight",
+              "description": "The percentage of the available space (0-100) (between the top and bottom player controls) \nthat the extension aims to consume.\n\nNOTE:  targetHeight and aspectRatio will replace aspectHeight and aspectWidth, \n       however, since both will be used for a short time during the rollout of the new UI, \n       aspectWidth and aspectHeight will not be deprecated until later.",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Int",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "viewerPath",
+              "description": "Relative path of the HTML file to load for this view.",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "String",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "zoomPixels",
+              "description": "If hasZoom is set to true, specify the effective CSS zoom to apply to the long edge of the CE.\nDefault: 1024.",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Int",
+                "ofType": null
+              },
+              "defaultValue": null
+            }
+          ],
+          "interfaces": null,
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "INPUT_OBJECT",
+          "name": "SaveConfigViewInput",
+          "description": "ConfigViewInput holds the view configuration of an extension if the config page is supported.",
+          "fields": null,
+          "inputFields": [
+            {
+              "name": "viewerPath",
+              "description": "Relative path of the HTML file to load for this view.",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "String",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            }
+          ],
+          "interfaces": null,
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "INPUT_OBJECT",
+          "name": "SaveExtensionAssetManifestInput",
+          "description": "ExtensionAssetManifestInput is data related to the assets of an extension.",
+          "fields": null,
+          "inputFields": [
+            {
+              "name": "assetHash",
+              "description": "Hash of the asset zip file.",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "String",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            }
+          ],
+          "interfaces": null,
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "INPUT_OBJECT",
+          "name": "SaveExtensionCapabilitiesInput",
+          "description": "ExtensionCapabilitiesInput contains data about what an Extension can do, in general, and at the time of interaction.",
+          "fields": null,
+          "inputFields": [
+            {
+              "name": "bitsSupportLevel",
+              "description": "The bits support level required by the broadcaster for the extension to operate. Defaults to \"NONE\".",
+              "type": {
+                "kind": "ENUM",
+                "name": "ExtensionBitsSupportLevel",
+                "ofType": null
+              },
+              "defaultValue": "NONE"
+            },
+            {
+              "name": "configurationLocation",
+              "description": "Location of configuration.",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "ENUM",
+                  "name": "ExtensionConfigurationLocation",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "hasBitsSupport",
+              "description": "Does this extension use bits.",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Boolean",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "hasChatSupport",
+              "description": "Does this extension support chat.",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Boolean",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "requiredConfiguration",
+              "description": "Required configuration string.",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "String",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "subscriptionsSupportLevel",
+              "description": "The subscription support level required by the broadcaster for the extension to operate. Defaults to \"NONE\".",
+              "type": {
+                "kind": "ENUM",
+                "name": "ExtensionSubscriptionsSupportLevel",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "whitelists",
+              "description": "Whitelists for restricting extension access and behavior.",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "INPUT_OBJECT",
+                  "name": "ExtensionWhitelistsInput",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "willRequestIdentityLink",
+              "description": "Will this extension request an identity link.",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Boolean",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            }
+          ],
+          "interfaces": null,
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "INPUT_OBJECT",
+          "name": "SaveExtensionDeveloperManifestInput",
+          "description": "ExtensionDeveloperManifestInput is the developer specific extension data.",
+          "fields": null,
+          "inputFields": [
+            {
+              "name": "authorEmail",
+              "description": "Author email.",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "String",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "testingBaseURI",
+              "description": "Testing uri for extension development.",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "String",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            }
+          ],
+          "interfaces": null,
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "INPUT_OBJECT",
+          "name": "SaveExtensionDiscoveryManifestInput",
+          "description": "Extension metadata used for discovery.",
+          "fields": null,
+          "inputFields": [
+            {
+              "name": "authorName",
+              "description": "Name of the extension author.",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "String",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "categories",
+              "description": "Extension categories.",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "LIST",
+                  "name": null,
+                  "ofType": {
+                    "kind": "NON_NULL",
+                    "name": null,
+                    "ofType": {
+                      "kind": "SCALAR",
+                      "name": "ID",
+                      "ofType": null
+                    }
+                  }
+                }
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "description",
+              "description": "Extension descriprion. 1024 character limit.",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "String",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "games",
+              "description": "games an extension is associated with.",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "LIST",
+                  "name": null,
+                  "ofType": {
+                    "kind": "NON_NULL",
+                    "name": null,
+                    "ofType": {
+                      "kind": "SCALAR",
+                      "name": "ID",
+                      "ofType": null
+                    }
+                  }
+                }
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "name",
+              "description": "name of the extension.",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "String",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "privacyPolicyURL",
+              "description": "Url to an extensions privacy policy.",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "String",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "summary",
+              "description": "Extension summary. 140 character limit.",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "String",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "supportEmail",
+              "description": "Extension developers support email.",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "String",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "termsURL",
+              "description": "Extension eula/tos url.",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "String",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "viewerSummary",
+              "description": "A summary of the extension's functionality from a viewer's perspective.",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "String",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            }
+          ],
+          "interfaces": null,
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "ENUM",
+          "name": "SaveExtensionManifestError",
+          "description": "SaveExtensionManifestError is an error associated with the saveExtensionManifest mutation.",
+          "fields": null,
+          "inputFields": null,
+          "interfaces": null,
+          "enumValues": [
+            {
+              "name": "UNAUTHORIZED",
+              "description": "User is unable to make modifications to the extension.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "INVALID_VERSION",
+              "description": "Version specified is invalid.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "ANCHOR_REQUIRED",
+              "description": "At least one anchor must be specified.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "INVALID_ZOOM",
+              "description": "HasZoom was specified but ZoomPixels is missing.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "MAX_BROADCASTERS",
+              "description": "The number of whitelisted broadcasters exceeds the limit.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "MAX_TESTERS",
+              "description": "The number of whitelisted testing users exceeds the limit.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "MAX_WHITELISTED_CONFIG_URLS",
+              "description": "The number of whitelisted config URLs exceeds the limit.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "MAX_WHITELISTED_PANEL_URLS",
+              "description": "The number of whitelisted panel URLs exceeds the limit.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "INVALID_NAME_LENGTH",
+              "description": "Extension names must be shorter than 40 characters.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "INVALID_DESCRIPTION_LENGTH",
+              "description": "Extension description must be shorter than 1024 characters.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "INVALID_SUMMARY_LENGTH",
+              "description": "Extension summary must be shorter than 140 characters.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "INVALID_AUTHOR_EMAIL",
+              "description": "Extension author email must not be nil. Lenght must be < 254, Parses a single RFC 5322 address.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "INVALID_SUPPORT_EMAIL",
+              "description": "Extension support email must not be nil. Lenght must be < 254, Parses a single RFC 5322 address.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "INVALID_AUTHOR_NAME_LENGTH",
+              "description": "Extension author name length must be > 40.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "INVALID_TESTING_BASE_URI",
+              "description": "Extension testing base uri must not be nil and empty scheme. Scheme should be http or https. User should not be nil.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "INVALID_TERMS_URI",
+              "description": "Extension terms uri must not be nil and empty scheme. Scheme should be http or https. User should not be nil.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "INVALID_PRIVACY_URI",
+              "description": "Extension privacy uri must not be nil and empty scheme. Scheme should be http or https. User should not be nil.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "INVALID_COMPONENT_VIEWER_PATH",
+              "description": "Extension component viewer path must not be nil. Format should be BaseUri/Extension_Path.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "INVALID_PANEL_VIEWER_PATH",
+              "description": "Extension panel viewer path must not be nil. Format should be BaseUri/Extension_Path.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "INVALID_VIDEO_OVERLAY_VIEWER_PATH",
+              "description": "Extension video overlay viewer path must not be nil. Format should be BaseUri/Extension_Path.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "INVALID_CONFIG_VIEWER_PATH",
+              "description": "Extension config viewer path must not be nil. Format should be BaseUri/Extension_Path.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "INVALID_LIVE_CONFIG_VIEWER_PATH",
+              "description": "Extension live config viewer path must not be nil. Format should be BaseUri/Extension_Path.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "INVALID_MOBILE_VIEWER_PATH",
+              "description": "Extension mobile viewer path must not be nil. Format should be BaseUri/Extension_Path.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "INVALID_COMPONENT_ASPECT_WIDTH",
+              "description": "Extension component aspect width must be < 50 or > 1.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "INVALID_COMPONENT_ASPECT_HEIGHT",
+              "description": "Extension component aspect height must be < 50 or > 1.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "INVALID_PANEL_HEIGHT",
+              "description": "Extension panel hiehgt must be < 500 or > 100.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "INVALID_BITS_SUPPORT_LEVEL",
+              "description": "Extension Bits Support Level must ba valid member of the BitsSupportLevelEnum.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "INVALID_SCALING_PIXELS",
+              "description": "Scaling pixels must be set to a positive integer when autoscale is true.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "possibleTypes": null
+        },
+        {
+          "kind": "INPUT_OBJECT",
+          "name": "SaveExtensionManifestInput",
+          "description": "SaveExtensionManifestInput updates the manifest.",
+          "fields": null,
+          "inputFields": [
+            {
+              "name": "assetManifest",
+              "description": "ExtensionAssetManifest is data related to the assets of an extension.",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "INPUT_OBJECT",
+                  "name": "SaveExtensionAssetManifestInput",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "capabilities",
+              "description": "Data about what an Extension can do, in general, and at the time of interaction.",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "INPUT_OBJECT",
+                  "name": "SaveExtensionCapabilitiesInput",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "developerManifest",
+              "description": "ExtensionDeveloperManifest is the developer specific extension data.",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "INPUT_OBJECT",
+                  "name": "SaveExtensionDeveloperManifestInput",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "discoveryManifest",
+              "description": "Extension metadata used for discovery.",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "INPUT_OBJECT",
+                  "name": "SaveExtensionDiscoveryManifestInput",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "id",
+              "description": "The extension ID of the manifest to update.",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "ID",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "version",
+              "description": "The extension version to update.",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "String",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "views",
+              "description": "Extension views.",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "INPUT_OBJECT",
+                  "name": "SaveExtensionViewsInput",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            }
+          ],
+          "interfaces": null,
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "OBJECT",
+          "name": "SaveExtensionManifestPayload",
+          "description": "SaveExtensionManifestPayload returns the update Extension manifest.",
+          "fields": [
+            {
+              "name": "error",
+              "description": "The error when the mutation fails to update an extension.",
+              "args": [],
+              "type": {
+                "kind": "ENUM",
+                "name": "SaveExtensionManifestError",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "manifest",
+              "description": "The updated extension manifest.",
+              "args": [],
+              "type": {
+                "kind": "OBJECT",
+                "name": "ExtensionManifest",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "INPUT_OBJECT",
+          "name": "SaveExtensionViewsInput",
+          "description": "The potential anchor-specific configurations and extension can have.",
+          "fields": null,
+          "inputFields": [
+            {
+              "name": "component",
+              "description": "The developer configuration of the extension as a component extension, if supported.",
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "SaveComponentViewInput",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "config",
+              "description": "The developer configuration of the extension's configuration view, if supported.",
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "SaveConfigViewInput",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "liveConfig",
+              "description": "The developer configuration of the extension's live configuration dashboard view, if supported.",
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "SaveLiveConfigViewInput",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "mobile",
+              "description": "The developer configuration of the extension as a mobile extension, if supported.",
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "SaveMobileViewInput",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "panel",
+              "description": "The developer configuration of the extension as a panel extension, if supported.",
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "SavePanelViewInput",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "videoOverlay",
+              "description": "The developer configuration of the extension as a video overlay extension, if supported.",
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "SaveVideoOverlayViewInput",
+                "ofType": null
+              },
+              "defaultValue": null
+            }
+          ],
+          "interfaces": null,
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "INPUT_OBJECT",
+          "name": "SaveExtensionWhitelistsInput",
+          "description": "ExtensionWhitelistsInput contains whitelists for restricting extension access and behavior.",
+          "fields": null,
+          "inputFields": [
+            {
+              "name": "broadcasters",
+              "description": "List of broadcaster account IDs allowed to install an extension after release.\nIf this is empty or missing, all broadcasters can use this extension.",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "LIST",
+                  "name": null,
+                  "ofType": {
+                    "kind": "NON_NULL",
+                    "name": null,
+                    "ofType": {
+                      "kind": "SCALAR",
+                      "name": "ID",
+                      "ofType": null
+                    }
+                  }
+                }
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "configURLs",
+              "description": "URLs which are permitted to be opened from the configuration dialog.",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "LIST",
+                  "name": null,
+                  "ofType": {
+                    "kind": "NON_NULL",
+                    "name": null,
+                    "ofType": {
+                      "kind": "SCALAR",
+                      "name": "String",
+                      "ofType": null
+                    }
+                  }
+                }
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "panelURLs",
+              "description": "URLs which are permitted to be opened from an extension set as a panel.",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "LIST",
+                  "name": null,
+                  "ofType": {
+                    "kind": "NON_NULL",
+                    "name": null,
+                    "ofType": {
+                      "kind": "SCALAR",
+                      "name": "String",
+                      "ofType": null
+                    }
+                  }
+                }
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "testers",
+              "description": "List of account IDs which should have access to a version of an extension.\nUsers in this list are ignored by the broadcaster whitelist check.",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "LIST",
+                  "name": null,
+                  "ofType": {
+                    "kind": "NON_NULL",
+                    "name": null,
+                    "ofType": {
+                      "kind": "SCALAR",
+                      "name": "ID",
+                      "ofType": null
+                    }
+                  }
+                }
+              },
+              "defaultValue": null
+            }
+          ],
+          "interfaces": null,
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "INPUT_OBJECT",
+          "name": "SaveHiddenViewInput",
+          "description": "HiddenView holds the view configuration of an extension if it is a hidden load test extension.",
+          "fields": null,
+          "inputFields": [
+            {
+              "name": "viewerPath",
+              "description": "Relative path of the HTML file to load for this view.",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "String",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            }
+          ],
+          "interfaces": null,
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "INPUT_OBJECT",
+          "name": "SaveLiveConfigViewInput",
+          "description": "LiveConfigViewInput holds the view configuration of an extension if the live config dashboard page is supported.",
+          "fields": null,
+          "inputFields": [
+            {
+              "name": "viewerPath",
+              "description": "Relative path of the HTML file to load for this view.",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "String",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            }
+          ],
+          "interfaces": null,
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "INPUT_OBJECT",
+          "name": "SaveMobileViewInput",
+          "description": "MobileViewInput holds the view configuration of an extension if mobile is supported.",
+          "fields": null,
+          "inputFields": [
+            {
+              "name": "viewerPath",
+              "description": "Relative path of the HTML file to load for this view.",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "String",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            }
+          ],
+          "interfaces": null,
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "INPUT_OBJECT",
+          "name": "SavePanelViewInput",
+          "description": "PanelViewInput holds the view configuration of an extension if the panel anchor is supported.",
+          "fields": null,
+          "inputFields": [
+            {
+              "name": "height",
+              "description": "The extension developer configured height of the panel extension.",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Int",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "viewerPath",
+              "description": "Relative path of the HTML file to load for this view.",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "String",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            }
+          ],
+          "interfaces": null,
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "INPUT_OBJECT",
+          "name": "SaveVideoOverlayViewInput",
+          "description": "VideoOverlayViewInput holds the view configuration of an extension if the videoOverlay anchor is supported.",
+          "fields": null,
+          "inputFields": [
+            {
+              "name": "viewerPath",
+              "description": "Relative path of the HTML file to load for this view.",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "String",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            }
+          ],
+          "interfaces": null,
           "enumValues": null,
           "possibleTypes": null
         },
