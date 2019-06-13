@@ -8930,6 +8930,33 @@
               "deprecationReason": null
             },
             {
+              "name": "communityPointsCustomRewardRedemption",
+              "description": "Get a single community points custom reward redemption by its ID.",
+              "args": [
+                {
+                  "name": "id",
+                  "description": null,
+                  "type": {
+                    "kind": "NON_NULL",
+                    "name": null,
+                    "ofType": {
+                      "kind": "SCALAR",
+                      "name": "ID",
+                      "ofType": null
+                    }
+                  },
+                  "defaultValue": null
+                }
+              ],
+              "type": {
+                "kind": "OBJECT",
+                "name": "CommunityPointsCustomRewardRedemption",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
               "name": "communityPointsRedemptionQueue",
               "description": "The queue of community points custom reward redemptions in this channel.",
               "args": [
@@ -70445,6 +70472,41 @@
           ]
         },
         {
+          "kind": "ENUM",
+          "name": "SegmentsStatusType",
+          "description": "An enumeration of the statuses of suggested segments.",
+          "fields": null,
+          "inputFields": null,
+          "interfaces": null,
+          "enumValues": [
+            {
+              "name": "COMPLETED",
+              "description": "The suggested segments have successfully been created.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "NOT_ENOUGH_DATA",
+              "description": "There wasn't enough data to generate suggested segments.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "IN_PROGRESS",
+              "description": "The vod is currently being processed for suggested segments.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "FAILED",
+              "description": "The backend failed to generate suggested segments.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "possibleTypes": null
+        },
+        {
           "kind": "INTERFACE",
           "name": "SelfClaimEdge",
           "description": "An interface to represent the logged in user's relationship to the claimable.",
@@ -98342,10 +98404,22 @@
                   "name": null,
                   "ofType": {
                     "kind": "OBJECT",
-                    "name": "VideoSuggestedHighlightSegment",
+                    "name": "VideoSuggestedSegment",
                     "ofType": null
                   }
                 }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "status",
+              "description": "Status of the segments.",
+              "args": [],
+              "type": {
+                "kind": "ENUM",
+                "name": "SegmentsStatusType",
+                "ofType": null
               },
               "isDeprecated": false,
               "deprecationReason": null
@@ -98358,11 +98432,11 @@
         },
         {
           "kind": "OBJECT",
-          "name": "VideoSuggestedHighlightSegment",
+          "name": "VideoSuggestedSegment",
           "description": "Information for one suggested video segment.",
           "fields": [
             {
-              "name": "endTimeMS",
+              "name": "endMS",
               "description": "Ending time of the suggested segment in milliseconds.",
               "args": [],
               "type": {
@@ -98378,7 +98452,7 @@
               "deprecationReason": null
             },
             {
-              "name": "startTimeMS",
+              "name": "startMS",
               "description": "Starting time of the suggested segment in milliseconds.",
               "args": [],
               "type": {
