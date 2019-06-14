@@ -14639,24 +14639,24 @@
           "description": "CloneExtensionDiscoveryDataPayload returns any errors that occur during the copying of the discovery data.",
           "fields": [
             {
-              "name": "discoveryManifest",
-              "description": "The updated extension discovery data.",
-              "args": [],
-              "type": {
-                "kind": "OBJECT",
-                "name": "ExtensionDiscoveryManifest",
-                "ofType": null
-              },
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
               "name": "error",
               "description": "The error when the mutation fails to update an extension.",
               "args": [],
               "type": {
                 "kind": "ENUM",
                 "name": "CloneExtensionDiscoveryDataError",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "manifest",
+              "description": "The updated extension discovery data.",
+              "args": [],
+              "type": {
+                "kind": "OBJECT",
+                "name": "ExtensionVersionDiscoveryManifest",
                 "ofType": null
               },
               "isDeprecated": false,
@@ -34037,7 +34037,7 @@
         {
           "kind": "OBJECT",
           "name": "ExtensionVersionDiscoveryManifest",
-          "description": "ExtensionVersionDiscoveryManifest is the data that represents an extension discovery manfiest.",
+          "description": "ExtensionVersionDiscoveryManifest is the data that represents an extension discovery manifest.",
           "fields": [
             {
               "name": "discoveryManifest",
@@ -86524,24 +86524,24 @@
           "description": "UpdateExtensionDiscoveryDataPayload returns the update Extension discovery metadata.",
           "fields": [
             {
-              "name": "discoveryManifest",
-              "description": "The updated extension discovery data.",
-              "args": [],
-              "type": {
-                "kind": "OBJECT",
-                "name": "ExtensionDiscoveryManifest",
-                "ofType": null
-              },
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
               "name": "error",
               "description": "The error when the mutation fails to update an extension.",
               "args": [],
               "type": {
                 "kind": "ENUM",
                 "name": "UpdateExtensionDiscoveryDataError",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "manifest",
+              "description": "The updated extension discovery data.",
+              "args": [],
+              "type": {
+                "kind": "OBJECT",
+                "name": "ExtensionVersionDiscoveryManifest",
                 "ofType": null
               },
               "isDeprecated": false,
