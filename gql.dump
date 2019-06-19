@@ -96068,6 +96068,18 @@
               "deprecationReason": null
             },
             {
+              "name": "seekPreviewsURL",
+              "description": "A link to a sprite sheet image made up of preview thumbnails when seeking the video timeline.",
+              "args": [],
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
               "name": "self",
               "description": "The authenticated user's relationship with this video.",
               "args": [],
