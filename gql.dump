@@ -16064,7 +16064,7 @@
           "fields": [
             {
               "name": "automaticRewards",
-              "description": "Automatic rewards for this channel. If no automatic rewards exist, will be nil.",
+              "description": "Automatic rewards for this channel. If no automatic rewards exist, will be an empty array.",
               "args": [],
               "type": {
                 "kind": "LIST",
@@ -16087,19 +16087,15 @@
               "description": "Custom rewards for this channel. If no custom rewards exist, will be an empty array.",
               "args": [],
               "type": {
-                "kind": "NON_NULL",
+                "kind": "LIST",
                 "name": null,
                 "ofType": {
-                  "kind": "LIST",
+                  "kind": "NON_NULL",
                   "name": null,
                   "ofType": {
-                    "kind": "NON_NULL",
-                    "name": null,
-                    "ofType": {
-                      "kind": "OBJECT",
-                      "name": "CommunityPointsCustomReward",
-                      "ofType": null
-                    }
+                    "kind": "OBJECT",
+                    "name": "CommunityPointsCustomReward",
+                    "ofType": null
                   }
                 }
               },
@@ -16553,9 +16549,13 @@
                   "kind": "LIST",
                   "name": null,
                   "ofType": {
-                    "kind": "OBJECT",
-                    "name": "CommunityPointsCustomRewardRedemptionEdge",
-                    "ofType": null
+                    "kind": "NON_NULL",
+                    "name": null,
+                    "ofType": {
+                      "kind": "OBJECT",
+                      "name": "CommunityPointsCustomRewardRedemptionEdge",
+                      "ofType": null
+                    }
                   }
                 }
               },
@@ -16855,12 +16855,6 @@
               "description": "Tier-3 Subscriber.",
               "isDeprecated": false,
               "deprecationReason": null
-            },
-            {
-              "name": "CHEER_1",
-              "description": "Channel-wide cheer streak level 1.",
-              "isDeprecated": false,
-              "deprecationReason": null
             }
           ],
           "possibleTypes": null
@@ -16875,19 +16869,15 @@
               "description": "Multipliers currently affecting the logged in user's rate of point gaining in this channel.\nIf there are no multipliers active, will be an empty array.",
               "args": [],
               "type": {
-                "kind": "NON_NULL",
+                "kind": "LIST",
                 "name": null,
                 "ofType": {
-                  "kind": "LIST",
+                  "kind": "NON_NULL",
                   "name": null,
                   "ofType": {
-                    "kind": "NON_NULL",
-                    "name": null,
-                    "ofType": {
-                      "kind": "OBJECT",
-                      "name": "CommunityPointsMultiplier",
-                      "ofType": null
-                    }
+                    "kind": "OBJECT",
+                    "name": "CommunityPointsMultiplier",
+                    "ofType": null
                   }
                 }
               },
