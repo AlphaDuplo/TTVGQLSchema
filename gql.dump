@@ -50103,6 +50103,33 @@
               "deprecationReason": null
             },
             {
+              "name": "updateOrganizationMemberRole",
+              "description": "updateOrganizationMemberRole updates the role of an organization member (Twitch Developers).",
+              "args": [
+                {
+                  "name": "input",
+                  "description": null,
+                  "type": {
+                    "kind": "NON_NULL",
+                    "name": null,
+                    "ofType": {
+                      "kind": "INPUT_OBJECT",
+                      "name": "UpdateOrganizationMemberRoleInput",
+                      "ofType": null
+                    }
+                  },
+                  "defaultValue": null
+                }
+              ],
+              "type": {
+                "kind": "OBJECT",
+                "name": "UpdateOrganizationMemberRolePayload",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
               "name": "updatePanel",
               "description": "updatePanel updates the data for a given panel.",
               "args": [
@@ -87199,6 +87226,156 @@
               "type": {
                 "kind": "OBJECT",
                 "name": "User",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "OBJECT",
+          "name": "UpdateOrganizationMemberRoleError",
+          "description": "Error that may be returned by the UpdateOrganizationMemberRole mutation.",
+          "fields": [
+            {
+              "name": "code",
+              "description": "Type of mutation error.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "ENUM",
+                  "name": "UpdateOrganizationMemberRoleErrorCode",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "ENUM",
+          "name": "UpdateOrganizationMemberRoleErrorCode",
+          "description": "UpdateOrganizationMemberRoleErrorCode is the client error type that occurred during the UpdateOrganizationMemberRole mutation.",
+          "fields": null,
+          "inputFields": null,
+          "interfaces": null,
+          "enumValues": [
+            {
+              "name": "MEMBER_NOT_FOUND",
+              "description": "The user is not a member of the organization, or the organization does not exist.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "MEMBER_INELIGIBLE",
+              "description": "The user doesn't meet the requirements to have this role. For example, when trying to assign the\n\"BILLING_MANAGER\" role, but the user doesn't have 2FA enabled or completed Extension Monetization Onboarding.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "PERMISSION_DENIED",
+              "description": "Current user not allowed to update the role.\nFor example, developers can not assign roles, and no one can assign the owner role to another user.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "INVALID_ARGUMENT",
+              "description": "One of the input parameters is malformed. This should not happen when properly using the UI.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "possibleTypes": null
+        },
+        {
+          "kind": "INPUT_OBJECT",
+          "name": "UpdateOrganizationMemberRoleInput",
+          "description": "Inputs to the UpdateOrganizationMemberRole mutation.",
+          "fields": null,
+          "inputFields": [
+            {
+              "name": "organizationID",
+              "description": "ID of the organization where the user is a member.",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "ID",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "role",
+              "description": "New role of the user in the organization.",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "ENUM",
+                  "name": "OrganizationMemberRole",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "userID",
+              "description": "User's Twitch ID.",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "ID",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            }
+          ],
+          "interfaces": null,
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "OBJECT",
+          "name": "UpdateOrganizationMemberRolePayload",
+          "description": "Outputs from the UpdateOrganizationMemberRole mutation.",
+          "fields": [
+            {
+              "name": "error",
+              "description": "Logical error that could be returned by the mutation.",
+              "args": [],
+              "type": {
+                "kind": "OBJECT",
+                "name": "UpdateOrganizationMemberRoleError",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "organizationMember",
+              "description": "Updated member with the new role.",
+              "args": [],
+              "type": {
+                "kind": "OBJECT",
+                "name": "OrganizationMember",
                 "ofType": null
               },
               "isDeprecated": false,
