@@ -23069,6 +23069,65 @@
           "possibleTypes": null
         },
         {
+          "kind": "OBJECT",
+          "name": "CurrentPrimePayout",
+          "description": "CurrentPrimePayout is the detail breakdown of the payout that will be made in this specific payout cycle.",
+          "fields": [
+            {
+              "name": "pastCyclePayoutAmount",
+              "description": "pastCyclePayoutAmount is the part of the payout that was earned in previous payout cycle(s).",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Int",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "thisCyclePayoutAmount",
+              "description": "thisCyclePayoutAmount is the part of the payout that was earned in this payout cycle itself.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Int",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "totalPayoutAmount",
+              "description": "totalPayoutAmount is the total amount for this payout.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Int",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
           "kind": "SCALAR",
           "name": "Cursor",
           "description": "An opaque identifier for a connection edge. Used for pagination.\n\nThis is part of the Relay Cursor Connections Specification:\nhttps://facebook.github.io/relay/graphql/connections.htm.",
@@ -24458,6 +24517,33 @@
               "ofType": null
             }
           ],
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "OBJECT",
+          "name": "DeferredPrimePayout",
+          "description": "DeferredPrimePayout is the earning that has been deferred to future payout cycles.",
+          "fields": [
+            {
+              "name": "totalPayoutAmount",
+              "description": "totalPayoutAmount is the total amount for this payout.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Int",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
           "enumValues": null,
           "possibleTypes": null
         },
@@ -57465,6 +57551,132 @@
                   "kind": "SCALAR",
                   "name": "String",
                   "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "OBJECT",
+          "name": "PrimePayoutDetail",
+          "description": "PrimePayoutDetail shows the detailed breakdown of the prime payouts for a given user.",
+          "fields": [
+            {
+              "name": "currency",
+              "description": "currency for the payout number above.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "ENUM",
+                  "name": "Currency",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "currentPrimePayout",
+              "description": "currentPrimePayout is the payout that will be made in this specific payout cycle.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "OBJECT",
+                  "name": "CurrentPrimePayout",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "deferredPrimePayout",
+              "description": "deferredPrimePayout is part of the earning that was earned this month but will not be paid out this month.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "OBJECT",
+                  "name": "DeferredPrimePayout",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "month",
+              "description": "month when this payout will be made.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Int",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "year",
+              "description": "year when this payout will be made.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Int",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "OBJECT",
+          "name": "PrimePayoutDetails",
+          "description": "PrimePayoutDetails shows the history of prime payout detail.",
+          "fields": [
+            {
+              "name": "primePayoutHistory",
+              "description": "primePayoutHistory is the history of prime payout details for a user.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "LIST",
+                  "name": null,
+                  "ofType": {
+                    "kind": "NON_NULL",
+                    "name": null,
+                    "ofType": {
+                      "kind": "OBJECT",
+                      "name": "PrimePayoutDetail",
+                      "ofType": null
+                    }
+                  }
                 }
               },
               "isDeprecated": false,
@@ -92911,6 +93123,18 @@
               "type": {
                 "kind": "OBJECT",
                 "name": "PrimeGiftedOffer",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "primePayoutDetails",
+              "description": "The prime payout details for the user.",
+              "args": [],
+              "type": {
+                "kind": "OBJECT",
+                "name": "PrimePayoutDetails",
                 "ofType": null
               },
               "isDeprecated": false,
