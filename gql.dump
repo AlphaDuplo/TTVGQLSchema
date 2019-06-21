@@ -731,6 +731,45 @@
         },
         {
           "kind": "OBJECT",
+          "name": "AdCreative",
+          "description": "Advertising creative.",
+          "fields": [
+            {
+              "name": "id",
+              "description": "The AdCreative's unique identifier.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "ID",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "integratedLoudness",
+              "description": "Integrated loudness value for this AdCreative.",
+              "args": [],
+              "type": {
+                "kind": "SCALAR",
+                "name": "Float",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "OBJECT",
           "name": "AdProperties",
           "description": "Ad Properties is an object that defines ad properties for a channel.",
           "fields": [
@@ -59333,6 +59372,47 @@
           "name": "Query",
           "description": "Root fields to access the Twitch API.",
           "fields": [
+            {
+              "name": "adCreative",
+              "description": "Get a single AdCreative.",
+              "args": [
+                {
+                  "name": "adSystem",
+                  "description": null,
+                  "type": {
+                    "kind": "NON_NULL",
+                    "name": null,
+                    "ofType": {
+                      "kind": "SCALAR",
+                      "name": "String",
+                      "ofType": null
+                    }
+                  },
+                  "defaultValue": null
+                },
+                {
+                  "name": "creativeID",
+                  "description": null,
+                  "type": {
+                    "kind": "NON_NULL",
+                    "name": null,
+                    "ofType": {
+                      "kind": "SCALAR",
+                      "name": "ID",
+                      "ofType": null
+                    }
+                  },
+                  "defaultValue": null
+                }
+              ],
+              "type": {
+                "kind": "OBJECT",
+                "name": "AdCreative",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
             {
               "name": "allTags",
               "description": "Get all tags.",
