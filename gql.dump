@@ -18507,6 +18507,12 @@
               "description": "Clip cannot be created because channel is no longer live.",
               "isDeprecated": false,
               "deprecationReason": null
+            },
+            {
+              "name": "REQUEST_THROTTLED",
+              "description": "Clip cannot be created because the request is throttled.",
+              "isDeprecated": false,
+              "deprecationReason": null
             }
           ],
           "possibleTypes": null
