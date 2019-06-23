@@ -78743,12 +78743,6 @@
               "description": "Access from the Twitch Android application.",
               "isDeprecated": false,
               "deprecationReason": null
-            },
-            {
-              "name": "MOBILE_ALL",
-              "description": "Access from all Twitch Mobile applications (ANDROID + IOS).",
-              "isDeprecated": false,
-              "deprecationReason": null
             }
           ],
           "possibleTypes": null
