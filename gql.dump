@@ -93829,18 +93829,6 @@
               "deprecationReason": null
             },
             {
-              "name": "integratedLoudness",
-              "description": "Integrated loudness value for the user's stream.",
-              "args": [],
-              "type": {
-                "kind": "SCALAR",
-                "name": "Float",
-                "ofType": null
-              },
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
               "name": "inventory",
               "description": "Items (crates, drops, etc.) the user owns.",
               "args": [],
