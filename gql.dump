@@ -775,15 +775,15 @@
           "fields": [
             {
               "name": "adServer",
-              "description": "Which adserver to send requests to.",
+              "description": "Deprecated.",
               "args": [],
               "type": {
                 "kind": "SCALAR",
                 "name": "String",
                 "ofType": null
               },
-              "isDeprecated": false,
-              "deprecationReason": null
+              "isDeprecated": true,
+              "deprecationReason": "Should use adServerDefault instead"
             },
             {
               "name": "adServerDefault",
@@ -23443,6 +23443,18 @@
           "description": "An action (and metadata about the action) which occurred for a channel's Dashboard Activity Feed.",
           "fields": [
             {
+              "name": "alertStatus",
+              "description": "Status of the corresponding alert.",
+              "args": [],
+              "type": {
+                "kind": "ENUM",
+                "name": "DashboardActivityFeedActivityAlertStatus",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
               "name": "id",
               "description": "Unique identifier for this activity.",
               "args": [],
@@ -23542,10 +23554,75 @@
           ]
         },
         {
+          "kind": "ENUM",
+          "name": "DashboardActivityFeedActivityAlertStatus",
+          "description": "DashboardActivityFeedActivityAlertStatus are the possible alert statuses that an activity's corresponding alert can have.",
+          "fields": null,
+          "inputFields": null,
+          "interfaces": null,
+          "enumValues": [
+            {
+              "name": "FAILED",
+              "description": "The alert failed to be published.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "OFFLINE",
+              "description": "The alert was received when the channel was offline.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "PLAYED",
+              "description": "The alert has been played and will not be seen again.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "PLAYING",
+              "description": "The alert is currently being displayed.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "QUEUED",
+              "description": "The alert is in the alert queue, but yet to be seen.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "REJECTED",
+              "description": "The alert was not queued and will not be displayed.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "SKIPPED",
+              "description": "The alert was being displayed, but was skipped by the broadcaster.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "possibleTypes": null
+        },
+        {
           "kind": "OBJECT",
           "name": "DashboardActivityFeedActivityAutoHosting",
           "description": "When a user AutoHosts a channel.",
           "fields": [
+            {
+              "name": "alertStatus",
+              "description": "Status of the corresponding alert.",
+              "args": [],
+              "type": {
+                "kind": "ENUM",
+                "name": "DashboardActivityFeedActivityAlertStatus",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
             {
               "name": "host",
               "description": "User/Channel who is now AutoHosting the channel.",
@@ -23623,6 +23700,18 @@
           "name": "DashboardActivityFeedActivityBitsUsage",
           "description": "When a user uses Bits for or sends Bits to a channel.",
           "fields": [
+            {
+              "name": "alertStatus",
+              "description": "Status of the corresponding alert.",
+              "args": [],
+              "type": {
+                "kind": "ENUM",
+                "name": "DashboardActivityFeedActivityAlertStatus",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
             {
               "name": "amount",
               "description": "Bits spent.",
@@ -23716,6 +23805,18 @@
           "name": "DashboardActivityFeedActivityCommunitySubscriptionGifting",
           "description": "When a user gifts subscriptions to a community for a channel.",
           "fields": [
+            {
+              "name": "alertStatus",
+              "description": "Status of the corresponding alert.",
+              "args": [],
+              "type": {
+                "kind": "ENUM",
+                "name": "DashboardActivityFeedActivityAlertStatus",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
             {
               "name": "giftQuantity",
               "description": "Total subscriptions gifted by the gifter.",
@@ -23940,6 +24041,18 @@
           "description": "When a user newly follows or refollows a channel.",
           "fields": [
             {
+              "name": "alertStatus",
+              "description": "Status of the corresponding alert.",
+              "args": [],
+              "type": {
+                "kind": "ENUM",
+                "name": "DashboardActivityFeedActivityAlertStatus",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
               "name": "follower",
               "description": "User who is now following the channel.",
               "args": [],
@@ -24000,6 +24113,18 @@
           "name": "DashboardActivityFeedActivityHosting",
           "description": "When a user hosts a channel.",
           "fields": [
+            {
+              "name": "alertStatus",
+              "description": "Status of the corresponding alert.",
+              "args": [],
+              "type": {
+                "kind": "ENUM",
+                "name": "DashboardActivityFeedActivityAlertStatus",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
             {
               "name": "host",
               "description": "User/Channel who is now hosting the channel.",
@@ -24073,6 +24198,18 @@
           "name": "DashboardActivityFeedActivityIndividualSubscriptionGifting",
           "description": "When a user gifts a single subscription to another individual user for a channel.",
           "fields": [
+            {
+              "name": "alertStatus",
+              "description": "Status of the corresponding alert.",
+              "args": [],
+              "type": {
+                "kind": "ENUM",
+                "name": "DashboardActivityFeedActivityAlertStatus",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
             {
               "name": "gifter",
               "description": "Subscription purchaser & gifter.",
@@ -24179,6 +24316,18 @@
           "description": "When an ingest session begins.",
           "fields": [
             {
+              "name": "alertStatus",
+              "description": "Status of the corresponding alert.",
+              "args": [],
+              "type": {
+                "kind": "ENUM",
+                "name": "DashboardActivityFeedActivityAlertStatus",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
               "name": "id",
               "description": "Unique identifier for the start of this ingest session.",
               "args": [],
@@ -24227,6 +24376,18 @@
           "name": "DashboardActivityFeedActivityPrimeResubscribing",
           "description": "When a user resubscribes via Twitch Prime to a channel.",
           "fields": [
+            {
+              "name": "alertStatus",
+              "description": "Status of the corresponding alert.",
+              "args": [],
+              "type": {
+                "kind": "ENUM",
+                "name": "DashboardActivityFeedActivityAlertStatus",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
             {
               "name": "durationMonths",
               "description": "Duration of the subscription.",
@@ -24329,6 +24490,18 @@
           "description": "When a user subscribes for the first time via Twitch Prime to a channel.",
           "fields": [
             {
+              "name": "alertStatus",
+              "description": "Status of the corresponding alert.",
+              "args": [],
+              "type": {
+                "kind": "ENUM",
+                "name": "DashboardActivityFeedActivityAlertStatus",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
               "name": "id",
               "description": "Unique identifier for the act of subscribing.",
               "args": [],
@@ -24389,6 +24562,18 @@
           "name": "DashboardActivityFeedActivityRaiding",
           "description": "When a user raids a channel.",
           "fields": [
+            {
+              "name": "alertStatus",
+              "description": "Status of the corresponding alert.",
+              "args": [],
+              "type": {
+                "kind": "ENUM",
+                "name": "DashboardActivityFeedActivityAlertStatus",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
             {
               "name": "id",
               "description": "Unique identifier for this raiding action.",
@@ -24482,6 +24667,18 @@
           "name": "DashboardActivityFeedActivityResubscribing",
           "description": "When a user resubscribes (NOT via Twitch Prime) to a channel.",
           "fields": [
+            {
+              "name": "alertStatus",
+              "description": "Status of the corresponding alert.",
+              "args": [],
+              "type": {
+                "kind": "ENUM",
+                "name": "DashboardActivityFeedActivityAlertStatus",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
             {
               "name": "durationMonths",
               "description": "Duration of the subscription.",
@@ -24600,6 +24797,18 @@
           "description": "When a user subscribes for the first time (NOT via Twitch Prime) to a channel.",
           "fields": [
             {
+              "name": "alertStatus",
+              "description": "Status of the corresponding alert.",
+              "args": [],
+              "type": {
+                "kind": "ENUM",
+                "name": "DashboardActivityFeedActivityAlertStatus",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
               "name": "id",
               "description": "Unique identifier for the act of subscribing.",
               "args": [],
@@ -24668,6 +24877,219 @@
               "ofType": null
             }
           ],
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "OBJECT",
+          "name": "DashboardAlertQueueActivityConnection",
+          "description": "Paginated list of past activities for a channel's Dashboard Alert Queue.",
+          "fields": [
+            {
+              "name": "edges",
+              "description": "Activity elements of the list.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "LIST",
+                  "name": null,
+                  "ofType": {
+                    "kind": "NON_NULL",
+                    "name": null,
+                    "ofType": {
+                      "kind": "OBJECT",
+                      "name": "DashboardAlertQueueActivityEdge",
+                      "ofType": null
+                    }
+                  }
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "pageInfo",
+              "description": "Information about this page.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "OBJECT",
+                  "name": "PageInfo",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "OBJECT",
+          "name": "DashboardAlertQueueActivityEdge",
+          "description": "Activity element in a list of past activities of a channel's Dashboard Alert Queue.",
+          "fields": [
+            {
+              "name": "cursor",
+              "description": "Opaque cursor describing this edge's position in the paginated list.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Cursor",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "node",
+              "description": "Activity that occurred.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "INTERFACE",
+                  "name": "DashboardActivityFeedActivity",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "OBJECT",
+          "name": "DashboardAlertQueuePreferences",
+          "description": "Preferences of a user controlling the types of dashboard alerts to be published.",
+          "fields": [
+            {
+              "name": "isDNDModeEnabled",
+              "description": "If true, cannot publish alerts to the user.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Boolean",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "lastModified",
+              "description": "When the preferences were last modified.",
+              "args": [],
+              "type": {
+                "kind": "SCALAR",
+                "name": "Time",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "shouldHideBits",
+              "description": "If true, cannot publish bits alerts to the user.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Boolean",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "shouldHideFollows",
+              "description": "If true, cannot publish follows alerts to the user.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Boolean",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "shouldHideHosts",
+              "description": "If true, cannot publish hosts alerts to the user.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Boolean",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "shouldHideRaids",
+              "description": "If true, cannot publish raids alerts to the user.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Boolean",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "shouldHideSubscriptions",
+              "description": "If true, cannot publish subscriptions alerts to the user.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Boolean",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
           "enumValues": null,
           "possibleTypes": null
         },
@@ -49053,6 +49475,60 @@
               "deprecationReason": null
             },
             {
+              "name": "setDashboardAlertQueueActivityStatus",
+              "description": "setDashboardAlertQueueActivityStatus updates the specified activity's status for the dashboard alert queue.",
+              "args": [
+                {
+                  "name": "input",
+                  "description": null,
+                  "type": {
+                    "kind": "NON_NULL",
+                    "name": null,
+                    "ofType": {
+                      "kind": "INPUT_OBJECT",
+                      "name": "SetDashboardAlertQueueActivityStatusInput",
+                      "ofType": null
+                    }
+                  },
+                  "defaultValue": null
+                }
+              ],
+              "type": {
+                "kind": "OBJECT",
+                "name": "SetDashboardAlertQueueActivityStatusPayload",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "setDashboardAlertQueuePreference",
+              "description": "setDashboardAlertQueuePreference updates the preference specified for the dashboard alert queue.",
+              "args": [
+                {
+                  "name": "input",
+                  "description": null,
+                  "type": {
+                    "kind": "NON_NULL",
+                    "name": null,
+                    "ofType": {
+                      "kind": "INPUT_OBJECT",
+                      "name": "SetDashboardAlertQueuePreferenceInput",
+                      "ofType": null
+                    }
+                  },
+                  "defaultValue": null
+                }
+              ],
+              "type": {
+                "kind": "OBJECT",
+                "name": "SetDashboardAlertQueuePreferencePayload",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
               "name": "setDefaultPaymentMethod",
               "description": "Sets the default payment method for a user.\nCurrently supports the Zuora (credit card) and Recurly (credit card, Pay-with-Amazon, PayPal) payment providers\nThis is the final step of the payment method management flow. (User.paymentMethods -> User.paymentMethodConfigs -> this mutation).",
               "args": [
@@ -73174,6 +73650,310 @@
           "possibleTypes": null
         },
         {
+          "kind": "OBJECT",
+          "name": "SetDashboardAlertQueueActivityStatusError",
+          "description": "SetDashboardAlertQueueActivityStatusError is the error associated with SetDashboardAlertQueueActivityStatus.",
+          "fields": [
+            {
+              "name": "code",
+              "description": "The associated error code.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "ENUM",
+                  "name": "SetDashboardAlertQueueActivityStatusErrorCode",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "ENUM",
+          "name": "SetDashboardAlertQueueActivityStatusErrorCode",
+          "description": "SetDashboardAlertQueueActivityStatusErrorCode are the possible errors that this mutation returns.",
+          "fields": null,
+          "inputFields": null,
+          "interfaces": null,
+          "enumValues": [
+            {
+              "name": "INVALID_CHANNEL_ID",
+              "description": "The input channel ID is invalid.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "INVALID_EVENT_ID",
+              "description": "The input event ID is invalid.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "INVALID_ALERT_STATUS",
+              "description": "The input alert status is invalid.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "NOT_FOUND",
+              "description": "The alert is not found.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "possibleTypes": null
+        },
+        {
+          "kind": "INPUT_OBJECT",
+          "name": "SetDashboardAlertQueueActivityStatusInput",
+          "description": "Inputs to the SetDashboardAlertQueueActivityStatus mutation.",
+          "fields": null,
+          "inputFields": [
+            {
+              "name": "activityID",
+              "description": "The ID corresponding to the activity whose alert queue activity status should be updated.",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "ID",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "alertStatus",
+              "description": "The value to set the status to.",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "ENUM",
+                  "name": "DashboardActivityFeedActivityAlertStatus",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "userID",
+              "description": "The ID corresponding to the user whose alert queue activity status should be updated.",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "ID",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            }
+          ],
+          "interfaces": null,
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "OBJECT",
+          "name": "SetDashboardAlertQueueActivityStatusPayload",
+          "description": "Outputs from the SetDashboardAlertQueueActivityStatus mutation.",
+          "fields": [
+            {
+              "name": "activity",
+              "description": "The updated activity.",
+              "args": [],
+              "type": {
+                "kind": "INTERFACE",
+                "name": "DashboardActivityFeedActivity",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "error",
+              "description": "The possible error returned from the service.",
+              "args": [],
+              "type": {
+                "kind": "OBJECT",
+                "name": "SetDashboardAlertQueueActivityStatusError",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "OBJECT",
+          "name": "SetDashboardAlertQueuePreferenceError",
+          "description": "SetDashboardAlertQueuePreferenceError is the error associated with SetDashboardAlertQueuePreference.",
+          "fields": [
+            {
+              "name": "code",
+              "description": "The associated error code.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "ENUM",
+                  "name": "SetDashboardAlertQueuePreferenceErrorCode",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "ENUM",
+          "name": "SetDashboardAlertQueuePreferenceErrorCode",
+          "description": "SetDashboardAlertQueuePreferenceErrorCode are the possible errors that this mutation returns.",
+          "fields": null,
+          "inputFields": null,
+          "interfaces": null,
+          "enumValues": [
+            {
+              "name": "INVALID_CHANNEL_ID",
+              "description": "The input channel ID is invalid.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "possibleTypes": null
+        },
+        {
+          "kind": "INPUT_OBJECT",
+          "name": "SetDashboardAlertQueuePreferenceInput",
+          "description": "Inputs to the SetDashboardAlertQueuePreference mutation.",
+          "fields": null,
+          "inputFields": [
+            {
+              "name": "shouldHideBits",
+              "description": "If true, cannot publish bits alerts to the user.",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Boolean",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "shouldHideFollows",
+              "description": "If true, cannot publish follows alerts to the user.",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Boolean",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "shouldHideHosts",
+              "description": "If true, cannot publish hosts alerts to the user.",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Boolean",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "shouldHideRaids",
+              "description": "If true, cannot publish raids alerts to the user.",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Boolean",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "shouldHideSubscriptions",
+              "description": "If true, cannot publish subscriptions alerts to the user.",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Boolean",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "userID",
+              "description": "The ID corresponding to the user whose alert queue preference should be updated.",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "ID",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            }
+          ],
+          "interfaces": null,
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "OBJECT",
+          "name": "SetDashboardAlertQueuePreferencePayload",
+          "description": "Outputs from the SetDashboardAlertQueuePreference mutation.",
+          "fields": [
+            {
+              "name": "error",
+              "description": "The possible error returned from the service.",
+              "args": [],
+              "type": {
+                "kind": "OBJECT",
+                "name": "SetDashboardAlertQueuePreferenceError",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "preferences",
+              "description": "The updated preferences for dashboard alert queue.",
+              "args": [],
+              "type": {
+                "kind": "OBJECT",
+                "name": "DashboardAlertQueuePreferences",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
           "kind": "ENUM",
           "name": "SetDefaultPaymentMethodErrorCode",
           "description": "Enumerates possible errors when setting a default payment method.",
@@ -92086,6 +92866,51 @@
               "type": {
                 "kind": "OBJECT",
                 "name": "DashboardActivityFeedActivityConnection",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "dashboardAlertQueueActivities",
+              "description": "Paginated past activities for the Dashboard Alert Queue.\nAlways ordered by descending timestamp.",
+              "args": [
+                {
+                  "name": "first",
+                  "description": null,
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Int",
+                    "ofType": null
+                  },
+                  "defaultValue": "10"
+                },
+                {
+                  "name": "after",
+                  "description": null,
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Cursor",
+                    "ofType": null
+                  },
+                  "defaultValue": null
+                }
+              ],
+              "type": {
+                "kind": "OBJECT",
+                "name": "DashboardAlertQueueActivityConnection",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "dashboardAlertQueuePreferences",
+              "description": "Preferences that control what alerts are sent to the user for the Dashboard Alert Queue.",
+              "args": [],
+              "type": {
+                "kind": "OBJECT",
+                "name": "DashboardAlertQueuePreferences",
                 "ofType": null
               },
               "isDeprecated": false,
