@@ -8748,6 +8748,54 @@
         },
         {
           "kind": "INPUT_OBJECT",
+          "name": "CancelRaidInput",
+          "description": "Inputs to the cancelRaid mutation.",
+          "fields": null,
+          "inputFields": [
+            {
+              "name": "sourceID",
+              "description": "Source ID.",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "ID",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            }
+          ],
+          "interfaces": null,
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "OBJECT",
+          "name": "CancelRaidPayload",
+          "description": "Outputs from the cancelRaid mutation.",
+          "fields": [
+            {
+              "name": "raid",
+              "description": "The cancelled raid.",
+              "args": [],
+              "type": {
+                "kind": "OBJECT",
+                "name": "Raid",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "INPUT_OBJECT",
           "name": "CancelSubscriptionGiftInput",
           "description": "Inputs for the mutation. Gift to be canceled by productID and originID.",
           "fields": null,
@@ -21576,6 +21624,68 @@
                   "name": "Int",
                   "ofType": null
                 }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "INPUT_OBJECT",
+          "name": "CreateRaidInput",
+          "description": "Inputs to the createRaid mutation.",
+          "fields": null,
+          "inputFields": [
+            {
+              "name": "sourceID",
+              "description": "Caller is expected to be a channel owner, editor, or staff.\nUser ID of the source channel hosting the raid.",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "ID",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "targetID",
+              "description": "User ID of the target channel.",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "ID",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            }
+          ],
+          "interfaces": null,
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "OBJECT",
+          "name": "CreateRaidPayload",
+          "description": "Outputs from the createRaid mutation.",
+          "fields": [
+            {
+              "name": "raid",
+              "description": "The created raid.",
+              "args": [],
+              "type": {
+                "kind": "OBJECT",
+                "name": "Raid",
+                "ofType": null
               },
               "isDeprecated": false,
               "deprecationReason": null
@@ -38657,6 +38767,54 @@
           "possibleTypes": null
         },
         {
+          "kind": "INPUT_OBJECT",
+          "name": "GoRaidInput",
+          "description": "Inputs to the goRaid mutation.",
+          "fields": null,
+          "inputFields": [
+            {
+              "name": "sourceID",
+              "description": "Source ID.",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "ID",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            }
+          ],
+          "interfaces": null,
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "OBJECT",
+          "name": "GoRaidPayload",
+          "description": "Outputs from the goRaid mutation.",
+          "fields": [
+            {
+              "name": "raid",
+              "description": "The raid then just went.",
+              "args": [],
+              "type": {
+                "kind": "OBJECT",
+                "name": "Raid",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
           "kind": "OBJECT",
           "name": "GrantVIPError",
           "description": "GrantVIPError contains details about a client error that occurred.",
@@ -40115,6 +40273,74 @@
           "possibleTypes": null
         },
         {
+          "kind": "INPUT_OBJECT",
+          "name": "JoinRaidInput",
+          "description": "Inputs to the joinRaid mutation.",
+          "fields": null,
+          "inputFields": [
+            {
+              "name": "deviceID",
+              "description": "The device ID of an anonymous user.",
+              "type": {
+                "kind": "SCALAR",
+                "name": "ID",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "raidID",
+              "description": "The raid ID being joined by the user.",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "ID",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "userID",
+              "description": "The ID of the user.",
+              "type": {
+                "kind": "SCALAR",
+                "name": "ID",
+                "ofType": null
+              },
+              "defaultValue": null
+            }
+          ],
+          "interfaces": null,
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "OBJECT",
+          "name": "JoinRaidPayload",
+          "description": "Outputs from the joinRaid mutation.",
+          "fields": [
+            {
+              "name": "raid",
+              "description": "The raid that was joined by the user.",
+              "args": [],
+              "type": {
+                "kind": "OBJECT",
+                "name": "Raid",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
           "kind": "OBJECT",
           "name": "KeyBatchConnection",
           "description": "The connection of key batches for a given key pool.",
@@ -41118,6 +41344,74 @@
               "type": {
                 "kind": "OBJECT",
                 "name": "User",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "INPUT_OBJECT",
+          "name": "LeaveRaidInput",
+          "description": "Inputs to the leaveRaid mutation.",
+          "fields": null,
+          "inputFields": [
+            {
+              "name": "deviceID",
+              "description": "The device ID of an anonymous user.",
+              "type": {
+                "kind": "SCALAR",
+                "name": "ID",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "raidID",
+              "description": "The raid ID being left by the user.",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "ID",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "userID",
+              "description": "The ID of the user.",
+              "type": {
+                "kind": "SCALAR",
+                "name": "ID",
+                "ofType": null
+              },
+              "defaultValue": null
+            }
+          ],
+          "interfaces": null,
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "OBJECT",
+          "name": "LeaveRaidPayload",
+          "description": "Outputs from the leaveRaid mutation.",
+          "fields": [
+            {
+              "name": "raid",
+              "description": "The Raid that was left by the user.",
+              "args": [],
+              "type": {
+                "kind": "OBJECT",
+                "name": "Raid",
                 "ofType": null
               },
               "isDeprecated": false,
@@ -44944,6 +45238,33 @@
               "deprecationReason": null
             },
             {
+              "name": "cancelRaid",
+              "description": "Cancel a raid.",
+              "args": [
+                {
+                  "name": "input",
+                  "description": null,
+                  "type": {
+                    "kind": "NON_NULL",
+                    "name": null,
+                    "ofType": {
+                      "kind": "INPUT_OBJECT",
+                      "name": "CancelRaidInput",
+                      "ofType": null
+                    }
+                  },
+                  "defaultValue": null
+                }
+              ],
+              "type": {
+                "kind": "OBJECT",
+                "name": "CancelRaidPayload",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
               "name": "cancelSubscriptionGift",
               "description": "cancelSubscriptionGift allows the current user to cancel their gifted subscription to a channel.",
               "args": [
@@ -45899,6 +46220,33 @@
               },
               "isDeprecated": true,
               "deprecationReason": "No longer supported"
+            },
+            {
+              "name": "createRaid",
+              "description": "Create a raid.",
+              "args": [
+                {
+                  "name": "input",
+                  "description": null,
+                  "type": {
+                    "kind": "NON_NULL",
+                    "name": null,
+                    "ofType": {
+                      "kind": "INPUT_OBJECT",
+                      "name": "CreateRaidInput",
+                      "ofType": null
+                    }
+                  },
+                  "defaultValue": null
+                }
+              ],
+              "type": {
+                "kind": "OBJECT",
+                "name": "CreateRaidPayload",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
             },
             {
               "name": "createRoom",
@@ -47301,6 +47649,33 @@
               "deprecationReason": null
             },
             {
+              "name": "goRaid",
+              "description": "Start a raid.",
+              "args": [
+                {
+                  "name": "input",
+                  "description": null,
+                  "type": {
+                    "kind": "NON_NULL",
+                    "name": null,
+                    "ofType": {
+                      "kind": "INPUT_OBJECT",
+                      "name": "GoRaidInput",
+                      "ofType": null
+                    }
+                  },
+                  "defaultValue": null
+                }
+              ],
+              "type": {
+                "kind": "OBJECT",
+                "name": "GoRaidPayload",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
               "name": "grantVIP",
               "description": "Grant the VIP status to a user for a channel.",
               "args": [
@@ -47436,6 +47811,33 @@
               "deprecationReason": null
             },
             {
+              "name": "joinRaid",
+              "description": "Add a viewer to a source channel's raid. The viewer will be redirected to the target channel when the raid starts.",
+              "args": [
+                {
+                  "name": "input",
+                  "description": null,
+                  "type": {
+                    "kind": "NON_NULL",
+                    "name": null,
+                    "ofType": {
+                      "kind": "INPUT_OBJECT",
+                      "name": "JoinRaidInput",
+                      "ofType": null
+                    }
+                  },
+                  "defaultValue": null
+                }
+              ],
+              "type": {
+                "kind": "OBJECT",
+                "name": "JoinRaidPayload",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
               "name": "leaveChannelRooms",
               "description": "Leaves the channel's chatrooms.",
               "args": [
@@ -47457,6 +47859,33 @@
               "type": {
                 "kind": "OBJECT",
                 "name": "LeaveChannelRoomsPayload",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "leaveRaid",
+              "description": "Leave a raid for a viewer.",
+              "args": [
+                {
+                  "name": "input",
+                  "description": null,
+                  "type": {
+                    "kind": "NON_NULL",
+                    "name": null,
+                    "ofType": {
+                      "kind": "INPUT_OBJECT",
+                      "name": "LeaveRaidInput",
+                      "ofType": null
+                    }
+                  },
+                  "defaultValue": null
+                }
+              ],
+              "type": {
+                "kind": "OBJECT",
+                "name": "LeaveRaidPayload",
                 "ofType": null
               },
               "isDeprecated": false,
@@ -62059,6 +62488,93 @@
               "type": {
                 "kind": "OBJECT",
                 "name": "WhisperThread",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "OBJECT",
+          "name": "Raid",
+          "description": "A raid represents a broadcaster directing their viewers to another channel\nin a synchronized \"raid\" on the channel after a countdown during which\neach viewer has a chance to opt out of the raid.\n\nRaids are created by a broadcaster from their dashbboard where they can search\nand select the channel they wish to target. Once selected the raid takes counts\ndown to prepare after which the broadcaster can tell the raid to \"Go\", redirecting\nall joined raiders to the target channel.",
+          "fields": [
+            {
+              "name": "announceAt",
+              "description": "Timestamp of raid announcement.",
+              "args": [],
+              "type": {
+                "kind": "SCALAR",
+                "name": "Time",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "goAt",
+              "description": "Timestamp of raid go time.",
+              "args": [],
+              "type": {
+                "kind": "SCALAR",
+                "name": "Time",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "id",
+              "description": "The ID of the raid.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "ID",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "sourceChannel",
+              "description": "Channel hosting the raid.",
+              "args": [],
+              "type": {
+                "kind": "OBJECT",
+                "name": "User",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "targetChannel",
+              "description": "Target of the raid.",
+              "args": [],
+              "type": {
+                "kind": "OBJECT",
+                "name": "User",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "viewerCount",
+              "description": "Number of viewers in raid.",
+              "args": [],
+              "type": {
+                "kind": "SCALAR",
+                "name": "Int",
                 "ofType": null
               },
               "isDeprecated": false,
@@ -93646,6 +94162,38 @@
                 "kind": "OBJECT",
                 "name": "Feed",
                 "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "raid",
+              "description": "An ongoing raid on the user's channel.",
+              "args": [],
+              "type": {
+                "kind": "OBJECT",
+                "name": "Raid",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "recentRaids",
+              "description": "An array of recent raids by the broadcaster.",
+              "args": [],
+              "type": {
+                "kind": "LIST",
+                "name": null,
+                "ofType": {
+                  "kind": "NON_NULL",
+                  "name": null,
+                  "ofType": {
+                    "kind": "OBJECT",
+                    "name": "Raid",
+                    "ofType": null
+                  }
+                }
               },
               "isDeprecated": false,
               "deprecationReason": null
