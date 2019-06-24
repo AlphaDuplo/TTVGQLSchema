@@ -11100,6 +11100,161 @@
         },
         {
           "kind": "OBJECT",
+          "name": "CheckoutPriceSummary",
+          "description": "Price information about an item in the checkout process.",
+          "fields": [
+            {
+              "name": "currency",
+              "description": "The currency associated with the price of a subscription product.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "ENUM",
+                  "name": "Currency",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "description",
+              "description": "The description associated with pricing information.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "String",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "exponent",
+              "description": "The ISO-4217 wording of deriving price.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Int",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "id",
+              "description": "Identifier used for caching.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "ID",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "isTaxInclusive",
+              "description": "If the tax is already included in price.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Boolean",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "price",
+              "description": "The numerical price of a subscription product.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Int",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "pricingIdentifier",
+              "description": "Pricing identifier of the item being purchased.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "String",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "tax",
+              "description": "The tax rate of localized product.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Int",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "total",
+              "description": "The total price given price and tax.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Int",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "OBJECT",
           "name": "CheerInfo",
           "description": "CheerInfo is the channel-specific bits/cheer settings and current state.",
           "fields": [
@@ -58393,6 +58548,100 @@
         },
         {
           "kind": "OBJECT",
+          "name": "ProductPurchase",
+          "description": "Contains the product's checkout price and tax info for a purchase and error if a final price cannot be determined.",
+          "fields": [
+            {
+              "name": "checkoutPriceSummary",
+              "description": "The price and tax breakdown for the purchase.",
+              "args": [],
+              "type": {
+                "kind": "OBJECT",
+                "name": "CheckoutPriceSummary",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "errorCode",
+              "description": "Error when the final price could not be retrieved for a product.",
+              "args": [],
+              "type": {
+                "kind": "ENUM",
+                "name": "ProductPurchaseErrorCode",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "taxRegion",
+              "description": "The region from which the tax was calculated.",
+              "args": [],
+              "type": {
+                "kind": "OBJECT",
+                "name": "TaxRegion",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "ENUM",
+          "name": "ProductPurchaseErrorCode",
+          "description": "Possible errors when retrieving product purchase info.",
+          "fields": null,
+          "inputFields": null,
+          "interfaces": null,
+          "enumValues": [
+            {
+              "name": "USER_UNAUTHORIZED",
+              "description": "The user is unauthorized to retrieve the purchase info.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "PRICING_ID_NOT_FOUND",
+              "description": "PricingID not found.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "UNKNOWN_USER_RESIDENCE",
+              "description": "Cannot determine the user residence.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "BILLING_INFO_NOT_FOUND",
+              "description": "Billing info not found for the user.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "PURCHASE_INELIGIBLE",
+              "description": "User ineligible to make corresponding purchase.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "UNKNOWN",
+              "description": "Unexpected error occurred.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "possibleTypes": null
+        },
+        {
+          "kind": "OBJECT",
           "name": "ProgramAgreement",
           "description": "ProgramAgreement describes the End User License Agreement associated with a user's current payout plan.",
           "fields": [
@@ -79347,6 +79596,47 @@
               "deprecationReason": null
             },
             {
+              "name": "productPurchase",
+              "description": "Contains information on the final checkout price of this subscription product.",
+              "args": [
+                {
+                  "name": "quantity",
+                  "description": null,
+                  "type": {
+                    "kind": "NON_NULL",
+                    "name": null,
+                    "ofType": {
+                      "kind": "SCALAR",
+                      "name": "Int",
+                      "ofType": null
+                    }
+                  },
+                  "defaultValue": null
+                },
+                {
+                  "name": "paymentProvider",
+                  "description": null,
+                  "type": {
+                    "kind": "NON_NULL",
+                    "name": null,
+                    "ofType": {
+                      "kind": "ENUM",
+                      "name": "PaymentProvider",
+                      "ofType": null
+                    }
+                  },
+                  "defaultValue": null
+                }
+              ],
+              "type": {
+                "kind": "OBJECT",
+                "name": "ProductPurchase",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
               "name": "promotion",
               "description": "The subscription product's promotion for user if eligible.",
               "args": [],
@@ -80894,6 +81184,57 @@
               "deprecationReason": null
             }
           ],
+          "possibleTypes": null
+        },
+        {
+          "kind": "OBJECT",
+          "name": "TaxRegion",
+          "description": "Represents a tax jurisdiction from which a final price was calculated.",
+          "fields": [
+            {
+              "name": "countryCode",
+              "description": "Tax country, required for the TaxRegion object type.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "String",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "state",
+              "description": "Tax state if applicable.",
+              "args": [],
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "zipCode",
+              "description": "Tax zip code if applicable.",
+              "args": [],
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
+          "enumValues": null,
           "possibleTypes": null
         },
         {
