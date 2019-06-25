@@ -8858,6 +8858,29 @@
         },
         {
           "kind": "ENUM",
+          "name": "CancellationPolicyType",
+          "description": "Describes the conditions around a user's cancellation of their purchase (e.g. refund policy).",
+          "fields": null,
+          "inputFields": null,
+          "interfaces": null,
+          "enumValues": [
+            {
+              "name": "NON_REFUNDABLE",
+              "description": "The product is not refundable.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "REFUNDABLE",
+              "description": "The product is refundable.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "possibleTypes": null
+        },
+        {
+          "kind": "ENUM",
           "name": "ChanletSort",
           "description": "ChanletSort indicates the desired order of chanlets in the list returned by LoadChanletsByUserID.",
           "fields": null,
@@ -10361,6 +10384,53 @@
               "deprecationReason": null
             }
           ],
+          "possibleTypes": null
+        },
+        {
+          "kind": "OBJECT",
+          "name": "ChargeModel",
+          "description": "ChargeModel describes the model used for charging the user. Will only contain one credit model, one external model, or one internal model.",
+          "fields": [
+            {
+              "name": "credit",
+              "description": "A charge model in which a user is charged using credits purchased or earned on Twitch.",
+              "args": [],
+              "type": {
+                "kind": "OBJECT",
+                "name": "CreditChargeModel",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "external",
+              "description": "A charge model in which a user is charged via a third-party in a fiat currency.",
+              "args": [],
+              "type": {
+                "kind": "OBJECT",
+                "name": "ExternalChargeModel",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "internal",
+              "description": "A charge model in which a user is charged by Twitch in a fiat currency.",
+              "args": [],
+              "type": {
+                "kind": "OBJECT",
+                "name": "InternalChargeModel",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
+          "enumValues": null,
           "possibleTypes": null
         },
         {
@@ -23468,6 +23538,66 @@
           "possibleTypes": null
         },
         {
+          "kind": "OBJECT",
+          "name": "CreditChargeModel",
+          "description": "CreditChargeModel defines a charge model using non-FIAT currencies.",
+          "fields": [
+            {
+              "name": "amount",
+              "description": "The value of the credit.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Int",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "creditType",
+              "description": "The type of credit.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "ENUM",
+                  "name": "CreditType",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "ENUM",
+          "name": "CreditType",
+          "description": "Types of non-fiat currencies.",
+          "fields": null,
+          "inputFields": null,
+          "interfaces": null,
+          "enumValues": [
+            {
+              "name": "SUB_TOKEN",
+              "description": "A sub token type.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "possibleTypes": null
+        },
+        {
           "kind": "ENUM",
           "name": "Currency",
           "description": "An enumeration of currencies being accepted by PriceInfo.",
@@ -35525,6 +35655,49 @@
         },
         {
           "kind": "OBJECT",
+          "name": "ExternalChargeModel",
+          "description": "ExternalChargeModel defines a 3P managed SKU for a given offer.",
+          "fields": [
+            {
+              "name": "provider",
+              "description": "The provider for this externally managed SKU.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "String",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "sku",
+              "description": "Externally managed SKU identifier.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "String",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "OBJECT",
           "name": "FeatureFlags",
           "description": null,
           "fields": [
@@ -40682,6 +40855,33 @@
           "fields": null,
           "inputFields": null,
           "interfaces": null,
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "OBJECT",
+          "name": "InternalChargeModel",
+          "description": "InternalChargeModel defines a 1P price identifier for the offer.",
+          "fields": [
+            {
+              "name": "priceID",
+              "description": "The price identifier.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "ID",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
           "enumValues": null,
           "possibleTypes": null
         },
@@ -52695,6 +52895,121 @@
           ]
         },
         {
+          "kind": "OBJECT",
+          "name": "Offer",
+          "description": "Offer describes something that is purchasable.",
+          "fields": [
+            {
+              "name": "eligibility",
+              "description": "Details of the user's eligibility to purchase the Offer.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "OBJECT",
+                  "name": "OfferEligibility",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "id",
+              "description": "Unique identifier for an Offer.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "ID",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "listing",
+              "description": "A listing describing the charge model and cancellation policy for the Offer.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "OBJECT",
+                  "name": "OfferListing",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "platform",
+              "description": "The platform on which the Offer is eligible for purchase.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "String",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "tagBindings",
+              "description": "Tag bindings provide static and dynamic bindings of the attributes on an Offer.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "LIST",
+                  "name": null,
+                  "ofType": {
+                    "kind": "NON_NULL",
+                    "name": null,
+                    "ofType": {
+                      "kind": "OBJECT",
+                      "name": "OfferTagBinding",
+                      "ofType": null
+                    }
+                  }
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "tplr",
+              "description": "Tenant product line registry to which this Offer belongs.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "String",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
           "kind": "INPUT_OBJECT",
           "name": "OfferAndStatus",
           "description": "Contains an offer ID and offer status.",
@@ -52760,6 +53075,148 @@
               "deprecationReason": null
             }
           ],
+          "possibleTypes": null
+        },
+        {
+          "kind": "OBJECT",
+          "name": "OfferEligibility",
+          "description": "OfferEligibility describes user's eligibility to purchase an Offer.",
+          "fields": [
+            {
+              "name": "isEligible",
+              "description": "A boolean that is true when the user is eligible for the Offer.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Boolean",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "reasonCode",
+              "description": "If the user is ineligible for the Offer, then this code is set\nas the reason why the user is ineligible.",
+              "args": [],
+              "type": {
+                "kind": "ENUM",
+                "name": "OfferIneligibilityReasonCode",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "ENUM",
+          "name": "OfferIneligibilityReasonCode",
+          "description": "OfferIneligibilityReasonCode indicates why a user isn't eligible.",
+          "fields": null,
+          "inputFields": null,
+          "interfaces": null,
+          "enumValues": [
+            {
+              "name": "MAX_TOKEN_BALANCE",
+              "description": "Offer would exceed user's max token balance.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "possibleTypes": null
+        },
+        {
+          "kind": "OBJECT",
+          "name": "OfferListing",
+          "description": "OfferListing defines the charge model for a given listing.",
+          "fields": [
+            {
+              "name": "cancellationPolicy",
+              "description": "The conditions around a user's cancellation of their purchase (e.g. refund policy).",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "ENUM",
+                  "name": "CancellationPolicyType",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "chargeModel",
+              "description": "FIAT/non-FIAT based charge model OR 3P managed SKU.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "OBJECT",
+                  "name": "ChargeModel",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "OBJECT",
+          "name": "OfferTagBinding",
+          "description": "OfferTagBinding defines a key-value pair.",
+          "fields": [
+            {
+              "name": "key",
+              "description": "The key of the tag.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "String",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "value",
+              "description": "The value of the tag.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "String",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
+          "enumValues": null,
           "possibleTypes": null
         },
         {
@@ -62708,6 +63165,26 @@
                 "kind": "OBJECT",
                 "name": "SubscriptionProduct",
                 "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "subscriptionTokenBundleOffers",
+              "description": "Get all available subscription token bundle offers available for the user.",
+              "args": [],
+              "type": {
+                "kind": "LIST",
+                "name": null,
+                "ofType": {
+                  "kind": "NON_NULL",
+                  "name": null,
+                  "ofType": {
+                    "kind": "OBJECT",
+                    "name": "Offer",
+                    "ofType": null
+                  }
+                }
               },
               "isDeprecated": false,
               "deprecationReason": null
@@ -80524,6 +81001,26 @@
                   "kind": "SCALAR",
                   "name": "String",
                   "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "offers",
+              "description": "Available offers for a subscription product.",
+              "args": [],
+              "type": {
+                "kind": "LIST",
+                "name": null,
+                "ofType": {
+                  "kind": "NON_NULL",
+                  "name": null,
+                  "ofType": {
+                    "kind": "OBJECT",
+                    "name": "Offer",
+                    "ofType": null
+                  }
                 }
               },
               "isDeprecated": false,
