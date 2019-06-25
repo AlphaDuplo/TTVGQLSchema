@@ -16588,7 +16588,39 @@
             },
             {
               "name": "isEnabled",
-              "description": "Whether this reward is turned on or off in this channel at the moment.",
+              "description": "Whether this reward is enabled in this channel at the moment.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Boolean",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "isInStock",
+              "description": "Whether this reward is in stock at the moment.\nIf the reward has already been redeemed the maximum number of times per stream, this will be false.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Boolean",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "isPaused",
+              "description": "Whether redemptions of this reward are temporarily paused.",
               "args": [],
               "type": {
                 "kind": "NON_NULL",
@@ -16635,13 +16667,17 @@
               "deprecationReason": null
             },
             {
-              "name": "maxPerStream",
-              "description": "The most rewards of this type that can be redeemed per stream. Null if no maximum is set.",
+              "name": "maxPerStreamSetting",
+              "description": "The most rewards of this type that can be redeemed per stream.",
               "args": [],
               "type": {
-                "kind": "SCALAR",
-                "name": "Int",
-                "ofType": null
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "OBJECT",
+                  "name": "CommunityPointsCustomRewardMaxPerStreamSetting",
+                  "ofType": null
+                }
               },
               "isDeprecated": false,
               "deprecationReason": null
@@ -16677,6 +16713,88 @@
           ],
           "inputFields": null,
           "interfaces": [],
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "OBJECT",
+          "name": "CommunityPointsCustomRewardMaxPerStreamSetting",
+          "description": "Settings for how often a custom reward may be redeemed per stream.",
+          "fields": [
+            {
+              "name": "isEnabled",
+              "description": "Whether the maximum is being enforced.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Boolean",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "maxPerStream",
+              "description": "The most rewards of this type that can be redeemed per stream.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Int",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "INPUT_OBJECT",
+          "name": "CommunityPointsCustomRewardMaxPerStreamSettingInput",
+          "description": "Input for creating and updating a Community Points custom reward's max per stream settings.",
+          "fields": null,
+          "inputFields": [
+            {
+              "name": "isEnabled",
+              "description": "Whether the maximum is being enforced.",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Boolean",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "maxPerStream",
+              "description": "The most rewards of this type that can be redeemed per stream.",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Int",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            }
+          ],
+          "interfaces": null,
           "enumValues": null,
           "possibleTypes": null
         },
@@ -19230,9 +19348,13 @@
               "description": "An identifier for the error that occurred.",
               "args": [],
               "type": {
-                "kind": "ENUM",
-                "name": "CreateCommunityPointsCustomRewardErrorCode",
-                "ofType": null
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "ENUM",
+                  "name": "CreateCommunityPointsCustomRewardErrorCode",
+                  "ofType": null
+                }
               },
               "isDeprecated": false,
               "deprecationReason": null
@@ -19264,6 +19386,12 @@
           "interfaces": null,
           "enumValues": [
             {
+              "name": "UNKNOWN",
+              "description": "An unexpected error occurred.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
               "name": "FORBIDDEN",
               "description": "The current user is not allowed to create a reward in this channel.",
               "isDeprecated": false,
@@ -19288,26 +19416,26 @@
               "deprecationReason": null
             },
             {
-              "name": "COOLDOWN_INVALID",
-              "description": "The cooldown is invalid. Cooldowns must be greater than or equal to 0.",
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
               "name": "BACKGROUND_COLOR_INVALID",
               "description": "The background color is invalid. Backgrounds must be a valid hex color, for example \"FF0000\".",
               "isDeprecated": false,
               "deprecationReason": null
             },
             {
-              "name": "MAX_UNFULFILLED_INVALID",
-              "description": "The maxUnfulfilled is invalid. maxUnfulfilled must be greater than 0.",
+              "name": "MAX_PER_STREAM_INVALID",
+              "description": "The maxPerStream is invalid. maxPerStream must be greater than 0.",
               "isDeprecated": false,
               "deprecationReason": null
             },
             {
               "name": "TOO_MANY_REWARDS",
               "description": "The channel has too many rewards. An existing reward must be deleted before you can create a new reward.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "TITLE_INVALID",
+              "description": "The title is invalid. Titles must not be empty and must be at most 45 characters long.",
               "isDeprecated": false,
               "deprecationReason": null
             }
@@ -19387,11 +19515,11 @@
               "defaultValue": null
             },
             {
-              "name": "maxPerStream",
-              "description": "The most rewards of this type that can be redeemed per stream. Null if no maximum is set.",
+              "name": "maxPerStreamSetting",
+              "description": "The most rewards of this type that can be redeemed per stream.",
               "type": {
-                "kind": "SCALAR",
-                "name": "Int",
+                "kind": "INPUT_OBJECT",
+                "name": "CommunityPointsCustomRewardMaxPerStreamSettingInput",
                 "ofType": null
               },
               "defaultValue": null
@@ -64501,15 +64629,11 @@
             },
             {
               "name": "prompt",
-              "description": "The prompt that the client expects this reward to have.\nIf this prompt is different from the reward's true prompt, the request will fail.",
+              "description": "The prompt that the client expects this reward to have.\nIf this prompt is different from the reward's true prompt, the request will fail.\nShould be null if the reward does not have a prompt.",
               "type": {
-                "kind": "NON_NULL",
-                "name": null,
-                "ofType": {
-                  "kind": "SCALAR",
-                  "name": "String",
-                  "ofType": null
-                }
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
               },
               "defaultValue": null
             },
@@ -87816,9 +87940,13 @@
               "description": "An identifier for the error that occurred.",
               "args": [],
               "type": {
-                "kind": "ENUM",
-                "name": "UpdateCommunityPointsCustomRewardErrorCode",
-                "ofType": null
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "ENUM",
+                  "name": "UpdateCommunityPointsCustomRewardErrorCode",
+                  "ofType": null
+                }
               },
               "isDeprecated": false,
               "deprecationReason": null
@@ -87837,6 +87965,12 @@
           "inputFields": null,
           "interfaces": null,
           "enumValues": [
+            {
+              "name": "UNKNOWN",
+              "description": "An unexpected error occurred.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
             {
               "name": "FORBIDDEN",
               "description": "The current user is not allowed to update a reward in this channel.",
@@ -87868,20 +88002,20 @@
               "deprecationReason": null
             },
             {
-              "name": "COOLDOWN_INVALID",
-              "description": "The cooldown is invalid. Cooldowns must be greater than or equal to 0.",
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
               "name": "BACKGROUND_COLOR_INVALID",
               "description": "The background color is invalid. Backgrounds must be a valid hex color, for example \"FF0000\".",
               "isDeprecated": false,
               "deprecationReason": null
             },
             {
-              "name": "MAX_UNFULFILLED_INVALID",
-              "description": "The maxUnfulfilled is invalid. maxUnfulfilled must be greater than 0.",
+              "name": "MAX_PER_STREAM_INVALID",
+              "description": "The maxPerStream is invalid. maxPerStream must be greater than 0.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "TITLE_INVALID",
+              "description": "The title is invalid. Titles must not be empty and must be at most 45 characters long.",
               "isDeprecated": false,
               "deprecationReason": null
             }
@@ -87939,6 +88073,16 @@
               "defaultValue": null
             },
             {
+              "name": "isPaused",
+              "description": "Whether the reward is temporarily paused.",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Boolean",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
               "name": "isSubOnly",
               "description": "Whether only subscribers are allowed to redeem this reward in this channel.",
               "type": {
@@ -87959,11 +88103,11 @@
               "defaultValue": null
             },
             {
-              "name": "maxPerStream",
-              "description": "The most rewards of this type that can be redeemed per stream. Update to -1 to remove maximum.",
+              "name": "maxPerStreamSetting",
+              "description": "The most rewards of this type that can be redeemed per stream.",
               "type": {
-                "kind": "SCALAR",
-                "name": "Int",
+                "kind": "INPUT_OBJECT",
+                "name": "CommunityPointsCustomRewardMaxPerStreamSettingInput",
                 "ofType": null
               },
               "defaultValue": null
