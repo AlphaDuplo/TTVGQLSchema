@@ -23859,6 +23859,11 @@
               "kind": "OBJECT",
               "name": "DashboardActivityFeedActivitySubscribing",
               "ofType": null
+            },
+            {
+              "kind": "OBJECT",
+              "name": "DashboardActivityFeedActivityCommunityPointsReward",
+              "ofType": null
             }
           ]
         },
@@ -24092,6 +24097,119 @@
               "type": {
                 "kind": "OBJECT",
                 "name": "User",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [
+            {
+              "kind": "INTERFACE",
+              "name": "DashboardActivityFeedActivity",
+              "ofType": null
+            }
+          ],
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "OBJECT",
+          "name": "DashboardActivityFeedActivityCommunityPointsReward",
+          "description": "When a user redeems a community points reward on a channel.",
+          "fields": [
+            {
+              "name": "alertStatus",
+              "description": "Status of the corresponding alert.",
+              "args": [],
+              "type": {
+                "kind": "ENUM",
+                "name": "DashboardActivityFeedActivityAlertStatus",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "id",
+              "description": "Unique identifier for this redemption.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "ID",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "redeemingUser",
+              "description": "The user that redeemed the reward.",
+              "args": [],
+              "type": {
+                "kind": "OBJECT",
+                "name": "User",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "redemption",
+              "description": "The redemption object itself.",
+              "args": [],
+              "type": {
+                "kind": "OBJECT",
+                "name": "CommunityPointsCustomRewardRedemption",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "timestamp",
+              "description": "When the reward was redeemed.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Time",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "title",
+              "description": "The title of the reward.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "String",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "userInput",
+              "description": "The user's text input, if provided.",
+              "args": [],
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
                 "ofType": null
               },
               "isDeprecated": false,
