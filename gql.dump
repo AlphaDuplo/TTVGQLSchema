@@ -16349,20 +16349,26 @@
               "deprecationReason": null
             },
             {
-              "name": "UNLOCK_RANDOM_SUB_EMOTE_24_HR",
-              "description": "Unlock a random subscriber emote for 24 hours.",
+              "name": "RANDOM_SUB_EMOTE_UNLOCK",
+              "description": "Unlock a random subscriber emote.",
               "isDeprecated": false,
               "deprecationReason": null
             },
             {
-              "name": "UNLOCK_CHOSEN_SUB_EMOTE_24_HR",
-              "description": "Unlock a chosen subscriber emote for 24 hours.",
+              "name": "CHOSEN_SUB_EMOTE_UNLOCK",
+              "description": "Unlock a chosen subscriber emote.",
               "isDeprecated": false,
               "deprecationReason": null
             },
             {
               "name": "SEND_HIGHLIGHTED_MESSAGE",
               "description": "Send a highlighted chat message.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "CHOSEN_MODIFIED_SUB_EMOTE_UNLOCK",
+              "description": "Unlock a chosen modification for a subscriber emote.",
               "isDeprecated": false,
               "deprecationReason": null
             }
@@ -16425,6 +16431,26 @@
                   "kind": "OBJECT",
                   "name": "CommunityPointsImage",
                   "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "emoteVariants",
+              "description": "A list of the emote variants (base emote + modifications) that are available for this channel.",
+              "args": [],
+              "type": {
+                "kind": "LIST",
+                "name": null,
+                "ofType": {
+                  "kind": "NON_NULL",
+                  "name": null,
+                  "ofType": {
+                    "kind": "OBJECT",
+                    "name": "CommunityPointsEmoteVariant",
+                    "ofType": null
+                  }
                 }
               },
               "isDeprecated": false,
@@ -17117,6 +17143,223 @@
         },
         {
           "kind": "OBJECT",
+          "name": "CommunityPointsEmote",
+          "description": "A community points emote.",
+          "fields": [
+            {
+              "name": "id",
+              "description": "The emote's identifier.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "ID",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "token",
+              "description": "The text token of the emote.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "String",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "OBJECT",
+          "name": "CommunityPointsEmoteModification",
+          "description": "A community points emote modification.",
+          "fields": [
+            {
+              "name": "emote",
+              "description": "The modified emote.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "OBJECT",
+                  "name": "CommunityPointsEmote",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "id",
+              "description": "The emote modification's identifier.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "ID",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "modifierIconDark",
+              "description": "The dark version of the icon to represent the modification made to the emote.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "OBJECT",
+                  "name": "CommunityPointsImage",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "modifierIconLight",
+              "description": "The light version of the icon to represent the modification made to the emote.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "OBJECT",
+                  "name": "CommunityPointsImage",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "title",
+              "description": "The title for the modification.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "String",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "OBJECT",
+          "name": "CommunityPointsEmoteVariant",
+          "description": "A community points emote variant, includes base emote plus modifications.",
+          "fields": [
+            {
+              "name": "emote",
+              "description": "The base emote for this variant.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "OBJECT",
+                  "name": "CommunityPointsEmote",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "id",
+              "description": "The emote variant's identifier.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "ID",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "isUnlockable",
+              "description": "Whether community points can be used to unlock the base emote.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Boolean",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "modifications",
+              "description": "The modifications available to be unlocked for this emote.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "LIST",
+                  "name": null,
+                  "ofType": {
+                    "kind": "NON_NULL",
+                    "name": null,
+                    "ofType": {
+                      "kind": "OBJECT",
+                      "name": "CommunityPointsEmoteModification",
+                      "ofType": null
+                    }
+                  }
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "OBJECT",
           "name": "CommunityPointsImage",
           "description": "Image URLs of different sizes for community points rewards.",
           "fields": [
@@ -17446,6 +17689,86 @@
           "inputFields": null,
           "interfaces": [],
           "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "OBJECT",
+          "name": "CommunityPointsUnlockEmoteError",
+          "description": "An error from redeeming an unlock emote Community Points reward.",
+          "fields": [
+            {
+              "name": "code",
+              "description": "The error code.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "ENUM",
+                  "name": "CommunityPointsUnlockEmoteErrorCode",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "ENUM",
+          "name": "CommunityPointsUnlockEmoteErrorCode",
+          "description": "Possible errors from redeeming an unlock emote Community Points reward.",
+          "fields": null,
+          "inputFields": null,
+          "interfaces": null,
+          "enumValues": [
+            {
+              "name": "INVALID_EMOTE",
+              "description": "The emote ID provided is for the wrong channel or the wrong type of emote.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "EMOTE_ALREADY_ENTITLED",
+              "description": "The user is already entitled to the emote provided.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "NO_EMOTES_AVAILABLE",
+              "description": "The user is entitled to all emotes that would be randomly selected from.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "INSUFFICIENT_POINTS",
+              "description": "The user does not have sufficient points to redeem the reward.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "TRANSACTION_ALREADY_COMMITTED",
+              "description": "The client is retrying a reward that has already been redeemed.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "REWARD_COST_MISMATCH",
+              "description": "The reward cost has changed since the user has tried to redeem it.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "UNKNOWN",
+              "description": "An unknown error occurred.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
           "possibleTypes": null
         },
         {
@@ -51046,6 +51369,87 @@
               "type": {
                 "kind": "OBJECT",
                 "name": "UnlinkSSOPayload",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "unlockChosenModifiedSubscriberEmote",
+              "description": "Unlock a chosen modified subscriber emote using Community Points.",
+              "args": [
+                {
+                  "name": "input",
+                  "description": null,
+                  "type": {
+                    "kind": "NON_NULL",
+                    "name": null,
+                    "ofType": {
+                      "kind": "INPUT_OBJECT",
+                      "name": "UnlockChosenModifiedSubscriberEmoteInput",
+                      "ofType": null
+                    }
+                  },
+                  "defaultValue": null
+                }
+              ],
+              "type": {
+                "kind": "OBJECT",
+                "name": "UnlockChosenModifiedSubscriberEmotePayload",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "unlockChosenSubscriberEmote",
+              "description": "Unlock a chosen subscriber emote using Community Points.",
+              "args": [
+                {
+                  "name": "input",
+                  "description": null,
+                  "type": {
+                    "kind": "NON_NULL",
+                    "name": null,
+                    "ofType": {
+                      "kind": "INPUT_OBJECT",
+                      "name": "UnlockChosenSubscriberEmoteInput",
+                      "ofType": null
+                    }
+                  },
+                  "defaultValue": null
+                }
+              ],
+              "type": {
+                "kind": "OBJECT",
+                "name": "UnlockChosenSubscriberEmotePayload",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "unlockRandomSubscriberEmote",
+              "description": "Unlock a random subscriber emote using Community Points.",
+              "args": [
+                {
+                  "name": "input",
+                  "description": null,
+                  "type": {
+                    "kind": "NON_NULL",
+                    "name": null,
+                    "ofType": {
+                      "kind": "INPUT_OBJECT",
+                      "name": "UnlockRandomSubscriberEmoteInput",
+                      "ofType": null
+                    }
+                  },
+                  "defaultValue": null
+                }
+              ],
+              "type": {
+                "kind": "OBJECT",
+                "name": "UnlockRandomSubscriberEmotePayload",
                 "ofType": null
               },
               "isDeprecated": false,
@@ -86668,6 +87072,310 @@
                     "ofType": null
                   }
                 }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "INPUT_OBJECT",
+          "name": "UnlockChosenModifiedSubscriberEmoteInput",
+          "description": "Input for unlocking a chosen modified subscriber emote with Community Points.",
+          "fields": null,
+          "inputFields": [
+            {
+              "name": "channelID",
+              "description": "The channel the emote is being redeemed on.",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "ID",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "cost",
+              "description": "The client's perception of the reward's cost.",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Int",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "emoteID",
+              "description": "The modified emote to unlock.",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "ID",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "transactionID",
+              "description": "Client-set identifier for the transaction. This ID should be universally unique.",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "ID",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            }
+          ],
+          "interfaces": null,
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "OBJECT",
+          "name": "UnlockChosenModifiedSubscriberEmotePayload",
+          "description": "The response from redeeming the unlock a chosen modified subscriber emote reward.",
+          "fields": [
+            {
+              "name": "balance",
+              "description": "The user's new Community Points balance.",
+              "args": [],
+              "type": {
+                "kind": "SCALAR",
+                "name": "Int",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "error",
+              "description": "The error that occurred during redemption, if any.",
+              "args": [],
+              "type": {
+                "kind": "OBJECT",
+                "name": "CommunityPointsUnlockEmoteError",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "INPUT_OBJECT",
+          "name": "UnlockChosenSubscriberEmoteInput",
+          "description": "Input for unlocking a chosen subscriber emote with Community Points.",
+          "fields": null,
+          "inputFields": [
+            {
+              "name": "channelID",
+              "description": "The channel the emote is being redeemed on.",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "ID",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "cost",
+              "description": "The client's perception of the reward's cost.",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Int",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "emoteID",
+              "description": "The emote to unlock.",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "ID",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "transactionID",
+              "description": "Client-set identifier for the transaction. This ID should be universally unique.",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "ID",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            }
+          ],
+          "interfaces": null,
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "OBJECT",
+          "name": "UnlockChosenSubscriberEmotePayload",
+          "description": "The response from redeeming the unlock a chosen subscriber emote reward.",
+          "fields": [
+            {
+              "name": "balance",
+              "description": "The user's new Community Points balance.",
+              "args": [],
+              "type": {
+                "kind": "SCALAR",
+                "name": "Int",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "error",
+              "description": "The error that occurred during redemption, if any.",
+              "args": [],
+              "type": {
+                "kind": "OBJECT",
+                "name": "CommunityPointsUnlockEmoteError",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "INPUT_OBJECT",
+          "name": "UnlockRandomSubscriberEmoteInput",
+          "description": "Input for unlocking a random subscriber emote with Community Points.",
+          "fields": null,
+          "inputFields": [
+            {
+              "name": "channelID",
+              "description": "The channel the emote is being redeemed on.",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "ID",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "cost",
+              "description": "The client's perception of the reward's cost.",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Int",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "transactionID",
+              "description": "Client-set identifier for the transaction. This ID should be universally unique.",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "ID",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            }
+          ],
+          "interfaces": null,
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "OBJECT",
+          "name": "UnlockRandomSubscriberEmotePayload",
+          "description": "The response from redeeming the unlock a random subscriber emote reward.",
+          "fields": [
+            {
+              "name": "balance",
+              "description": "The user's new Community Points balance.",
+              "args": [],
+              "type": {
+                "kind": "SCALAR",
+                "name": "Int",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "emote",
+              "description": "The random emote that was unlocked.",
+              "args": [],
+              "type": {
+                "kind": "OBJECT",
+                "name": "CommunityPointsEmote",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "error",
+              "description": "The error that occurred during redemption, if any.",
+              "args": [],
+              "type": {
+                "kind": "OBJECT",
+                "name": "CommunityPointsUnlockEmoteError",
+                "ofType": null
               },
               "isDeprecated": false,
               "deprecationReason": null
