@@ -21625,9 +21625,13 @@
               "description": "The associated error code.",
               "args": [],
               "type": {
-                "kind": "ENUM",
-                "name": "CreateOrganizationMemberErrorCode",
-                "ofType": null
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "ENUM",
+                  "name": "CreateOrganizationMemberErrorCode",
+                  "ofType": null
+                }
               },
               "isDeprecated": false,
               "deprecationReason": null
@@ -21653,12 +21657,6 @@
               "deprecationReason": null
             },
             {
-              "name": "INTERNAL_ERROR",
-              "description": "Internal error.",
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
               "name": "PERMISSION_DENIED",
               "description": "User does not have permission to perform action.",
               "isDeprecated": false,
@@ -21667,6 +21665,12 @@
             {
               "name": "USER_NOT_FOUND",
               "description": "The user does not exist.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "MEMBER_INELIGIBLE",
+              "description": "The user doesn't meet the requirements to have this role. For example, when trying to assign the\n\"BILLING_MANAGER\" role, but the user doesn't have 2FA enabled or completed Extension Monetization Onboarding.",
               "isDeprecated": false,
               "deprecationReason": null
             }
