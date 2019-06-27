@@ -21673,6 +21673,12 @@
               "description": "The user doesn't meet the requirements to have this role. For example, when trying to assign the\n\"BILLING_MANAGER\" role, but the user doesn't have 2FA enabled or completed Extension Monetization Onboarding.",
               "isDeprecated": false,
               "deprecationReason": null
+            },
+            {
+              "name": "INTERNAL_ERROR",
+              "description": "Deprecated. Wait until Twilight PR is merged to remove.\nhttps://git-aws.internal.justin.tv/twilight/twilight/pull/13130.",
+              "isDeprecated": false,
+              "deprecationReason": null
             }
           ],
           "possibleTypes": null
