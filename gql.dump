@@ -2464,8 +2464,8 @@
                   "ofType": null
                 }
               },
-              "isDeprecated": false,
-              "deprecationReason": null
+              "isDeprecated": true,
+              "deprecationReason": "Use User.raidSettings.incomingRaidsPolicy instead."
             },
             {
               "name": "strategy",
@@ -2508,7 +2508,7 @@
         {
           "kind": "ENUM",
           "name": "AutohostSettingsIncomingRaidsPolicy",
-          "description": "Determines what other channels can raid this channel.",
+          "description": "DEPRECATED: to be replaced by IncomingRaidsPolicy.\nDetermines what other channels can raid this channel.",
           "fields": null,
           "inputFields": null,
           "interfaces": null,
@@ -41285,6 +41285,35 @@
           "possibleTypes": null
         },
         {
+          "kind": "ENUM",
+          "name": "IncomingRaidsPolicy",
+          "description": "Determines what other channels can raid this channel.",
+          "fields": null,
+          "inputFields": null,
+          "interfaces": null,
+          "enumValues": [
+            {
+              "name": "NONE",
+              "description": "This user cannot be radied by anyone.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "NETWORK",
+              "description": "This user can be raided by other people in their network.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "ALL",
+              "description": "This user can be raided by anyone.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "possibleTypes": null
+        },
+        {
           "kind": "INPUT_OBJECT",
           "name": "InstallExtensionInput",
           "description": "The required input for an installExtension mutation.",
@@ -51601,6 +51630,33 @@
               "deprecationReason": null
             },
             {
+              "name": "updateAutohostSettings",
+              "description": "Update a user's autohost settings.",
+              "args": [
+                {
+                  "name": "input",
+                  "description": null,
+                  "type": {
+                    "kind": "NON_NULL",
+                    "name": null,
+                    "ofType": {
+                      "kind": "INPUT_OBJECT",
+                      "name": "UpdateAutohostSettingsInput",
+                      "ofType": null
+                    }
+                  },
+                  "defaultValue": null
+                }
+              ],
+              "type": {
+                "kind": "OBJECT",
+                "name": "UpdateAutohostSettingsPayload",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
               "name": "updateBitsBadgeTierNotification",
               "description": "Updates bits badge tier notification.",
               "args": [
@@ -52324,6 +52380,33 @@
               "type": {
                 "kind": "OBJECT",
                 "name": "UpdatePrimeSettingsPayload",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "updateRaidSettings",
+              "description": "Update a user's raid settings.",
+              "args": [
+                {
+                  "name": "input",
+                  "description": null,
+                  "type": {
+                    "kind": "NON_NULL",
+                    "name": null,
+                    "ofType": {
+                      "kind": "INPUT_OBJECT",
+                      "name": "UpdateRaidSettingsInput",
+                      "ofType": null
+                    }
+                  },
+                  "defaultValue": null
+                }
+              ],
+              "type": {
+                "kind": "OBJECT",
+                "name": "UpdateRaidSettingsPayload",
                 "ofType": null
               },
               "isDeprecated": false,
@@ -64281,6 +64364,33 @@
                 "kind": "SCALAR",
                 "name": "Int",
                 "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "OBJECT",
+          "name": "RaidSettings",
+          "description": "A user's raid settings.",
+          "fields": [
+            {
+              "name": "incomingRaidsPolicy",
+              "description": "Determines what other channels can raid this channel.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "ENUM",
+                  "name": "IncomingRaidsPolicy",
+                  "ofType": null
+                }
               },
               "isDeprecated": false,
               "deprecationReason": null
@@ -87892,6 +88002,94 @@
         },
         {
           "kind": "INPUT_OBJECT",
+          "name": "UpdateAutohostSettingsInput",
+          "description": "UpdateAutohostSettingsInput update a user's autohost settings.",
+          "fields": null,
+          "inputFields": [
+            {
+              "name": "isEnabled",
+              "description": "True if this channel has the autohost feature turned on.",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Boolean",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "strategy",
+              "description": "The strategy to use when choosing channels to autohost.",
+              "type": {
+                "kind": "ENUM",
+                "name": "AutohostSettingsStrategy",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "userID",
+              "description": "UserID to update settings for.",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "ID",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "willAutohostTeam",
+              "description": "True if this user autohosts their team members.",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Boolean",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "willPrioritizeAutohost",
+              "description": "True if this channels prefers autohost over vodcast.",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Boolean",
+                "ofType": null
+              },
+              "defaultValue": null
+            }
+          ],
+          "interfaces": null,
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "OBJECT",
+          "name": "UpdateAutohostSettingsPayload",
+          "description": "UpdateAutohostSettingsPayload returns the user whose settings had been updated.",
+          "fields": [
+            {
+              "name": "user",
+              "description": "User whose autohost settings has been updated.",
+              "args": [],
+              "type": {
+                "kind": "OBJECT",
+                "name": "User",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "INPUT_OBJECT",
           "name": "UpdateBitsBadgeTierNotificationInput",
           "description": "UpdateBitsBadgeTierNotificationInput is the input required when updating a bits badge tier notification.",
           "fields": null,
@@ -91318,6 +91516,64 @@
               "type": {
                 "kind": "OBJECT",
                 "name": "PrimeSettings",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "INPUT_OBJECT",
+          "name": "UpdateRaidSettingsInput",
+          "description": "UpdateRaidSettingsInput update a user's raid settings.",
+          "fields": null,
+          "inputFields": [
+            {
+              "name": "incomingRaidsPolicy",
+              "description": "Determines what other channels can raid this channel.",
+              "type": {
+                "kind": "ENUM",
+                "name": "IncomingRaidsPolicy",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "userID",
+              "description": "UserID to update settings for.",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "ID",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            }
+          ],
+          "interfaces": null,
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "OBJECT",
+          "name": "UpdateRaidSettingsPayload",
+          "description": "UpdateRaidSettingsPayload returns the user whose settings had been updated.",
+          "fields": [
+            {
+              "name": "user",
+              "description": "User whose raid settings has been updated.",
+              "args": [],
+              "type": {
+                "kind": "OBJECT",
+                "name": "User",
                 "ofType": null
               },
               "isDeprecated": false,
@@ -96555,6 +96811,18 @@
               "type": {
                 "kind": "OBJECT",
                 "name": "Raid",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "raidSettings",
+              "description": "Preferences for raid behavior, including whether\nraids are enabled and from whom can raids orignate.\nUsers can only view their own raid settings.",
+              "args": [],
+              "type": {
+                "kind": "OBJECT",
+                "name": "RaidSettings",
                 "ofType": null
               },
               "isDeprecated": false,
