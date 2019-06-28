@@ -75020,20 +75020,20 @@
           "interfaces": null,
           "enumValues": [
             {
-              "name": "INVALID_CHANNEL_ID",
-              "description": "The input channel ID is invalid.",
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
-              "name": "INVALID_EVENT_ID",
-              "description": "The input event ID is invalid.",
+              "name": "INVALID_ACTIVITY_ID",
+              "description": "The input activity ID is invalid.",
               "isDeprecated": false,
               "deprecationReason": null
             },
             {
               "name": "INVALID_ALERT_STATUS",
               "description": "The input alert status is invalid.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "INVALID_CHANNEL_ID",
+              "description": "The input channel ID is invalid.",
               "isDeprecated": false,
               "deprecationReason": null
             },
@@ -75181,9 +75181,19 @@
         {
           "kind": "INPUT_OBJECT",
           "name": "SetDashboardAlertQueuePreferenceInput",
-          "description": "Inputs to the SetDashboardAlertQueuePreference mutation.",
+          "description": "Inputs to the SetDashboardAlertQueuePreference mutation. Only one of the boolean settings should be set at once.",
           "fields": null,
           "inputFields": [
+            {
+              "name": "shouldEnableDNDMode",
+              "description": "If true, cannot publish alerts to the user.",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Boolean",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
             {
               "name": "shouldHideBits",
               "description": "If true, cannot publish bits alerts to the user.",
