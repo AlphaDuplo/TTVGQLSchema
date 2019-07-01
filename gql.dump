@@ -68724,6 +68724,24 @@
               "description": "Allows users holding the channel moderator role to access the resource.",
               "isDeprecated": false,
               "deprecationReason": null
+            },
+            {
+              "name": "ALLOW_TIER_3_ONLY",
+              "description": "Allows only users with tier 3 subscriptions to access the resource.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "ALLOW_TIER_2_AND_3_ONLY",
+              "description": "Allows only users with tier 2 and 3 subscriptions to access the resource.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "ALLOW_ALL_TIERS",
+              "description": "Allows users with any tier subscriptions to access the resource.",
+              "isDeprecated": false,
+              "deprecationReason": null
             }
           ],
           "possibleTypes": null
