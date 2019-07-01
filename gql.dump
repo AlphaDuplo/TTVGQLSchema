@@ -98565,7 +98565,7 @@
             },
             {
               "name": "isEditor",
-              "description": "Whether or not the authenticated user is editor of a another user's channel.",
+              "description": "Whether or not the authenticated user is editor of another user's channel.",
               "args": [],
               "type": {
                 "kind": "SCALAR",
@@ -98577,7 +98577,19 @@
             },
             {
               "name": "isModerator",
-              "description": "Whether or not the authenticated user is moderator of a another user's channel.",
+              "description": "Whether or not the authenticated user is a moderator of another user's channel.",
+              "args": [],
+              "type": {
+                "kind": "SCALAR",
+                "name": "Boolean",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "isVIP",
+              "description": "Whether or not the authenticated user is a VIP of another user's channel.",
               "args": [],
               "type": {
                 "kind": "SCALAR",
