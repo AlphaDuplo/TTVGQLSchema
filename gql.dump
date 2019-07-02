@@ -51835,6 +51835,18 @@
               "deprecationReason": null
             },
             {
+              "name": "updateChangelogReadTime",
+              "description": "updateChangelogReadTime marks the changelog as read for a user.",
+              "args": [],
+              "type": {
+                "kind": "OBJECT",
+                "name": "UpdateChangelogReadTimePayload",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
               "name": "updateChanletContentAttributes",
               "description": "updateChanletContentAttributes allows users to make changes to the multi-view content attributes on a chanlet.",
               "args": [
@@ -88486,6 +88498,29 @@
               "type": {
                 "kind": "OBJECT",
                 "name": "BroadcastSettings",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "OBJECT",
+          "name": "UpdateChangelogReadTimePayload",
+          "description": "The result of a UpdateChangelogReadTimePayload mutation.",
+          "fields": [
+            {
+              "name": "lastReadAt",
+              "description": "The updated changelog read time.",
+              "args": [],
+              "type": {
+                "kind": "SCALAR",
+                "name": "Time",
                 "ofType": null
               },
               "isDeprecated": false,
