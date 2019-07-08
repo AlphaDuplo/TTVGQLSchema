@@ -16481,6 +16481,33 @@
               "deprecationReason": null
             },
             {
+              "name": "customReward",
+              "description": "Single custom reward by the given id for this channel.",
+              "args": [
+                {
+                  "name": "id",
+                  "description": null,
+                  "type": {
+                    "kind": "NON_NULL",
+                    "name": null,
+                    "ofType": {
+                      "kind": "SCALAR",
+                      "name": "ID",
+                      "ofType": null
+                    }
+                  },
+                  "defaultValue": null
+                }
+              ],
+              "type": {
+                "kind": "OBJECT",
+                "name": "CommunityPointsCustomReward",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
               "name": "customRewards",
               "description": "Custom rewards for this channel. If no custom rewards exist, will be an empty array.",
               "args": [],
