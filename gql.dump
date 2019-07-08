@@ -15629,18 +15629,28 @@
         {
           "kind": "INPUT_OBJECT",
           "name": "CollectionsOptions",
-          "description": "A Collections Connection input to set options to include empty collections.",
+          "description": "Options for filtering collections.",
           "fields": null,
           "inputFields": [
             {
               "name": "includeEmpty",
-              "description": null,
+              "description": "Option to include empty collections.",
               "type": {
                 "kind": "SCALAR",
                 "name": "Boolean",
                 "ofType": null
               },
               "defaultValue": "false"
+            },
+            {
+              "name": "withVideoID",
+              "description": "Only return collections that include the given video ID.",
+              "type": {
+                "kind": "SCALAR",
+                "name": "ID",
+                "ofType": null
+              },
+              "defaultValue": null
             }
           ],
           "interfaces": null,
