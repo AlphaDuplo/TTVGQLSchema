@@ -16249,6 +16249,98 @@
           "possibleTypes": null
         },
         {
+          "kind": "OBJECT",
+          "name": "CommunityGift",
+          "description": "Represents an entry in the CommunityGift database.",
+          "fields": [
+            {
+              "name": "count",
+              "description": "The number of gifts added to the community gift.",
+              "args": [],
+              "type": {
+                "kind": "SCALAR",
+                "name": "Int",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "id",
+              "description": "The ID for the community gift.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "ID",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "lastDonor",
+              "description": "The last user who has gifted in the community gift event.",
+              "args": [],
+              "type": {
+                "kind": "OBJECT",
+                "name": "User",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "state",
+              "description": "The state of the community gift.",
+              "args": [],
+              "type": {
+                "kind": "ENUM",
+                "name": "CommunityGiftState",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "ENUM",
+          "name": "CommunityGiftState",
+          "description": "Different states of a community gift.",
+          "fields": null,
+          "inputFields": null,
+          "interfaces": null,
+          "enumValues": [
+            {
+              "name": "ACTIVE",
+              "description": "The community gift has been created but not distributed.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "DISTRIBUTED",
+              "description": "The community gift has been distributed.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "EXPIRED",
+              "description": "If a second community gift is created while one is already ACTIVE, the first one's state becomes EXPIRED.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "possibleTypes": null
+        },
+        {
           "kind": "ENUM",
           "name": "CommunityImageFormat",
           "description": "CommunityImageFormat is the possible values for the compression format for an image.",
@@ -19754,6 +19846,54 @@
               "deprecationReason": null
             }
           ],
+          "possibleTypes": null
+        },
+        {
+          "kind": "INPUT_OBJECT",
+          "name": "CreateCommunityGiftInput",
+          "description": "Inputs for creating a community gift.",
+          "fields": null,
+          "inputFields": [
+            {
+              "name": "userID",
+              "description": "The user ID for the user creating the community gift.",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "ID",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            }
+          ],
+          "interfaces": null,
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "OBJECT",
+          "name": "CreateCommunityGiftPayload",
+          "description": "The response from creating a community gift event.",
+          "fields": [
+            {
+              "name": "communityGift",
+              "description": "The created community gift.",
+              "args": [],
+              "type": {
+                "kind": "OBJECT",
+                "name": "CommunityGift",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
+          "enumValues": null,
           "possibleTypes": null
         },
         {
@@ -26031,6 +26171,22 @@
               "deprecationReason": null
             },
             {
+              "name": "shouldHideGiftSubscriptions",
+              "description": "If true, cannot publish subscription gift alerts to the user.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Boolean",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
               "name": "shouldHideHosts",
               "description": "If true, cannot publish hosts alerts to the user.",
               "args": [],
@@ -26064,7 +26220,7 @@
             },
             {
               "name": "shouldHideSubscriptions",
-              "description": "If true, cannot publish subscriptions alerts to the user.",
+              "description": "If true, cannot publish regular subscriptions alerts to the user (gift subs are still shown).",
               "args": [],
               "type": {
                 "kind": "NON_NULL",
@@ -29450,6 +29606,82 @@
               "type": {
                 "kind": "OBJECT",
                 "name": "Video",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "INPUT_OBJECT",
+          "name": "DistributeCommunityGiftInput",
+          "description": "Inputs for ending and distributing a community gift.",
+          "fields": null,
+          "inputFields": [
+            {
+              "name": "broadcastTitle",
+              "description": "The title for the channel the community gift is being distributed in.",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "String",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "giftID",
+              "description": "The ID for the community gift you want to distribute.",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "ID",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "userID",
+              "description": "The user ID for the user distributing the community gift.",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "ID",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            }
+          ],
+          "interfaces": null,
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "OBJECT",
+          "name": "DistributeCommunityGiftPayload",
+          "description": "The response from distributing community gifts.",
+          "fields": [
+            {
+              "name": "communityGift",
+              "description": "The community gift entry that has distributed.",
+              "args": [],
+              "type": {
+                "kind": "OBJECT",
+                "name": "CommunityGift",
                 "ofType": null
               },
               "isDeprecated": false,
@@ -47287,6 +47519,33 @@
               "deprecationReason": null
             },
             {
+              "name": "createCommunityGift",
+              "description": "Create a new community gift in streamer's channel.",
+              "args": [
+                {
+                  "name": "input",
+                  "description": null,
+                  "type": {
+                    "kind": "NON_NULL",
+                    "name": null,
+                    "ofType": {
+                      "kind": "INPUT_OBJECT",
+                      "name": "CreateCommunityGiftInput",
+                      "ofType": null
+                    }
+                  },
+                  "defaultValue": null
+                }
+              ],
+              "type": {
+                "kind": "OBJECT",
+                "name": "CreateCommunityGiftPayload",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
               "name": "createCommunityImageUploadURL",
               "description": "createCommunityImageUploadURL creates and returns a url to use on the client side to upload media images.",
               "args": [
@@ -48951,6 +49210,33 @@
               "type": {
                 "kind": "OBJECT",
                 "name": "DismissVideoSuggestedHighlightPayload",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "distributeCommunityGift",
+              "description": "Ends an active community gift in a channel and distributes the collected gifts.",
+              "args": [
+                {
+                  "name": "input",
+                  "description": null,
+                  "type": {
+                    "kind": "NON_NULL",
+                    "name": null,
+                    "ofType": {
+                      "kind": "INPUT_OBJECT",
+                      "name": "DistributeCommunityGiftInput",
+                      "ofType": null
+                    }
+                  },
+                  "defaultValue": null
+                }
+              ],
+              "type": {
+                "kind": "OBJECT",
+                "name": "DistributeCommunityGiftPayload",
                 "ofType": null
               },
               "isDeprecated": false,
@@ -75569,6 +75855,16 @@
               "defaultValue": null
             },
             {
+              "name": "shouldHideGiftSubscriptions",
+              "description": "If true, cannot publish subscription gift alerts to the user.",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Boolean",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
               "name": "shouldHideHosts",
               "description": "If true, cannot publish hosts alerts to the user.",
               "type": {
@@ -75590,7 +75886,7 @@
             },
             {
               "name": "shouldHideSubscriptions",
-              "description": "If true, cannot publish subscriptions alerts to the user.",
+              "description": "If true, cannot publish regular subscriptions alerts to the user (gift subs are still shown).",
               "type": {
                 "kind": "SCALAR",
                 "name": "Boolean",
@@ -80093,6 +80389,65 @@
               "deprecationReason": null
             }
           ],
+          "possibleTypes": null
+        },
+        {
+          "kind": "OBJECT",
+          "name": "StreamSummary",
+          "description": "Analytics information for a streaming session.",
+          "fields": [
+            {
+              "name": "channelID",
+              "description": "The ID for the streaming channel.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "ID",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "endedAt",
+              "description": "The time that the stream session ended.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Time",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "startedAt",
+              "description": "The time that the stream session started.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Time",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
+          "enumValues": null,
           "possibleTypes": null
         },
         {
@@ -95007,6 +95362,18 @@
               "deprecationReason": null
             },
             {
+              "name": "communityGift",
+              "description": "Get the active community gift info by the streamer who has started it .",
+              "args": [],
+              "type": {
+                "kind": "OBJECT",
+                "name": "CommunityGift",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
               "name": "company",
               "description": "The company that the user belongs to.\nReturns null if the user doesn't belong to a company.",
               "args": [],
@@ -97515,6 +97882,37 @@
                 "kind": "OBJECT",
                 "name": "Stream",
                 "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "streamSummaries",
+              "description": "A list of stream summaries. Stream summaries provide analytics information\nfor a streaming session. The optional limit parameter defaults to 1.",
+              "args": [
+                {
+                  "name": "first",
+                  "description": null,
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Int",
+                    "ofType": null
+                  },
+                  "defaultValue": null
+                }
+              ],
+              "type": {
+                "kind": "LIST",
+                "name": null,
+                "ofType": {
+                  "kind": "NON_NULL",
+                  "name": null,
+                  "ofType": {
+                    "kind": "OBJECT",
+                    "name": "StreamSummary",
+                    "ofType": null
+                  }
+                }
               },
               "isDeprecated": false,
               "deprecationReason": null
