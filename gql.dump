@@ -35092,6 +35092,16 @@
                 }
               },
               "defaultValue": null
+            },
+            {
+              "name": "viewerSummary",
+              "description": "A summary of the extension's functionality from a viewer's perspective.",
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              },
+              "defaultValue": null
             }
           ],
           "interfaces": null,
@@ -90940,7 +90950,7 @@
           "inputFields": [
             {
               "name": "discoveryManifest",
-              "description": "Extension metadata used for discovery,\n(declared in update_extension_manifest.graphql).",
+              "description": "Extension metadata used for discovery.",
               "type": {
                 "kind": "NON_NULL",
                 "name": null,
