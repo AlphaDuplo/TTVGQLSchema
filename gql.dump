@@ -97113,6 +97113,26 @@
                 "name": "PrimePayoutDetails",
                 "ofType": null
               },
+              "isDeprecated": true,
+              "deprecationReason": "Use primePayoutHistory, this will be removed soon"
+            },
+            {
+              "name": "primePayoutHistory",
+              "description": "The prime payout details over a period of time for the user.",
+              "args": [],
+              "type": {
+                "kind": "LIST",
+                "name": null,
+                "ofType": {
+                  "kind": "NON_NULL",
+                  "name": null,
+                  "ofType": {
+                    "kind": "OBJECT",
+                    "name": "PrimePayoutDetail",
+                    "ofType": null
+                  }
+                }
+              },
               "isDeprecated": false,
               "deprecationReason": null
             },
