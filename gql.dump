@@ -49955,6 +49955,33 @@
               "deprecationReason": null
             },
             {
+              "name": "recordAdEvent",
+              "description": "Record an ad event.",
+              "args": [
+                {
+                  "name": "input",
+                  "description": null,
+                  "type": {
+                    "kind": "NON_NULL",
+                    "name": null,
+                    "ofType": {
+                      "kind": "INPUT_OBJECT",
+                      "name": "RecordAdEventInput",
+                      "ofType": null
+                    }
+                  },
+                  "defaultValue": null
+                }
+              ],
+              "type": {
+                "kind": "OBJECT",
+                "name": "RecordAdEventPayload",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
               "name": "redeemClaimable",
               "description": "Redeem a claimable code, like a bits key code to add bits to your account, etc.",
               "args": [
@@ -54207,13 +54234,9 @@
               "description": "A listing describing the charge model and cancellation policy for the Offer.",
               "args": [],
               "type": {
-                "kind": "NON_NULL",
-                "name": null,
-                "ofType": {
-                  "kind": "OBJECT",
-                  "name": "OfferListing",
-                  "ofType": null
-                }
+                "kind": "OBJECT",
+                "name": "OfferListing",
+                "ofType": null
               },
               "isDeprecated": false,
               "deprecationReason": null
@@ -54230,6 +54253,18 @@
                   "name": "String",
                   "ofType": null
                 }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "promotion",
+              "description": "A Promotion object descrives the promotion to be applied on an Offer (if any).",
+              "args": [],
+              "type": {
+                "kind": "OBJECT",
+                "name": "OfferPromotion",
+                "ofType": null
               },
               "isDeprecated": false,
               "deprecationReason": null
@@ -54437,6 +54472,29 @@
                   "name": "ChargeModel",
                   "ofType": null
                 }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "OBJECT",
+          "name": "OfferPromotion",
+          "description": "Promotions is a modifier to an Offer.",
+          "fields": [
+            {
+              "name": "listing",
+              "description": "The OfferListing associated with this Promotion.",
+              "args": [],
+              "type": {
+                "kind": "OBJECT",
+                "name": "OfferListing",
+                "ofType": null
               },
               "isDeprecated": false,
               "deprecationReason": null
@@ -64529,6 +64587,26 @@
               "deprecationReason": null
             },
             {
+              "name": "subscriptionTokenBundleProducts",
+              "description": "Get all avaialble token bundle products available for the user.",
+              "args": [],
+              "type": {
+                "kind": "LIST",
+                "name": null,
+                "ofType": {
+                  "kind": "NON_NULL",
+                  "name": null,
+                  "ofType": {
+                    "kind": "OBJECT",
+                    "name": "SubscriptionTokenBundleProduct",
+                    "ofType": null
+                  }
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
               "name": "subscriptionTokenProductConfig",
               "description": "Gets the Token Product Config.",
               "args": [],
@@ -66053,6 +66131,138 @@
               "type": {
                 "kind": "OBJECT",
                 "name": "Video",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "OBJECT",
+          "name": "RecordAdEventError",
+          "description": "Record ad event error.",
+          "fields": [
+            {
+              "name": "code",
+              "description": "Error from recording ad event.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "ENUM",
+                  "name": "RecordAdEventErrorCode",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "ENUM",
+          "name": "RecordAdEventErrorCode",
+          "description": "Enumeration of RecordAdEvent error status codes.",
+          "fields": null,
+          "inputFields": null,
+          "interfaces": null,
+          "enumValues": [
+            {
+              "name": "INVALID_TOKEN",
+              "description": "The RAd token in the request was not valid.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "INVALID_JSON",
+              "description": "The event payload was invalid.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "UNKNOWN_ERROR",
+              "description": "An internal error has occurred, other than a 500.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "possibleTypes": null
+        },
+        {
+          "kind": "INPUT_OBJECT",
+          "name": "RecordAdEventInput",
+          "description": "The input for recording an ad event.",
+          "fields": null,
+          "inputFields": [
+            {
+              "name": "eventName",
+              "description": "The ad event name.",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "String",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "eventPayload",
+              "description": "Ad details JSON encoded as a string.",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "String",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "radToken",
+              "description": "The RAd service token used for validation.",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "String",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            }
+          ],
+          "interfaces": null,
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "OBJECT",
+          "name": "RecordAdEventPayload",
+          "description": "The payload returned after recording an ad event.",
+          "fields": [
+            {
+              "name": "error",
+              "description": "Error from mutation, if one exists.",
+              "args": [],
+              "type": {
+                "kind": "OBJECT",
+                "name": "RecordAdEventError",
                 "ofType": null
               },
               "isDeprecated": false,
@@ -83649,6 +83859,89 @@
         },
         {
           "kind": "OBJECT",
+          "name": "SubscriptionTokenBundleProduct",
+          "description": "A SubscriptionTokenBundleProduct can contain multiple Offers. \nex) A Bundle of size 3 tokens, can have 3 other offers such as: \n  - Normal offer: \"Pay $16.99 for the bundle\n  - Discounted, one-time buy offer: \"Pay $14.99 for the bundle, but a one-time purchase only\"\n  - Bits: Use X amount of Bits to purchase this Bundle.",
+          "fields": [
+            {
+              "name": "assets",
+              "description": "Assets assocaited with a certain Token Bundle Product.",
+              "args": [],
+              "type": {
+                "kind": "LIST",
+                "name": null,
+                "ofType": {
+                  "kind": "NON_NULL",
+                  "name": null,
+                  "ofType": {
+                    "kind": "OBJECT",
+                    "name": "TokenBundleAsset",
+                    "ofType": null
+                  }
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "id",
+              "description": "Subscription token bundle product's identifier.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "ID",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "offers",
+              "description": "List of available offers for this bundle product.\nDisplays the cheapest offer to the user, if there are promotions to be applied.",
+              "args": [],
+              "type": {
+                "kind": "LIST",
+                "name": null,
+                "ofType": {
+                  "kind": "NON_NULL",
+                  "name": null,
+                  "ofType": {
+                    "kind": "OBJECT",
+                    "name": "Offer",
+                    "ofType": null
+                  }
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "quantity",
+              "description": "Quantity of tokens the bundle.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Int",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "OBJECT",
           "name": "SubscriptionTokenProductConfig",
           "description": "Describes configurable values for the token product line.",
           "fields": [
@@ -85724,6 +86017,81 @@
                 "kind": "OBJECT",
                 "name": "User",
                 "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "OBJECT",
+          "name": "TokenBundleAsset",
+          "description": "Assets for a TokenBundleProduct. \nEach asset will have a 1x, 2x, 3x sizing w/ their respective URLs. \nDifferent sizing is required for mobile clients.",
+          "fields": [
+            {
+              "name": "imageURL1x",
+              "description": "URL of asset of size 1x.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "String",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "imageURL2x",
+              "description": "URL of asset size 2x.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "String",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "imageURL3x",
+              "description": "URL of asset size 3x.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "String",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "key",
+              "description": "Key identifier for an asset.\nex) \"bundleImg\", \"promoImg\", etc.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "String",
+                  "ofType": null
+                }
               },
               "isDeprecated": false,
               "deprecationReason": null
