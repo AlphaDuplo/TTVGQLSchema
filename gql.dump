@@ -2286,7 +2286,7 @@
           "enumValues": [
             {
               "name": "FAILED_PRECONDITION",
-              "description": "Failed precondition error.\nExtension does not to belong to an organization.",
+              "description": "Extension does not belong to an organization.",
               "isDeprecated": false,
               "deprecationReason": null
             },
@@ -68094,9 +68094,13 @@
               "description": "The associated error code.",
               "args": [],
               "type": {
-                "kind": "ENUM",
-                "name": "RemoveOrganizationMemberErrorCode",
-                "ofType": null
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "ENUM",
+                  "name": "RemoveOrganizationMemberErrorCode",
+                  "ofType": null
+                }
               },
               "isDeprecated": false,
               "deprecationReason": null
@@ -68116,20 +68120,26 @@
           "interfaces": null,
           "enumValues": [
             {
-              "name": "INTERNAL_ERROR",
-              "description": "Internal error.",
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
               "name": "PERMISSION_DENIED",
-              "description": "User does not have permission to perform action.",
+              "description": "User does not have permission to remove another member.",
               "isDeprecated": false,
               "deprecationReason": null
             },
             {
               "name": "USER_NOT_FOUND",
-              "description": "The user does not exist.",
+              "description": "The user to be removed does not exist.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "ASSIGNED_BILLING_MANAGER",
+              "description": "Can not remove this user because it is assigned as an extension billing manager. Need to unassign first.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "INTERNAL_ERROR",
+              "description": "Deprecated: code not used, a resolver error is returned instead.",
               "isDeprecated": false,
               "deprecationReason": null
             }
