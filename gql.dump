@@ -9395,6 +9395,147 @@
         },
         {
           "kind": "OBJECT",
+          "name": "ChallengeConditional",
+          "description": "A conditional action that will be taken if an associated condition is satisfied.",
+          "fields": [
+            {
+              "name": "endState",
+              "description": "Final state of the conditional.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "ENUM",
+                  "name": "ChallengeConditionalEndState",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "id",
+              "description": "Unique ID of the conditional.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "ID",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "processingState",
+              "description": "Whether or not the conditional was successfully processed upon condition completion.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "ENUM",
+                  "name": "ChallengeConditionalProcessingState",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "ENUM",
+          "name": "ChallengeConditionalEndState",
+          "description": "Final state of the conditional.",
+          "fields": null,
+          "inputFields": null,
+          "interfaces": null,
+          "enumValues": [
+            {
+              "name": "PENDING",
+              "description": "Pending completion of associated condition.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "CONDITION_EXPIRED",
+              "description": "Associated condition expired.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "CONDITION_CANCELED",
+              "description": "Associated condition was canceled.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "CONDITION_SATISFIED",
+              "description": "Associated condition was satisfied.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "EXPIRED",
+              "description": "Conditional expired before associated condition could be satisfied.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "UNKNOWN",
+              "description": "Unknown state.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "possibleTypes": null
+        },
+        {
+          "kind": "ENUM",
+          "name": "ChallengeConditionalProcessingState",
+          "description": "Whether or not the conditional was successfully processed upon condition completion.",
+          "fields": null,
+          "inputFields": null,
+          "interfaces": null,
+          "enumValues": [
+            {
+              "name": "PENDING",
+              "description": "Pending completion of associated condition.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "SUCCESS",
+              "description": "Conditional processed successfully.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "ERROR",
+              "description": "Error processing conditional.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "UNKNOWN",
+              "description": "Unknown state.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "possibleTypes": null
+        },
+        {
+          "kind": "OBJECT",
           "name": "ChangelogEntry",
           "description": "ChangelogEntry is an entry that displays new items and notifications in the creator homepage changelog.",
           "fields": [
@@ -19478,6 +19619,124 @@
                   "name": "String",
                   "ofType": null
                 }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "INPUT_OBJECT",
+          "name": "CreateBitsChallengeConditionalForExtensionInput",
+          "description": "CreateBitsChallengeConditionalForExtensionInput creates a Bits conditional on behalf of a user by an extension.",
+          "fields": null,
+          "inputFields": [
+            {
+              "name": "bitsAmount",
+              "description": "Bits quantity to be held pending condition satisfaction.",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Int",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "conditionID",
+              "description": "ID of the associated condition.",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "ID",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "conditionOwnerID",
+              "description": "TUID of condition owner.",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "ID",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "conditionalOwnerID",
+              "description": "TUID of the conditional owner - Bits are withdrawn from this user.",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "ID",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "extensionID",
+              "description": "ID of the extension creating the conditional.",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "ID",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "ttlSeconds",
+              "description": "Time in seconds, after which the conditional is expired and the Bits are released (range: 1-43_200).",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Int",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            }
+          ],
+          "interfaces": null,
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "OBJECT",
+          "name": "CreateBitsChallengeConditionalForExtensionPayload",
+          "description": "CreateBitsChallengeConditionalForExtensionPayload returns the new conditional that was created.",
+          "fields": [
+            {
+              "name": "conditional",
+              "description": "The newly created conditional.",
+              "args": [],
+              "type": {
+                "kind": "OBJECT",
+                "name": "ChallengeConditional",
+                "ofType": null
               },
               "isDeprecated": false,
               "deprecationReason": null
@@ -47808,6 +48067,33 @@
               "deprecationReason": null
             },
             {
+              "name": "createBitsChallengeConditionalForExtension",
+              "description": "createBitsChallengeConditionalForExtension creates a Bits conditional on behalf of a user by an extension.",
+              "args": [
+                {
+                  "name": "input",
+                  "description": null,
+                  "type": {
+                    "kind": "NON_NULL",
+                    "name": null,
+                    "ofType": {
+                      "kind": "INPUT_OBJECT",
+                      "name": "CreateBitsChallengeConditionalForExtensionInput",
+                      "ofType": null
+                    }
+                  },
+                  "defaultValue": null
+                }
+              ],
+              "type": {
+                "kind": "OBJECT",
+                "name": "CreateBitsChallengeConditionalForExtensionPayload",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
               "name": "createBountyCampaign",
               "description": "createBountyCampaign creates a campaign for Bounty Board.",
               "args": [
@@ -51312,33 +51598,6 @@
               },
               "isDeprecated": false,
               "deprecationReason": null
-            },
-            {
-              "name": "setChannelRestriction",
-              "description": "setChannelRestriction can create or update a restriction on a channel.",
-              "args": [
-                {
-                  "name": "input",
-                  "description": null,
-                  "type": {
-                    "kind": "NON_NULL",
-                    "name": null,
-                    "ofType": {
-                      "kind": "INPUT_OBJECT",
-                      "name": "SetChannelRestrictionInput",
-                      "ofType": null
-                    }
-                  },
-                  "defaultValue": null
-                }
-              ],
-              "type": {
-                "kind": "OBJECT",
-                "name": "SetChannelRestrictionPayload",
-                "ofType": null
-              },
-              "isDeprecated": true,
-              "deprecationReason": "Use 'setResourceRestriction' instead"
             },
             {
               "name": "setChatPauseSetting",
@@ -76139,64 +76398,6 @@
                   "name": "String",
                   "ofType": null
                 }
-              },
-              "isDeprecated": false,
-              "deprecationReason": null
-            }
-          ],
-          "inputFields": null,
-          "interfaces": [],
-          "enumValues": null,
-          "possibleTypes": null
-        },
-        {
-          "kind": "INPUT_OBJECT",
-          "name": "SetChannelRestrictionInput",
-          "description": "SetChannelRestrictionInput sets a restriction for the given channelID.",
-          "fields": null,
-          "inputFields": [
-            {
-              "name": "channelID",
-              "description": "The ID of the channel to set the restriction on.",
-              "type": {
-                "kind": "NON_NULL",
-                "name": null,
-                "ofType": {
-                  "kind": "SCALAR",
-                  "name": "ID",
-                  "ofType": null
-                }
-              },
-              "defaultValue": null
-            },
-            {
-              "name": "restrictionType",
-              "description": "The type of restriction that should be placed onto the channel. If empty, the restriction will be deleted.",
-              "type": {
-                "kind": "ENUM",
-                "name": "ResourceRestrictionType",
-                "ofType": null
-              },
-              "defaultValue": null
-            }
-          ],
-          "interfaces": null,
-          "enumValues": null,
-          "possibleTypes": null
-        },
-        {
-          "kind": "OBJECT",
-          "name": "SetChannelRestrictionPayload",
-          "description": "SetChannelRestrictionPayload returns the updated restriction for a channel.",
-          "fields": [
-            {
-              "name": "restriction",
-              "description": "The restriction that was created/updated/deleted.",
-              "args": [],
-              "type": {
-                "kind": "OBJECT",
-                "name": "ResourceRestriction",
-                "ofType": null
               },
               "isDeprecated": false,
               "deprecationReason": null
