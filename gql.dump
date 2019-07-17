@@ -91664,6 +91664,12 @@
           "interfaces": null,
           "enumValues": [
             {
+              "name": "UNKNOWN",
+              "description": "An unexpected error occurred.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
               "name": "FORBIDDEN",
               "description": "The current user is not allowed to update this channel's settings.",
               "isDeprecated": false,
