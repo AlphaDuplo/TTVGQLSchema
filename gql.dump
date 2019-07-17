@@ -9394,6 +9394,133 @@
           "possibleTypes": null
         },
         {
+          "kind": "OBJECT",
+          "name": "ChangelogEntry",
+          "description": "ChangelogEntry is an entry that displays new items and notifications in the creator homepage changelog.",
+          "fields": [
+            {
+              "name": "content",
+              "description": "content is localized text content for the changelog entry.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "String",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "iconURL",
+              "description": "iconURL is the url for the entry's icon image.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "String",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "id",
+              "description": "id is a unique human readable slug for the entry e.g. \"squad-stream\".",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "ID",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "linkText",
+              "description": "linkText is the text that the linkURL should display.",
+              "args": [],
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "linkURL",
+              "description": "linkURL is an optional link for more content for this changelog entry.",
+              "args": [],
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "position",
+              "description": "position is where entry should be located within changelog entries of the same date.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Int",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "publishedAt",
+              "description": "publishedAt is the timestamp that the changelog entry was published.",
+              "args": [],
+              "type": {
+                "kind": "SCALAR",
+                "name": "Time",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "title",
+              "description": "title is the localized title of the changelog entry.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "String",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
           "kind": "ENUM",
           "name": "ChanletSort",
           "description": "ChanletSort indicates the desired order of chanlets in the list returned by LoadChanletsByUserID.",
@@ -62841,6 +62968,37 @@
               "deprecationReason": null
             },
             {
+              "name": "changelogEntries",
+              "description": "Get a list of the most recent changelog items.",
+              "args": [
+                {
+                  "name": "limit",
+                  "description": null,
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Int",
+                    "ofType": null
+                  },
+                  "defaultValue": "15"
+                }
+              ],
+              "type": {
+                "kind": "LIST",
+                "name": null,
+                "ofType": {
+                  "kind": "NON_NULL",
+                  "name": null,
+                  "ofType": {
+                    "kind": "OBJECT",
+                    "name": "ChangelogEntry",
+                    "ofType": null
+                  }
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
               "name": "channel",
               "description": "Get a channel by ID or name.",
               "args": [
@@ -89826,12 +89984,12 @@
           "description": "The result of a UpdateChangelogReadTimePayload mutation.",
           "fields": [
             {
-              "name": "lastReadAt",
-              "description": "The updated changelog read time.",
+              "name": "user",
+              "description": "The user whose changelog was marked as read.",
               "args": [],
               "type": {
-                "kind": "SCALAR",
-                "name": "Time",
+                "kind": "OBJECT",
+                "name": "User",
                 "ofType": null
               },
               "isDeprecated": false,
