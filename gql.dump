@@ -91216,6 +91216,36 @@
                 }
               },
               "defaultValue": null
+            },
+            {
+              "name": "shouldResetBackgroundColor",
+              "description": "A flag to reset this automatic reward's background color to default.",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Boolean",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "shouldResetCost",
+              "description": "A flag to reset this automatic reward's cost to default.",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Boolean",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "shouldResetImage",
+              "description": "A flag to reset this automatic reward's image to default.",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Boolean",
+                "ofType": null
+              },
+              "defaultValue": null
             }
           ],
           "interfaces": null,
@@ -91339,6 +91369,26 @@
               "type": {
                 "kind": "SCALAR",
                 "name": "String",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "shouldResetImage",
+              "description": "A flag to reset this channel's community points image to default.",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Boolean",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "shouldResetName",
+              "description": "A flag to reset this channel's community points name to default.",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Boolean",
                 "ofType": null
               },
               "defaultValue": null
