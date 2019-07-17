@@ -2600,13 +2600,13 @@
           "enumValues": [
             {
               "name": "FAILED_PRECONDITION",
-              "description": "Extension does not belong to an organization.",
+              "description": "Extension does not belong to the same organization as the assigned billing manager member.",
               "isDeprecated": false,
               "deprecationReason": null
             },
             {
               "name": "MEMBER_INELIGIBLE",
-              "description": "The user doesn't meet the requirements to be the assigned billing manager.",
+              "description": "The user doesn't meet the requirements to be the assigned billing manager.\nFor example, doesn't have a valid role or did not complete Extension Monetization (TIMs).",
               "isDeprecated": false,
               "deprecationReason": null
             },
@@ -29469,6 +29469,77 @@
           "possibleTypes": null
         },
         {
+          "kind": "INPUT_OBJECT",
+          "name": "DeselectChannelBadgeInput",
+          "description": "Inputs for deselecting a channel badge.",
+          "fields": null,
+          "inputFields": [
+            {
+              "name": "channelID",
+              "description": "ID of the channel this badge is selected on.",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "ID",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            }
+          ],
+          "interfaces": null,
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "OBJECT",
+          "name": "DeselectChannelBadgePayload",
+          "description": "The output for the deselect channel badge mutation.",
+          "fields": [
+            {
+              "name": "user",
+              "description": "The user self connection (contains the badge status).",
+              "args": [],
+              "type": {
+                "kind": "OBJECT",
+                "name": "UserSelfConnection",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "OBJECT",
+          "name": "DeselectGlobalBadgePayload",
+          "description": "The output for the deselect global badge mutation.",
+          "fields": [
+            {
+              "name": "user",
+              "description": "The user (contains the badge status).",
+              "args": [],
+              "type": {
+                "kind": "OBJECT",
+                "name": "User",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
           "kind": "INTERFACE",
           "name": "Directory",
           "description": "A Directory is a container of content – Streams, Videos, and Clips – on Twitch.",
@@ -49818,6 +49889,45 @@
               "deprecationReason": null
             },
             {
+              "name": "deselectChannelBadge",
+              "description": "Deselect channel badge (default to global badge).",
+              "args": [
+                {
+                  "name": "input",
+                  "description": null,
+                  "type": {
+                    "kind": "NON_NULL",
+                    "name": null,
+                    "ofType": {
+                      "kind": "INPUT_OBJECT",
+                      "name": "DeselectChannelBadgeInput",
+                      "ofType": null
+                    }
+                  },
+                  "defaultValue": null
+                }
+              ],
+              "type": {
+                "kind": "OBJECT",
+                "name": "DeselectChannelBadgePayload",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "deselectGlobalBadge",
+              "description": "Deselect global badge (default to no badge).",
+              "args": [],
+              "type": {
+                "kind": "OBJECT",
+                "name": "DeselectGlobalBadgePayload",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
               "name": "disableUserAccount",
               "description": "Allows the current user to disable or permanently delete their own account.",
               "args": [
@@ -51351,6 +51461,60 @@
               "type": {
                 "kind": "OBJECT",
                 "name": "SaveExtensionManifestPayload",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "selectChannelBadge",
+              "description": "Select a user's channel badge for a channel.",
+              "args": [
+                {
+                  "name": "input",
+                  "description": null,
+                  "type": {
+                    "kind": "NON_NULL",
+                    "name": null,
+                    "ofType": {
+                      "kind": "INPUT_OBJECT",
+                      "name": "SelectChannelBadgeInput",
+                      "ofType": null
+                    }
+                  },
+                  "defaultValue": null
+                }
+              ],
+              "type": {
+                "kind": "OBJECT",
+                "name": "SelectChannelBadgePayload",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "selectGlobalBadge",
+              "description": "Select a user's global badge.",
+              "args": [
+                {
+                  "name": "input",
+                  "description": null,
+                  "type": {
+                    "kind": "NON_NULL",
+                    "name": null,
+                    "ofType": {
+                      "kind": "INPUT_OBJECT",
+                      "name": "SelectGlobalBadgeInput",
+                      "ofType": null
+                    }
+                  },
+                  "defaultValue": null
+                }
+              ],
+              "type": {
+                "kind": "OBJECT",
+                "name": "SelectGlobalBadgePayload",
                 "ofType": null
               },
               "isDeprecated": false,
@@ -63822,6 +63986,33 @@
               "deprecationReason": null
             },
             {
+              "name": "emoteSet",
+              "description": "Get an emote set by ID.",
+              "args": [
+                {
+                  "name": "id",
+                  "description": null,
+                  "type": {
+                    "kind": "NON_NULL",
+                    "name": null,
+                    "ofType": {
+                      "kind": "SCALAR",
+                      "name": "ID",
+                      "ofType": null
+                    }
+                  },
+                  "defaultValue": null
+                }
+              ],
+              "type": {
+                "kind": "OBJECT",
+                "name": "EmoteSet",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
               "name": "event",
               "description": "Get an Event by ID.",
               "args": [
@@ -75023,6 +75214,160 @@
               "deprecationReason": null
             }
           ],
+          "possibleTypes": null
+        },
+        {
+          "kind": "INPUT_OBJECT",
+          "name": "SelectChannelBadgeInput",
+          "description": "Inputs for selecting a channel badge.",
+          "fields": null,
+          "inputFields": [
+            {
+              "name": "badgeSetID",
+              "description": "Set ID of the badge to select.",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "ID",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "badgeSetVersion",
+              "description": "Optional Version of the Badge to select.",
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "channelID",
+              "description": "ID of the channel this badge is selected on.",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "ID",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            }
+          ],
+          "interfaces": null,
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "OBJECT",
+          "name": "SelectChannelBadgePayload",
+          "description": "The output for the select channel badge mutation.",
+          "fields": [
+            {
+              "name": "isSuccessful",
+              "description": "Indicates if selecting the badge was successful.",
+              "args": [],
+              "type": {
+                "kind": "SCALAR",
+                "name": "Boolean",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "user",
+              "description": "The user self connection (contains the selected badge).",
+              "args": [],
+              "type": {
+                "kind": "OBJECT",
+                "name": "UserSelfConnection",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "INPUT_OBJECT",
+          "name": "SelectGlobalBadgeInput",
+          "description": "Inputs for selecting a global badge.",
+          "fields": null,
+          "inputFields": [
+            {
+              "name": "badgeSetID",
+              "description": "Set ID of the badge to select.",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "ID",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "badgeSetVersion",
+              "description": "Optional Version of the Badge to select.",
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              },
+              "defaultValue": null
+            }
+          ],
+          "interfaces": null,
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "OBJECT",
+          "name": "SelectGlobalBadgePayload",
+          "description": "The output for the select global badge mutation.",
+          "fields": [
+            {
+              "name": "isSuccessful",
+              "description": "Indicates if selecting the badge was successful.",
+              "args": [],
+              "type": {
+                "kind": "SCALAR",
+                "name": "Boolean",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "user",
+              "description": "The user of the selected badge.",
+              "args": [],
+              "type": {
+                "kind": "OBJECT",
+                "name": "User",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
+          "enumValues": null,
           "possibleTypes": null
         },
         {
