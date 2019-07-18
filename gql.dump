@@ -44308,6 +44308,49 @@
         },
         {
           "kind": "OBJECT",
+          "name": "LimitedBetaStatus",
+          "description": "LimitedBetaStatus contains status information for a limited opt-in beta test.\nIt is only accessible to the currentUser and will be null in all other cases.",
+          "fields": [
+            {
+              "name": "isInvited",
+              "description": "isInvited is true if the user has been accepted into the test or false otherwise.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Boolean",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "isRequested",
+              "description": "isRequested is true if the user has opted-in to the test or false otherwise.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Boolean",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "OBJECT",
           "name": "LinkOEmbed",
           "description": "LinkOEmbed is a link oEmbed.  This looks strange being empty, but mirrors the oEmbed official spec most exactly.",
           "fields": [
@@ -54293,6 +54336,33 @@
               "deprecationReason": null
             },
             {
+              "name": "updateSpotlightBetaPreference",
+              "description": "updateSpotlightBetaPreference allows a user to opt in or out of Spotlight's beta test.",
+              "args": [
+                {
+                  "name": "input",
+                  "description": null,
+                  "type": {
+                    "kind": "NON_NULL",
+                    "name": null,
+                    "ofType": {
+                      "kind": "INPUT_OBJECT",
+                      "name": "UpdateSpotlightBetaPreferenceInput",
+                      "ofType": null
+                    }
+                  },
+                  "defaultValue": null
+                }
+              ],
+              "type": {
+                "kind": "OBJECT",
+                "name": "UpdateSpotlightBetaPreferencePayload",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
               "name": "updateSquadInvitePolicy",
               "description": "updateSquadInvitePolicy allows a broadcaster to update their squad stream invite policy.",
               "args": [
@@ -55362,8 +55432,8 @@
                 "kind": "NON_NULL",
                 "name": null,
                 "ofType": {
-                  "kind": "SCALAR",
-                  "name": "String",
+                  "kind": "ENUM",
+                  "name": "OfferPlatform",
                   "ofType": null
                 }
               },
@@ -55593,6 +55663,41 @@
           "inputFields": null,
           "interfaces": [],
           "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "ENUM",
+          "name": "OfferPlatform",
+          "description": "The platform on which the Offer is valid.",
+          "fields": null,
+          "inputFields": null,
+          "interfaces": null,
+          "enumValues": [
+            {
+              "name": "WEB",
+              "description": "The web site.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "IOS",
+              "description": "The iOS app.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "ANDROID",
+              "description": "The Android app.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "DESKTOP",
+              "description": "The desktop app.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
           "possibleTypes": null
         },
         {
@@ -95412,6 +95517,54 @@
           "possibleTypes": null
         },
         {
+          "kind": "INPUT_OBJECT",
+          "name": "UpdateSpotlightBetaPreferenceInput",
+          "description": "UpdateSpotlightBetaPreferenceInput requests to opt-in or opt-out of the Spotlight beta.",
+          "fields": null,
+          "inputFields": [
+            {
+              "name": "isRequested",
+              "description": "IsRequest determines if the user would like to opt-in or opt-out of the beta.",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Boolean",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            }
+          ],
+          "interfaces": null,
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "OBJECT",
+          "name": "UpdateSpotlightBetaPreferencePayload",
+          "description": "UpdateSpotlightBetaPreferencePayload returns updated beta status for Spotlight.",
+          "fields": [
+            {
+              "name": "user",
+              "description": "user whose Spotlight beta status was updated.",
+              "args": [],
+              "type": {
+                "kind": "OBJECT",
+                "name": "User",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
           "kind": "OBJECT",
           "name": "UpdateSquadInvitePolicyError",
           "description": "UpdateSquadInvitePolicyError is the error associated with an updateSquadInvitePolicy.",
@@ -100168,6 +100321,18 @@
               "type": {
                 "kind": "OBJECT",
                 "name": "UserSettings",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "spotlightBetaStatus",
+              "description": "spotlightBetaStatus checks if the user has access to the Spotlight beta.\nUsers can only view their own beta status.",
+              "args": [],
+              "type": {
+                "kind": "OBJECT",
+                "name": "LimitedBetaStatus",
                 "ofType": null
               },
               "isDeprecated": false,
