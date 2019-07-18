@@ -36806,6 +36806,29 @@
         },
         {
           "kind": "OBJECT",
+          "name": "ExtensionRecommendation",
+          "description": "Extension recommendation.",
+          "fields": [
+            {
+              "name": "extension",
+              "description": "The recommended extension.",
+              "args": [],
+              "type": {
+                "kind": "OBJECT",
+                "name": "Extension",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "OBJECT",
           "name": "ExtensionRequiredAction",
           "description": "The action a user must take to complete an activation of an extension installation.",
           "fields": [
@@ -39966,6 +39989,26 @@
                   "kind": "SCALAR",
                   "name": "String",
                   "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "extensionRecommendations",
+              "description": "A list of extension recommendations, according to the game.",
+              "args": [],
+              "type": {
+                "kind": "LIST",
+                "name": null,
+                "ofType": {
+                  "kind": "NON_NULL",
+                  "name": null,
+                  "ofType": {
+                    "kind": "OBJECT",
+                    "name": "ExtensionRecommendation",
+                    "ofType": null
+                  }
                 }
               },
               "isDeprecated": false,
