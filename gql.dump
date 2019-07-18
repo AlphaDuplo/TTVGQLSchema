@@ -24991,34 +24991,6 @@
           "description": "A CreatorCampArticle is a represenation of an article from \nhttps://www.twitch.tv/creatorcamp.",
           "fields": [
             {
-              "name": "category",
-              "description": "Each article belongs to a category such as \"getting-started\".",
-              "args": [],
-              "type": {
-                "kind": "SCALAR",
-                "name": "String",
-                "ofType": null
-              },
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
-              "name": "content",
-              "description": "The localized, HTML content of the article.",
-              "args": [],
-              "type": {
-                "kind": "NON_NULL",
-                "name": null,
-                "ofType": {
-                  "kind": "SCALAR",
-                  "name": "String",
-                  "ofType": null
-                }
-              },
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
               "name": "id",
               "description": "The ID of the article is also a human readable \"slug\" e.g. \"twitch-101\".",
               "args": [],
@@ -25103,6 +25075,18 @@
               "deprecationReason": null
             },
             {
+              "name": "videoDurationSeconds",
+              "description": "The length of the article's video in seconds.",
+              "args": [],
+              "type": {
+                "kind": "SCALAR",
+                "name": "Int",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
               "name": "videoURL",
               "description": "A URL pointing to the embedded video in this article. Most\nCreatorCamp articles have an assoicated video.",
               "args": [],
@@ -25159,6 +25143,22 @@
                 "ofType": {
                   "kind": "SCALAR",
                   "name": "ID",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "title",
+              "description": "The localized title of the category.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "String",
                   "ofType": null
                 }
               },
