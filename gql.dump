@@ -18690,6 +18690,12 @@
               "deprecationReason": null
             },
             {
+              "name": "REWARD_DISABLED",
+              "description": "The reward is currently disabled.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
               "name": "UNKNOWN",
               "description": "An unknown error occurred.",
               "isDeprecated": false,
@@ -27888,9 +27894,13 @@
               "description": "An identifier for the error that occurred.",
               "args": [],
               "type": {
-                "kind": "ENUM",
-                "name": "DeleteCommunityPointsCustomRewardErrorCode",
-                "ofType": null
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "ENUM",
+                  "name": "DeleteCommunityPointsCustomRewardErrorCode",
+                  "ofType": null
+                }
               },
               "isDeprecated": false,
               "deprecationReason": null
@@ -27909,6 +27919,12 @@
           "inputFields": null,
           "interfaces": null,
           "enumValues": [
+            {
+              "name": "UNKNOWN",
+              "description": "An unexpected error occurred.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
             {
               "name": "FORBIDDEN",
               "description": "The current user is not allowed to delete a reward in this channel.",
@@ -77005,6 +77021,12 @@
             {
               "name": "REWARD_COST_MISMATCH",
               "description": "The reward cost has changed since the user has tried to redeem it.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "REWARD_DISABLED",
+              "description": "The reward is currently disabled.",
               "isDeprecated": false,
               "deprecationReason": null
             },
