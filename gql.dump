@@ -40429,7 +40429,7 @@
             },
             {
               "name": "displayName",
-              "description": "The translated game name used for display purposes.\nUse name for tracking props or URLs.",
+              "description": "A publicly visible name used for display purposes.",
               "args": [],
               "type": {
                 "kind": "NON_NULL",
@@ -40562,7 +40562,7 @@
             },
             {
               "name": "name",
-              "description": "The name of the game. This string is untranslated. \nThis field should only be used in limited occassions, like tracking and URLs. \nYou should use displayName for all all game names shown to the users.",
+              "description": "The name of the game.",
               "args": [],
               "type": {
                 "kind": "NON_NULL",
