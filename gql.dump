@@ -795,7 +795,7 @@
           "fields": [
             {
               "name": "reason",
-              "description": "The reason the ad request was declined if it was declined..",
+              "description": "The reason the ad request was declined if it was declined.",
               "args": [],
               "type": {
                 "kind": "SCALAR",
@@ -1132,6 +1132,29 @@
           "possibleTypes": null
         },
         {
+          "kind": "ENUM",
+          "name": "AdRequestContentType",
+          "description": "The type of content playing when the ad was requested.",
+          "fields": null,
+          "inputFields": null,
+          "interfaces": null,
+          "enumValues": [
+            {
+              "name": "LIVE",
+              "description": "Live streams.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "VOD",
+              "description": "VOD playback.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "possibleTypes": null
+        },
+        {
           "kind": "INPUT_OBJECT",
           "name": "AdRequestContext",
           "description": "The context of an upcoming ad request.",
@@ -1160,6 +1183,20 @@
                 "ofType": {
                   "kind": "INPUT_OBJECT",
                   "name": "AdRequestClientContext",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "duration",
+              "description": "The duration of the ad break in seconds.",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Int",
                   "ofType": null
                 }
               },
@@ -1212,7 +1249,7 @@
                 "name": null,
                 "ofType": {
                   "kind": "ENUM",
-                  "name": "ContentType",
+                  "name": "AdRequestContentType",
                   "ofType": null
                 }
               },
