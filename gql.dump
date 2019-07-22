@@ -76280,11 +76280,11 @@
             },
             {
               "name": "user",
-              "description": "The user self connection (contains the selected badge).",
+              "description": "The channel (user object of channel) this badge is selected on.",
               "args": [],
               "type": {
                 "kind": "OBJECT",
-                "name": "UserSelfConnection",
+                "name": "User",
                 "ofType": null
               },
               "isDeprecated": false,
