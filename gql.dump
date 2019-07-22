@@ -17613,6 +17613,22 @@
               "deprecationReason": null
             },
             {
+              "name": "raidPointAmount",
+              "description": "The amount of points earned for participating in a raid from the channel.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Int",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
               "name": "summarizedRewards",
               "description": "A summary of information about unfulfilled redemptions of each custom reward.",
               "args": [],
