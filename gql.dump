@@ -7420,6 +7420,22 @@
               "deprecationReason": null
             },
             {
+              "name": "thirtySecondViewerCount",
+              "description": "The number of viewers that watched at least thirty seconds of the campaign's content.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Int",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
               "name": "totalViewerCount",
               "description": "The total number of viewers that watched the campaign's content.",
               "args": [],
