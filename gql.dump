@@ -22241,126 +22241,6 @@
           "possibleTypes": null
         },
         {
-          "kind": "OBJECT",
-          "name": "CreateGameApplicationError",
-          "description": "Error associated with mutation CreateGameApplication.",
-          "fields": [
-            {
-              "name": "code",
-              "description": "Error code.",
-              "args": [],
-              "type": {
-                "kind": "ENUM",
-                "name": "CreateGameApplicationErrorCode",
-                "ofType": null
-              },
-              "isDeprecated": false,
-              "deprecationReason": null
-            }
-          ],
-          "inputFields": null,
-          "interfaces": [],
-          "enumValues": null,
-          "possibleTypes": null
-        },
-        {
-          "kind": "ENUM",
-          "name": "CreateGameApplicationErrorCode",
-          "description": "Client error code.",
-          "fields": null,
-          "inputFields": null,
-          "interfaces": null,
-          "enumValues": [
-            {
-              "name": "GAME_HAS_ALREADY_BEEN_OWNED",
-              "description": "The game has already been owned by another company.",
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
-              "name": "INTERNAL_ERROR",
-              "description": "Internal error.",
-              "isDeprecated": false,
-              "deprecationReason": null
-            }
-          ],
-          "possibleTypes": null
-        },
-        {
-          "kind": "INPUT_OBJECT",
-          "name": "CreateGameApplicationInput",
-          "description": "Input to the CreateGameApplication mutation.",
-          "fields": null,
-          "inputFields": [
-            {
-              "name": "companyID",
-              "description": "Company ID.",
-              "type": {
-                "kind": "NON_NULL",
-                "name": null,
-                "ofType": {
-                  "kind": "SCALAR",
-                  "name": "ID",
-                  "ofType": null
-                }
-              },
-              "defaultValue": null
-            },
-            {
-              "name": "gameID",
-              "description": "Game ID.",
-              "type": {
-                "kind": "NON_NULL",
-                "name": null,
-                "ofType": {
-                  "kind": "SCALAR",
-                  "name": "ID",
-                  "ofType": null
-                }
-              },
-              "defaultValue": null
-            }
-          ],
-          "interfaces": null,
-          "enumValues": null,
-          "possibleTypes": null
-        },
-        {
-          "kind": "OBJECT",
-          "name": "CreateGameApplicationPayload",
-          "description": "Output from the CreateGameApplication mutation.",
-          "fields": [
-            {
-              "name": "error",
-              "description": "The possible error returned from service.",
-              "args": [],
-              "type": {
-                "kind": "OBJECT",
-                "name": "CreateGameApplicationError",
-                "ofType": null
-              },
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
-              "name": "gameApplication",
-              "description": "The game application.",
-              "args": [],
-              "type": {
-                "kind": "OBJECT",
-                "name": "GameApplication",
-                "ofType": null
-              },
-              "isDeprecated": false,
-              "deprecationReason": null
-            }
-          ],
-          "inputFields": null,
-          "interfaces": [],
-          "enumValues": null,
-          "possibleTypes": null
-        },
-        {
           "kind": "INPUT_OBJECT",
           "name": "CreateLoyaltyBadgeInput",
           "description": "CreateLoyaltyBadge creates a new badge with these settings.",
@@ -40991,81 +40871,6 @@
         },
         {
           "kind": "OBJECT",
-          "name": "GameApplication",
-          "description": "GameApplication is an application to associate a game with an organization.",
-          "fields": [
-            {
-              "name": "createdAt",
-              "description": "Creation time.",
-              "args": [],
-              "type": {
-                "kind": "NON_NULL",
-                "name": null,
-                "ofType": {
-                  "kind": "SCALAR",
-                  "name": "Time",
-                  "ofType": null
-                }
-              },
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
-              "name": "game",
-              "description": "Game that is added in the application.",
-              "args": [],
-              "type": {
-                "kind": "NON_NULL",
-                "name": null,
-                "ofType": {
-                  "kind": "OBJECT",
-                  "name": "Game",
-                  "ofType": null
-                }
-              },
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
-              "name": "id",
-              "description": "ID of the game application, stored in RBAC.",
-              "args": [],
-              "type": {
-                "kind": "NON_NULL",
-                "name": null,
-                "ofType": {
-                  "kind": "SCALAR",
-                  "name": "ID",
-                  "ofType": null
-                }
-              },
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
-              "name": "organization",
-              "description": "Organization that is going to be associated with the game.",
-              "args": [],
-              "type": {
-                "kind": "NON_NULL",
-                "name": null,
-                "ofType": {
-                  "kind": "OBJECT",
-                  "name": "Organization",
-                  "ofType": null
-                }
-              },
-              "isDeprecated": false,
-              "deprecationReason": null
-            }
-          ],
-          "inputFields": null,
-          "interfaces": [],
-          "enumValues": null,
-          "possibleTypes": null
-        },
-        {
-          "kind": "OBJECT",
           "name": "GameChangeMomentDetails",
           "description": "Moment Details specific to a game change.",
           "fields": [
@@ -49500,33 +49305,6 @@
               "type": {
                 "kind": "OBJECT",
                 "name": "CreateFriendRequestPayload",
-                "ofType": null
-              },
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
-              "name": "createGameApplication",
-              "description": "createGameApplication created an application request to add game to a certain organization.",
-              "args": [
-                {
-                  "name": "input",
-                  "description": null,
-                  "type": {
-                    "kind": "NON_NULL",
-                    "name": null,
-                    "ofType": {
-                      "kind": "INPUT_OBJECT",
-                      "name": "CreateGameApplicationInput",
-                      "ofType": null
-                    }
-                  },
-                  "defaultValue": null
-                }
-              ],
-              "type": {
-                "kind": "OBJECT",
-                "name": "CreateGameApplicationPayload",
                 "ofType": null
               },
               "isDeprecated": false,
@@ -99646,22 +99424,6 @@
             {
               "name": "isEmailReusable",
               "description": "Whether or not the user has enabled their email to be reused to create another twitch account.",
-              "args": [],
-              "type": {
-                "kind": "NON_NULL",
-                "name": null,
-                "ofType": {
-                  "kind": "SCALAR",
-                  "name": "Boolean",
-                  "ofType": null
-                }
-              },
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
-              "name": "isEmailUpdateable",
-              "description": "Whether or not the user can update their email.",
               "args": [],
               "type": {
                 "kind": "NON_NULL",
