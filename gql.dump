@@ -55299,6 +55299,33 @@
               "deprecationReason": null
             },
             {
+              "name": "updateUserIsEmailRevertSuccess",
+              "description": "updateUserIsEmailRevertSuccess sets/resets a user's Email revert success flag.",
+              "args": [
+                {
+                  "name": "input",
+                  "description": null,
+                  "type": {
+                    "kind": "NON_NULL",
+                    "name": null,
+                    "ofType": {
+                      "kind": "INPUT_OBJECT",
+                      "name": "UpdateUserIsEmailRevertSuccessInput",
+                      "ofType": null
+                    }
+                  },
+                  "defaultValue": null
+                }
+              ],
+              "type": {
+                "kind": "OBJECT",
+                "name": "UpdateUserIsEmailRevertSuccessPayload",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
               "name": "updateUserSubscriptionSettings",
               "description": "updateUserSubscriptionSettings updates the subscription preferences for the authenticated user.",
               "args": [
@@ -66547,6 +66574,33 @@
               "type": {
                 "kind": "OBJECT",
                 "name": "Organization",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "poll",
+              "description": "Returns a poll by its ID.",
+              "args": [
+                {
+                  "name": "id",
+                  "description": null,
+                  "type": {
+                    "kind": "NON_NULL",
+                    "name": null,
+                    "ofType": {
+                      "kind": "SCALAR",
+                      "name": "ID",
+                      "ofType": null
+                    }
+                  },
+                  "defaultValue": null
+                }
+              ],
+              "type": {
+                "kind": "OBJECT",
+                "name": "Poll",
                 "ofType": null
               },
               "isDeprecated": false,
@@ -97193,6 +97247,68 @@
         },
         {
           "kind": "INPUT_OBJECT",
+          "name": "UpdateUserIsEmailRevertSuccessInput",
+          "description": "The required input for a updateUserIsEmailRevertSuccess mutation.",
+          "fields": null,
+          "inputFields": [
+            {
+              "name": "isEmailRevertSuccess",
+              "description": "The show email revert success msg boolean to set onto the user.",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Boolean",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "userID",
+              "description": "The ID of the user whose email revert success flag is being updated.",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "ID",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            }
+          ],
+          "interfaces": null,
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "OBJECT",
+          "name": "UpdateUserIsEmailRevertSuccessPayload",
+          "description": "The result of a updateUserIsEmailRevertSuccess mutation.",
+          "fields": [
+            {
+              "name": "user",
+              "description": "The modified user.",
+              "args": [],
+              "type": {
+                "kind": "OBJECT",
+                "name": "User",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "INPUT_OBJECT",
           "name": "UpdateUserSubscriptionSettingsInput",
           "description": "UpdateUserSubscriptionSettingsInput updates the users subscription settings.",
           "fields": null,
@@ -102942,6 +103058,18 @@
             {
               "name": "isDirectoryHidden",
               "description": "Whether or not the user has elected to be hidden from search results.",
+              "args": [],
+              "type": {
+                "kind": "SCALAR",
+                "name": "Boolean",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "isEmailRevertSuccess",
+              "description": "Whether or not the email was successfully reverted.",
               "args": [],
               "type": {
                 "kind": "SCALAR",
