@@ -25578,6 +25578,45 @@
         },
         {
           "kind": "OBJECT",
+          "name": "CreatorOnboardingContent",
+          "description": "Onboarding content and tips that are shown during the streamer onboarding experience.",
+          "fields": [
+            {
+              "name": "firstSeenAt",
+              "description": "The time when the onboarding content was first shown to the user.",
+              "args": [],
+              "type": {
+                "kind": "SCALAR",
+                "name": "Time",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "id",
+              "description": "The id of the creator onboarding content.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "ID",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "OBJECT",
           "name": "CreditChargeModel",
           "description": "CreditChargeModel defines a charge model using non-FIAT currencies.",
           "fields": [
@@ -54973,6 +55012,33 @@
               "type": {
                 "kind": "OBJECT",
                 "name": "UpdateRoomViewPayload",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "updateSeenCreatorOnboardingContent",
+              "description": "UpdateSeenCreatorOnboardingContent updates the list of streamer onboarding content that a user has seen.",
+              "args": [
+                {
+                  "name": "input",
+                  "description": null,
+                  "type": {
+                    "kind": "NON_NULL",
+                    "name": null,
+                    "ofType": {
+                      "kind": "INPUT_OBJECT",
+                      "name": "UpdateSeenCreatorOnboardingContentInput",
+                      "ofType": null
+                    }
+                  },
+                  "defaultValue": null
+                }
+              ],
+              "type": {
+                "kind": "OBJECT",
+                "name": "UpdateSeenCreatorOnboardingContentPayload",
                 "ofType": null
               },
               "isDeprecated": false,
@@ -96072,6 +96138,76 @@
         },
         {
           "kind": "INPUT_OBJECT",
+          "name": "UpdateSeenCreatorOnboardingContentInput",
+          "description": "Updates the list of streamer onboarding content that a user has seen.",
+          "fields": null,
+          "inputFields": [
+            {
+              "name": "onboardingContentIDs",
+              "description": "A list of content IDs that should be marked as seen.",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "LIST",
+                  "name": null,
+                  "ofType": {
+                    "kind": "NON_NULL",
+                    "name": null,
+                    "ofType": {
+                      "kind": "SCALAR",
+                      "name": "ID",
+                      "ofType": null
+                    }
+                  }
+                }
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "userID",
+              "description": "UserID for the user to update seen content.",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "ID",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            }
+          ],
+          "interfaces": null,
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "OBJECT",
+          "name": "UpdateSeenCreatorOnboardingContentPayload",
+          "description": "The result of an UpdateSeenCreatorOnboardingContent mutation.",
+          "fields": [
+            {
+              "name": "user",
+              "description": "The user who viewed onboarding content.",
+              "args": [],
+              "type": {
+                "kind": "OBJECT",
+                "name": "User",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "INPUT_OBJECT",
           "name": "UpdateSegmentEventInput",
           "description": "Inputs to the updateSegmentEvent mutation.",
           "fields": null,
@@ -101154,6 +101290,26 @@
                 "kind": "OBJECT",
                 "name": "VideoConnection",
                 "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "seenCreatorOnboardingContent",
+              "description": "A list of streamer onboarding content IDs that that the user has been shown, and when it was first shown.",
+              "args": [],
+              "type": {
+                "kind": "LIST",
+                "name": null,
+                "ofType": {
+                  "kind": "NON_NULL",
+                  "name": null,
+                  "ofType": {
+                    "kind": "OBJECT",
+                    "name": "CreatorOnboardingContent",
+                    "ofType": null
+                  }
+                }
               },
               "isDeprecated": false,
               "deprecationReason": null
