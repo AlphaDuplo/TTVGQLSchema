@@ -98991,18 +98991,6 @@
               "deprecationReason": null
             },
             {
-              "name": "deletedAt",
-              "description": "Timestamp when a user's account was deleted/disabled.",
-              "args": [],
-              "type": {
-                "kind": "SCALAR",
-                "name": "Time",
-                "ofType": null
-              },
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
               "name": "description",
               "description": "A user-provided blurb describing themselves.",
               "args": [],
