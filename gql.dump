@@ -11719,7 +11719,7 @@
           "fields": [
             {
               "name": "autoModLevel",
-              "description": "AutoModLevel is an integer from 0-4 representing the level of automoderation of chat\n0 is off, 4 is the highest level of moderation.",
+              "description": "autoModLevel is an integer from 0-4 representing the level of automoderation of chat\n0 is off, 4 is the highest level of moderation.",
               "args": [],
               "type": {
                 "kind": "NON_NULL",
@@ -11730,8 +11730,8 @@
                   "ofType": null
                 }
               },
-              "isDeprecated": false,
-              "deprecationReason": null
+              "isDeprecated": true,
+              "deprecationReason": "No longer used."
             },
             {
               "name": "blockLinks",
@@ -11790,6 +11790,22 @@
                   "ofType": null
                 }
               },
+              "isDeprecated": true,
+              "deprecationReason": "No longer used."
+            },
+            {
+              "name": "isEmoteOnlyModeEnabled",
+              "description": "Indicates whether chat is currently enforcing that messages may only contain emotes.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Boolean",
+                  "ofType": null
+                }
+              },
               "isDeprecated": false,
               "deprecationReason": null
             },
@@ -11828,6 +11844,22 @@
             {
               "name": "isSubscribersOnlyModeEnabled",
               "description": "Indicates whether chat is currently restricted to subscribers only.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Boolean",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "isUniqueChatModeEnabled",
+              "description": "Indicates whether chat is currently enforcing that messages must be reasonably unique\nfrom recent messages. Previously known as \"r9k mode\".",
               "args": [],
               "type": {
                 "kind": "NON_NULL",
