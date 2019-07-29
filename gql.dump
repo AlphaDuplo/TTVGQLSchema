@@ -6760,6 +6760,26 @@
               "deprecationReason": null
             },
             {
+              "name": "keyDescriptors",
+              "description": "The information about keys for the campaigns.",
+              "args": [],
+              "type": {
+                "kind": "LIST",
+                "name": null,
+                "ofType": {
+                  "kind": "NON_NULL",
+                  "name": null,
+                  "ofType": {
+                    "kind": "OBJECT",
+                    "name": "BountyCampaignKeyDescriptor",
+                    "ofType": null
+                  }
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
               "name": "rejectionReason",
               "description": "Why the campaign was rejected.",
               "args": [],
@@ -7340,6 +7360,49 @@
                 "kind": "OBJECT",
                 "name": "BountyCampaign",
                 "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "OBJECT",
+          "name": "BountyCampaignKeyDescriptor",
+          "description": "A descriptor for a game key.",
+          "fields": [
+            {
+              "name": "platform",
+              "description": "The platform for the key.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "String",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "region",
+              "description": "The region for the key.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "String",
+                  "ofType": null
+                }
               },
               "isDeprecated": false,
               "deprecationReason": null
@@ -14191,6 +14254,16 @@
             {
               "name": "platform",
               "description": "Platform selected by the user to play this bounty's game on.",
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "region",
+              "description": "Region selected by the user for the game key.",
               "type": {
                 "kind": "SCALAR",
                 "name": "String",
