@@ -52389,6 +52389,33 @@
               "deprecationReason": null
             },
             {
+              "name": "removeAutohostChannels",
+              "description": "Removes channels from a user's AutoHost list.",
+              "args": [
+                {
+                  "name": "input",
+                  "description": null,
+                  "type": {
+                    "kind": "NON_NULL",
+                    "name": null,
+                    "ofType": {
+                      "kind": "INPUT_OBJECT",
+                      "name": "RemoveAutohostChannelsInput",
+                      "ofType": null
+                    }
+                  },
+                  "defaultValue": null
+                }
+              ],
+              "type": {
+                "kind": "OBJECT",
+                "name": "RemoveAutohostChannelsPayload",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
               "name": "removeCollectionItem",
               "description": "removeCollectionItem removes an item from a collection.",
               "args": [
@@ -70907,6 +70934,76 @@
             {
               "name": "target",
               "description": "The channel where the message was originally sent.",
+              "args": [],
+              "type": {
+                "kind": "OBJECT",
+                "name": "User",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "INPUT_OBJECT",
+          "name": "RemoveAutohostChannelsInput",
+          "description": "RemoveAutohostChannelsInput remove channelIDs from a user's list to autohost.",
+          "fields": null,
+          "inputFields": [
+            {
+              "name": "channelIDs",
+              "description": "ChannelIDs that will be removed from the list to autohost.",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "LIST",
+                  "name": null,
+                  "ofType": {
+                    "kind": "NON_NULL",
+                    "name": null,
+                    "ofType": {
+                      "kind": "SCALAR",
+                      "name": "ID",
+                      "ofType": null
+                    }
+                  }
+                }
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "userID",
+              "description": "UserID to update autohost list for.",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "ID",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            }
+          ],
+          "interfaces": null,
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "OBJECT",
+          "name": "RemoveAutohostChannelsPayload",
+          "description": "RemoveAutohostChannelsPayload returns the user whose autohostChannels field had been updated.",
+          "fields": [
+            {
+              "name": "user",
+              "description": "User whose autohostChannels field had been updated.",
               "args": [],
               "type": {
                 "kind": "OBJECT",
