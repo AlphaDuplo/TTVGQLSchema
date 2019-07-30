@@ -2601,6 +2601,54 @@
           "possibleTypes": null
         },
         {
+          "kind": "INPUT_OBJECT",
+          "name": "ArchivePollInput",
+          "description": "Inputs for archiving a poll.",
+          "fields": null,
+          "inputFields": [
+            {
+              "name": "pollID",
+              "description": "The id of the poll to archive.",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "ID",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            }
+          ],
+          "interfaces": null,
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "OBJECT",
+          "name": "ArchivePollPayload",
+          "description": "Outputs from the create poll mutation.",
+          "fields": [
+            {
+              "name": "poll",
+              "description": "The created poll.",
+              "args": [],
+              "type": {
+                "kind": "OBJECT",
+                "name": "Poll",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
           "kind": "OBJECT",
           "name": "AssignExtensionBillingManagerError",
           "description": "AssignExtensionBillingManagerError is the error associated with AssignExtensionBillingManager.",
@@ -49052,6 +49100,33 @@
               "deprecationReason": null
             },
             {
+              "name": "archivePoll",
+              "description": "Archive a poll with the given poll id.",
+              "args": [
+                {
+                  "name": "input",
+                  "description": null,
+                  "type": {
+                    "kind": "NON_NULL",
+                    "name": null,
+                    "ofType": {
+                      "kind": "INPUT_OBJECT",
+                      "name": "ArchivePollInput",
+                      "ofType": null
+                    }
+                  },
+                  "defaultValue": null
+                }
+              ],
+              "type": {
+                "kind": "OBJECT",
+                "name": "ArchivePollPayload",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
               "name": "assignExtensionBillingManager",
               "description": "Assign a billing manager to an extension.\nThe billing manager is the organization's Owner or member with Billing_Manager role that is ready to receive\npayments for the monetized extension within an organization.",
               "args": [
@@ -53930,6 +54005,33 @@
               },
               "isDeprecated": true,
               "deprecationReason": "Use 'submitEmotePrefix' instead"
+            },
+            {
+              "name": "terminatePoll",
+              "description": "Terminates the poll with the given poll id.",
+              "args": [
+                {
+                  "name": "input",
+                  "description": null,
+                  "type": {
+                    "kind": "NON_NULL",
+                    "name": null,
+                    "ofType": {
+                      "kind": "INPUT_OBJECT",
+                      "name": "TerminatePollInput",
+                      "ofType": null
+                    }
+                  },
+                  "defaultValue": null
+                }
+              ],
+              "type": {
+                "kind": "OBJECT",
+                "name": "TerminatePollPayload",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
             },
             {
               "name": "timeoutUserFromCommunity",
@@ -88590,6 +88692,54 @@
               "type": {
                 "kind": "OBJECT",
                 "name": "User",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "INPUT_OBJECT",
+          "name": "TerminatePollInput",
+          "description": "Inputs for terminating a poll.",
+          "fields": null,
+          "inputFields": [
+            {
+              "name": "pollID",
+              "description": "The id of the poll to terminate.",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "ID",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            }
+          ],
+          "interfaces": null,
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "OBJECT",
+          "name": "TerminatePollPayload",
+          "description": "Outputs from the create poll mutation.",
+          "fields": [
+            {
+              "name": "poll",
+              "description": "The created poll.",
+              "args": [],
+              "type": {
+                "kind": "OBJECT",
+                "name": "Poll",
                 "ofType": null
               },
               "isDeprecated": false,
