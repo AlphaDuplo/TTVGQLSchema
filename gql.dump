@@ -12336,6 +12336,12 @@
               "description": "Action to show the user enabled 2FA before saving their payment method.",
               "isDeprecated": false,
               "deprecationReason": null
+            },
+            {
+              "name": "DISABLE_NEW_CREDIT_CARD",
+              "description": "Action to disable new credit cards from being added on purchases.",
+              "isDeprecated": false,
+              "deprecationReason": null
             }
           ],
           "possibleTypes": null
