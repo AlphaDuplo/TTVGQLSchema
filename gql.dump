@@ -2818,6 +2818,157 @@
         },
         {
           "kind": "OBJECT",
+          "name": "AutoModCaughtMessage",
+          "description": "A message rejected by automod.",
+          "fields": [
+            {
+              "name": "category",
+              "description": "Reason why the message was flagged and/or rejected.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "ENUM",
+                  "name": "AutoModCaughtMessageCategory",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "id",
+              "description": "id contains the UUID of the AutoModCaughtMessage.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "ID",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "modLogsMessage",
+              "description": "The contents of the message itself, including its content, sender, sentAt timestamp, etc.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "OBJECT",
+                  "name": "ModLogsMessage",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "resolver",
+              "description": "The user (mod) who approve/denied the flagged message.",
+              "args": [],
+              "type": {
+                "kind": "OBJECT",
+                "name": "User",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "status",
+              "description": "The approval status of the caught message.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "ENUM",
+                  "name": "AutoModCaughtMessageStatus",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "ENUM",
+          "name": "AutoModCaughtMessageCategory",
+          "description": "Reason why a message is flagged and/or rejected.",
+          "fields": null,
+          "inputFields": null,
+          "interfaces": null,
+          "enumValues": [
+            {
+              "name": "AGGRESSIVE",
+              "description": "Message contained words that were aggressive.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "IDENTITY",
+              "description": "Message contained identity details.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "PROFANITY",
+              "description": "Message contained words that were vulgar.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "SEXUAL",
+              "description": "Message contained words that were sexual.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "possibleTypes": null
+        },
+        {
+          "kind": "ENUM",
+          "name": "AutoModCaughtMessageStatus",
+          "description": "Describes a flagged message's posting status.",
+          "fields": null,
+          "inputFields": null,
+          "interfaces": null,
+          "enumValues": [
+            {
+              "name": "PENDING",
+              "description": "The message has not received a decision from a mod, and may be expired. Check sentAt date to confirm.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "APPROVED",
+              "description": "The message was approved by a channel moderator or the broadcaster.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "DENIED",
+              "description": "The message was denied by a channel moderator or the broadcaster.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "possibleTypes": null
+        },
+        {
+          "kind": "OBJECT",
           "name": "AutoModProperties",
           "description": null,
           "fields": [
@@ -40913,7 +41064,7 @@
             },
             {
               "name": "displayName",
-              "description": "A publicly visible name used for display purposes.",
+              "description": "The translated game name used for display purposes.\nUse name for tracking props or URLs.",
               "args": [],
               "type": {
                 "kind": "NON_NULL",
@@ -41046,7 +41197,7 @@
             },
             {
               "name": "name",
-              "description": "The name of the game.",
+              "description": "The name of the game. This string is untranslated. \nThis field should only be used in limited occassions, like tracking and URLs. \nYou should use displayName for all all game names shown to the users.",
               "args": [],
               "type": {
                 "kind": "NON_NULL",
@@ -47025,6 +47176,16 @@
                     "ofType": null
                   },
                   "defaultValue": "true"
+                },
+                {
+                  "name": "includeAutoModCaughtMessages",
+                  "description": null,
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Boolean",
+                    "ofType": null
+                  },
+                  "defaultValue": "false"
                 }
               ],
               "type": {
@@ -47703,6 +47864,11 @@
           "interfaces": null,
           "enumValues": null,
           "possibleTypes": [
+            {
+              "kind": "OBJECT",
+              "name": "AutoModCaughtMessage",
+              "ofType": null
+            },
             {
               "kind": "OBJECT",
               "name": "ModLogsMessage",
