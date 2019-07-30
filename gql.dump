@@ -31352,6 +31352,20 @@
               "defaultValue": null
             },
             {
+              "name": "channelID",
+              "description": "The ID for the channel the community gift is being distributed in.",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "ID",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            },
+            {
               "name": "giftID",
               "description": "The ID for the community gift you want to distribute.",
               "type": {
@@ -42684,6 +42698,107 @@
         },
         {
           "kind": "INPUT_OBJECT",
+          "name": "GiftToCommunityGiftInput",
+          "description": "The offer you wish to gift and the streamer you wish to gift this offer to their community gift chest.",
+          "fields": null,
+          "inputFields": [
+            {
+              "name": "from",
+              "description": "The user ID for the user gifting to the community gift.",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "ID",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "to",
+              "description": "The user ID of the streamer that the gift was sent to their community gift event.",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "ID",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            }
+          ],
+          "interfaces": null,
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "OBJECT",
+          "name": "GiftToCommunityGiftPayload",
+          "description": "The result of sneding a gift to streamer's community gift event.",
+          "fields": [
+            {
+              "name": "remainingGiftsCount",
+              "description": "The remaining number of gifts the user can send out.",
+              "args": [],
+              "type": {
+                "kind": "SCALAR",
+                "name": "Int",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "OBJECT",
+          "name": "GifterPermissions",
+          "description": "User's gifter permissions.",
+          "fields": [
+            {
+              "name": "canGift",
+              "description": "Whether the user can gift or not.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Boolean",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "giftableCount",
+              "description": "The number of gifts the user can send out.",
+              "args": [],
+              "type": {
+                "kind": "SCALAR",
+                "name": "Int",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "INPUT_OBJECT",
           "name": "GoRaidInput",
           "description": "Inputs to the goRaid mutation.",
           "fields": null,
@@ -51928,6 +52043,33 @@
               "type": {
                 "kind": "OBJECT",
                 "name": "GiftOfferPayload",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "giftToCommunityGift",
+              "description": "Send a gift to a streamer's community gift.",
+              "args": [
+                {
+                  "name": "input",
+                  "description": null,
+                  "type": {
+                    "kind": "NON_NULL",
+                    "name": null,
+                    "ofType": {
+                      "kind": "INPUT_OBJECT",
+                      "name": "GiftToCommunityGiftInput",
+                      "ofType": null
+                    }
+                  },
+                  "defaultValue": null
+                }
+              ],
+              "type": {
+                "kind": "OBJECT",
+                "name": "GiftToCommunityGiftPayload",
                 "ofType": null
               },
               "isDeprecated": false,
@@ -103595,6 +103737,18 @@
                     "ofType": null
                   }
                 }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "communityGifterPermissions",
+              "description": "Whether or not the authenticated user can gift, what offer they can gift and how many of those the user can send out.",
+              "args": [],
+              "type": {
+                "kind": "OBJECT",
+                "name": "GifterPermissions",
+                "ofType": null
               },
               "isDeprecated": false,
               "deprecationReason": null
