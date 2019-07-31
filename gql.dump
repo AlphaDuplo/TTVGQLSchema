@@ -6506,6 +6506,26 @@
               "deprecationReason": null
             },
             {
+              "name": "keys",
+              "description": "The product keys for the bounty.",
+              "args": [],
+              "type": {
+                "kind": "LIST",
+                "name": null,
+                "ofType": {
+                  "kind": "NON_NULL",
+                  "name": null,
+                  "ofType": {
+                    "kind": "OBJECT",
+                    "name": "BountyProductKey",
+                    "ofType": null
+                  }
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
               "name": "lastModifiedAt",
               "description": "When the bounty was last modified.",
               "args": [],
@@ -6544,22 +6564,6 @@
               },
               "isDeprecated": false,
               "deprecationReason": null
-            },
-            {
-              "name": "minimumCCURequired",
-              "description": "The minimum concurrent users (CCU) required to earn a payout for the bounty.",
-              "args": [],
-              "type": {
-                "kind": "NON_NULL",
-                "name": null,
-                "ofType": {
-                  "kind": "SCALAR",
-                  "name": "Int",
-                  "ofType": null
-                }
-              },
-              "isDeprecated": true,
-              "deprecationReason": "Use minimumPayoutCCU instead"
             },
             {
               "name": "minimumPayoutCCU",
@@ -6991,18 +6995,6 @@
               "deprecationReason": "Use 'rejectionReason' in 'brandDetails' instead."
             },
             {
-              "name": "spentBudgetCents",
-              "description": "How much of the budget has been spent (in cents).",
-              "args": [],
-              "type": {
-                "kind": "SCALAR",
-                "name": "Int",
-                "ofType": null
-              },
-              "isDeprecated": true,
-              "deprecationReason": "Use 'spentBudgetCents' in 'brandDetails' instead."
-            },
-            {
               "name": "sponsor",
               "description": "The sponsor that is funding this campaign (ie. Amazon Game Studios).",
               "args": [],
@@ -7063,22 +7055,6 @@
               "deprecationReason": "Use 'status' in 'brandDetails' instead."
             },
             {
-              "name": "streamLengthMinutes",
-              "description": "How many minutes a bounty for this campaign must be streamed to complete the bounty.",
-              "args": [],
-              "type": {
-                "kind": "NON_NULL",
-                "name": null,
-                "ofType": {
-                  "kind": "SCALAR",
-                  "name": "Int",
-                  "ofType": null
-                }
-              },
-              "isDeprecated": true,
-              "deprecationReason": "Use 'streamLengthSeconds' instead."
-            },
-            {
               "name": "streamLengthSeconds",
               "description": "How many seconds a bounty for this campaign must be streamed to complete the bounty.",
               "args": [],
@@ -7117,18 +7093,6 @@
               },
               "isDeprecated": false,
               "deprecationReason": null
-            },
-            {
-              "name": "totalBudgetCents",
-              "description": "The total budget for the campaign (in cents).",
-              "args": [],
-              "type": {
-                "kind": "SCALAR",
-                "name": "Int",
-                "ofType": null
-              },
-              "isDeprecated": true,
-              "deprecationReason": "Use 'totalBudgetCents' in 'brandDetails' instead."
             },
             {
               "name": "trackingPixels",
@@ -7572,7 +7536,7 @@
         {
           "kind": "OBJECT",
           "name": "BountyCampaignKeyDescriptor",
-          "description": "A descriptor for a game key.",
+          "description": "A descriptor for a product key.",
           "fields": [
             {
               "name": "platform",
@@ -8250,6 +8214,57 @@
               "deprecationReason": null
             }
           ],
+          "possibleTypes": null
+        },
+        {
+          "kind": "OBJECT",
+          "name": "BountyProductKey",
+          "description": "A key that can be redeemed for a product.",
+          "fields": [
+            {
+              "name": "code",
+              "description": "The code that is used to redeem the product.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "String",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "platform",
+              "description": "The platform where the code is redeemed.",
+              "args": [],
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "region",
+              "description": "The region where the code can be redeemed. The format and granularity of this field varies\ndepending on the product key vendor.",
+              "args": [],
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
+          "enumValues": null,
           "possibleTypes": null
         },
         {
@@ -62230,8 +62245,61 @@
               "deprecationReason": null
             },
             {
+              "name": "voters",
+              "description": "A list of voters for this choice.\nOnly the poll's ownerID and their mods/editors can search for this.",
+              "args": [
+                {
+                  "name": "first",
+                  "description": null,
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Int",
+                    "ofType": null
+                  },
+                  "defaultValue": "15"
+                },
+                {
+                  "name": "after",
+                  "description": null,
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Cursor",
+                    "ofType": null
+                  },
+                  "defaultValue": null
+                },
+                {
+                  "name": "sort",
+                  "description": null,
+                  "type": {
+                    "kind": "ENUM",
+                    "name": "PollVoterConnectionSort",
+                    "ofType": null
+                  },
+                  "defaultValue": "VOTES"
+                },
+                {
+                  "name": "direction",
+                  "description": null,
+                  "type": {
+                    "kind": "ENUM",
+                    "name": "PollVoterConnectionSortDirection",
+                    "ofType": null
+                  },
+                  "defaultValue": "DESC"
+                }
+              ],
+              "type": {
+                "kind": "OBJECT",
+                "name": "PollChoiceVoterConnection",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
               "name": "votes",
-              "description": "TODO\nA list of voters for this choice.\nOnly the poll's ownerID and their mods/editors can search for this.\nvoters(first: Int = 15, after: Cursor, sort: PollVoterSort = VOTES, direction: PollVoterDirection = ASC): PollVoterConnection @deprecated(reason: \"NOT YET IMPLEMENTED\")\nA breakdown of the different votes cast for this choice.",
+              "description": "A breakdown of the different votes cast for this choice.",
               "args": [],
               "type": {
                 "kind": "NON_NULL",
@@ -62240,6 +62308,41 @@
                   "kind": "OBJECT",
                   "name": "PollVoteBreakdown",
                   "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "OBJECT",
+          "name": "PollChoiceVoterConnection",
+          "description": "A connection between poll and voters and metadata.",
+          "fields": [
+            {
+              "name": "nodes",
+              "description": "The list of voters in this poll / choice.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "LIST",
+                  "name": null,
+                  "ofType": {
+                    "kind": "NON_NULL",
+                    "name": null,
+                    "ofType": {
+                      "kind": "OBJECT",
+                      "name": "PollVoterConnectionEdge",
+                      "ofType": null
+                    }
+                  }
                 }
               },
               "isDeprecated": false,
@@ -62542,6 +62645,304 @@
           "inputFields": null,
           "interfaces": [],
           "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "OBJECT",
+          "name": "PollVoter",
+          "description": "A voter taking part in a poll and associated information.",
+          "fields": [
+            {
+              "name": "choices",
+              "description": "The Choices this voter voted for.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "LIST",
+                  "name": null,
+                  "ofType": {
+                    "kind": "NON_NULL",
+                    "name": null,
+                    "ofType": {
+                      "kind": "OBJECT",
+                      "name": "PollVoterChoice",
+                      "ofType": null
+                    }
+                  }
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "id",
+              "description": "id of the voter in the poll.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "ID",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "poll",
+              "description": "The Poll this voter voted in.",
+              "args": [],
+              "type": {
+                "kind": "OBJECT",
+                "name": "Poll",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "tokens",
+              "description": "A breakdown of the different tokens used by the voter in the poll.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "OBJECT",
+                  "name": "PollTokenBreakdown",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "user",
+              "description": "The User object relating to this voter.",
+              "args": [],
+              "type": {
+                "kind": "OBJECT",
+                "name": "User",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "votes",
+              "description": "A breakdown of the different votes this voter used in the poll.",
+              "args": [],
+              "type": {
+                "kind": "OBJECT",
+                "name": "PollVoteBreakdown",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "OBJECT",
+          "name": "PollVoterChoice",
+          "description": "A choice a voter made taking part in a poll.",
+          "fields": [
+            {
+              "name": "id",
+              "description": "The id of the choice.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "ID",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "tokens",
+              "description": "A breakdown of the different tokens used by the voter.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "OBJECT",
+                  "name": "PollTokenBreakdown",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "votes",
+              "description": "A breakdown of the different votes this voter used.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "OBJECT",
+                  "name": "PollVoteBreakdown",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "OBJECT",
+          "name": "PollVoterConnection",
+          "description": "A connection between poll and voters and metadata.",
+          "fields": [
+            {
+              "name": "nodes",
+              "description": "The list of voters in this poll / choice.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "LIST",
+                  "name": null,
+                  "ofType": {
+                    "kind": "NON_NULL",
+                    "name": null,
+                    "ofType": {
+                      "kind": "OBJECT",
+                      "name": "PollVoterConnectionEdge",
+                      "ofType": null
+                    }
+                  }
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "OBJECT",
+          "name": "PollVoterConnectionEdge",
+          "description": "A page entry, that contains the PollVoter item and a cursor to return from the query to allow pagination.",
+          "fields": [
+            {
+              "name": "cursor",
+              "description": "Cursor used for next query.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Cursor",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "node",
+              "description": "The underlying poll voter.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "OBJECT",
+                  "name": "PollVoter",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "ENUM",
+          "name": "PollVoterConnectionSort",
+          "description": "Possible sort orders for lists of voters.",
+          "fields": null,
+          "inputFields": null,
+          "interfaces": null,
+          "enumValues": [
+            {
+              "name": "VOTES",
+              "description": "Sort the voters by # of votes.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "CREATED_DATE",
+              "description": "Sort the voters by time of creation.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "BITS",
+              "description": "Sort the voters by amount of Bits on vote.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "CHANNEL_POINTS",
+              "description": "Sort the voters by amount of channel points.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "possibleTypes": null
+        },
+        {
+          "kind": "ENUM",
+          "name": "PollVoterConnectionSortDirection",
+          "description": "Possible sort directions for lists of voters.",
+          "fields": null,
+          "inputFields": null,
+          "interfaces": null,
+          "enumValues": [
+            {
+              "name": "DESC",
+              "description": "Sort in descending order.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "ASC",
+              "description": "Sort in ascending order.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
           "possibleTypes": null
         },
         {
