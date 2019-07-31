@@ -37211,6 +37211,45 @@
           "possibleTypes": null
         },
         {
+          "kind": "INPUT_OBJECT",
+          "name": "ExtensionDynamicManagementInput",
+          "description": "ExtensionDynamicManagementInput represents the game ID and whether it is dynamically managed or not on an extension.",
+          "fields": null,
+          "inputFields": [
+            {
+              "name": "gameID",
+              "description": "The discovery game ID.",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "ID",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "isManaged",
+              "description": "If the game has been marked as dynamically managed or not.",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Boolean",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            }
+          ],
+          "interfaces": null,
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
           "kind": "OBJECT",
           "name": "ExtensionEdge",
           "description": "An element in a paginated extensions of videos, and its metadata.",
@@ -80073,6 +80112,20 @@
                 "kind": "SCALAR",
                 "name": "Boolean",
                 "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "dynamicManagement",
+              "description": "Optional value for dynamicManagement flag on games.",
+              "type": {
+                "kind": "LIST",
+                "name": null,
+                "ofType": {
+                  "kind": "INPUT_OBJECT",
+                  "name": "ExtensionDynamicManagementInput",
+                  "ofType": null
+                }
               },
               "defaultValue": null
             },
