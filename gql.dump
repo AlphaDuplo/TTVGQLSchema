@@ -26268,6 +26268,12 @@
               "description": "The alert was being displayed, but was skipped by the broadcaster.",
               "isDeprecated": false,
               "deprecationReason": null
+            },
+            {
+              "name": "PURGED",
+              "description": "The alert was purged from the alert queue by the broadcaster, after being queued originally.",
+              "isDeprecated": false,
+              "deprecationReason": null
             }
           ],
           "possibleTypes": null
