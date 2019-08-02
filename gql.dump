@@ -62064,6 +62064,22 @@
               "deprecationReason": null
             },
             {
+              "name": "self",
+              "description": "The authenticated user's relationship with this poll.\nMain use case is to check if the user has voted in the poll already.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "OBJECT",
+                  "name": "PollSelfEdge",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
               "name": "settings",
               "description": "A map of poll settings.",
               "args": [],
@@ -62203,6 +62219,22 @@
               "deprecationReason": null
             },
             {
+              "name": "self",
+              "description": "The authenticated user's relationship with this choice.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "OBJECT",
+                  "name": "PollChoiceSelfEdge",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
               "name": "title",
               "description": "The title of the choice.",
               "args": [],
@@ -62327,6 +62359,29 @@
         },
         {
           "kind": "OBJECT",
+          "name": "PollChoiceSelfEdge",
+          "description": "A connection between poll choice and the authenticated user.",
+          "fields": [
+            {
+              "name": "voter",
+              "description": "The voter object pertaining to the authenticated user.",
+              "args": [],
+              "type": {
+                "kind": "OBJECT",
+                "name": "PollVoter",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "OBJECT",
           "name": "PollChoiceVoterConnection",
           "description": "A connection between poll and voters and metadata.",
           "fields": [
@@ -62350,6 +62405,29 @@
                     }
                   }
                 }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "OBJECT",
+          "name": "PollSelfEdge",
+          "description": "A connection between a poll and the authenticated user.",
+          "fields": [
+            {
+              "name": "voter",
+              "description": "The voter object pertaining to the authenticated user.",
+              "args": [],
+              "type": {
+                "kind": "OBJECT",
+                "name": "PollVoter",
+                "ofType": null
               },
               "isDeprecated": false,
               "deprecationReason": null
