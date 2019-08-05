@@ -23926,8 +23926,8 @@
               "defaultValue": null
             },
             {
-              "name": "durationMinutes",
-              "description": "Duration of the poll.",
+              "name": "durationSeconds",
+              "description": "Duration of the poll in seconds.",
               "type": {
                 "kind": "NON_NULL",
                 "name": null,
