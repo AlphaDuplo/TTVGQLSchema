@@ -102607,6 +102607,22 @@
               "deprecationReason": null
             },
             {
+              "name": "recommendedEmoticonPrefix",
+              "description": "The recommended prefix which is generated based on user name.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "String",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
               "name": "relationship",
               "description": "This user's relationship with another user.",
               "args": [
