@@ -41757,6 +41757,16 @@
               "defaultValue": null
             },
             {
+              "name": "endAt",
+              "description": "Overrides the period. if startAt is provided, but endAt isn't, the endAt value will be the day when the query was made.",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Time",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
               "name": "filter",
               "description": "DEPRECATED: `filter` should no longer be used. Prefer `period` and `sort` instead.\nA filter which restricts results.",
               "type": {
@@ -41803,6 +41813,16 @@
                 "ofType": null
               },
               "defaultValue": "VIEWS_DESC"
+            },
+            {
+              "name": "startAt",
+              "description": "Overrides the period param. If endAt is provided, but startAt isn't, 2015-01-01 will be used for it.",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Time",
+                "ofType": null
+              },
+              "defaultValue": null
             }
           ],
           "interfaces": null,
