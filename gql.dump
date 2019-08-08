@@ -56498,6 +56498,60 @@
               },
               "isDeprecated": false,
               "deprecationReason": null
+            },
+            {
+              "name": "voteInPoll",
+              "description": "Casts a vote for a specific choice in a poll.",
+              "args": [
+                {
+                  "name": "input",
+                  "description": null,
+                  "type": {
+                    "kind": "NON_NULL",
+                    "name": null,
+                    "ofType": {
+                      "kind": "INPUT_OBJECT",
+                      "name": "VoteInPollInput",
+                      "ofType": null
+                    }
+                  },
+                  "defaultValue": null
+                }
+              ],
+              "type": {
+                "kind": "OBJECT",
+                "name": "VoteInPollPayload",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "voteInPollByChoiceIndex",
+              "description": "Casts a vote for a specific choice in a poll, by index and channelID.",
+              "args": [
+                {
+                  "name": "input",
+                  "description": null,
+                  "type": {
+                    "kind": "NON_NULL",
+                    "name": null,
+                    "ofType": {
+                      "kind": "INPUT_OBJECT",
+                      "name": "VoteInPollByChoiceIndexInput",
+                      "ofType": null
+                    }
+                  },
+                  "defaultValue": null
+                }
+              ],
+              "type": {
+                "kind": "OBJECT",
+                "name": "VoteInPollByChoiceIndexPayload",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
             }
           ],
           "inputFields": null,
@@ -62859,6 +62913,45 @@
           "possibleTypes": null
         },
         {
+          "kind": "INPUT_OBJECT",
+          "name": "PollVoteTokensInput",
+          "description": "The tokens that are used on a vote.",
+          "fields": null,
+          "inputFields": [
+            {
+              "name": "bits",
+              "description": "The amount of bits used for this vote.",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Int",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "channelPoints",
+              "description": "The amount of channel points used for this vote.",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Int",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            }
+          ],
+          "interfaces": null,
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
           "kind": "OBJECT",
           "name": "PollVoter",
           "description": "A voter taking part in a poll and associated information.",
@@ -66906,16 +66999,6 @@
                     }
                   },
                   "defaultValue": null
-                },
-                {
-                  "name": "locale",
-                  "description": null,
-                  "type": {
-                    "kind": "SCALAR",
-                    "name": "String",
-                    "ofType": null
-                  },
-                  "defaultValue": null
                 }
               ],
               "type": {
@@ -66941,16 +67024,6 @@
                       "name": "ID",
                       "ofType": null
                     }
-                  },
-                  "defaultValue": null
-                },
-                {
-                  "name": "locale",
-                  "description": null,
-                  "type": {
-                    "kind": "SCALAR",
-                    "name": "String",
-                    "ofType": null
                   },
                   "defaultValue": null
                 }
@@ -108815,6 +108888,206 @@
               "deprecationReason": null
             }
           ],
+          "possibleTypes": null
+        },
+        {
+          "kind": "INPUT_OBJECT",
+          "name": "VoteInPollByChoiceIndexInput",
+          "description": "Inputs for voting on a poll by choice index.\nPoll id and choice id are retrieved from the backend, before sending the vote.",
+          "fields": null,
+          "inputFields": [
+            {
+              "name": "channelID",
+              "description": "The id of the channel the vote is being cast in.",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "ID",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "choiceIndex",
+              "description": "The index of the choice that is chosen in the poll.",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Int",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "tokens",
+              "description": "The tokens used for this vote.",
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "PollVoteTokensInput",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "userID",
+              "description": "The user id of the voter.",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "ID",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "voteID",
+              "description": "The unique id for this vote action.",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "ID",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            }
+          ],
+          "interfaces": null,
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "OBJECT",
+          "name": "VoteInPollByChoiceIndexPayload",
+          "description": "Output from the vote on poll by choice index mutation.",
+          "fields": [
+            {
+              "name": "voter",
+              "description": "The voter objet returned by the vote operation.",
+              "args": [],
+              "type": {
+                "kind": "OBJECT",
+                "name": "PollVoter",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "INPUT_OBJECT",
+          "name": "VoteInPollInput",
+          "description": "Inputs for voting on a poll.",
+          "fields": null,
+          "inputFields": [
+            {
+              "name": "choiceID",
+              "description": "The id of the choice the vote is casted on in the poll.",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "ID",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "pollID",
+              "description": "The id of the poll that is being voted in.",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "ID",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "tokens",
+              "description": "The tokens used for this vote.",
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "PollVoteTokensInput",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "userID",
+              "description": "The user id of the voter.",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "ID",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "voteID",
+              "description": "The unique id for this vote action.",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "ID",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            }
+          ],
+          "interfaces": null,
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "OBJECT",
+          "name": "VoteInPollPayload",
+          "description": "Output from the vote on poll mutation.",
+          "fields": [
+            {
+              "name": "voter",
+              "description": "The voter objet returned by the vote operation.",
+              "args": [],
+              "type": {
+                "kind": "OBJECT",
+                "name": "PollVoter",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
+          "enumValues": null,
           "possibleTypes": null
         },
         {
