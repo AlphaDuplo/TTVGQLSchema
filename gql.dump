@@ -968,6 +968,18 @@
               "deprecationReason": null
             },
             {
+              "name": "isPictureByPictureAdEligible",
+              "description": "A bool that represents a streamer's eligibility to run a picture by picture ad.",
+              "args": [],
+              "type": {
+                "kind": "SCALAR",
+                "name": "Boolean",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
               "name": "maxAdBreakLength",
               "description": "Maximum length for an ad break on this channel.",
               "args": [],
@@ -9835,61 +9847,20 @@
           "possibleTypes": null
         },
         {
-          "kind": "ENUM",
-          "name": "ChallengeConditionState",
-          "description": "The current state of the condition.",
-          "fields": null,
-          "inputFields": null,
-          "interfaces": null,
-          "enumValues": [
-            {
-              "name": "ACTIVE",
-              "description": "New conditionals can be associated with this condition.",
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
-              "name": "CANCELED",
-              "description": "Condition was manually terminated. New conditionals cannot be associated.",
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
-              "name": "INACTIVE",
-              "description": "Condition was satisfied for the final time. New conditionals cannot be associated with this condition.",
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
-              "name": "EXPIRED",
-              "description": "Condition was automatically terminated. New conditionals cannot be associated.",
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
-              "name": "UNKNOWN",
-              "description": "Unknown state.",
-              "isDeprecated": false,
-              "deprecationReason": null
-            }
-          ],
-          "possibleTypes": null
-        },
-        {
           "kind": "OBJECT",
-          "name": "ChallengeConditional",
-          "description": "A conditional action that will be taken if an associated condition is satisfied.",
+          "name": "ChallengeConditionParticipant",
+          "description": "A condition participant action that will be taken if an associated condition is satisfied.",
           "fields": [
             {
               "name": "endState",
-              "description": "Final state of the conditional.",
+              "description": "Final state of the condition participant.",
               "args": [],
               "type": {
                 "kind": "NON_NULL",
                 "name": null,
                 "ofType": {
                   "kind": "ENUM",
-                  "name": "ChallengeConditionalEndState",
+                  "name": "ChallengeConditionParticipantEndState",
                   "ofType": null
                 }
               },
@@ -9898,7 +9869,7 @@
             },
             {
               "name": "id",
-              "description": "Unique ID of the conditional.",
+              "description": "Unique ID of the condition participant.",
               "args": [],
               "type": {
                 "kind": "NON_NULL",
@@ -9914,14 +9885,14 @@
             },
             {
               "name": "processingState",
-              "description": "Whether or not the conditional was successfully processed upon condition completion.",
+              "description": "Whether or not the condition participant was successfully processed upon condition completion.",
               "args": [],
               "type": {
                 "kind": "NON_NULL",
                 "name": null,
                 "ofType": {
                   "kind": "ENUM",
-                  "name": "ChallengeConditionalProcessingState",
+                  "name": "ChallengeConditionParticipantProcessingState",
                   "ofType": null
                 }
               },
@@ -9936,8 +9907,8 @@
         },
         {
           "kind": "ENUM",
-          "name": "ChallengeConditionalEndState",
-          "description": "Final state of the conditional.",
+          "name": "ChallengeConditionParticipantEndState",
+          "description": "Final state of the condition participant.",
           "fields": null,
           "inputFields": null,
           "interfaces": null,
@@ -9968,7 +9939,7 @@
             },
             {
               "name": "EXPIRED",
-              "description": "Conditional expired before associated condition could be satisfied.",
+              "description": "Condition participant expired before associated condition could be satisfied.",
               "isDeprecated": false,
               "deprecationReason": null
             },
@@ -9983,8 +9954,8 @@
         },
         {
           "kind": "ENUM",
-          "name": "ChallengeConditionalProcessingState",
-          "description": "Whether or not the conditional was successfully processed upon condition completion.",
+          "name": "ChallengeConditionParticipantProcessingState",
+          "description": "Whether or not the condition participant was successfully processed upon condition completion.",
           "fields": null,
           "inputFields": null,
           "interfaces": null,
@@ -9997,13 +9968,54 @@
             },
             {
               "name": "SUCCESS",
-              "description": "Conditional processed successfully.",
+              "description": "Condition participant processed successfully.",
               "isDeprecated": false,
               "deprecationReason": null
             },
             {
               "name": "ERROR",
-              "description": "Error processing conditional.",
+              "description": "Error processing condition participant.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "UNKNOWN",
+              "description": "Unknown state.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "possibleTypes": null
+        },
+        {
+          "kind": "ENUM",
+          "name": "ChallengeConditionState",
+          "description": "The current state of the condition.",
+          "fields": null,
+          "inputFields": null,
+          "interfaces": null,
+          "enumValues": [
+            {
+              "name": "ACTIVE",
+              "description": "New condition participants can be associated with this condition.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "CANCELED",
+              "description": "Condition was manually terminated. New condition participants cannot be associated.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "INACTIVE",
+              "description": "Condition was satisfied for the final time. New condition participants cannot be associated with this condition.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "EXPIRED",
+              "description": "Condition was automatically terminated. New condition participants cannot be associated.",
               "isDeprecated": false,
               "deprecationReason": null
             },
@@ -20237,8 +20249,8 @@
         },
         {
           "kind": "INPUT_OBJECT",
-          "name": "CreateBitsChallengeConditionalForExtensionInput",
-          "description": "CreateBitsChallengeConditionalForExtensionInput creates a Bits conditional on behalf of a user by an extension.",
+          "name": "CreateBitsChallengeConditionParticipantForExtensionInput",
+          "description": "CreateBitsChallengeConditionParticipantForExtensionInput creates a Bits condition participant on behalf of a user by an extension.",
           "fields": null,
           "inputFields": [
             {
@@ -20284,8 +20296,8 @@
               "defaultValue": null
             },
             {
-              "name": "conditionalOwnerID",
-              "description": "TUID of the conditional owner - Bits are withdrawn from this user.",
+              "name": "conditionParticipantOwnerID",
+              "description": "TUID of the condition participant owner - Bits are withdrawn from this user.",
               "type": {
                 "kind": "NON_NULL",
                 "name": null,
@@ -20299,7 +20311,7 @@
             },
             {
               "name": "extensionID",
-              "description": "ID of the extension creating the conditional.",
+              "description": "ID of the extension creating the conditionParticipant.",
               "type": {
                 "kind": "NON_NULL",
                 "name": null,
@@ -20313,7 +20325,7 @@
             },
             {
               "name": "ttlSeconds",
-              "description": "Time in seconds, after which the conditional is expired and the Bits are released (range: 1-43_200).",
+              "description": "Time in seconds, after which the conditionParticipant is expired and the Bits are released (range: 1-43_200).",
               "type": {
                 "kind": "NON_NULL",
                 "name": null,
@@ -20332,16 +20344,16 @@
         },
         {
           "kind": "OBJECT",
-          "name": "CreateBitsChallengeConditionalForExtensionPayload",
-          "description": "CreateBitsChallengeConditionalForExtensionPayload returns the new conditional that was created.",
+          "name": "CreateBitsChallengeConditionParticipantForExtensionPayload",
+          "description": "CreateBitsChallengeConditionParticipantForExtensionPayload returns the new condition participant that was created.",
           "fields": [
             {
-              "name": "conditional",
-              "description": "The newly created conditional.",
+              "name": "conditionParticipant",
+              "description": "The newly created condition participant.",
               "args": [],
               "type": {
                 "kind": "OBJECT",
-                "name": "ChallengeConditional",
+                "name": "ChallengeConditionParticipant",
                 "ofType": null
               },
               "isDeprecated": false,
@@ -34533,8 +34545,8 @@
               "deprecationReason": null
             },
             {
-              "name": "challengeConditionals",
-              "description": "The list of challenge conditionals that are associated with this extension for a particular conditional owner and condition owner.",
+              "name": "challengeConditionParticipants",
+              "description": "The list of challenge condition participants that are associated with this extension for a particular condition participant owner and condition owner.",
               "args": [
                 {
                   "name": "first",
@@ -34564,7 +34576,7 @@
                     "name": null,
                     "ofType": {
                       "kind": "INPUT_OBJECT",
-                      "name": "ExtensionChallengeConditionalsInput",
+                      "name": "ExtensionChallengeConditionParticipantsInput",
                       "ofType": null
                     }
                   },
@@ -34573,7 +34585,7 @@
               ],
               "type": {
                 "kind": "OBJECT",
-                "name": "ExtensionChallengeConditionalConnection",
+                "name": "ExtensionChallengeConditionParticipantConnection",
                 "ofType": null
               },
               "isDeprecated": false,
@@ -36246,8 +36258,8 @@
         },
         {
           "kind": "OBJECT",
-          "name": "ExtensionChallengeConditionalConnection",
-          "description": "A paginated list of extension challenge conditionals.",
+          "name": "ExtensionChallengeConditionParticipantConnection",
+          "description": "A paginated list of extension challenge conditionParticipants.",
           "fields": [
             {
               "name": "edges",
@@ -36264,7 +36276,7 @@
                     "name": null,
                     "ofType": {
                       "kind": "OBJECT",
-                      "name": "ExtensionChallengeConditionalEdge",
+                      "name": "ExtensionChallengeConditionParticipantEdge",
                       "ofType": null
                     }
                   }
@@ -36297,8 +36309,8 @@
         },
         {
           "kind": "OBJECT",
-          "name": "ExtensionChallengeConditionalEdge",
-          "description": "An element in a paginated list of extension challenge conditionals.",
+          "name": "ExtensionChallengeConditionParticipantEdge",
+          "description": "An element in a paginated list of extension challenge conditionParticipants.",
           "fields": [
             {
               "name": "cursor",
@@ -36325,7 +36337,7 @@
                 "name": null,
                 "ofType": {
                   "kind": "OBJECT",
-                  "name": "ChallengeConditional",
+                  "name": "ChallengeConditionParticipant",
                   "ofType": null
                 }
               },
@@ -36340,13 +36352,13 @@
         },
         {
           "kind": "INPUT_OBJECT",
-          "name": "ExtensionChallengeConditionalsInput",
-          "description": "Parameters for filtering ChallengeConditionals.",
+          "name": "ExtensionChallengeConditionParticipantsInput",
+          "description": "Parameters for filtering ChallengeConditionParticipants.",
           "fields": null,
           "inputFields": [
             {
               "name": "conditionOwnerID",
-              "description": "TUID of conditional's associated condition's owner. This will typically be the broadcaster's user ID.",
+              "description": "TUID of condition participant's associated condition's owner.",
               "type": {
                 "kind": "NON_NULL",
                 "name": null,
@@ -36359,8 +36371,8 @@
               "defaultValue": null
             },
             {
-              "name": "conditionalOwnerID",
-              "description": "TUID of conditional owner. This will typically be the viewer's user ID.",
+              "name": "conditionParticipantOwnerID",
+              "description": "TUID of condition participant owner.",
               "type": {
                 "kind": "NON_NULL",
                 "name": null,
@@ -36374,13 +36386,13 @@
             },
             {
               "name": "endState",
-              "description": "Filter conditionals with this state.",
+              "description": "Filter condition participants with this state.",
               "type": {
                 "kind": "NON_NULL",
                 "name": null,
                 "ofType": {
                   "kind": "ENUM",
-                  "name": "ChallengeConditionalEndState",
+                  "name": "ChallengeConditionParticipantEndState",
                   "ofType": null
                 }
               },
@@ -49853,8 +49865,8 @@
               "deprecationReason": null
             },
             {
-              "name": "createBitsChallengeConditionalForExtension",
-              "description": "createBitsChallengeConditionalForExtension creates a Bits conditional on behalf of a user by an extension.",
+              "name": "createBitsChallengeConditionParticipantForExtension",
+              "description": "createBitsChallengeConditionParticipantForExtension creates a Bits condition participant on behalf of a user by an extension.",
               "args": [
                 {
                   "name": "input",
@@ -49864,7 +49876,7 @@
                     "name": null,
                     "ofType": {
                       "kind": "INPUT_OBJECT",
-                      "name": "CreateBitsChallengeConditionalForExtensionInput",
+                      "name": "CreateBitsChallengeConditionParticipantForExtensionInput",
                       "ofType": null
                     }
                   },
@@ -49873,7 +49885,7 @@
               ],
               "type": {
                 "kind": "OBJECT",
-                "name": "CreateBitsChallengeConditionalForExtensionPayload",
+                "name": "CreateBitsChallengeConditionParticipantForExtensionPayload",
                 "ofType": null
               },
               "isDeprecated": false,
