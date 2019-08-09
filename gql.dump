@@ -57075,6 +57075,18 @@
               "deprecationReason": null
             },
             {
+              "name": "endAt",
+              "description": "The time at which this Offer ceases to be valid for purchase. If null, this Offer will never expire.",
+              "args": [],
+              "type": {
+                "kind": "SCALAR",
+                "name": "Time",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
               "name": "id",
               "description": "Unique identifier for an Offer.",
               "args": [],
@@ -57120,12 +57132,28 @@
             },
             {
               "name": "promotion",
-              "description": "A Promotion object descrives the promotion to be applied on an Offer (if any).",
+              "description": "A Promotion object describes the promotion to be applied on an Offer (if any).",
               "args": [],
               "type": {
                 "kind": "OBJECT",
                 "name": "OfferPromotion",
                 "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "startAt",
+              "description": "The time at which this Offer becomes valid for purchase.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Time",
+                  "ofType": null
+                }
               },
               "isDeprecated": false,
               "deprecationReason": null
@@ -57388,9 +57416,13 @@
               "description": "The OfferListing associated with this Promotion.",
               "args": [],
               "type": {
-                "kind": "OBJECT",
-                "name": "OfferListing",
-                "ofType": null
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "OBJECT",
+                  "name": "OfferListing",
+                  "ofType": null
+                }
               },
               "isDeprecated": false,
               "deprecationReason": null
@@ -62029,6 +62061,33 @@
           "name": "Poll",
           "description": "A poll users can vote in.",
           "fields": [
+            {
+              "name": "choice",
+              "description": "A choice specified by a choice id.",
+              "args": [
+                {
+                  "name": "id",
+                  "description": null,
+                  "type": {
+                    "kind": "NON_NULL",
+                    "name": null,
+                    "ofType": {
+                      "kind": "SCALAR",
+                      "name": "ID",
+                      "ofType": null
+                    }
+                  },
+                  "defaultValue": null
+                }
+              ],
+              "type": {
+                "kind": "OBJECT",
+                "name": "PollChoice",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
             {
               "name": "choices",
               "description": "A list of choices users can vote for.",
