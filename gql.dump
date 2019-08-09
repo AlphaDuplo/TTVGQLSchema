@@ -4723,6 +4723,45 @@
           "possibleTypes": null
         },
         {
+          "kind": "INPUT_OBJECT",
+          "name": "BitsChallengeConditionPoolRecipientPercentageShare",
+          "description": "BitsChallengeConditionPoolRecipientPercentageShare represents the percentage share of the total bits pool \nthat a recipient user is entitled to upon condition satisfaction.",
+          "fields": null,
+          "inputFields": [
+            {
+              "name": "recipientUserID",
+              "description": "TUID of the bits recipient.",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "ID",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "share",
+              "description": "The percentage share that the recipient should receive from the total bits pool (range: 0 - 1).",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Float",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            }
+          ],
+          "interfaces": null,
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
           "kind": "OBJECT",
           "name": "BitsGemNotification",
           "description": "Each Bits gem notification data.",
@@ -9794,22 +9833,6 @@
                 "ofType": {
                   "kind": "ENUM",
                   "name": "ChallengeConditionState",
-                  "ofType": null
-                }
-              },
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
-              "name": "templateID",
-              "description": "The ID of the template that this condition is based on.",
-              "args": [],
-              "type": {
-                "kind": "NON_NULL",
-                "name": null,
-                "ofType": {
-                  "kind": "SCALAR",
-                  "name": "ID",
                   "ofType": null
                 }
               },
@@ -20249,6 +20272,120 @@
         },
         {
           "kind": "INPUT_OBJECT",
+          "name": "CreateBitsChallengeConditionForExtensionInput",
+          "description": "CreateBitsChallengeConditionForExtensionInput creates a Bits condition on behalf of a user by an extension.",
+          "fields": null,
+          "inputFields": [
+            {
+              "name": "bitsRecipientPercentageShares",
+              "description": "A list of the different bits recipients and their share of the total bits pool once the condition is satisfied.\nIf this is not defined during condition creation, it must be defined when the condition is satisfied.",
+              "type": {
+                "kind": "LIST",
+                "name": null,
+                "ofType": {
+                  "kind": "NON_NULL",
+                  "name": null,
+                  "ofType": {
+                    "kind": "INPUT_OBJECT",
+                    "name": "BitsChallengeConditionPoolRecipientPercentageShare",
+                    "ofType": null
+                  }
+                }
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "description",
+              "description": "Description of the condition.",
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "disableWhenSatisfied",
+              "description": "Whether to disable the condition once it has been satisfied or keep it active.",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Boolean",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "extensionID",
+              "description": "ID of the extension creating the conditional.",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "ID",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "name",
+              "description": "Name of the condition.",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "String",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "timeoutAt",
+              "description": "Time when the condition should time out.",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Time",
+                "ofType": null
+              },
+              "defaultValue": null
+            }
+          ],
+          "interfaces": null,
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "OBJECT",
+          "name": "CreateBitsChallengeConditionForExtensionPayload",
+          "description": "CreateBitsChallengeConditionForExtensionPayload returns the new condition that was created.",
+          "fields": [
+            {
+              "name": "condition",
+              "description": "The newly created condition.",
+              "args": [],
+              "type": {
+                "kind": "OBJECT",
+                "name": "ChallengeCondition",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "INPUT_OBJECT",
           "name": "CreateBitsChallengeConditionParticipantForExtensionInput",
           "description": "CreateBitsChallengeConditionParticipantForExtensionInput creates a Bits condition participant on behalf of a user by an extension.",
           "fields": null,
@@ -20284,20 +20421,6 @@
             {
               "name": "conditionOwnerID",
               "description": "TUID of condition owner.",
-              "type": {
-                "kind": "NON_NULL",
-                "name": null,
-                "ofType": {
-                  "kind": "SCALAR",
-                  "name": "ID",
-                  "ofType": null
-                }
-              },
-              "defaultValue": null
-            },
-            {
-              "name": "conditionParticipantOwnerID",
-              "description": "TUID of the condition participant owner - Bits are withdrawn from this user.",
               "type": {
                 "kind": "NON_NULL",
                 "name": null,
@@ -49859,6 +49982,33 @@
               "type": {
                 "kind": "OBJECT",
                 "name": "CloneExtensionManifestPayload",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "createBitsChallengeConditionForExtension",
+              "description": "createBitsChallengeConditionForExtension creates a Bits condition on behalf of a user by an extension.",
+              "args": [
+                {
+                  "name": "input",
+                  "description": null,
+                  "type": {
+                    "kind": "NON_NULL",
+                    "name": null,
+                    "ofType": {
+                      "kind": "INPUT_OBJECT",
+                      "name": "CreateBitsChallengeConditionForExtensionInput",
+                      "ofType": null
+                    }
+                  },
+                  "defaultValue": null
+                }
+              ],
+              "type": {
+                "kind": "OBJECT",
+                "name": "CreateBitsChallengeConditionForExtensionPayload",
                 "ofType": null
               },
               "isDeprecated": false,
