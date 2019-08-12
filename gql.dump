@@ -44454,6 +44454,74 @@
           "possibleTypes": null
         },
         {
+          "kind": "OBJECT",
+          "name": "InstallExtensionError",
+          "description": "InstallExtensionError is wrapper for error associated with the installExtension mutation.",
+          "fields": [
+            {
+              "name": "code",
+              "description": "Error code.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "ENUM",
+                  "name": "InstallExtensionErrorCode",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "installationID",
+              "description": "The installation id if got EXTENSION_ALREADY_INSTALLED error.",
+              "args": [],
+              "type": {
+                "kind": "SCALAR",
+                "name": "ID",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "ENUM",
+          "name": "InstallExtensionErrorCode",
+          "description": "InstallExtensionErrorCode is an error code associated with InstallExtensionError.",
+          "fields": null,
+          "inputFields": null,
+          "interfaces": null,
+          "enumValues": [
+            {
+              "name": "UNAUTHORIZED",
+              "description": "User is unable to make modifications to the extension.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "INVALID_CHANNEL_ID",
+              "description": "Channel id is invalid, for example, is empty.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "EXTENSION_ALREADY_INSTALLED",
+              "description": "The extension is alreay installed on the channel.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "possibleTypes": null
+        },
+        {
           "kind": "INPUT_OBJECT",
           "name": "InstallExtensionInput",
           "description": "The required input for an installExtension mutation.",
@@ -44497,6 +44565,18 @@
           "name": "InstallExtensionPayload",
           "description": "The result of an installExtension mutation.",
           "fields": [
+            {
+              "name": "error",
+              "description": "The error when the mutation fails to install extension.",
+              "args": [],
+              "type": {
+                "kind": "OBJECT",
+                "name": "InstallExtensionError",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
             {
               "name": "installedExtension",
               "description": "The resulting extension installation record from the install.",
@@ -81188,6 +81268,74 @@
           "possibleTypes": null
         },
         {
+          "kind": "OBJECT",
+          "name": "SetExtensionFeatureFlagsError",
+          "description": "SetExtensionFeatureFlagsError is wrapper for error associated with the setExtensionFeatureFlags mutation.",
+          "fields": [
+            {
+              "name": "code",
+              "description": "Error code.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "ENUM",
+                  "name": "SetExtensionFeatureFlagsErrorCode",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "missingInstallationID",
+              "description": "The missing installation id if got EXTENSION_NOT_INSTALLED error.",
+              "args": [],
+              "type": {
+                "kind": "SCALAR",
+                "name": "ID",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "ENUM",
+          "name": "SetExtensionFeatureFlagsErrorCode",
+          "description": "SetExtensionFeatureFlagsErrorCode is an error code associated with SetExtensionFeatureFlagsError.",
+          "fields": null,
+          "inputFields": null,
+          "interfaces": null,
+          "enumValues": [
+            {
+              "name": "UNAUTHORIZED",
+              "description": "User is unable to make modifications to the extension.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "INVALID_CHANNEL_ID",
+              "description": "Channel id is invalid, for example, is empty.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "EXTENSION_NOT_INSTALLED",
+              "description": "The extension is not installed on the channel.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "possibleTypes": null
+        },
+        {
           "kind": "INPUT_OBJECT",
           "name": "SetExtensionFeatureFlagsInput",
           "description": "The required input to set feature flags for an installation.",
@@ -81251,6 +81399,18 @@
           "name": "SetExtensionFeatureFlagsPayload",
           "description": "The result of setting feature flags on an installation.",
           "fields": [
+            {
+              "name": "error",
+              "description": "The error when the mutation fails to set feature flags.",
+              "args": [],
+              "type": {
+                "kind": "OBJECT",
+                "name": "SetExtensionFeatureFlagsError",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
             {
               "name": "installedExtension",
               "description": "The new state of the installation after the setExtensionFeatureFlags mutation.",
@@ -86027,6 +86187,12 @@
             {
               "name": "ERR_UNKNOWN",
               "description": "Something unexpected happened when submitting the emote prefix.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "ERR_AFFILIATE_PREFIX_UPDATE_TOO_SOON",
+              "description": "The prefix for the affiliate can not be updated. Affiliates can update prefix once every name change.",
               "isDeprecated": false,
               "deprecationReason": null
             }
@@ -93036,6 +93202,62 @@
           "possibleTypes": null
         },
         {
+          "kind": "OBJECT",
+          "name": "UninstallExtensionError",
+          "description": "UninstallExtensionError is wrapper for error associated with the uninstallExtension mutation.",
+          "fields": [
+            {
+              "name": "code",
+              "description": "Error code.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "ENUM",
+                  "name": "UninstallExtensionErrorCode",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "ENUM",
+          "name": "UninstallExtensionErrorCode",
+          "description": "UninstallExtensionErrorCode is an error code associated with UninstallExtensionError.",
+          "fields": null,
+          "inputFields": null,
+          "interfaces": null,
+          "enumValues": [
+            {
+              "name": "UNAUTHORIZED",
+              "description": "User is unable to make modifications to the extension.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "INVALID_CHANNEL_ID",
+              "description": "Channel id is invalid, for example, is empty.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "EXTENSION_NOT_INSTALLED",
+              "description": "The extension is not installed on the channel.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "possibleTypes": null
+        },
+        {
           "kind": "INPUT_OBJECT",
           "name": "UninstallExtensionInput",
           "description": "The required input for an uninstallExtension mutation.",
@@ -93065,6 +93287,18 @@
           "name": "UninstallExtensionPayload",
           "description": "The resulting payload of an uninstallExtension mutation.",
           "fields": [
+            {
+              "name": "error",
+              "description": "The error when the mutation fails to set feature flags.",
+              "args": [],
+              "type": {
+                "kind": "OBJECT",
+                "name": "UninstallExtensionError",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
             {
               "name": "id",
               "description": "The id of the extension which was uninstalled.",
