@@ -81602,6 +81602,18 @@
           "description": "SetResourceRestrictionPayload returns the updated restriction for a channel.",
           "fields": [
             {
+              "name": "channel",
+              "description": "The channel if a live resource restriction was updated.",
+              "args": [],
+              "type": {
+                "kind": "OBJECT",
+                "name": "Channel",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
               "name": "stream",
               "description": "The stream if a live resource restriction was updated.",
               "args": [],
