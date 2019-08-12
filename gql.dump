@@ -34794,6 +34794,26 @@
               "deprecationReason": "configURL should be captured from the config ExtensionView: Extension.views.config.viewerURL"
             },
             {
+              "name": "contentMatchedGames",
+              "description": "The list of games that an extension is content-matched to. This list is managed internally by Twitch.",
+              "args": [],
+              "type": {
+                "kind": "LIST",
+                "name": null,
+                "ofType": {
+                  "kind": "NON_NULL",
+                  "name": null,
+                  "ofType": {
+                    "kind": "OBJECT",
+                    "name": "Game",
+                    "ofType": null
+                  }
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
               "name": "description",
               "description": "The description of the extension specified by the developer's extension manifest\n(max-length: 1024 characters).",
               "args": [],
@@ -34804,6 +34824,26 @@
                   "kind": "SCALAR",
                   "name": "String",
                   "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "games",
+              "description": "The list of games that an extension is associated to. This list is managed by the extension developer.",
+              "args": [],
+              "type": {
+                "kind": "LIST",
+                "name": null,
+                "ofType": {
+                  "kind": "NON_NULL",
+                  "name": null,
+                  "ofType": {
+                    "kind": "OBJECT",
+                    "name": "Game",
+                    "ofType": null
+                  }
                 }
               },
               "isDeprecated": false,
@@ -37026,6 +37066,26 @@
               "deprecationReason": null
             },
             {
+              "name": "contentMatchedGames",
+              "description": "Games that an extension is content-matched to. This list is managed internally by Twitch.",
+              "args": [],
+              "type": {
+                "kind": "LIST",
+                "name": null,
+                "ofType": {
+                  "kind": "NON_NULL",
+                  "name": null,
+                  "ofType": {
+                    "kind": "OBJECT",
+                    "name": "Game",
+                    "ofType": null
+                  }
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
               "name": "description",
               "description": "Extension descriprion. 1024 character limit.",
               "args": [],
@@ -37043,7 +37103,7 @@
             },
             {
               "name": "games",
-              "description": "games an extension is associated with.",
+              "description": "Games that an extension is associated to. This list is managed by the extension developer.",
               "args": [],
               "type": {
                 "kind": "NON_NULL",
@@ -37734,6 +37794,45 @@
         },
         {
           "kind": "OBJECT",
+          "name": "ExtensionInstallationDynamicManagement",
+          "description": "The dynamic management setting for a content-matched game on an extension installation.",
+          "fields": [
+            {
+              "name": "game",
+              "description": "The game that the setting is for.",
+              "args": [],
+              "type": {
+                "kind": "OBJECT",
+                "name": "Game",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "isManaged",
+              "description": "Whether or not dynamic management is turned on for this extensions.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Boolean",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "OBJECT",
           "name": "ExtensionInstallationFeatureFlags",
           "description": "The set of extension features an installer can opt in or out of.",
           "fields": [
@@ -37780,6 +37879,26 @@
                   "kind": "SCALAR",
                   "name": "Boolean",
                   "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "dynamicManagement",
+              "description": "The dynamic management settings for the extension installation.",
+              "args": [],
+              "type": {
+                "kind": "LIST",
+                "name": null,
+                "ofType": {
+                  "kind": "NON_NULL",
+                  "name": null,
+                  "ofType": {
+                    "kind": "OBJECT",
+                    "name": "ExtensionInstallationDynamicManagement",
+                    "ofType": null
+                  }
                 }
               },
               "isDeprecated": false,
