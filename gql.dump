@@ -44581,16 +44581,6 @@
           "fields": null,
           "inputFields": [
             {
-              "name": "deviceID",
-              "description": "The device ID of an anonymous user.",
-              "type": {
-                "kind": "SCALAR",
-                "name": "ID",
-                "ofType": null
-              },
-              "defaultValue": null
-            },
-            {
               "name": "raidID",
               "description": "The raid ID being joined by the user.",
               "type": {
@@ -44601,16 +44591,6 @@
                   "name": "ID",
                   "ofType": null
                 }
-              },
-              "defaultValue": null
-            },
-            {
-              "name": "userID",
-              "description": "The ID of the user.",
-              "type": {
-                "kind": "SCALAR",
-                "name": "ID",
-                "ofType": null
               },
               "defaultValue": null
             }
@@ -44625,12 +44605,12 @@
           "description": "Outputs from the joinRaid mutation.",
           "fields": [
             {
-              "name": "raid",
-              "description": "The raid that was joined by the user.",
+              "name": "raidID",
+              "description": "The ID of the raid that was joined by the user.",
               "args": [],
               "type": {
-                "kind": "OBJECT",
-                "name": "Raid",
+                "kind": "SCALAR",
+                "name": "ID",
                 "ofType": null
               },
               "isDeprecated": false,
@@ -45664,16 +45644,6 @@
           "fields": null,
           "inputFields": [
             {
-              "name": "deviceID",
-              "description": "The device ID of an anonymous user.",
-              "type": {
-                "kind": "SCALAR",
-                "name": "ID",
-                "ofType": null
-              },
-              "defaultValue": null
-            },
-            {
               "name": "raidID",
               "description": "The raid ID being left by the user.",
               "type": {
@@ -45684,16 +45654,6 @@
                   "name": "ID",
                   "ofType": null
                 }
-              },
-              "defaultValue": null
-            },
-            {
-              "name": "userID",
-              "description": "The ID of the user.",
-              "type": {
-                "kind": "SCALAR",
-                "name": "ID",
-                "ofType": null
               },
               "defaultValue": null
             }
@@ -45708,12 +45668,12 @@
           "description": "Outputs from the leaveRaid mutation.",
           "fields": [
             {
-              "name": "raid",
-              "description": "The Raid that was left by the user.",
+              "name": "raidID",
+              "description": "The ID of the raid that was joined by the user.",
               "args": [],
               "type": {
-                "kind": "OBJECT",
-                "name": "Raid",
+                "kind": "SCALAR",
+                "name": "ID",
                 "ofType": null
               },
               "isDeprecated": false,
