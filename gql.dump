@@ -73427,6 +73427,12 @@
               "deprecationReason": null
             },
             {
+              "name": "CHANNEL_POINTS_REPORT",
+              "description": "Report against a channel's channel points.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
               "name": "CLIP_REPORT",
               "description": "Report against a clip.",
               "isDeprecated": false,
@@ -73483,6 +73489,12 @@
             {
               "name": "RAID_REPORT",
               "description": "Report against a raid.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "REWARD_REDEMPTION_REPORT",
+              "description": "Report against a reward redemption.",
               "isDeprecated": false,
               "deprecationReason": null
             },
