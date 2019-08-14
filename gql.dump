@@ -10039,6 +10039,12 @@
               "deprecationReason": null
             },
             {
+              "name": "CANCELED",
+              "description": "Condition participant was canceled.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
               "name": "UNKNOWN",
               "description": "Unknown state.",
               "isDeprecated": false,
