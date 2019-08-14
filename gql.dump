@@ -72383,6 +72383,36 @@
               "description": "The transaction ID used was a duplicate of another transaction.",
               "isDeprecated": false,
               "deprecationReason": null
+            },
+            {
+              "name": "DISABLED",
+              "description": "The reward is disabled.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "STREAM_NOT_LIVE",
+              "description": "The stream is not live.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "MAX_PER_STREAM",
+              "description": "The reward has hit its maximum number of redemptions per stream.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "USER_BANNED",
+              "description": "The user is banned and cannot redeem rewards.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "CHANNEL_SETTINGS",
+              "description": "The redemption message contained a blocked phrase.",
+              "isDeprecated": false,
+              "deprecationReason": null
             }
           ],
           "possibleTypes": null
