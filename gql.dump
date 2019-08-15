@@ -3132,6 +3132,18 @@
               "deprecationReason": null
             },
             {
+              "name": "resolvedAt",
+              "description": "Time when a moderator allowed or denied a flagged message.",
+              "args": [],
+              "type": {
+                "kind": "SCALAR",
+                "name": "Time",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
               "name": "resolver",
               "description": "The user (mod) who approve/denied the flagged message.",
               "args": [],
