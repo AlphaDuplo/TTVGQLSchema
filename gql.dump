@@ -2378,6 +2378,136 @@
           "possibleTypes": null
         },
         {
+          "kind": "OBJECT",
+          "name": "AllocateKeysForBountyError",
+          "description": "Error from the mutation.",
+          "fields": [
+            {
+              "name": "code",
+              "description": "Error code from the mutation.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "ENUM",
+                  "name": "AllocateKeysForBountyErrorCode",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "ENUM",
+          "name": "AllocateKeysForBountyErrorCode",
+          "description": "Possible errors from the mutation.",
+          "fields": null,
+          "inputFields": null,
+          "interfaces": null,
+          "enumValues": [
+            {
+              "name": "INVALID_ARGUMENT",
+              "description": "The provided input is invalid.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "NOT_FOUND",
+              "description": "The bounty or required key metadata was not found.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "UNKNOWN_ERROR",
+              "description": "Unknown error being returned from service.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "possibleTypes": null
+        },
+        {
+          "kind": "INPUT_OBJECT",
+          "name": "AllocateKeysForBountyInput",
+          "description": "Input required to allocate keys for the bounty.",
+          "fields": null,
+          "inputFields": [
+            {
+              "name": "bountyID",
+              "description": "Unique Identifier for the bounty.",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "ID",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "userID",
+              "description": "UserID that is allocating keys for the bounty.",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "ID",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            }
+          ],
+          "interfaces": null,
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "OBJECT",
+          "name": "AllocateKeysForBountyPayload",
+          "description": "Payload from the mutation.",
+          "fields": [
+            {
+              "name": "bounty",
+              "description": "The bounty with allocated keys.",
+              "args": [],
+              "type": {
+                "kind": "OBJECT",
+                "name": "Bounty",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "error",
+              "description": "The possible error returned from the service.",
+              "args": [],
+              "type": {
+                "kind": "OBJECT",
+                "name": "AllocateKeysForBountyError",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
           "kind": "INPUT_OBJECT",
           "name": "AllowRejectedChatMessageInput",
           "description": null,
@@ -50417,6 +50547,33 @@
               "type": {
                 "kind": "OBJECT",
                 "name": "AddRecommendationFeedbackPayload",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "allocateKeysForBounty",
+              "description": "Allocates product keys that a broadcaster may need to complete the bounty.",
+              "args": [
+                {
+                  "name": "input",
+                  "description": null,
+                  "type": {
+                    "kind": "NON_NULL",
+                    "name": null,
+                    "ofType": {
+                      "kind": "INPUT_OBJECT",
+                      "name": "AllocateKeysForBountyInput",
+                      "ofType": null
+                    }
+                  },
+                  "defaultValue": null
+                }
+              ],
+              "type": {
+                "kind": "OBJECT",
+                "name": "AllocateKeysForBountyPayload",
                 "ofType": null
               },
               "isDeprecated": false,
