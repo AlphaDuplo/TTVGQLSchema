@@ -111238,6 +111238,18 @@
           "description": "Output from the vote on poll by choice index mutation.",
           "fields": [
             {
+              "name": "error",
+              "description": "If present, there was an error with the request.",
+              "args": [],
+              "type": {
+                "kind": "OBJECT",
+                "name": "VoteInPollError",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
               "name": "voter",
               "description": "The voter objet returned by the vote operation.",
               "args": [],
@@ -111253,6 +111265,116 @@
           "inputFields": null,
           "interfaces": [],
           "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "OBJECT",
+          "name": "VoteInPollError",
+          "description": "Vote in poll error.",
+          "fields": [
+            {
+              "name": "code",
+              "description": "Code describing the error.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "ENUM",
+                  "name": "VoteInPollErrorCode",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "ENUM",
+          "name": "VoteInPollErrorCode",
+          "description": "Vote in poll error code.",
+          "fields": null,
+          "inputFields": null,
+          "interfaces": null,
+          "enumValues": [
+            {
+              "name": "POLL_NOT_FOUND",
+              "description": "User tried to vote in a poll that doesn't exist i.e. there is no poll running at all).",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "POLL_NOT_ACTIVE",
+              "description": "User tried to vote in a poll that is not active.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "VOTE_ID_CONFLICT",
+              "description": "Request has a vote ID that is in progress or has already been submitted.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "MULTI_CHOICE_VOTE_FORBIDDEN",
+              "description": "User is trying to vote for another choice in a poll that only allows one choice.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "INVALID_CHANNEL_ID",
+              "description": "Request is for a channel ID that is invalid (e.g. banned channel, channel doesn't exist).",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "INVALID_CHOICE_INDEX",
+              "description": "Request is for a choice index that is invalid (e.g. there are 3 choices and the request is for index 10).",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "INVALID_CHOICE_ID",
+              "description": "Request is for a choice ID that invalid.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "INVALID_BITS_AMOUNT",
+              "description": "Request is for an invalid bits amount (e.g. -100 bits, or request is not for a multiple of the Bits cost).",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "INSUFFICIENT_BITS_BALANCE",
+              "description": "User's bits balance is too low to perform request (e.g. they only have 10 bits and they request to spend 100).",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "TOKENS_REQUIRED",
+              "description": "User has already used their base votes, so in order to continue voting, they must use tokens (bits or channel points).",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "USER_FORBIDDEN",
+              "description": "User is not allowed to vote in poll (e.g. they're banned in the channel, poll is subscriber only).",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "UNKNOWN",
+              "description": "An unknown error occured.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
           "possibleTypes": null
         },
         {
@@ -111337,6 +111459,18 @@
           "name": "VoteInPollPayload",
           "description": "Output from the vote on poll mutation.",
           "fields": [
+            {
+              "name": "error",
+              "description": "If present, there was an error with the request.",
+              "args": [],
+              "type": {
+                "kind": "OBJECT",
+                "name": "VoteInPollError",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
             {
               "name": "voter",
               "description": "The voter objet returned by the vote operation.",
