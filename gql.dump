@@ -96094,11 +96094,41 @@
           "fields": null,
           "inputFields": [
             {
+              "name": "broadcasterLanguage",
+              "description": "Indicate Brocadcaster's streaming language.",
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "game",
+              "description": "The title of the game that the broadcaster is playing.",
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
               "name": "isMature",
               "description": "The isMature boolean to set onto the user broadcast.",
               "type": {
                 "kind": "SCALAR",
                 "name": "Boolean",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "status",
+              "description": "Channel's streaming Status.",
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
                 "ofType": null
               },
               "defaultValue": null
