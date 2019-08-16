@@ -1282,6 +1282,20 @@
               "defaultValue": null
             },
             {
+              "name": "nauthSig",
+              "description": "The signature for the access token for the current video session.",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "String",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            },
+            {
               "name": "nauthToken",
               "description": "The access token for the current video session.",
               "type": {
@@ -86260,6 +86274,30 @@
               "deprecationReason": "Use Channel.restriction for full restriction data or Stream.restrictionType for stream's restriction type"
             },
             {
+              "name": "restrictionOptions",
+              "description": "The list of restriction options that were applied in addition to the restriction type for this stream.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "LIST",
+                  "name": null,
+                  "ofType": {
+                    "kind": "NON_NULL",
+                    "name": null,
+                    "ofType": {
+                      "kind": "ENUM",
+                      "name": "ResourceRestrictionOption",
+                      "ofType": null
+                    }
+                  }
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
               "name": "restrictionType",
               "description": "The type of restriction this stream currently has.",
               "args": [],
@@ -89185,6 +89223,18 @@
               "deprecationReason": null
             },
             {
+              "name": "promotion",
+              "description": "The subscription product's promotion if it is active.",
+              "args": [],
+              "type": {
+                "kind": "OBJECT",
+                "name": "SubscriptionPromotion",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
               "name": "self",
               "description": "The connection for user to the subscription product.",
               "args": [],
@@ -89771,6 +89821,47 @@
           "description": "The promotion offer on subscription product.",
           "fields": [
             {
+              "name": "checkoutPrice",
+              "description": "Contains information on the final checkout price for this promotion.",
+              "args": [
+                {
+                  "name": "quantity",
+                  "description": null,
+                  "type": {
+                    "kind": "NON_NULL",
+                    "name": null,
+                    "ofType": {
+                      "kind": "SCALAR",
+                      "name": "Int",
+                      "ofType": null
+                    }
+                  },
+                  "defaultValue": null
+                },
+                {
+                  "name": "paymentProvider",
+                  "description": null,
+                  "type": {
+                    "kind": "NON_NULL",
+                    "name": null,
+                    "ofType": {
+                      "kind": "ENUM",
+                      "name": "PaymentProvider",
+                      "ofType": null
+                    }
+                  },
+                  "defaultValue": null
+                }
+              ],
+              "type": {
+                "kind": "OBJECT",
+                "name": "ProductPurchase",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
               "name": "discountType",
               "description": "The subscription's discount type (e.g. \"PERCENT_OFF\").",
               "args": [],
@@ -89783,8 +89874,8 @@
                   "ofType": null
                 }
               },
-              "isDeprecated": false,
-              "deprecationReason": null
+              "isDeprecated": true,
+              "deprecationReason": "No longer supported."
             },
             {
               "name": "discountValue",
@@ -89799,8 +89890,8 @@
                   "ofType": null
                 }
               },
-              "isDeprecated": false,
-              "deprecationReason": null
+              "isDeprecated": true,
+              "deprecationReason": "No longer supported."
             },
             {
               "name": "newPrice",
@@ -89815,8 +89906,8 @@
                   "ofType": null
                 }
               },
-              "isDeprecated": false,
-              "deprecationReason": null
+              "isDeprecated": true,
+              "deprecationReason": "Use SubscriptionPromotion.previewPrice instead."
             },
             {
               "name": "oldPrice",
@@ -89828,6 +89919,22 @@
                 "ofType": {
                   "kind": "SCALAR",
                   "name": "String",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": true,
+              "deprecationReason": "Use SubscriptionProduct.priceInfo instead."
+            },
+            {
+              "name": "previewPrice",
+              "description": "The price for the promotion.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "OBJECT",
+                  "name": "PriceInfo",
                   "ofType": null
                 }
               },
