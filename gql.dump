@@ -1282,20 +1282,6 @@
               "defaultValue": null
             },
             {
-              "name": "nauthSig",
-              "description": "The signature for the access token for the current video session.",
-              "type": {
-                "kind": "NON_NULL",
-                "name": null,
-                "ofType": {
-                  "kind": "SCALAR",
-                  "name": "String",
-                  "ofType": null
-                }
-              },
-              "defaultValue": null
-            },
-            {
               "name": "nauthToken",
               "description": "The access token for the current video session.",
               "type": {
