@@ -1282,6 +1282,20 @@
               "defaultValue": null
             },
             {
+              "name": "nauthSig",
+              "description": "The signature for the access token for the current video session.",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "String",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            },
+            {
               "name": "nauthToken",
               "description": "The access token for the current video session.",
               "type": {
@@ -70015,6 +70029,29 @@
               "type": {
                 "kind": "OBJECT",
                 "name": "RecommendedStreamsConnection",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "recurlyConfigs",
+              "description": "Holds configuration necessary for calling Recurly.",
+              "args": [
+                {
+                  "name": "paymentSession",
+                  "description": null,
+                  "type": {
+                    "kind": "INPUT_OBJECT",
+                    "name": "PaymentSession",
+                    "ofType": null
+                  },
+                  "defaultValue": null
+                }
+              ],
+              "type": {
+                "kind": "OBJECT",
+                "name": "RecurlyConfigs",
                 "ofType": null
               },
               "isDeprecated": false,
