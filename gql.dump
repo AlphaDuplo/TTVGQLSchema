@@ -2830,6 +2830,54 @@
         },
         {
           "kind": "INPUT_OBJECT",
+          "name": "ArchivePollInChannelInput",
+          "description": "Inputs for archiving a poll.",
+          "fields": null,
+          "inputFields": [
+            {
+              "name": "channelID",
+              "description": "The id of the channel that contains the poll to archive.",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "ID",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            }
+          ],
+          "interfaces": null,
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "OBJECT",
+          "name": "ArchivePollInChannelPayload",
+          "description": "Outputs from the archive poll mutation.",
+          "fields": [
+            {
+              "name": "poll",
+              "description": "The archived poll.",
+              "args": [],
+              "type": {
+                "kind": "OBJECT",
+                "name": "Poll",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "INPUT_OBJECT",
           "name": "ArchivePollInput",
           "description": "Inputs for archiving a poll.",
           "fields": null,
@@ -50741,6 +50789,33 @@
               "deprecationReason": null
             },
             {
+              "name": "archivePollInChannel",
+              "description": "Archive the current poll in a channel.",
+              "args": [
+                {
+                  "name": "input",
+                  "description": null,
+                  "type": {
+                    "kind": "NON_NULL",
+                    "name": null,
+                    "ofType": {
+                      "kind": "INPUT_OBJECT",
+                      "name": "ArchivePollInChannelInput",
+                      "ofType": null
+                    }
+                  },
+                  "defaultValue": null
+                }
+              ],
+              "type": {
+                "kind": "OBJECT",
+                "name": "ArchivePollInChannelPayload",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
               "name": "assignExtensionBillingManager",
               "description": "Assign a billing manager to an extension.\nThe billing manager is the organization's Owner or member with Billing_Manager role that is ready to receive\npayments for the monetized extension within an organization.",
               "args": [
@@ -55804,6 +55879,33 @@
               "type": {
                 "kind": "OBJECT",
                 "name": "TerminatePollPayload",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "terminatePollInChannel",
+              "description": "Terminates the current poll in a channel.",
+              "args": [
+                {
+                  "name": "input",
+                  "description": null,
+                  "type": {
+                    "kind": "NON_NULL",
+                    "name": null,
+                    "ofType": {
+                      "kind": "INPUT_OBJECT",
+                      "name": "TerminatePollInChannelInput",
+                      "ofType": null
+                    }
+                  },
+                  "defaultValue": null
+                }
+              ],
+              "type": {
+                "kind": "OBJECT",
+                "name": "TerminatePollInChannelPayload",
                 "ofType": null
               },
               "isDeprecated": false,
@@ -91726,6 +91828,54 @@
         },
         {
           "kind": "INPUT_OBJECT",
+          "name": "TerminatePollInChannelInput",
+          "description": "Inputs for terminating a poll.",
+          "fields": null,
+          "inputFields": [
+            {
+              "name": "channelID",
+              "description": "The id of the channel with the poll to terminate.",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "ID",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            }
+          ],
+          "interfaces": null,
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "OBJECT",
+          "name": "TerminatePollInChannelPayload",
+          "description": "Outputs from the terminate poll mutation.",
+          "fields": [
+            {
+              "name": "poll",
+              "description": "The terminated poll.",
+              "args": [],
+              "type": {
+                "kind": "OBJECT",
+                "name": "Poll",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "INPUT_OBJECT",
           "name": "TerminatePollInput",
           "description": "Inputs for terminating a poll.",
           "fields": null,
@@ -101515,6 +101665,16 @@
               "defaultValue": null
             },
             {
+              "name": "isFounderBadgesHidden",
+              "description": "If the user wants to hide their Founder Badges.",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Boolean",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
               "name": "isGiftCountHidden",
               "description": "Whether the user wants to show how many gifts they've purchased.",
               "type": {
@@ -107518,6 +107678,22 @@
             {
               "name": "giftsToFollowedChannelsOnly",
               "description": "If the user only wants to receive gifts to channels they follow.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Boolean",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "isFounderBadgesHidden",
+              "description": "If the user wants to hide their Founder Badges.",
               "args": [],
               "type": {
                 "kind": "NON_NULL",
