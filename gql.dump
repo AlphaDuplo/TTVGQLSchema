@@ -5000,8 +5000,8 @@
         },
         {
           "kind": "INPUT_OBJECT",
-          "name": "BitsChallengeConditionPoolRecipientPercentageShare",
-          "description": "BitsChallengeConditionPoolRecipientPercentageShare represents the percentage share of the total bits pool \nthat a recipient user is entitled to upon condition satisfaction.",
+          "name": "BitsChallengeConditionPoolRecipientWeightedShare",
+          "description": "BitsChallengeConditionPoolRecipientWeightedShare represents the weighted share of the total bits pool\nthat a recipient user is entitled to upon condition satisfaction.",
           "fields": null,
           "inputFields": [
             {
@@ -5019,14 +5019,14 @@
               "defaultValue": null
             },
             {
-              "name": "share",
-              "description": "The percentage share that the recipient should receive from the total bits pool (range: 0 - 1).",
+              "name": "weight",
+              "description": "The weight of the recipient's share from the total bits pool. The sum of all the recipients' weights\ndictates the proportion that a particular recipient receives from the pool (shareWeight/totalShareWeight * totalBitsAmountInPool).",
               "type": {
                 "kind": "NON_NULL",
                 "name": null,
                 "ofType": {
                   "kind": "SCALAR",
-                  "name": "Float",
+                  "name": "Int",
                   "ofType": null
                 }
               },
@@ -10608,6 +10608,18 @@
           "description": "Details of the GiveBits effect.",
           "fields": [
             {
+              "name": "benefactor",
+              "description": "The user who gives the bits.",
+              "args": [],
+              "type": {
+                "kind": "OBJECT",
+                "name": "User",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
               "name": "bitsAmount",
               "description": "The amount of bits to be given.",
               "args": [],
@@ -10635,8 +10647,8 @@
           "description": "Details of the GiveBits effect settings.",
           "fields": [
             {
-              "name": "bitsRecipientPercentageShares",
-              "description": "A list of the different bits recipients and their share of the total bits pool once the condition is satisfied.",
+              "name": "bitsRecipientWeightedShares",
+              "description": "A list of the different bits recipients and their weighted share of the total bits pool once the condition is satisfied.",
               "args": [],
               "type": {
                 "kind": "NON_NULL",
@@ -10649,7 +10661,7 @@
                     "name": null,
                     "ofType": {
                       "kind": "OBJECT",
-                      "name": "ChallengeGiveBitsEffectSettingsPoolRecipientPercentageShare",
+                      "name": "ChallengeGiveBitsPoolRecipientWeightedShare",
                       "ofType": null
                     }
                   }
@@ -10666,25 +10678,9 @@
         },
         {
           "kind": "OBJECT",
-          "name": "ChallengeGiveBitsEffectSettingsPoolRecipientPercentageShare",
-          "description": "ChallengeGiveBitsEffectSettingsPoolRecipientPercentageShare represents the percentage share of the total bits pool \nthat a recipient user is entitled to upon condition satisfaction.",
+          "name": "ChallengeGiveBitsPoolRecipientWeightedShare",
+          "description": "ChallengeGiveBitsPoolRecipientWeightedShare represents the weighted share of the total bits pool\nthat a recipient user is entitled to upon condition satisfaction.",
           "fields": [
-            {
-              "name": "percentageShare",
-              "description": "The percentage share that the recipient receives from the total bits pool (range: 0 - 1).",
-              "args": [],
-              "type": {
-                "kind": "NON_NULL",
-                "name": null,
-                "ofType": {
-                  "kind": "SCALAR",
-                  "name": "Float",
-                  "ofType": null
-                }
-              },
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
             {
               "name": "recipient",
               "description": "The bits recipient user.",
@@ -10693,6 +10689,22 @@
                 "kind": "OBJECT",
                 "name": "User",
                 "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "weight",
+              "description": "The weight of the recipient's share from the total bits pool. The sum of all the recipients' weights\ndictates the proportion that a particular recipient receives from the pool (shareWeight/totalShareWeight * totalBitsAmountInPool).",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Int",
+                  "ofType": null
+                }
               },
               "isDeprecated": false,
               "deprecationReason": null
@@ -21386,65 +21398,6 @@
         },
         {
           "kind": "OBJECT",
-          "name": "CounterStrikeGlobalOffensive",
-          "description": "Contains CounterStrikeGlobalOffensive game specific information.",
-          "fields": [
-            {
-              "name": "csMap",
-              "description": "The map that broadcaster is current playing.",
-              "args": [],
-              "type": {
-                "kind": "SCALAR",
-                "name": "String",
-                "ofType": null
-              },
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
-              "name": "mapImageURL",
-              "description": "The url of the map's thumbnail that broadcaster is current playing.",
-              "args": [],
-              "type": {
-                "kind": "SCALAR",
-                "name": "String",
-                "ofType": null
-              },
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
-              "name": "mapName",
-              "description": "The name of the map that broadcaster is current playing.",
-              "args": [],
-              "type": {
-                "kind": "SCALAR",
-                "name": "String",
-                "ofType": null
-              },
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
-              "name": "skill",
-              "description": "Skill level of the streamer. Range is 0-18, 0 beling 'Unranked' and 18 being 'The Global Elite'.",
-              "args": [],
-              "type": {
-                "kind": "SCALAR",
-                "name": "Int",
-                "ofType": null
-              },
-              "isDeprecated": false,
-              "deprecationReason": null
-            }
-          ],
-          "inputFields": null,
-          "interfaces": [],
-          "enumValues": null,
-          "possibleTypes": null
-        },
-        {
-          "kind": "OBJECT",
           "name": "Crate",
           "description": "A crate which users can open to get Twitch loot.",
           "fields": [
@@ -21552,8 +21505,8 @@
           "fields": null,
           "inputFields": [
             {
-              "name": "bitsRecipientPercentageShares",
-              "description": "A list of the different bits recipients and their share of the total bits pool once the condition is satisfied.\nIf this is not defined during condition creation, it must be defined when the condition is satisfied.",
+              "name": "bitsRecipientWeightedShares",
+              "description": "A list of the different bits recipients and their weighted share of the total bits pool once the condition is satisfied.\nIf this is not defined during condition creation, it must be defined when the condition is satisfied.",
               "type": {
                 "kind": "LIST",
                 "name": null,
@@ -21562,7 +21515,7 @@
                   "name": null,
                   "ofType": {
                     "kind": "INPUT_OBJECT",
-                    "name": "BitsChallengeConditionPoolRecipientPercentageShare",
+                    "name": "BitsChallengeConditionPoolRecipientWeightedShare",
                     "ofType": null
                   }
                 }
@@ -45017,77 +44970,6 @@
         },
         {
           "kind": "OBJECT",
-          "name": "Hearthstone",
-          "description": "Contains Heartstone game specific information.",
-          "fields": [
-            {
-              "name": "broadcasterHeroClass",
-              "description": "The hero class that broadcaster is playing.",
-              "args": [],
-              "type": {
-                "kind": "SCALAR",
-                "name": "String",
-                "ofType": null
-              },
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
-              "name": "broadcasterHeroName",
-              "description": "The hero name that broadcaster is playing.",
-              "args": [],
-              "type": {
-                "kind": "SCALAR",
-                "name": "String",
-                "ofType": null
-              },
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
-              "name": "gameMode",
-              "description": "Game mode of the current game.",
-              "args": [],
-              "type": {
-                "kind": "SCALAR",
-                "name": "String",
-                "ofType": null
-              },
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
-              "name": "opponentHeroClass",
-              "description": "The hero class that broadcaster's opponent is playing.",
-              "args": [],
-              "type": {
-                "kind": "SCALAR",
-                "name": "String",
-                "ofType": null
-              },
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
-              "name": "opponentHeroName",
-              "description": "The hero name that broadcaster's opponent is playing.",
-              "args": [],
-              "type": {
-                "kind": "SCALAR",
-                "name": "String",
-                "ofType": null
-              },
-              "isDeprecated": false,
-              "deprecationReason": null
-            }
-          ],
-          "inputFields": null,
-          "interfaces": [],
-          "enumValues": null,
-          "possibleTypes": null
-        },
-        {
-          "kind": "OBJECT",
           "name": "HearthstoneMomentDetails",
           "description": "Moment Details specific to the hearthstone game.",
           "fields": [
@@ -47340,77 +47222,6 @@
               "deprecationReason": null
             }
           ],
-          "possibleTypes": null
-        },
-        {
-          "kind": "OBJECT",
-          "name": "LeagueOfLegends",
-          "description": "Contains Leagueoflegends game specific information.",
-          "fields": [
-            {
-              "name": "championID",
-              "description": "The ID of the champion that broadcaster is current playing.",
-              "args": [],
-              "type": {
-                "kind": "SCALAR",
-                "name": "Int",
-                "ofType": null
-              },
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
-              "name": "summonerDivision",
-              "description": "Summoner's division.",
-              "args": [],
-              "type": {
-                "kind": "SCALAR",
-                "name": "String",
-                "ofType": null
-              },
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
-              "name": "summonerID",
-              "description": "Summoner's ID.",
-              "args": [],
-              "type": {
-                "kind": "SCALAR",
-                "name": "Int",
-                "ofType": null
-              },
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
-              "name": "summonerName",
-              "description": "Summoner's name.",
-              "args": [],
-              "type": {
-                "kind": "SCALAR",
-                "name": "String",
-                "ofType": null
-              },
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
-              "name": "summonerRank",
-              "description": "Summoner's rank.",
-              "args": [],
-              "type": {
-                "kind": "SCALAR",
-                "name": "String",
-                "ofType": null
-              },
-              "isDeprecated": false,
-              "deprecationReason": null
-            }
-          ],
-          "inputFields": null,
-          "interfaces": [],
-          "enumValues": null,
           "possibleTypes": null
         },
         {
@@ -60931,53 +60742,6 @@
         },
         {
           "kind": "OBJECT",
-          "name": "Overwatch",
-          "description": "Contains Overwatch game specific information.",
-          "fields": [
-            {
-              "name": "broadcasterCharacter",
-              "description": "The character that broadcaster is playing.",
-              "args": [],
-              "type": {
-                "kind": "SCALAR",
-                "name": "String",
-                "ofType": null
-              },
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
-              "name": "broadcasterCharacterAbility",
-              "description": "The ability of the character that broadcaster is playing.",
-              "args": [],
-              "type": {
-                "kind": "SCALAR",
-                "name": "String",
-                "ofType": null
-              },
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
-              "name": "broadcasterCharacterRole",
-              "description": "The role of the character that broadcaster is playing.",
-              "args": [],
-              "type": {
-                "kind": "SCALAR",
-                "name": "String",
-                "ofType": null
-              },
-              "isDeprecated": false,
-              "deprecationReason": null
-            }
-          ],
-          "inputFields": null,
-          "interfaces": [],
-          "enumValues": null,
-          "possibleTypes": null
-        },
-        {
-          "kind": "OBJECT",
           "name": "OverwatchLeagueTeamPreference",
           "description": "Contains Overwatch League Team preferences.",
           "fields": [
@@ -61147,41 +60911,6 @@
                   "name": "String",
                   "ofType": null
                 }
-              },
-              "isDeprecated": false,
-              "deprecationReason": null
-            }
-          ],
-          "inputFields": null,
-          "interfaces": [],
-          "enumValues": null,
-          "possibleTypes": null
-        },
-        {
-          "kind": "OBJECT",
-          "name": "PUBG",
-          "description": "Contains PUBG game specific information.",
-          "fields": [
-            {
-              "name": "gameMode",
-              "description": "Game mode of the current game.\nIn cases like game menu this will not exist, hence is nullable.",
-              "args": [],
-              "type": {
-                "kind": "SCALAR",
-                "name": "String",
-                "ofType": null
-              },
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
-              "name": "playerAliveCount",
-              "description": "Total number of players currentlive alive in the game\nIn cases like game menu this will not exist, hence is nullable.",
-              "args": [],
-              "type": {
-                "kind": "SCALAR",
-                "name": "Int",
-                "ofType": null
               },
               "isDeprecated": false,
               "deprecationReason": null
@@ -86975,18 +86704,6 @@
               "deprecationReason": null
             },
             {
-              "name": "streamMetadata",
-              "description": "Metadata about the game being played in the stream.",
-              "args": [],
-              "type": {
-                "kind": "OBJECT",
-                "name": "StreamMetadata",
-                "ofType": null
-              },
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
               "name": "tags",
               "description": "Tags are used as a discovery and search mechanism for tags and tagged content.\nThe tag data is from JAX, which may not be updated immediately after streamers update their tags.\nPlease use User.tags instead if you want real time data from Graffiti.\nFor example, you should use Stream.tags for the channel page and the browse page, but use User.tags for the dashboard.",
               "args": [],
@@ -87159,77 +86876,6 @@
               "type": {
                 "kind": "SCALAR",
                 "name": "ID",
-                "ofType": null
-              },
-              "isDeprecated": false,
-              "deprecationReason": null
-            }
-          ],
-          "inputFields": null,
-          "interfaces": [],
-          "enumValues": null,
-          "possibleTypes": null
-        },
-        {
-          "kind": "OBJECT",
-          "name": "StreamMetadata",
-          "description": null,
-          "fields": [
-            {
-              "name": "counterStrikeGlobalOffensive",
-              "description": "Counter Strike Global Offensive game information.",
-              "args": [],
-              "type": {
-                "kind": "OBJECT",
-                "name": "CounterStrikeGlobalOffensive",
-                "ofType": null
-              },
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
-              "name": "hearthstone",
-              "description": "Hearthstone game information.",
-              "args": [],
-              "type": {
-                "kind": "OBJECT",
-                "name": "Hearthstone",
-                "ofType": null
-              },
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
-              "name": "leagueOfLegends",
-              "description": "League Of Legends game information.",
-              "args": [],
-              "type": {
-                "kind": "OBJECT",
-                "name": "LeagueOfLegends",
-                "ofType": null
-              },
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
-              "name": "overwatch",
-              "description": "Overwatch game information.",
-              "args": [],
-              "type": {
-                "kind": "OBJECT",
-                "name": "Overwatch",
-                "ofType": null
-              },
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
-              "name": "pubg",
-              "description": "PUBG game information.",
-              "args": [],
-              "type": {
-                "kind": "OBJECT",
-                "name": "PUBG",
                 "ofType": null
               },
               "isDeprecated": false,
