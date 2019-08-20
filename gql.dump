@@ -9918,6 +9918,62 @@
           "possibleTypes": null
         },
         {
+          "kind": "OBJECT",
+          "name": "CancelRaidError",
+          "description": "CancelRaidError is the error associated with a cancelRaid.",
+          "fields": [
+            {
+              "name": "code",
+              "description": "The associated error code.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "ENUM",
+                  "name": "CancelRaidErrorCode",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "ENUM",
+          "name": "CancelRaidErrorCode",
+          "description": "CancelRaidErrorCode are the possible errors that this mutation returns.",
+          "fields": null,
+          "inputFields": null,
+          "interfaces": null,
+          "enumValues": [
+            {
+              "name": "RAID_DOES_NOT_EXIST",
+              "description": "The a raid does not exist.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "INVALID_CHANNEL",
+              "description": "The request is missing valid channel parameters.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "NO_ACTIVE_RAID",
+              "description": "The user tries to unraid without an active raid.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "possibleTypes": null
+        },
+        {
           "kind": "INPUT_OBJECT",
           "name": "CancelRaidInput",
           "description": "Inputs to the cancelRaid mutation.",
@@ -9947,6 +10003,18 @@
           "name": "CancelRaidPayload",
           "description": "Outputs from the cancelRaid mutation.",
           "fields": [
+            {
+              "name": "error",
+              "description": "The possible error returned from the service.",
+              "args": [],
+              "type": {
+                "kind": "OBJECT",
+                "name": "CancelRaidError",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
             {
               "name": "raid",
               "description": "The cancelled raid.",
@@ -25644,6 +25712,74 @@
           "possibleTypes": null
         },
         {
+          "kind": "OBJECT",
+          "name": "CreateRaidError",
+          "description": "CreateRaidError is the error associated with a createRaid.",
+          "fields": [
+            {
+              "name": "code",
+              "description": "The associated error code.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "ENUM",
+                  "name": "CreateRaidErrorCode",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "ENUM",
+          "name": "CreateRaidErrorCode",
+          "description": "CreateRaidErrorCode are the possible errors that this mutation returns.",
+          "fields": null,
+          "inputFields": null,
+          "interfaces": null,
+          "enumValues": [
+            {
+              "name": "ALREADY_RAIDING",
+              "description": "The user is already raiding another channel.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "CANNOT_RAID_YOURSELF",
+              "description": "The user tries to raid themselves.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "CANNOT_RAID_THIS_CHANNEL",
+              "description": "The user tries to raid an unraidable channel.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "INVALID_CHANNEL",
+              "description": "The request is missing valid channel parameters.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "TOO_MANY_VIEWERS_TO_RAID",
+              "description": "The user tries to raid with too many viewers.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "possibleTypes": null
+        },
+        {
           "kind": "INPUT_OBJECT",
           "name": "CreateRaidInput",
           "description": "Inputs to the createRaid mutation.",
@@ -25687,6 +25823,18 @@
           "name": "CreateRaidPayload",
           "description": "Outputs from the createRaid mutation.",
           "fields": [
+            {
+              "name": "error",
+              "description": "The possible error returned from the service.",
+              "args": [],
+              "type": {
+                "kind": "OBJECT",
+                "name": "CreateRaidError",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
             {
               "name": "raid",
               "description": "The created raid.",
@@ -44547,6 +44695,56 @@
           "possibleTypes": null
         },
         {
+          "kind": "OBJECT",
+          "name": "GoRaidError",
+          "description": "GoRaidError is the error associated with a goRaid.",
+          "fields": [
+            {
+              "name": "code",
+              "description": "The associated error code.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "ENUM",
+                  "name": "GoRaidErrorCode",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "ENUM",
+          "name": "GoRaidErrorCode",
+          "description": "GoRaidErrorCode are the possible errors that this mutation returns.",
+          "fields": null,
+          "inputFields": null,
+          "interfaces": null,
+          "enumValues": [
+            {
+              "name": "INVALID_CHANNEL",
+              "description": "The request is missing valid channel parameters.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "NO_ACTIVE_RAID",
+              "description": "The user tries to unraid without an active raid.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "possibleTypes": null
+        },
+        {
           "kind": "INPUT_OBJECT",
           "name": "GoRaidInput",
           "description": "Inputs to the goRaid mutation.",
@@ -44576,6 +44774,18 @@
           "name": "GoRaidPayload",
           "description": "Outputs from the goRaid mutation.",
           "fields": [
+            {
+              "name": "error",
+              "description": "The possible error returned from the service.",
+              "args": [],
+              "type": {
+                "kind": "OBJECT",
+                "name": "GoRaidError",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
             {
               "name": "raid",
               "description": "The raid then just went.",
