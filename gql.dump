@@ -908,6 +908,22 @@
               "deprecationReason": null
             },
             {
+              "name": "costreamers",
+              "description": "Which ids are costreamers for this channel.",
+              "args": [],
+              "type": {
+                "kind": "LIST",
+                "name": null,
+                "ofType": {
+                  "kind": "OBJECT",
+                  "name": "User",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
               "name": "frequency",
               "description": "How often ad breaks can be run on this channel.",
               "args": [],
@@ -25402,29 +25418,21 @@
               "name": "bitsCost",
               "description": "The cost in bits for casting a vote.",
               "type": {
-                "kind": "NON_NULL",
-                "name": null,
-                "ofType": {
-                  "kind": "SCALAR",
-                  "name": "Int",
-                  "ofType": null
-                }
+                "kind": "SCALAR",
+                "name": "Int",
+                "ofType": null
               },
-              "defaultValue": null
+              "defaultValue": "0"
             },
             {
               "name": "bitsVoting",
               "description": "Denotes if votes can be cast with votes.",
               "type": {
-                "kind": "NON_NULL",
-                "name": null,
-                "ofType": {
-                  "kind": "SCALAR",
-                  "name": "Boolean",
-                  "ofType": null
-                }
+                "kind": "SCALAR",
+                "name": "Boolean",
+                "ofType": null
               },
-              "defaultValue": null
+              "defaultValue": "false"
             },
             {
               "name": "choices",
@@ -25480,29 +25488,21 @@
               "name": "subscriberMultiplier",
               "description": "Denotes if subscribers receives bonus votes.",
               "type": {
-                "kind": "NON_NULL",
-                "name": null,
-                "ofType": {
-                  "kind": "SCALAR",
-                  "name": "Boolean",
-                  "ofType": null
-                }
+                "kind": "SCALAR",
+                "name": "Boolean",
+                "ofType": null
               },
-              "defaultValue": null
+              "defaultValue": "false"
             },
             {
               "name": "subscriberOnly",
               "description": "Denotes if the poll is only open to subscribers.",
               "type": {
-                "kind": "NON_NULL",
-                "name": null,
-                "ofType": {
-                  "kind": "SCALAR",
-                  "name": "Boolean",
-                  "ofType": null
-                }
+                "kind": "SCALAR",
+                "name": "Boolean",
+                "ofType": null
               },
-              "defaultValue": null
+              "defaultValue": "false"
             },
             {
               "name": "title",
