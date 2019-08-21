@@ -104790,6 +104790,18 @@
               "deprecationReason": null
             },
             {
+              "name": "lastLoginChangeAt",
+              "description": "When the user last updated their login name.\nThis special field only resolves for the authenticated user.",
+              "args": [],
+              "type": {
+                "kind": "SCALAR",
+                "name": "Time",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
               "name": "lastStatusChangeAt",
               "description": "The last time the user's availability or activity changed.\nThis special field only resolves for the authenticated user; use friends.edges.lastStatusChangeAt to retrieve this\ninformation about friends..\nRequires the `user_presence_friends_read` scope.",
               "args": [],
