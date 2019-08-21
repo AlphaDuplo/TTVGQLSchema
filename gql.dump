@@ -10216,6 +10216,18 @@
               "deprecationReason": null
             },
             {
+              "name": "participantSummary",
+              "description": "A summary of condition participants attached to the condition.",
+              "args": [],
+              "type": {
+                "kind": "OBJECT",
+                "name": "ChallengeConditionParticipantSummaryByState",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
               "name": "state",
               "description": "The current state of the condition.",
               "args": [],
@@ -10437,6 +10449,144 @@
           "possibleTypes": null
         },
         {
+          "kind": "OBJECT",
+          "name": "ChallengeConditionParticipantSummary",
+          "description": "A summary of participants attached to a particular condition in a particular state.",
+          "fields": [
+            {
+              "name": "effects",
+              "description": "Summary of participant effects attached to a particular condition in a particular state.",
+              "args": [],
+              "type": {
+                "kind": "OBJECT",
+                "name": "ChallengeEffectSummary",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "total",
+              "description": "Total count of participants attached to a particular condition in a particular state.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Int",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "OBJECT",
+          "name": "ChallengeConditionParticipantSummaryByState",
+          "description": "A summary of condition participants attached to a particular condition, grouped by state.",
+          "fields": [
+            {
+              "name": "canceled",
+              "description": "Summary of participants attached to a particular condition in the CANCELED state.",
+              "args": [],
+              "type": {
+                "kind": "OBJECT",
+                "name": "ChallengeConditionParticipantSummary",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "conditionCanceled",
+              "description": "Summary of participants attached to a particular condition in the CONDITION_CANCELED state.",
+              "args": [],
+              "type": {
+                "kind": "OBJECT",
+                "name": "ChallengeConditionParticipantSummary",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "conditionTimeout",
+              "description": "Summary of participants attached to a particular condition in the CONDITION_TIMEOUT state.",
+              "args": [],
+              "type": {
+                "kind": "OBJECT",
+                "name": "ChallengeConditionParticipantSummary",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "pending",
+              "description": "Summary of participants attached to a particular condition in the PENDING state.",
+              "args": [],
+              "type": {
+                "kind": "OBJECT",
+                "name": "ChallengeConditionParticipantSummary",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "satisfied",
+              "description": "Summary of participants attached to a particular condition in the SATISFIED state.",
+              "args": [],
+              "type": {
+                "kind": "OBJECT",
+                "name": "ChallengeConditionParticipantSummary",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "timeout",
+              "description": "Summary of participants attached to a particular condition in the TIMEOUT state.",
+              "args": [],
+              "type": {
+                "kind": "OBJECT",
+                "name": "ChallengeConditionParticipantSummary",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "total",
+              "description": "Total count of participants attached to a particular condition.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Int",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
           "kind": "ENUM",
           "name": "ChallengeConditionState",
           "description": "The current state of the condition.",
@@ -10596,6 +10746,29 @@
           ]
         },
         {
+          "kind": "OBJECT",
+          "name": "ChallengeEffectSummary",
+          "description": "A summary of effects attached to a particular condition in a particular state. Keys correspond to ChallengeEffectType enum.",
+          "fields": [
+            {
+              "name": "giveBits",
+              "description": "GIVE_BITS effects.",
+              "args": [],
+              "type": {
+                "kind": "OBJECT",
+                "name": "ChallengeGiveBitsEffectSummary",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
           "kind": "ENUM",
           "name": "ChallengeEffectType",
           "description": "The type of effect.",
@@ -10681,6 +10854,49 @@
                       "ofType": null
                     }
                   }
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "OBJECT",
+          "name": "ChallengeGiveBitsEffectSummary",
+          "description": "A summary of GIVE_BITS effects attached to a particular condition in a particular state.",
+          "fields": [
+            {
+              "name": "totalBitsAmount",
+              "description": "Sum of Bits rolling up to a particular condition in a particular state.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Int",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "totalEffects",
+              "description": "Total count of GIVE_BITS effects rolling up to a particular condition in a particular state.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Int",
+                  "ofType": null
                 }
               },
               "isDeprecated": false,
