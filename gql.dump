@@ -75485,6 +75485,12 @@
               "deprecationReason": null
             },
             {
+              "name": "POLL_REPORT",
+              "description": "Report against a poll.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
               "name": "RAID_REPORT",
               "description": "Report against a raid.",
               "isDeprecated": false,
