@@ -31877,6 +31877,54 @@
           "possibleTypes": null
         },
         {
+          "kind": "INPUT_OBJECT",
+          "name": "DeleteUserColorsInput",
+          "description": "Inputs for the DeleteUserColors mutation.",
+          "fields": null,
+          "inputFields": [
+            {
+              "name": "userID",
+              "description": "The ID of the user whose creator color is being deleted.",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "ID",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            }
+          ],
+          "interfaces": null,
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "OBJECT",
+          "name": "DeleteUserColorsPayload",
+          "description": "The returned payload from the DeleteUserColors mutation.",
+          "fields": [
+            {
+              "name": "user",
+              "description": "The modified user.",
+              "args": [],
+              "type": {
+                "kind": "OBJECT",
+                "name": "User",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
           "kind": "OBJECT",
           "name": "DeleteVideoCommentPayload",
           "description": null,
@@ -53685,6 +53733,33 @@
               "deprecationReason": null
             },
             {
+              "name": "deleteUserColors",
+              "description": "Deletes a user's creator colors.",
+              "args": [
+                {
+                  "name": "input",
+                  "description": null,
+                  "type": {
+                    "kind": "NON_NULL",
+                    "name": null,
+                    "ofType": {
+                      "kind": "INPUT_OBJECT",
+                      "name": "DeleteUserColorsInput",
+                      "ofType": null
+                    }
+                  },
+                  "defaultValue": null
+                }
+              ],
+              "type": {
+                "kind": "OBJECT",
+                "name": "DeleteUserColorsPayload",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
               "name": "deleteVideoComment",
               "description": "deleteVideoComment performs a delete on the video comment with the provided comment ID.\nNOTE: this should use an input argument, not define the commentID right here.",
               "args": [
@@ -58347,6 +58422,33 @@
               "type": {
                 "kind": "OBJECT",
                 "name": "UpdateTimetableEventPayload",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "updateUserColors",
+              "description": "Updates a user's creator colors.",
+              "args": [
+                {
+                  "name": "input",
+                  "description": null,
+                  "type": {
+                    "kind": "NON_NULL",
+                    "name": null,
+                    "ofType": {
+                      "kind": "INPUT_OBJECT",
+                      "name": "UpdateUserColorsInput",
+                      "ofType": null
+                    }
+                  },
+                  "defaultValue": null
+                }
+              ],
+              "type": {
+                "kind": "OBJECT",
+                "name": "UpdateUserColorsPayload",
                 "ofType": null
               },
               "isDeprecated": false,
@@ -101795,6 +101897,124 @@
           "possibleTypes": null
         },
         {
+          "kind": "OBJECT",
+          "name": "UpdateUserColorsError",
+          "description": "The possible error returned.",
+          "fields": [
+            {
+              "name": "code",
+              "description": "The error code.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "ENUM",
+                  "name": "UpdateUserColorsErrorCode",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "ENUM",
+          "name": "UpdateUserColorsErrorCode",
+          "description": "The possible types of error codes returned.",
+          "fields": null,
+          "inputFields": null,
+          "interfaces": null,
+          "enumValues": [
+            {
+              "name": "INVALID_HEX_COLOR",
+              "description": "Hex string is invalid.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "possibleTypes": null
+        },
+        {
+          "kind": "INPUT_OBJECT",
+          "name": "UpdateUserColorsInput",
+          "description": "The required input for a UpdateUserColorsInput mutation.",
+          "fields": null,
+          "inputFields": [
+            {
+              "name": "primaryColorHex",
+              "description": "The user's primary color hex string (e.g. \"FFFFFF\").",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "String",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "userID",
+              "description": "The ID of the user whose creator colors are being updated.",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "ID",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            }
+          ],
+          "interfaces": null,
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "OBJECT",
+          "name": "UpdateUserColorsPayload",
+          "description": "The result of a UpdateUserColorsInput mutation.",
+          "fields": [
+            {
+              "name": "error",
+              "description": "The possible error returned.",
+              "args": [],
+              "type": {
+                "kind": "OBJECT",
+                "name": "UpdateUserColorsError",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "user",
+              "description": "The modified user.",
+              "args": [],
+              "type": {
+                "kind": "OBJECT",
+                "name": "User",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
           "kind": "INPUT_OBJECT",
           "name": "UpdateUserCreateDateHiddenInput",
           "description": "The required input for a updateUserCreateDateHidden mutation.",
@@ -105634,6 +105854,18 @@
               "type": {
                 "kind": "OBJECT",
                 "name": "PollConnection",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "primaryColorHex",
+              "description": "The hex string for the user's primary creator color.\nExample: \"FFFFFF\".",
+              "args": [],
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
                 "ofType": null
               },
               "isDeprecated": false,
