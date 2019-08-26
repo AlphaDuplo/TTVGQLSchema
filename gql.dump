@@ -20204,7 +20204,13 @@
             },
             {
               "name": "TRANSACTION_ALREADY_COMMITTED",
-              "description": "The client is retrying a reward that has already been redeemed.",
+              "description": "The client is retrying a redemption with a transaction id that has already been redeemed.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "TRANSACTION_IN_PROGRESS",
+              "description": "The client is retrying a redemption with a transaction id that is currently being redeemed in another request.",
               "isDeprecated": false,
               "deprecationReason": null
             },
@@ -62298,6 +62304,12 @@
               "description": "Apple In-App Purchases for iOS transactions.",
               "isDeprecated": false,
               "deprecationReason": null
+            },
+            {
+              "name": "SUBTOKEN",
+              "description": "Sub tokens, which can be redeemed for channel subscriptions.",
+              "isDeprecated": false,
+              "deprecationReason": null
             }
           ],
           "possibleTypes": null
@@ -62770,6 +62782,22 @@
           "description": "Payment transaction purchased product details.",
           "fields": [
             {
+              "name": "bundleSize",
+              "description": "Number of digital goods wrapped into a product.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Int",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
               "name": "name",
               "description": "The name of the product.",
               "args": [],
@@ -62885,6 +62913,12 @@
               "description": "Transaction for a bits type.",
               "isDeprecated": false,
               "deprecationReason": null
+            },
+            {
+              "name": "SUBTOKEN",
+              "description": "Transaction for a sub token.",
+              "isDeprecated": false,
+              "deprecationReason": null
             }
           ],
           "possibleTypes": null
@@ -62900,6 +62934,12 @@
             {
               "name": "SUBSCRIPTIONS",
               "description": "Only return payment transactions that associated with subscription products.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "SUBTOKEN",
+              "description": "Only return payment transactions that are associated with subtoken purchases and redemptions.",
               "isDeprecated": false,
               "deprecationReason": null
             },
@@ -73269,7 +73309,13 @@
             },
             {
               "name": "DUPLICATE_TRANSACTION",
-              "description": "The transaction ID used was a duplicate of another transaction.",
+              "description": "The client is retrying a redemption with a transaction id that has already been redeemed.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "TRANSACTION_IN_PROGRESS",
+              "description": "The client is retrying a redemption with a transaction id that is currently being redeemed in another request.",
               "isDeprecated": false,
               "deprecationReason": null
             },
@@ -73300,6 +73346,12 @@
             {
               "name": "CHANNEL_SETTINGS",
               "description": "The redemption message contained a blocked phrase.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "UNKNOWN",
+              "description": "An unknown error occurred.",
               "isDeprecated": false,
               "deprecationReason": null
             }
@@ -81891,7 +81943,13 @@
             },
             {
               "name": "TRANSACTION_ALREADY_COMMITTED",
-              "description": "The client is retrying a reward that has already been redeemed.",
+              "description": "The client is retrying a redemption with a transaction id that has already been redeemed.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "TRANSACTION_IN_PROGRESS",
+              "description": "The client is retrying a redemption with a transaction id that is currently being redeemed in another request.",
               "isDeprecated": false,
               "deprecationReason": null
             },
