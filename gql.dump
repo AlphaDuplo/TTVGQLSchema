@@ -65162,6 +65162,12 @@
           "interfaces": null,
           "enumValues": [
             {
+              "name": "UNKNOWN",
+              "description": "Encountered some poll status that we do not know how to handle BibleThump.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
               "name": "ACTIVE",
               "description": "Poll is running. Users can vote. Results are publicly visible.",
               "isDeprecated": false,
@@ -65182,6 +65188,12 @@
             {
               "name": "ARCHIVED",
               "description": "Poll has ended and is no longer publicly visible. Users cannot vote. Results are not publicly visible.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "MODERATED",
+              "description": "Poll has been moderated by Twitch and is no longer viewable, even to the poll owner. Users cannot vote. Results are not visible to any user.",
               "isDeprecated": false,
               "deprecationReason": null
             }
