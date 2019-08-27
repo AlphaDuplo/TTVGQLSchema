@@ -79271,7 +79271,25 @@
             },
             {
               "name": "INVALID_SCALING_PIXELS",
-              "description": "Scaling pixels must be set to a positive integer when autoscale is true.",
+              "description": "Scale pixels must be set to a positive integer when autoscale is true.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "INVALID_COMPONENT_ASPECT_RATIO_X",
+              "description": "Aspect Ratio X must be set to a positive integer.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "INVALID_COMPONENT_ASPECT_RATIO_Y",
+              "description": "Aspect Ratio Y must be set to a positive integer.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "INVALID_COMPONENT_TARGET_HEIGHT",
+              "description": "Target Height must be set to a positve integer.",
               "isDeprecated": false,
               "deprecationReason": null
             }
