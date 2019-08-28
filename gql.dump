@@ -58650,6 +58650,33 @@
               "deprecationReason": null
             },
             {
+              "name": "updateVideo",
+              "description": "updateVideo updates a video identified by provided video ID.",
+              "args": [
+                {
+                  "name": "input",
+                  "description": null,
+                  "type": {
+                    "kind": "NON_NULL",
+                    "name": null,
+                    "ofType": {
+                      "kind": "INPUT_OBJECT",
+                      "name": "UpdateVideoInput",
+                      "ofType": null
+                    }
+                  },
+                  "defaultValue": null
+                }
+              ],
+              "type": {
+                "kind": "OBJECT",
+                "name": "UpdateVideoPayload",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
               "name": "updateVideoComment",
               "description": "updateVideoComment updates a video comment identified by provided comment ID.",
               "args": [
@@ -59616,6 +59643,30 @@
           "name": "OfferEligibility",
           "description": "OfferEligibility describes user's eligibility to purchase an Offer.",
           "fields": [
+            {
+              "name": "benefitsEndAt",
+              "description": "If the user is eligible for the Offer, then this is set to the\ntime at which the user's benefits would expire if the\nOffer is purchased. If null, the benefits never expire.",
+              "args": [],
+              "type": {
+                "kind": "SCALAR",
+                "name": "Time",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "benefitsStartAt",
+              "description": "If the user is eligible for the Offer, then this is set to the\ntime at which the user's benefits would become available if the\nOffer is purchased.",
+              "args": [],
+              "type": {
+                "kind": "SCALAR",
+                "name": "Time",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
             {
               "name": "isEligible",
               "description": "A boolean that is true when the user is eligible for the Offer.",
@@ -102693,6 +102744,104 @@
         },
         {
           "kind": "INPUT_OBJECT",
+          "name": "UpdateVideoInput",
+          "description": "Input information for updating a video.",
+          "fields": null,
+          "inputFields": [
+            {
+              "name": "description",
+              "description": "The description of the video.",
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "game",
+              "description": "The name of the game presented in the video.",
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "language",
+              "description": "The language of the video.",
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "thumbnailPath",
+              "description": "The thumbnail URL of the video.",
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "title",
+              "description": "The title of the video.",
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "videoID",
+              "description": "ID of the video being updated.",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "ID",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            }
+          ],
+          "interfaces": null,
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "OBJECT",
+          "name": "UpdateVideoPayload",
+          "description": "Response to a request to update a video.",
+          "fields": [
+            {
+              "name": "video",
+              "description": "The video with updated fields.",
+              "args": [],
+              "type": {
+                "kind": "OBJECT",
+                "name": "Video",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "INPUT_OBJECT",
           "name": "UpdateVideoRestrictionInput",
           "description": "Inputs to the updateVideoRestriction mutation.",
           "fields": null,
@@ -105132,6 +105281,18 @@
               "type": {
                 "kind": "SCALAR",
                 "name": "Time",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "latestPoll",
+              "description": "Fetches the latest created Poll for the user.",
+              "args": [],
+              "type": {
+                "kind": "OBJECT",
+                "name": "Poll",
                 "ofType": null
               },
               "isDeprecated": false,
