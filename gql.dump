@@ -68988,13 +68988,9 @@
                   "name": "tagScope",
                   "description": null,
                   "type": {
-                    "kind": "NON_NULL",
-                    "name": null,
-                    "ofType": {
-                      "kind": "ENUM",
-                      "name": "TagScope",
-                      "ofType": null
-                    }
+                    "kind": "ENUM",
+                    "name": "TagScope",
+                    "ofType": null
                   },
                   "defaultValue": null
                 }
