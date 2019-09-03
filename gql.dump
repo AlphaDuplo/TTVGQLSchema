@@ -88401,6 +88401,12 @@
               "description": "The prefix for the affiliate can not be updated. Affiliates can update prefix once every name change.",
               "isDeprecated": false,
               "deprecationReason": null
+            },
+            {
+              "name": "ERR_SUBMITTED_PREFIX_DOES_NOT_MATCH_AUTO_GENERATED_PREFIX",
+              "description": "The prefix submitted for the affiliate does not match the auto generated prefix.",
+              "isDeprecated": false,
+              "deprecationReason": null
             }
           ],
           "possibleTypes": null
