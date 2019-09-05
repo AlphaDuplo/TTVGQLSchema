@@ -18353,22 +18353,6 @@
               "deprecationReason": null
             },
             {
-              "name": "isAllowed",
-              "description": "Is the streamer allowed to start a community gift chest.",
-              "args": [],
-              "type": {
-                "kind": "NON_NULL",
-                "name": null,
-                "ofType": {
-                  "kind": "SCALAR",
-                  "name": "Boolean",
-                  "ofType": null
-                }
-              },
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
               "name": "lastDonor",
               "description": "The last user who has gifted in the community gift event.",
               "args": [],
