@@ -14414,6 +14414,22 @@
               "deprecationReason": null
             },
             {
+              "name": "isPollsEnabled",
+              "description": "Indicates if polls is enabled.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Boolean",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
               "name": "isRecentEnabled",
               "description": "isRecentEnabled indicates if recent cheers are pinned in this channel.\nThis can be used by a client to update `CheerInfo.recent` as new cheers are received.",
               "args": [],
