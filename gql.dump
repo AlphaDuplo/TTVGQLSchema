@@ -104539,6 +104539,22 @@
               "deprecationReason": null
             },
             {
+              "name": "canStartCommunityGift",
+              "description": "If the user is allowed to start a community gift event.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Boolean",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
               "name": "channel",
               "description": "The channel which belongs to the user. This is still deprecated for previous uses.\nThis should only be used for the multi-view experience.",
               "args": [],
