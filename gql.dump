@@ -12535,6 +12535,18 @@
               "deprecationReason": null
             },
             {
+              "name": "quickActionLayout",
+              "description": "Channel's layout of quick actions on stream manager page.",
+              "args": [],
+              "type": {
+                "kind": "OBJECT",
+                "name": "QuickActionLayout",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
               "name": "restrictionType",
               "description": "If restricted, how the resource is restricted.",
               "args": [],
@@ -56182,6 +56194,33 @@
               "deprecationReason": null
             },
             {
+              "name": "setQuickActionLayout",
+              "description": "Set a user's quick action layout.",
+              "args": [
+                {
+                  "name": "input",
+                  "description": null,
+                  "type": {
+                    "kind": "NON_NULL",
+                    "name": null,
+                    "ofType": {
+                      "kind": "INPUT_OBJECT",
+                      "name": "SetQuickActionLayoutInput",
+                      "ofType": null
+                    }
+                  },
+                  "defaultValue": null
+                }
+              ],
+              "type": {
+                "kind": "OBJECT",
+                "name": "SetQuickActionLayoutPayload",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
               "name": "setReadableChatColorsEnabled",
               "description": "Set a user's readable chat colors UI setting.",
               "args": [
@@ -71853,6 +71892,293 @@
         },
         {
           "kind": "OBJECT",
+          "name": "QuickAction",
+          "description": "Represents a single quick action.",
+          "fields": [
+            {
+              "name": "name",
+              "description": "The name of the item. Quick action IDs are represented by their canonical names.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "ENUM",
+                  "name": "QuickActionName",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "OBJECT",
+          "name": "QuickActionFolder",
+          "description": "Represents a folder of quick actions.",
+          "fields": [
+            {
+              "name": "items",
+              "description": "A list of quick action IDs in the folder.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "LIST",
+                  "name": null,
+                  "ofType": {
+                    "kind": "NON_NULL",
+                    "name": null,
+                    "ofType": {
+                      "kind": "UNION",
+                      "name": "QuickActionLayoutItem",
+                      "ofType": null
+                    }
+                  }
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "name",
+              "description": "The name of the folder.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "String",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "OBJECT",
+          "name": "QuickActionLayout",
+          "description": "Contains the quick action layout.",
+          "fields": [
+            {
+              "name": "id",
+              "description": "The ID of the layout.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "ID",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "items",
+              "description": "A list of items in the layout.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "LIST",
+                  "name": null,
+                  "ofType": {
+                    "kind": "NON_NULL",
+                    "name": null,
+                    "ofType": {
+                      "kind": "UNION",
+                      "name": "QuickActionLayoutItem",
+                      "ofType": null
+                    }
+                  }
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "UNION",
+          "name": "QuickActionLayoutItem",
+          "description": "Quick action items can be either a quick action or a folder of quick actions.",
+          "fields": null,
+          "inputFields": null,
+          "interfaces": null,
+          "enumValues": null,
+          "possibleTypes": [
+            {
+              "kind": "OBJECT",
+              "name": "QuickAction",
+              "ofType": null
+            },
+            {
+              "kind": "OBJECT",
+              "name": "QuickActionFolder",
+              "ofType": null
+            }
+          ]
+        },
+        {
+          "kind": "ENUM",
+          "name": "QuickActionName",
+          "description": "Valid names of quick actions.",
+          "fields": null,
+          "inputFields": null,
+          "interfaces": null,
+          "enumValues": [
+            {
+              "name": "EDIT_STREAM_INFO",
+              "description": "Name of the edit stream info quick action.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "CLIP_THAT",
+              "description": "Name of the clip that quick action.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "RAID_CHANNEL",
+              "description": "Name of the raid channel quick action.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "START_SQUAD_STREAM",
+              "description": "Name of the start squad stream quick action.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "RUN_AD_30S",
+              "description": "Name of the run 30s ad quick action.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "RUN_AD_1M",
+              "description": "Name of the run 1m ad quick action.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "RUN_AD_2M",
+              "description": "Name of the run 2m ad quick action.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "START_BOUNTY",
+              "description": "Name of the start bounty quick action.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "HOST_CHANNEL",
+              "description": "Name of the host channel quick action.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "GIFT_SUBS",
+              "description": "Name of the gift subs quick action. This action doesn't specify an amount of subs to gift.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "GIFT_50_SUBS",
+              "description": "Name of the gift 50 subs quick action.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "GIFT_100_SUBS",
+              "description": "Name of the gift 100 subs quick action.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "ADD_STREAM_DELAY",
+              "description": "Name of the add stream delay quick action.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "ADD_STREAM_MARKER",
+              "description": "Name of the add stream marker quick action.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "SCHEDULE_PREMIERE",
+              "description": "Name of the schedule premiere quick action.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "START_RERUN",
+              "description": "Name of the start rerun quick action.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "CLEAR_CHAT",
+              "description": "Name of the clear chat quick action.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "EMOTE_ONLY_CHAT",
+              "description": "Name of the quick action to set emote only chat.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "SUB_ONLY_CHAT",
+              "description": "Name of the quick action to set sub only chat.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "FOLLOW_ONLY_CHAT",
+              "description": "Name of the quick action to set follow only chat.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "START_WATCH_PARTY",
+              "description": "Name of the start watch party quick action.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "possibleTypes": null
+        },
+        {
+          "kind": "OBJECT",
           "name": "Raid",
           "description": "A raid represents a broadcaster directing their viewers to another channel\nin a synchronized \"raid\" on the channel after a countdown during which\neach viewer has a chance to opt out of the raid.\n\nRaids are created by a broadcaster from their dashbboard where they can search\nand select the channel they wish to target. Once selected the raid takes counts\ndown to prepare after which the broadcaster can tell the raid to \"Go\", redirecting\nall joined raiders to the target channel.",
           "fields": [
@@ -84322,6 +84648,253 @@
           ],
           "inputFields": null,
           "interfaces": [],
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "OBJECT",
+          "name": "SetQuickActionLayoutError",
+          "description": "Possible errors associated with the SetQuickActionLAyout mutation.",
+          "fields": [
+            {
+              "name": "code",
+              "description": "The error code of a possible error when setting a layout.",
+              "args": [],
+              "type": {
+                "kind": "ENUM",
+                "name": "SetQuickActionLayoutErrorCode",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "ENUM",
+          "name": "SetQuickActionLayoutErrorCode",
+          "description": "Possible errors that this mutation can return.",
+          "fields": null,
+          "inputFields": null,
+          "interfaces": null,
+          "enumValues": [
+            {
+              "name": "INVALID_CHANNEL_ID",
+              "description": "The input channel ID is invalid.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "INVALID_OWNER_ID",
+              "description": "The input owner ID is invalid.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "INVALID_QUICK_ACTION_ID",
+              "description": "One of the input quick actions IDs is invalid/does not exist.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "possibleTypes": null
+        },
+        {
+          "kind": "INPUT_OBJECT",
+          "name": "SetQuickActionLayoutFolderInput",
+          "description": "Represents a folder input.",
+          "fields": null,
+          "inputFields": [
+            {
+              "name": "items",
+              "description": "A list of quick action IDs in the folder.",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "LIST",
+                  "name": null,
+                  "ofType": {
+                    "kind": "NON_NULL",
+                    "name": null,
+                    "ofType": {
+                      "kind": "ENUM",
+                      "name": "QuickActionName",
+                      "ofType": null
+                    }
+                  }
+                }
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "name",
+              "description": "The name of the folder.",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "String",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            }
+          ],
+          "interfaces": null,
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "INPUT_OBJECT",
+          "name": "SetQuickActionLayoutInput",
+          "description": "Inputs to the SetQuickActionLayout mutation.",
+          "fields": null,
+          "inputFields": [
+            {
+              "name": "channelID",
+              "description": "The ID corresponding to the stream manager owner in which the layout appears.",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "ID",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "layout",
+              "description": "Quick action items, input in the order they should appear on the quick actions panel.",
+              "type": {
+                "kind": "LIST",
+                "name": null,
+                "ofType": {
+                  "kind": "NON_NULL",
+                  "name": null,
+                  "ofType": {
+                    "kind": "INPUT_OBJECT",
+                    "name": "SetQuickActionLayoutItemInput",
+                    "ofType": null
+                  }
+                }
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "ownerID",
+              "description": "The ID corresponding to the owner of the layout.",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "ID",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            }
+          ],
+          "interfaces": null,
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "INPUT_OBJECT",
+          "name": "SetQuickActionLayoutItemInput",
+          "description": "Each input item in the input array. Only one of these fields can\nbe specified at the same time (a layout item can only be a folder or\na quick action).",
+          "fields": null,
+          "inputFields": [
+            {
+              "name": "folder",
+              "description": "The input folder.",
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "SetQuickActionLayoutFolderInput",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "quickAction",
+              "description": "The input quick action.",
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "SetQuickActionLayoutQuickActionInput",
+                "ofType": null
+              },
+              "defaultValue": null
+            }
+          ],
+          "interfaces": null,
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "OBJECT",
+          "name": "SetQuickActionLayoutPayload",
+          "description": "Outputs from the SetQuickActionLayout mutation.",
+          "fields": [
+            {
+              "name": "error",
+              "description": "The possible error returned from the layout service.",
+              "args": [],
+              "type": {
+                "kind": "OBJECT",
+                "name": "SetQuickActionLayoutError",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "layout",
+              "description": "Available quick actions, returned in the order they should be rendered.",
+              "args": [],
+              "type": {
+                "kind": "OBJECT",
+                "name": "QuickActionLayout",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "INPUT_OBJECT",
+          "name": "SetQuickActionLayoutQuickActionInput",
+          "description": "Represents a quick action input.",
+          "fields": null,
+          "inputFields": [
+            {
+              "name": "name",
+              "description": "The ID of the item. Quick action IDs are represented by their canonical names.",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "ENUM",
+                  "name": "QuickActionName",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            }
+          ],
+          "interfaces": null,
           "enumValues": null,
           "possibleTypes": null
         },
