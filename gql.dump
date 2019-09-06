@@ -57984,8 +57984,8 @@
                 "name": "UpdateOnboardingSkippedChannelsPayload",
                 "ofType": null
               },
-              "isDeprecated": false,
-              "deprecationReason": null
+              "isDeprecated": true,
+              "deprecationReason": "This feature is retired"
             },
             {
               "name": "updateOrganizationMemberRole",
@@ -60028,8 +60028,8 @@
                   }
                 }
               },
-              "isDeprecated": false,
-              "deprecationReason": null
+              "isDeprecated": true,
+              "deprecationReason": "This feature is retired"
             }
           ],
           "inputFields": null,
