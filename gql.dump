@@ -46439,13 +46439,9 @@
               "description": "The resulting extension installation record from the install.",
               "args": [],
               "type": {
-                "kind": "NON_NULL",
-                "name": null,
-                "ofType": {
-                  "kind": "OBJECT",
-                  "name": "ExtensionInstallation",
-                  "ofType": null
-                }
+                "kind": "OBJECT",
+                "name": "ExtensionInstallation",
+                "ofType": null
               },
               "isDeprecated": false,
               "deprecationReason": null
