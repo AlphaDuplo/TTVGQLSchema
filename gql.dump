@@ -10256,6 +10256,30 @@
               "deprecationReason": null
             },
             {
+              "name": "supportedEffects",
+              "description": "The list of effect types supported by this condition.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "LIST",
+                  "name": null,
+                  "ofType": {
+                    "kind": "NON_NULL",
+                    "name": null,
+                    "ofType": {
+                      "kind": "ENUM",
+                      "name": "ChallengeEffectType",
+                      "ofType": null
+                    }
+                  }
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
               "name": "timeoutAt",
               "description": "When the condition times out.",
               "args": [],
@@ -10275,6 +10299,22 @@
                 "kind": "SCALAR",
                 "name": "Time",
                 "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "willDisableWhenSatisfied",
+              "description": "Whether the condition becomes inactive once it has been satisfied.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Boolean",
+                  "ofType": null
+                }
               },
               "isDeprecated": false,
               "deprecationReason": null
@@ -95357,6 +95397,240 @@
               "description": "Only one version of an Extension can be in a review state (APPROVED, or in IN_REVIEW) at a time.",
               "isDeprecated": false,
               "deprecationReason": null
+            },
+            {
+              "name": "TRANSITION_MISSING_AUTHOR_EMAIL",
+              "description": "Author email cannot be empty when transit to READY_FOR_REVIEW.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "TRANSITION_MISSING_AUTHOR_NAME",
+              "description": "Author name cannot be empty when transit to READY_FOR_REVIEW.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "TRANSITION_MISSING_CATEGORY",
+              "description": "Category cannot be empty when transit to READY_FOR_REVIEW.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "TRANSITION_MISSING_SUPPORT_EMAIL",
+              "description": "Support email cannot be empty when transit to READY_FOR_REVIEW.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "TRANSITION_MISSING_NAME",
+              "description": "Name cannot be empty when transit to READY_FOR_REVIEW.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "TRANSITION_MISSING_VERSION",
+              "description": "Version cannot be empty when transit to READY_FOR_REVIEW.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "TRANSITION_MISSING_TESTING_BASE_URI",
+              "description": "Testing base URI cannot be empty when transit to READY_FOR_REVIEW.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "TRANSITION_MISSING_SUMMARY",
+              "description": "Summary cannot be empty when transit to READY_FOR_REVIEW.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "TRANSITION_MISSING_DESCRIPTION",
+              "description": "Description cannot be empty when transit to READY_FOR_REVIEW.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "INVALID_VERSION",
+              "description": "Version specified is invalid.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "ANCHOR_REQUIRED",
+              "description": "At least one anchor must be specified.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "INVALID_ZOOM",
+              "description": "HasZoom was specified but ZoomPixels is missing.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "MAX_BROADCASTERS",
+              "description": "The number of whitelisted broadcasters exceeds the limit.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "MAX_TESTERS",
+              "description": "The number of whitelisted testing users exceeds the limit.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "MAX_WHITELISTED_CONFIG_URLS",
+              "description": "The number of whitelisted config URLs exceeds the limit.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "MAX_WHITELISTED_PANEL_URLS",
+              "description": "The number of whitelisted panel URLs exceeds the limit.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "INVALID_NAME_LENGTH",
+              "description": "Extension names must be shorter than 40 characters.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "INVALID_DESCRIPTION_LENGTH",
+              "description": "Extension description must be shorter than 1024 characters.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "INVALID_SUMMARY_LENGTH",
+              "description": "Extension summary must be shorter than 140 characters.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "INVALID_AUTHOR_EMAIL",
+              "description": "Extension author email must not be nil. Lenght must be < 254, Parses a single RFC 5322 address.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "INVALID_SUPPORT_EMAIL",
+              "description": "Extension support email must not be nil. Lenght must be < 254, Parses a single RFC 5322 address.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "INVALID_AUTHOR_NAME_LENGTH",
+              "description": "Extension author name length must be > 40.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "INVALID_TESTING_BASE_URI",
+              "description": "Extension testing base uri must not be nil and empty scheme. Scheme should be http or https. User should not be nil.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "INVALID_TERMS_URI",
+              "description": "Extension terms uri must not be nil and empty scheme. Scheme should be http or https. User should not be nil.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "INVALID_PRIVACY_URI",
+              "description": "Extension privacy uri must not be nil and empty scheme. Scheme should be http or https. User should not be nil.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "INVALID_COMPONENT_VIEWER_PATH",
+              "description": "Extension component viewer path must not be nil. Format should be BaseUri/Extension_Path.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "INVALID_PANEL_VIEWER_PATH",
+              "description": "Extension panel viewer path must not be nil. Format should be BaseUri/Extension_Path.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "INVALID_VIDEO_OVERLAY_VIEWER_PATH",
+              "description": "Extension video overlay viewer path must not be nil. Format should be BaseUri/Extension_Path.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "INVALID_CONFIG_VIEWER_PATH",
+              "description": "Extension config viewer path must not be nil. Format should be BaseUri/Extension_Path.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "INVALID_LIVE_CONFIG_VIEWER_PATH",
+              "description": "Extension live config viewer path must not be nil. Format should be BaseUri/Extension_Path.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "INVALID_MOBILE_VIEWER_PATH",
+              "description": "Extension mobile viewer path must not be nil. Format should be BaseUri/Extension_Path.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "INVALID_COMPONENT_ASPECT_WIDTH",
+              "description": "Extension component aspect width must be < 50 or > 1.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "INVALID_COMPONENT_ASPECT_HEIGHT",
+              "description": "Extension component aspect height must be < 50 or > 1.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "INVALID_PANEL_HEIGHT",
+              "description": "Extension panel hiehgt must be < 500 or > 100.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "INVALID_BITS_SUPPORT_LEVEL",
+              "description": "Extension Bits Support Level must ba valid member of the BitsSupportLevelEnum.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "INVALID_SCALING_PIXELS",
+              "description": "Scale pixels must be set to a positive integer when autoscale is true.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "INVALID_COMPONENT_ASPECT_RATIO_X",
+              "description": "Aspect Ratio X must be set to a positive integer.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "INVALID_COMPONENT_ASPECT_RATIO_Y",
+              "description": "Aspect Ratio Y must be set to a positive integer.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "INVALID_COMPONENT_TARGET_HEIGHT",
+              "description": "Target Height must be set to a positve integer.",
+              "isDeprecated": false,
+              "deprecationReason": null
             }
           ],
           "possibleTypes": null
@@ -113451,7 +113725,7 @@
             },
             {
               "name": "UNKNOWN",
-              "description": "An unknown error occured.",
+              "description": "An unknown error occurred.",
               "isDeprecated": false,
               "deprecationReason": null
             }
