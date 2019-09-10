@@ -924,6 +924,18 @@
               "deprecationReason": null
             },
             {
+              "name": "disablePrerollsAbility",
+              "description": "Contains properties used by channel's disable prerolls feature.",
+              "args": [],
+              "type": {
+                "kind": "OBJECT",
+                "name": "DisablePrerollsAbility",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
               "name": "frequency",
               "description": "How often ad breaks can be run on this channel.",
               "args": [],
@@ -21246,13 +21258,9 @@
               "name": "x",
               "description": "The horizontal positioning of the left side of the component extension from the left side\nof the visible video space as a fixed-point percentage (ie: 5742 would represent 57.42 percent).",
               "type": {
-                "kind": "NON_NULL",
-                "name": null,
-                "ofType": {
-                  "kind": "SCALAR",
-                  "name": "Int",
-                  "ofType": null
-                }
+                "kind": "SCALAR",
+                "name": "Int",
+                "ofType": null
               },
               "defaultValue": null
             },
@@ -21260,13 +21268,9 @@
               "name": "y",
               "description": "The vertical positioning of the top side of the component extension from the top side\nof the visible video space as a fixed-point percentage (ie: 5742 would represent 57.42 percent).",
               "type": {
-                "kind": "NON_NULL",
-                "name": null,
-                "ofType": {
-                  "kind": "SCALAR",
-                  "name": "Int",
-                  "ofType": null
-                }
+                "kind": "SCALAR",
+                "name": "Int",
+                "ofType": null
               },
               "defaultValue": null
             }
@@ -32918,6 +32922,116 @@
               "deprecationReason": null
             }
           ],
+          "possibleTypes": null
+        },
+        {
+          "kind": "OBJECT",
+          "name": "DisablePrerollsAbility",
+          "description": "Disable Prerolls Ability contains the properties used by the Disable Prerolls Feature.",
+          "fields": [
+            {
+              "name": "disablePrerollsTimeEarned",
+              "description": "DisablePrerollsFreeTime define relation of midroll-length:preroll-free-time-earned on this channel.",
+              "args": [],
+              "type": {
+                "kind": "LIST",
+                "name": null,
+                "ofType": {
+                  "kind": "NON_NULL",
+                  "name": null,
+                  "ofType": {
+                    "kind": "OBJECT",
+                    "name": "DisablePrerollsFreeTime",
+                    "ofType": null
+                  }
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "hasDisablePrerollsAbilityAccess",
+              "description": "If \"disable prerolls for midrolls\" feature is accessible on this channel.",
+              "args": [],
+              "type": {
+                "kind": "SCALAR",
+                "name": "Boolean",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "hasDisablePrerollsAbilityEnabled",
+              "description": "If \"disable prerolls for midrolls\" feature is enabled on this channel.",
+              "args": [],
+              "type": {
+                "kind": "SCALAR",
+                "name": "Boolean",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "maxDisablePrerollsCapacity",
+              "description": "Maximum amount of preroll-free time (in seconds) that can be accumulated on this channel.",
+              "args": [],
+              "type": {
+                "kind": "SCALAR",
+                "name": "Int",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "OBJECT",
+          "name": "DisablePrerollsFreeTime",
+          "description": "Disable Prerolls Free Time maps the relationship between a specific midroll length and amount of preroll-free time earned for a channel.",
+          "fields": [
+            {
+              "name": "midrollLengthSeconds",
+              "description": "The length (in seconds) of a midroll ad.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Int",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "prerollFreeTimeSeconds",
+              "description": "The amount of preroll-free time (in seconds) earned on this channel for running midroll of related length.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Int",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
+          "enumValues": null,
           "possibleTypes": null
         },
         {
@@ -57283,6 +57397,33 @@
               "deprecationReason": null
             },
             {
+              "name": "updateAdProperties",
+              "description": "Updates a user's ad settings for their channel.",
+              "args": [
+                {
+                  "name": "input",
+                  "description": null,
+                  "type": {
+                    "kind": "NON_NULL",
+                    "name": null,
+                    "ofType": {
+                      "kind": "INPUT_OBJECT",
+                      "name": "UpdateAdPropertiesInput",
+                      "ofType": null
+                    }
+                  },
+                  "defaultValue": null
+                }
+              ],
+              "type": {
+                "kind": "OBJECT",
+                "name": "UpdateAdPropertiesPayload",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
               "name": "updateAllWhisperThreads",
               "description": "Updates all of a user's whisper threads.",
               "args": [
@@ -79253,13 +79394,9 @@
               "name": "aspectHeight",
               "description": "The developer configured height of the extension as a ratio relative to it's width.",
               "type": {
-                "kind": "NON_NULL",
-                "name": null,
-                "ofType": {
-                  "kind": "SCALAR",
-                  "name": "Int",
-                  "ofType": null
-                }
+                "kind": "SCALAR",
+                "name": "Int",
+                "ofType": null
               },
               "defaultValue": null
             },
@@ -79295,13 +79432,9 @@
               "name": "aspectWidth",
               "description": "The developer configured width of the extension as a ratio relative to it's height.",
               "type": {
-                "kind": "NON_NULL",
-                "name": null,
-                "ofType": {
-                  "kind": "SCALAR",
-                  "name": "Int",
-                  "ofType": null
-                }
+                "kind": "SCALAR",
+                "name": "Int",
+                "ofType": null
               },
               "defaultValue": null
             },
@@ -79319,13 +79452,9 @@
               "name": "hasZoom",
               "description": "Specifies whether CSS zooming should be applied to the CE container, creating a consistent\nsize of 1024 pixels along the long edge of the component. Default: true.",
               "type": {
-                "kind": "NON_NULL",
-                "name": null,
-                "ofType": {
-                  "kind": "SCALAR",
-                  "name": "Boolean",
-                  "ofType": null
-                }
+                "kind": "SCALAR",
+                "name": "Boolean",
+                "ofType": null
               },
               "defaultValue": null
             },
@@ -97481,6 +97610,64 @@
             {
               "name": "user",
               "description": "The user that was timed out.",
+              "args": [],
+              "type": {
+                "kind": "OBJECT",
+                "name": "User",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "INPUT_OBJECT",
+          "name": "UpdateAdPropertiesInput",
+          "description": "Inputs to the updateAdProperties mutation.",
+          "fields": null,
+          "inputFields": [
+            {
+              "name": "hasDisablePrerollsAbilityEnabled",
+              "description": "Toggle for disable prerolls for midrolls feature.",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Boolean",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "targetUserID",
+              "description": "User the update belongs to.",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "ID",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            }
+          ],
+          "interfaces": null,
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "OBJECT",
+          "name": "UpdateAdPropertiesPayload",
+          "description": "Output from the updateAdProperties mutation.",
+          "fields": [
+            {
+              "name": "targetUser",
+              "description": "User/channel to update the ad settings.",
               "args": [],
               "type": {
                 "kind": "OBJECT",
