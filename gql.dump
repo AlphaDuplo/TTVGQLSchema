@@ -18901,6 +18901,18 @@
               "deprecationReason": null
             },
             {
+              "name": "earlyAccess",
+              "description": "Properties concerning the user's participation in the Channel Points early access program.",
+              "args": [],
+              "type": {
+                "kind": "OBJECT",
+                "name": "CommunityPointsEarlyAccessSettings",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
               "name": "emoteVariants",
               "description": "A list of the emote variants (base emote + modifications) that are available for this channel.",
               "args": [],
@@ -19667,6 +19679,49 @@
               "deprecationReason": null
             }
           ],
+          "possibleTypes": null
+        },
+        {
+          "kind": "OBJECT",
+          "name": "CommunityPointsEarlyAccessSettings",
+          "description": "Properties concerning the user's participation in the Community Points early access program.",
+          "fields": [
+            {
+              "name": "canSignUp",
+              "description": "Whether the user is eligible to sign up for Community Points early access.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Boolean",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "isSignedUp",
+              "description": "Whether the user has signed up for Community Points early access.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Boolean",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
+          "enumValues": null,
           "possibleTypes": null
         },
         {
@@ -57889,6 +57944,33 @@
               "type": {
                 "kind": "OBJECT",
                 "name": "UpdateCommunityPointsCustomRewardRedemptionStatusPayload",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "updateCommunityPointsEarlyAccessSettings",
+              "description": "Allows users to sign up for or remove themselves from the Community Points early access program.",
+              "args": [
+                {
+                  "name": "input",
+                  "description": null,
+                  "type": {
+                    "kind": "NON_NULL",
+                    "name": null,
+                    "ofType": {
+                      "kind": "INPUT_OBJECT",
+                      "name": "UpdateCommunityPointsEarlyAccessSettingsInput",
+                      "ofType": null
+                    }
+                  },
+                  "defaultValue": null
+                }
+              ],
+              "type": {
+                "kind": "OBJECT",
+                "name": "UpdateCommunityPointsEarlyAccessSettingsPayload",
                 "ofType": null
               },
               "isDeprecated": false,
@@ -99882,6 +99964,116 @@
               "type": {
                 "kind": "OBJECT",
                 "name": "CommunityPointsCustomRewardRedemption",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "OBJECT",
+          "name": "UpdateCommunityPointsEarlyAccessError",
+          "description": "An error returned when updating a user's enrollment in Community Points early access.",
+          "fields": [
+            {
+              "name": "code",
+              "description": "The error code identifying this error.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "ENUM",
+                  "name": "UpdateCommunityPointsEarlyAccessErrorCode",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "ENUM",
+          "name": "UpdateCommunityPointsEarlyAccessErrorCode",
+          "description": "An error returned when updating a user's enrollment in Community Points early access.",
+          "fields": null,
+          "inputFields": null,
+          "interfaces": null,
+          "enumValues": [
+            {
+              "name": "FORBIDDEN",
+              "description": "The user is not allowed to opt in to the Community Points early access program.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "UNKNOWN",
+              "description": "There was some other error updating the user's enrollment.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "possibleTypes": null
+        },
+        {
+          "kind": "INPUT_OBJECT",
+          "name": "UpdateCommunityPointsEarlyAccessSettingsInput",
+          "description": "Requests to change a user's enrollment status in the Community Points early access program.",
+          "fields": null,
+          "inputFields": [
+            {
+              "name": "isSignedUp",
+              "description": "Sets whether the user is signing up for or removing themself from the early access program.",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Boolean",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            }
+          ],
+          "interfaces": null,
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "OBJECT",
+          "name": "UpdateCommunityPointsEarlyAccessSettingsPayload",
+          "description": "Returns updated early access status for Community Points.",
+          "fields": [
+            {
+              "name": "channel",
+              "description": "The channel whose Early Access preference was updated.",
+              "args": [],
+              "type": {
+                "kind": "OBJECT",
+                "name": "Channel",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "error",
+              "description": "Optionally, an error that occurred while attempting to update the user's enrollment status.",
+              "args": [],
+              "type": {
+                "kind": "OBJECT",
+                "name": "UpdateCommunityPointsEarlyAccessError",
                 "ofType": null
               },
               "isDeprecated": false,
