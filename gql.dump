@@ -83408,7 +83408,7 @@
         {
           "kind": "INPUT_OBJECT",
           "name": "SetBitsUserSettingsInput",
-          "description": "A useful text description to avoid linting errors.",
+          "description": "Input for the set bits user settings mutation.",
           "fields": null,
           "inputFields": [
             {
@@ -83439,7 +83439,7 @@
         {
           "kind": "OBJECT",
           "name": "SetBitsUserSettingsPayload",
-          "description": "A useful text description to avoid linting errors, again.",
+          "description": "Payload for set bits user settings mutation.",
           "fields": [
             {
               "name": "currentUser",
