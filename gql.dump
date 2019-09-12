@@ -88900,6 +88900,18 @@
           "description": "Analytics information for a streaming session.",
           "fields": [
             {
+              "name": "archiveVideo",
+              "description": "The associated archive of the stream.",
+              "args": [],
+              "type": {
+                "kind": "OBJECT",
+                "name": "Video",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
               "name": "channelID",
               "description": "The ID for the streaming channel.",
               "args": [],
