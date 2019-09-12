@@ -21982,6 +21982,18 @@
               },
               "isDeprecated": false,
               "deprecationReason": null
+            },
+            {
+              "name": "error",
+              "description": "If present, there was an error in the request.",
+              "args": [],
+              "type": {
+                "kind": "OBJECT",
+                "name": "CreateChallengeConditionError",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
             }
           ],
           "inputFields": null,
@@ -22082,6 +22094,18 @@
               "type": {
                 "kind": "OBJECT",
                 "name": "ChallengeConditionParticipant",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "error",
+              "description": "If present, there was an error in the request.",
+              "args": [],
+              "type": {
+                "kind": "OBJECT",
+                "name": "CreateChallengeConditionParticipantError",
                 "ofType": null
               },
               "isDeprecated": false,
@@ -22505,6 +22529,124 @@
           "inputFields": null,
           "interfaces": [],
           "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "OBJECT",
+          "name": "CreateChallengeConditionError",
+          "description": "Create Challenge Condition error.",
+          "fields": [
+            {
+              "name": "code",
+              "description": "Code describing the error.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "ENUM",
+                  "name": "CreateChallengeConditionErrorCode",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "ENUM",
+          "name": "CreateChallengeConditionErrorCode",
+          "description": "Create Challenge Condition error code.",
+          "fields": null,
+          "inputFields": null,
+          "interfaces": null,
+          "enumValues": [
+            {
+              "name": "BITS_RECIPIENT_INELIGIBLE",
+              "description": "User tried to create a condition with a bits recipient that is ineligible to receive bits.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "UNKNOWN",
+              "description": "An unknown error occurred.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "possibleTypes": null
+        },
+        {
+          "kind": "OBJECT",
+          "name": "CreateChallengeConditionParticipantError",
+          "description": "Create Challenge Condition Participant error.",
+          "fields": [
+            {
+              "name": "code",
+              "description": "Code describing the error.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "ENUM",
+                  "name": "CreateChallengeConditionParticipantErrorCode",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "ENUM",
+          "name": "CreateChallengeConditionParticipantErrorCode",
+          "description": "Create Challenge Condition Participant error code.",
+          "fields": null,
+          "inputFields": null,
+          "interfaces": null,
+          "enumValues": [
+            {
+              "name": "BITS_BENEFACTOR_INELIGIBLE",
+              "description": "User tried to create a condition participant with a GIVE_BITS effect type, but they are ineligible to give bits.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "CONDITION_NOT_ACTIVE",
+              "description": "User tried to create a condition participant for an inactive condition.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "CONDITION_NOT_FOUND",
+              "description": "User tried to create a condition participant for a non-existent condition.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "EFFECT_TYPE_UNSUPPORTED_BY_CONDITION",
+              "description": "User tried to create a condition participant with an effect type that is not supported by the associated condition.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "UNKNOWN",
+              "description": "An unknown error occurred.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
           "possibleTypes": null
         },
         {
