@@ -6038,6 +6038,18 @@
               "deprecationReason": null
             },
             {
+              "name": "offerID",
+              "description": "The offer id associated with this product's id (if available).",
+              "args": [],
+              "type": {
+                "kind": "SCALAR",
+                "name": "ID",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
               "name": "promo",
               "description": "A field that contains promotional information about the product.",
               "args": [],
@@ -46679,12 +46691,6 @@
               "description": "Channel id is invalid, for example, is empty.",
               "isDeprecated": false,
               "deprecationReason": null
-            },
-            {
-              "name": "EXTENSION_ALREADY_INSTALLED",
-              "description": "The extension is alreay installed on the channel.",
-              "isDeprecated": false,
-              "deprecationReason": null
             }
           ],
           "possibleTypes": null
@@ -62825,7 +62831,7 @@
               "deprecationReason": null
             },
             {
-              "name": "SUBTOKEN",
+              "name": "SUB_TOKEN",
               "description": "Sub tokens, which can be redeemed for channel subscriptions.",
               "isDeprecated": false,
               "deprecationReason": null
@@ -63434,7 +63440,7 @@
               "deprecationReason": null
             },
             {
-              "name": "SUBTOKEN",
+              "name": "SUB_TOKEN",
               "description": "Transaction for a sub token.",
               "isDeprecated": false,
               "deprecationReason": null
@@ -63457,7 +63463,7 @@
               "deprecationReason": null
             },
             {
-              "name": "SUBTOKEN",
+              "name": "SUB_TOKEN",
               "description": "Only return payment transactions that are associated with subtoken purchases and redemptions.",
               "isDeprecated": false,
               "deprecationReason": null
