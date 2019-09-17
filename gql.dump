@@ -59232,6 +59232,33 @@
               "deprecationReason": null
             },
             {
+              "name": "updateWhisperSettings",
+              "description": "Updates Whisper settings for the authenticated user.",
+              "args": [
+                {
+                  "name": "input",
+                  "description": null,
+                  "type": {
+                    "kind": "NON_NULL",
+                    "name": null,
+                    "ofType": {
+                      "kind": "INPUT_OBJECT",
+                      "name": "UpdateWhisperSettingsInput",
+                      "ofType": null
+                    }
+                  },
+                  "defaultValue": null
+                }
+              ],
+              "type": {
+                "kind": "OBJECT",
+                "name": "UpdateWhisperSettingsPayload",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
               "name": "updateWhisperThread",
               "description": "Updates a whisper thread.",
               "args": [
@@ -91422,73 +91449,6 @@
               "deprecationReason": null
             },
             {
-              "name": "checkoutConfigs",
-              "description": "Holds configuration necessary to start subscription purchase checkout flow for this product for current user.\nThe user completing the checkout can get the subscription benefit for themself or for a gift recipient.\nOnly the authenticated user can access their own configs.\nThe user will be able to resubscribe their DNRd (do-not-renew) subs before their benefits expire. isReactivateRecurring allows\nthem to select between a non-recurring (one-month extension) and recurring re-subscription.",
-              "args": [
-                {
-                  "name": "isAnonymous",
-                  "description": null,
-                  "type": {
-                    "kind": "SCALAR",
-                    "name": "Boolean",
-                    "ofType": null
-                  },
-                  "defaultValue": null
-                },
-                {
-                  "name": "isGift",
-                  "description": null,
-                  "type": {
-                    "kind": "NON_NULL",
-                    "name": null,
-                    "ofType": {
-                      "kind": "SCALAR",
-                      "name": "Boolean",
-                      "ofType": null
-                    }
-                  },
-                  "defaultValue": null
-                },
-                {
-                  "name": "mysteryGiftCount",
-                  "description": null,
-                  "type": {
-                    "kind": "SCALAR",
-                    "name": "Int",
-                    "ofType": null
-                  },
-                  "defaultValue": null
-                },
-                {
-                  "name": "recipientID",
-                  "description": null,
-                  "type": {
-                    "kind": "SCALAR",
-                    "name": "ID",
-                    "ofType": null
-                  },
-                  "defaultValue": null
-                },
-                {
-                  "name": "taxCountryCode",
-                  "description": null,
-                  "type": {
-                    "kind": "SCALAR",
-                    "name": "String",
-                    "ofType": null
-                  },
-                  "defaultValue": null
-                }
-              ],
-              "type": {
-                "kind": "OBJECT",
-                "name": "SubscriptionCheckoutConfigs",
-                "ofType": null
-              },
-              "isDeprecated": true,
-              "deprecationReason": "Transitioning to checkoutConfiguration that supports an input type"
-            },
-            {
               "name": "checkoutConfiguration",
               "description": "Holds configuration necessary to start subscription purchase checkout flow for this product for current user.",
               "args": [
@@ -104613,6 +104573,50 @@
         },
         {
           "kind": "INPUT_OBJECT",
+          "name": "UpdateWhisperSettingsInput",
+          "description": "The request to the UpdateWhisperSettings mutation.",
+          "fields": null,
+          "inputFields": [
+            {
+              "name": "isBlockingWhispersFromStrangers",
+              "description": "Whether to disallow strangers from iniating a whisper thread to this user.",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Boolean",
+                "ofType": null
+              },
+              "defaultValue": null
+            }
+          ],
+          "interfaces": null,
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "OBJECT",
+          "name": "UpdateWhisperSettingsPayload",
+          "description": "The response from the UpdateWhisperSettings mutation.",
+          "fields": [
+            {
+              "name": "user",
+              "description": "The user whose whisper settings were updated.",
+              "args": [],
+              "type": {
+                "kind": "OBJECT",
+                "name": "User",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "INPUT_OBJECT",
           "name": "UpdateWhisperThreadInput",
           "description": null,
           "fields": null,
@@ -108840,6 +108844,18 @@
               "type": {
                 "kind": "OBJECT",
                 "name": "VIPConnection",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "whisperSettings",
+              "description": "Settings related to the Whispers (private user-to-user messaging) feature.\nOnly resolves for the authenticated user.",
+              "args": [],
+              "type": {
+                "kind": "OBJECT",
+                "name": "WhisperSettings",
                 "ofType": null
               },
               "isDeprecated": false,
@@ -114717,6 +114733,49 @@
                 "kind": "ENUM",
                 "name": "WhisperPermissionType",
                 "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "OBJECT",
+          "name": "WhisperSettings",
+          "description": "Settings related to the Whispers (private user-to-user messaging) feature.",
+          "fields": [
+            {
+              "name": "isBlockingWhispersFromStrangers",
+              "description": "If true, disallows strangers from initiating a whisper thread to this user.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Boolean",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "isWhisperBanned",
+              "description": "If true, this user is disallowed from sending or receiving whisper messages.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Boolean",
+                  "ofType": null
+                }
               },
               "isDeprecated": false,
               "deprecationReason": null
