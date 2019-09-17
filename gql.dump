@@ -107772,6 +107772,18 @@
               "deprecationReason": null
             },
             {
+              "name": "prerollFreeTimeSeconds",
+              "description": "The amount of preroll free time in seconds that a user has earned on their channel.",
+              "args": [],
+              "type": {
+                "kind": "SCALAR",
+                "name": "Int",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
               "name": "primaryColorHex",
               "description": "The hex string for the user's primary creator color.\nExample: \"FFFFFF\".",
               "args": [],
