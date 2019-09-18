@@ -10355,6 +10355,18 @@
           "description": "A condition participant action that will be taken if an associated condition is satisfied.",
           "fields": [
             {
+              "name": "condition",
+              "description": "The associated condition.",
+              "args": [],
+              "type": {
+                "kind": "OBJECT",
+                "name": "ChallengeCondition",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
               "name": "effect",
               "description": "The effect that will occur if the condition participant is satisfied.",
               "args": [],
