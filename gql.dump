@@ -18047,8 +18047,8 @@
                 "name": "String",
                 "ofType": null
               },
-              "isDeprecated": false,
-              "deprecationReason": null
+              "isDeprecated": true,
+              "deprecationReason": "Communities feature is deprecated"
             },
             {
               "name": "broadcastersCount",
@@ -18059,8 +18059,8 @@
                 "name": "Int",
                 "ofType": null
               },
-              "isDeprecated": false,
-              "deprecationReason": null
+              "isDeprecated": true,
+              "deprecationReason": "Communities feature is deprecated"
             },
             {
               "name": "communityType",
@@ -18104,8 +18104,8 @@
                 "name": "String",
                 "ofType": null
               },
-              "isDeprecated": false,
-              "deprecationReason": null
+              "isDeprecated": true,
+              "deprecationReason": "Communities feature is deprecated"
             },
             {
               "name": "description",
@@ -18116,8 +18116,8 @@
                 "name": "String",
                 "ofType": null
               },
-              "isDeprecated": false,
-              "deprecationReason": null
+              "isDeprecated": true,
+              "deprecationReason": "Communities feature is deprecated"
             },
             {
               "name": "directoryType",
@@ -18128,8 +18128,8 @@
                 "name": "DirectoryType",
                 "ofType": null
               },
-              "isDeprecated": false,
-              "deprecationReason": null
+              "isDeprecated": true,
+              "deprecationReason": "Communities feature is deprecated"
             },
             {
               "name": "displayName",
@@ -18144,8 +18144,8 @@
                   "ofType": null
                 }
               },
-              "isDeprecated": false,
-              "deprecationReason": null
+              "isDeprecated": true,
+              "deprecationReason": "Communities feature is deprecated"
             },
             {
               "name": "email",
@@ -18156,8 +18156,8 @@
                 "name": "String",
                 "ofType": null
               },
-              "isDeprecated": false,
-              "deprecationReason": null
+              "isDeprecated": true,
+              "deprecationReason": "Communities feature is deprecated"
             },
             {
               "name": "followersCount",
@@ -18168,8 +18168,8 @@
                 "name": "Int",
                 "ofType": null
               },
-              "isDeprecated": false,
-              "deprecationReason": null
+              "isDeprecated": true,
+              "deprecationReason": "Communities feature is deprecated"
             },
             {
               "name": "id",
@@ -18184,8 +18184,8 @@
                   "ofType": null
                 }
               },
-              "isDeprecated": false,
-              "deprecationReason": null
+              "isDeprecated": true,
+              "deprecationReason": "Communities feature is deprecated"
             },
             {
               "name": "language",
@@ -18196,8 +18196,8 @@
                 "name": "Language",
                 "ofType": null
               },
-              "isDeprecated": false,
-              "deprecationReason": null
+              "isDeprecated": true,
+              "deprecationReason": "Communities feature is deprecated"
             },
             {
               "name": "name",
@@ -18212,8 +18212,8 @@
                   "ofType": null
                 }
               },
-              "isDeprecated": false,
-              "deprecationReason": null
+              "isDeprecated": true,
+              "deprecationReason": "Communities feature is deprecated"
             },
             {
               "name": "owner",
@@ -18224,8 +18224,8 @@
                 "name": "User",
                 "ofType": null
               },
-              "isDeprecated": false,
-              "deprecationReason": null
+              "isDeprecated": true,
+              "deprecationReason": "Communities feature is deprecated"
             },
             {
               "name": "rules",
@@ -18236,8 +18236,8 @@
                 "name": "String",
                 "ofType": null
               },
-              "isDeprecated": false,
-              "deprecationReason": null
+              "isDeprecated": true,
+              "deprecationReason": "Communities feature is deprecated"
             },
             {
               "name": "self",
@@ -18248,8 +18248,8 @@
                 "name": "CommunitySelfConnection",
                 "ofType": null
               },
-              "isDeprecated": false,
-              "deprecationReason": null
+              "isDeprecated": true,
+              "deprecationReason": "Communities feature is deprecated"
             },
             {
               "name": "streams",
@@ -18317,8 +18317,8 @@
                 "name": "StreamConnection",
                 "ofType": null
               },
-              "isDeprecated": false,
-              "deprecationReason": null
+              "isDeprecated": true,
+              "deprecationReason": "Communities feature is deprecated"
             },
             {
               "name": "summary",
@@ -18329,8 +18329,8 @@
                 "name": "String",
                 "ofType": null
               },
-              "isDeprecated": false,
-              "deprecationReason": null
+              "isDeprecated": true,
+              "deprecationReason": "Communities feature is deprecated"
             },
             {
               "name": "viewersCount",
@@ -18341,8 +18341,8 @@
                 "name": "Int",
                 "ofType": null
               },
-              "isDeprecated": false,
-              "deprecationReason": null
+              "isDeprecated": true,
+              "deprecationReason": "Communities feature is deprecated"
             }
           ],
           "inputFields": null,
@@ -18370,8 +18370,8 @@
                 "name": "Community",
                 "ofType": null
               },
-              "isDeprecated": false,
-              "deprecationReason": null
+              "isDeprecated": true,
+              "deprecationReason": "Communities feature is deprecated"
             },
             {
               "name": "followedAt",
@@ -18386,8 +18386,8 @@
                   "ofType": null
                 }
               },
-              "isDeprecated": false,
-              "deprecationReason": null
+              "isDeprecated": true,
+              "deprecationReason": "Communities feature is deprecated"
             },
             {
               "name": "user",
@@ -18398,8 +18398,8 @@
                 "name": "User",
                 "ofType": null
               },
-              "isDeprecated": false,
-              "deprecationReason": null
+              "isDeprecated": true,
+              "deprecationReason": "Communities feature is deprecated"
             }
           ],
           "inputFields": null,
@@ -18563,8 +18563,8 @@
                   "ofType": null
                 }
               },
-              "isDeprecated": false,
-              "deprecationReason": null
+              "isDeprecated": true,
+              "deprecationReason": "Communities feature is deprecated"
             },
             {
               "name": "broadcasting",
@@ -18579,8 +18579,8 @@
                   "ofType": null
                 }
               },
-              "isDeprecated": false,
-              "deprecationReason": null
+              "isDeprecated": true,
+              "deprecationReason": "Communities feature is deprecated"
             },
             {
               "name": "editing",
@@ -18595,8 +18595,8 @@
                   "ofType": null
                 }
               },
-              "isDeprecated": false,
-              "deprecationReason": null
+              "isDeprecated": true,
+              "deprecationReason": "Communities feature is deprecated"
             },
             {
               "name": "timingOut",
@@ -18611,8 +18611,8 @@
                   "ofType": null
                 }
               },
-              "isDeprecated": false,
-              "deprecationReason": null
+              "isDeprecated": true,
+              "deprecationReason": "Communities feature is deprecated"
             }
           ],
           "inputFields": null,
@@ -20458,20 +20458,20 @@
             {
               "name": "OTHER",
               "description": "The default type, for user-created communities.",
-              "isDeprecated": false,
-              "deprecationReason": null
+              "isDeprecated": true,
+              "deprecationReason": "Communities feature is deprecated"
             },
             {
               "name": "GAME",
               "description": "The Community represents a Game.",
-              "isDeprecated": false,
-              "deprecationReason": null
+              "isDeprecated": true,
+              "deprecationReason": "Communities feature is deprecated"
             },
             {
               "name": "CREATIVE",
               "description": "The Community is a creative Community.",
-              "isDeprecated": false,
-              "deprecationReason": null
+              "isDeprecated": true,
+              "deprecationReason": "Communities feature is deprecated"
             }
           ],
           "possibleTypes": null
@@ -51891,8 +51891,8 @@
                 "name": "BanUserFromCommunityPayload",
                 "ofType": null
               },
-              "isDeprecated": false,
-              "deprecationReason": null
+              "isDeprecated": true,
+              "deprecationReason": "Communities feature is deprecated"
             },
             {
               "name": "banVideoCommenter",
@@ -52551,8 +52551,8 @@
                 "name": "CreateCommunityPayload",
                 "ofType": null
               },
-              "isDeprecated": false,
-              "deprecationReason": null
+              "isDeprecated": true,
+              "deprecationReason": "Communities feature is deprecated"
             },
             {
               "name": "createCommunityGift",
@@ -52605,8 +52605,8 @@
                 "name": "CreateCommunityImageUploadURLPayload",
                 "ofType": null
               },
-              "isDeprecated": false,
-              "deprecationReason": null
+              "isDeprecated": true,
+              "deprecationReason": "Communities feature is deprecated"
             },
             {
               "name": "createCommunityPointsCustomReward",
@@ -54476,8 +54476,8 @@
                 "name": "EditCommunityPayload",
                 "ofType": null
               },
-              "isDeprecated": false,
-              "deprecationReason": null
+              "isDeprecated": true,
+              "deprecationReason": "Communities feature is deprecated"
             },
             {
               "name": "editRoomMessage",
@@ -54557,8 +54557,8 @@
                 "name": "FollowCommunityPayload",
                 "ofType": null
               },
-              "isDeprecated": false,
-              "deprecationReason": null
+              "isDeprecated": true,
+              "deprecationReason": "Communities feature is deprecated"
             },
             {
               "name": "followDeprecatedEvent",
@@ -55745,8 +55745,8 @@
                 "name": "ReportUserInCommunityPayload",
                 "ofType": null
               },
-              "isDeprecated": false,
-              "deprecationReason": null
+              "isDeprecated": true,
+              "deprecationReason": "Communities feature is deprecated"
             },
             {
               "name": "reportWhisperThread",
@@ -56987,8 +56987,8 @@
                 "name": "TimeoutUserFromCommunityPayload",
                 "ofType": null
               },
-              "isDeprecated": false,
-              "deprecationReason": null
+              "isDeprecated": true,
+              "deprecationReason": "Communities feature is deprecated"
             },
             {
               "name": "toggleRitualsEnabled",
@@ -57041,8 +57041,8 @@
                 "name": "TOSBanCommunityPayload",
                 "ofType": null
               },
-              "isDeprecated": false,
-              "deprecationReason": null
+              "isDeprecated": true,
+              "deprecationReason": "Communities feature is deprecated"
             },
             {
               "name": "transitionExtensionState",
@@ -57122,8 +57122,8 @@
                 "name": "UnbanUserFromCommunityPayload",
                 "ofType": null
               },
-              "isDeprecated": false,
-              "deprecationReason": null
+              "isDeprecated": true,
+              "deprecationReason": "Communities feature is deprecated"
             },
             {
               "name": "unblockUser",
@@ -57203,8 +57203,8 @@
                 "name": "UnfollowCommunityPayload",
                 "ofType": null
               },
-              "isDeprecated": false,
-              "deprecationReason": null
+              "isDeprecated": true,
+              "deprecationReason": "Communities feature is deprecated"
             },
             {
               "name": "unfollowDeprecatedEvent",
@@ -57608,8 +57608,8 @@
                 "name": "UntimeoutUserFromCommunityPayload",
                 "ofType": null
               },
-              "isDeprecated": false,
-              "deprecationReason": null
+              "isDeprecated": true,
+              "deprecationReason": "Communities feature is deprecated"
             },
             {
               "name": "updateAdProperties",
@@ -69865,8 +69865,8 @@
                 "name": "Community",
                 "ofType": null
               },
-              "isDeprecated": false,
-              "deprecationReason": null
+              "isDeprecated": true,
+              "deprecationReason": "Communities feature is deprecated"
             },
             {
               "name": "competition",
