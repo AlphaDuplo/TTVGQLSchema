@@ -3451,6 +3451,108 @@
         },
         {
           "kind": "OBJECT",
+          "name": "AutoRefill",
+          "description": "Contains all auto refill profiles, will have auto refill metadata in the future.",
+          "fields": [
+            {
+              "name": "profiles",
+              "description": "The list of auto refill profiles.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "LIST",
+                  "name": null,
+                  "ofType": {
+                    "kind": "NON_NULL",
+                    "name": null,
+                    "ofType": {
+                      "kind": "OBJECT",
+                      "name": "AutoRefillProfile",
+                      "ofType": null
+                    }
+                  }
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "OBJECT",
+          "name": "AutoRefillProfile",
+          "description": "Auto Refill profile information.",
+          "fields": [
+            {
+              "name": "chargeInstrument",
+              "description": "The charge instrument information for starting a purchase.",
+              "args": [],
+              "type": {
+                "kind": "OBJECT",
+                "name": "ChargeInstrument",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "id",
+              "description": "Unique ID assigned to this profile.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "ID",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "offerID",
+              "description": "The offerID that maps to the ability to purchase the intended product.",
+              "args": [],
+              "type": {
+                "kind": "SCALAR",
+                "name": "ID",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "threshold",
+              "description": "The threshold amount a balance must go below to trigger a reload.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Int",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "OBJECT",
           "name": "AutohostChannelConnection",
           "description": "A list of configured autohost channels\n\nA relay connection type that does not yet support pagination.",
           "fields": [
@@ -12679,6 +12781,58 @@
               "deprecationReason": null
             }
           ],
+          "possibleTypes": null
+        },
+        {
+          "kind": "OBJECT",
+          "name": "ChargeInstrument",
+          "description": "Information about the intended device for making a refill purchase for a user.",
+          "fields": [
+            {
+              "name": "id",
+              "description": "A charge instrument Id.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "ID",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "INPUT_OBJECT",
+          "name": "ChargeInstrumentInput",
+          "description": "Input charge instrument information.",
+          "fields": null,
+          "inputFields": [
+            {
+              "name": "id",
+              "description": "A charge instrument Id.",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "ID",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            }
+          ],
+          "interfaces": null,
+          "enumValues": null,
           "possibleTypes": null
         },
         {
@@ -56127,6 +56281,33 @@
               "deprecationReason": null
             },
             {
+              "name": "setAutoRefillSettings",
+              "description": "Sets the user's auto refill settings.",
+              "args": [
+                {
+                  "name": "input",
+                  "description": null,
+                  "type": {
+                    "kind": "NON_NULL",
+                    "name": null,
+                    "ofType": {
+                      "kind": "INPUT_OBJECT",
+                      "name": "SetAutoRefillSettingsInput",
+                      "ofType": null
+                    }
+                  },
+                  "defaultValue": null
+                }
+              ],
+              "type": {
+                "kind": "OBJECT",
+                "name": "SetAutoRefillSettingsPayload",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
               "name": "setAutohostChannels",
               "description": "Sets the user's list of channelIDs to autohost.",
               "args": [
@@ -83606,6 +83787,92 @@
         },
         {
           "kind": "INPUT_OBJECT",
+          "name": "SetAutoRefillSettingsInput",
+          "description": "Input for setting auto refill settings.",
+          "fields": null,
+          "inputFields": [
+            {
+              "name": "chargeInstrument",
+              "description": "The charge instrument information for starting a purchase.",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "INPUT_OBJECT",
+                  "name": "ChargeInstrumentInput",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "id",
+              "description": "Optional id of the auto refill settings that are being modified.",
+              "type": {
+                "kind": "SCALAR",
+                "name": "ID",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "offerID",
+              "description": "Id of the refill offer used on auto refill.",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "ID",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "threshold",
+              "description": "The threshold amount a balance must go below to trigger a reload.",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Int",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            }
+          ],
+          "interfaces": null,
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "OBJECT",
+          "name": "SetAutoRefillSettingsPayload",
+          "description": "The payload for the set auto refill settings mutation.",
+          "fields": [
+            {
+              "name": "autoRefillProfile",
+              "description": "The changed auto refill profile.",
+              "args": [],
+              "type": {
+                "kind": "OBJECT",
+                "name": "AutoRefillProfile",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "INPUT_OBJECT",
           "name": "SetAutohostChannelsInput",
           "description": "SetAutohostChannelsInput sets the user's list to autohost.",
           "fields": null,
@@ -104899,6 +105166,18 @@
               "type": {
                 "kind": "OBJECT",
                 "name": "AutoModProperties",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "autoRefill",
+              "description": "A user's configured auto refill information, contains all auto refill profiles.\nWill have an optional filter argument in the future.",
+              "args": [],
+              "type": {
+                "kind": "OBJECT",
+                "name": "AutoRefill",
                 "ofType": null
               },
               "isDeprecated": false,
