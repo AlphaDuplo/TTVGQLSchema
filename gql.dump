@@ -10595,6 +10595,12 @@
               "deprecationReason": null
             },
             {
+              "name": "FAILED_VALIDATION",
+              "description": "Condition participant failed validation prior to being processed.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
               "name": "UNKNOWN",
               "description": "Unknown state.",
               "isDeprecated": false,
@@ -10709,6 +10715,18 @@
             {
               "name": "conditionTimeout",
               "description": "Summary of participants attached to a particular condition in the CONDITION_TIMEOUT state.",
+              "args": [],
+              "type": {
+                "kind": "OBJECT",
+                "name": "ChallengeConditionParticipantSummary",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "failedValidation",
+              "description": "Summary of participants attached to a particular condition in the FAILED_VALIDATION state.",
               "args": [],
               "type": {
                 "kind": "OBJECT",
@@ -85662,7 +85680,7 @@
           "inputFields": [
             {
               "name": "items",
-              "description": "A list of quick action IDs in the folder.",
+              "description": "A list of quick action inputs in the folder. This can include nested folders.\nA max nesting level is implemented in the resolver and the service.",
               "type": {
                 "kind": "NON_NULL",
                 "name": null,
@@ -85673,8 +85691,8 @@
                     "kind": "NON_NULL",
                     "name": null,
                     "ofType": {
-                      "kind": "ENUM",
-                      "name": "QuickActionName",
+                      "kind": "INPUT_OBJECT",
+                      "name": "SetQuickActionLayoutItemInput",
                       "ofType": null
                     }
                   }
@@ -85725,15 +85743,19 @@
               "name": "layout",
               "description": "Quick action items, input in the order they should appear on the quick actions panel.",
               "type": {
-                "kind": "LIST",
+                "kind": "NON_NULL",
                 "name": null,
                 "ofType": {
-                  "kind": "NON_NULL",
+                  "kind": "LIST",
                   "name": null,
                   "ofType": {
-                    "kind": "INPUT_OBJECT",
-                    "name": "SetQuickActionLayoutItemInput",
-                    "ofType": null
+                    "kind": "NON_NULL",
+                    "name": null,
+                    "ofType": {
+                      "kind": "INPUT_OBJECT",
+                      "name": "SetQuickActionLayoutItemInput",
+                      "ofType": null
+                    }
                   }
                 }
               },
