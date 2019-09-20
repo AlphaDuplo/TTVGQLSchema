@@ -18992,6 +18992,201 @@
         },
         {
           "kind": "OBJECT",
+          "name": "CommunityPointsChannelEarningSettings",
+          "description": "Information on how points are earned by viewers in a specific channel.",
+          "fields": [
+            {
+              "name": "averagePointsPerHour",
+              "description": "The average number of points per hour earned by a regular (non-sub) user on this channel.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Int",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "averagePointsPerHourSubscriber",
+              "description": "The average number of points per hour earned by a subscriber on this channel.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Int",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "claimPeriodMinutes",
+              "description": "How many minutes will pass in between bonus claims becoming available.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Int",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "claimPoints",
+              "description": "How many points are earned for clicking a bonus claim.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Int",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "followPoints",
+              "description": "How many points are earned for following the channel.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Int",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "id",
+              "description": "A unique identifier.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "ID",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "passiveWatchPeriodMinutes",
+              "description": "How many minutes must be watched to earn points for passively watching the channel.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Int",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "passiveWatchPoints",
+              "description": "How many points are earned for passively watching the channel.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Int",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "raidPoints",
+              "description": "How many points are earned for following a raid by the channel.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Int",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "subscriberMultiplier",
+              "description": "The earning multiplier applied to subscribers to the channel.\nThis multiplier only applies to \"watch\" and \"claim\" actions.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Float",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "watchStreakPoints",
+              "description": "How many points are earned for watching consecutive streams.\nThis list will be sorted from shortest duration to longest duration.\nWatch streaks beyond the longest duration here will be treated the same as watch streaks of the longest duration.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "LIST",
+                  "name": null,
+                  "ofType": {
+                    "kind": "NON_NULL",
+                    "name": null,
+                    "ofType": {
+                      "kind": "OBJECT",
+                      "name": "CommunityPointsWatchStreakEarningSettings",
+                      "ofType": null
+                    }
+                  }
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "OBJECT",
           "name": "CommunityPointsChannelSettings",
           "description": "Settings for a channel's Community Points.",
           "fields": [
@@ -19091,6 +19286,18 @@
               "deprecationReason": null
             },
             {
+              "name": "earning",
+              "description": "Information on how points are earned by viewers in this channel.",
+              "args": [],
+              "type": {
+                "kind": "OBJECT",
+                "name": "CommunityPointsChannelEarningSettings",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
               "name": "emoteVariants",
               "description": "A list of the emote variants (base emote + modifications) that are available for this channel.",
               "args": [],
@@ -19179,8 +19386,8 @@
                   "ofType": null
                 }
               },
-              "isDeprecated": false,
-              "deprecationReason": null
+              "isDeprecated": true,
+              "deprecationReason": "Should use earning.raidPoints instead"
             },
             {
               "name": "summarizedRewards",
@@ -20564,6 +20771,49 @@
               "deprecationReason": null
             }
           ],
+          "possibleTypes": null
+        },
+        {
+          "kind": "OBJECT",
+          "name": "CommunityPointsWatchStreakEarningSettings",
+          "description": "Settings for how many community points are awarded for a watch streak of a specific duration.",
+          "fields": [
+            {
+              "name": "points",
+              "description": "How many points are awarded for a streak of this length.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Int",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "streakLength",
+              "description": "How long of a streak a user has.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Int",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
+          "enumValues": null,
           "possibleTypes": null
         },
         {
