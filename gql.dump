@@ -84074,6 +84074,34 @@
               "defaultValue": null
             },
             {
+              "name": "currency",
+              "description": "The currency this should be charged in.",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "ENUM",
+                  "name": "Currency",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "grossAmount",
+              "description": "The gross amount (of currency) that can be charged on the charge instrument.",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Int",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            },
+            {
               "name": "id",
               "description": "Optional id of the auto refill settings that are being modified.",
               "type": {
