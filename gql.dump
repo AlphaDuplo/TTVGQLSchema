@@ -6923,6 +6923,18 @@
               "deprecationReason": null
             },
             {
+              "name": "chatCTA",
+              "description": "The chat Call to Action that will be display during the bounty.",
+              "args": [],
+              "type": {
+                "kind": "OBJECT",
+                "name": "BountyChatCTA",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
               "name": "claimTime",
               "description": "When the bounty was claimed by the user.",
               "args": [],
@@ -7699,6 +7711,26 @@
               "deprecationReason": null
             },
             {
+              "name": "chatCTAs",
+              "description": "The chat Calls to Action for the campaign.",
+              "args": [],
+              "type": {
+                "kind": "LIST",
+                "name": null,
+                "ofType": {
+                  "kind": "NON_NULL",
+                  "name": null,
+                  "ofType": {
+                    "kind": "OBJECT",
+                    "name": "BountyChatCTA",
+                    "ofType": null
+                  }
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
               "name": "claimedBountyCount",
               "description": "The total number of broadcasters who have claimed the bounty.",
               "args": [],
@@ -7933,6 +7965,59 @@
           "possibleTypes": null
         },
         {
+          "kind": "INPUT_OBJECT",
+          "name": "BountyCampaignChatCTAInput",
+          "description": "The chat Call to Action (CTA) that will be created as part of this campaign.",
+          "fields": null,
+          "inputFields": [
+            {
+              "name": "countryCode",
+              "description": "The country that the chat CTA is targeted for (represented by ISO 3166-1 alpha-2).",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "String",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "title",
+              "description": "The title for the chat CTA.",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "String",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "url",
+              "description": "The URL for the chat CTA.",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "String",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            }
+          ],
+          "interfaces": null,
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
           "kind": "OBJECT",
           "name": "BountyCampaignConnection",
           "description": "A list of bounty campaigns related to the subject.",
@@ -8063,6 +8148,18 @@
           "description": "Metric containing details about how a campaign performed over a time period.",
           "fields": [
             {
+              "name": "chatCTAClickThroughCount",
+              "description": "The number of click-throughs from the Chat CTAs of the campaign.",
+              "args": [],
+              "type": {
+                "kind": "SCALAR",
+                "name": "Int",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
               "name": "completedBountyCount",
               "description": "The total number of bounties that were completed.",
               "args": [],
@@ -8185,6 +8282,30 @@
           "name": "BountyCampaignReporting",
           "description": "Details about a bounty campaign reporting that only the sponsoring brand should see.",
           "fields": [
+            {
+              "name": "chatCTAsClicks",
+              "description": "The total number of clicks from chat CTAs from every bounty.",
+              "args": [],
+              "type": {
+                "kind": "SCALAR",
+                "name": "Int",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "chatCTAsImpressions",
+              "description": "The total number of impressions from chat CTAs from every bounty.",
+              "args": [],
+              "type": {
+                "kind": "SCALAR",
+                "name": "Int",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
             {
               "name": "claimedBountyCount",
               "description": "The total number of broadcasters who have claimed the bounty.",
@@ -8485,6 +8606,97 @@
             }
           ],
           "interfaces": null,
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "OBJECT",
+          "name": "BountyChatCTA",
+          "description": "A chat Call to Action (CTA) that will be trigger in the broadcaster chat while doing the bounty.",
+          "fields": [
+            {
+              "name": "countryCode",
+              "description": "The country targeted for the chat CTA (represented by ISO 3166-1 alpha-2).",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "String",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "frequencySeconds",
+              "description": "The time (in seconds) between each appearance of the chat CTA.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Int",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "initialDelaySeconds",
+              "description": "The initial delay (in seconds) before the first chat CTA.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Int",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "title",
+              "description": "The title of the chat CTA.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "String",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "url",
+              "description": "The URL of the chat CTA.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "String",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
           "enumValues": null,
           "possibleTypes": null
         },
@@ -22674,6 +22886,24 @@
               "defaultValue": null
             },
             {
+              "name": "chatCTAs",
+              "description": "The chat Calls to Action for the campaign.",
+              "type": {
+                "kind": "LIST",
+                "name": null,
+                "ofType": {
+                  "kind": "NON_NULL",
+                  "name": null,
+                  "ofType": {
+                    "kind": "INPUT_OBJECT",
+                    "name": "BountyCampaignChatCTAInput",
+                    "ofType": null
+                  }
+                }
+              },
+              "defaultValue": null
+            },
+            {
               "name": "contentID",
               "description": "The ID of the content that the campaign is related to.",
               "type": {
@@ -27326,6 +27556,82 @@
               "type": {
                 "kind": "OBJECT",
                 "name": "EventLeaf",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "INPUT_OBJECT",
+          "name": "CreateSocialMediaInput",
+          "description": "CreateSocialMediaInput creates social media under the given channelID.",
+          "fields": null,
+          "inputFields": [
+            {
+              "name": "channelID",
+              "description": "The ID of the channel the social media should belong to.",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "ID",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "title",
+              "description": "The visible text of the social media item.",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "String",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "url",
+              "description": "The web address of the social media item.",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "String",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            }
+          ],
+          "interfaces": null,
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "OBJECT",
+          "name": "CreateSocialMediaPayload",
+          "description": "CreateSocialMediaPayload returns the new social medias that were created.",
+          "fields": [
+            {
+              "name": "socialMedia",
+              "description": "The social media that was created.",
+              "args": [],
+              "type": {
+                "kind": "OBJECT",
+                "name": "SocialMedia",
                 "ofType": null
               },
               "isDeprecated": false,
@@ -53720,6 +54026,33 @@
               "type": {
                 "kind": "OBJECT",
                 "name": "CreateSingleEventPayload",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "createSocialMedia",
+              "description": "createSocialMedia creates new social media items for a Channel.",
+              "args": [
+                {
+                  "name": "input",
+                  "description": null,
+                  "type": {
+                    "kind": "NON_NULL",
+                    "name": null,
+                    "ofType": {
+                      "kind": "INPUT_OBJECT",
+                      "name": "CreateSocialMediaInput",
+                      "ofType": null
+                    }
+                  },
+                  "defaultValue": null
+                }
+              ],
+              "type": {
+                "kind": "OBJECT",
+                "name": "CreateSocialMediaPayload",
                 "ofType": null
               },
               "isDeprecated": false,
