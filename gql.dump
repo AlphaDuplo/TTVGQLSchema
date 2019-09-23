@@ -3518,6 +3518,22 @@
               "deprecationReason": null
             },
             {
+              "name": "isEnabled",
+              "description": "Indicates if this profile is active.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Boolean",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
               "name": "offerID",
               "description": "The offerID that maps to the ability to purchase the intended product.",
               "args": [],
@@ -63522,6 +63538,22 @@
               "deprecationReason": null
             },
             {
+              "name": "id",
+              "description": "ID of the payment method.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "ID",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
               "name": "isRestricted",
               "description": "Whether or not payment method has restrictions.",
               "args": [],
@@ -84461,6 +84493,20 @@
                 "kind": "SCALAR",
                 "name": "ID",
                 "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "isEnabled",
+              "description": "Indicates if the profile is active.",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Boolean",
+                  "ofType": null
+                }
               },
               "defaultValue": null
             },
