@@ -11652,6 +11652,16 @@
                     "ofType": null
                   },
                   "defaultValue": "NONE"
+                },
+                {
+                  "name": "bypassDisableFlag",
+                  "description": null,
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Boolean",
+                    "ofType": null
+                  },
+                  "defaultValue": "false"
                 }
               ],
               "type": {
@@ -59549,6 +59559,33 @@
               "deprecationReason": null
             },
             {
+              "name": "updateSocialMedia",
+              "description": "updateSocialMedia updates an existing social media item for a Channel.",
+              "args": [
+                {
+                  "name": "input",
+                  "description": null,
+                  "type": {
+                    "kind": "NON_NULL",
+                    "name": null,
+                    "ofType": {
+                      "kind": "INPUT_OBJECT",
+                      "name": "UpdateSocialMediaInput",
+                      "ofType": null
+                    }
+                  },
+                  "defaultValue": null
+                }
+              ],
+              "type": {
+                "kind": "OBJECT",
+                "name": "UpdateSocialMediaPayload",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
               "name": "updateSpotlightBetaPreference",
               "description": "updateSpotlightBetaPreference allows a user to opt in or out of Spotlight's beta test.",
               "args": [
@@ -72882,6 +72919,33 @@
                     "ofType": null
                   },
                   "defaultValue": "ACTIVE"
+                }
+              ],
+              "type": {
+                "kind": "OBJECT",
+                "name": "User",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "userByAttribute",
+              "description": "Fetch the user by a specific attribute.",
+              "args": [
+                {
+                  "name": "input",
+                  "description": null,
+                  "type": {
+                    "kind": "NON_NULL",
+                    "name": null,
+                    "ofType": {
+                      "kind": "INPUT_OBJECT",
+                      "name": "UserByAttribute",
+                      "ofType": null
+                    }
+                  },
+                  "defaultValue": null
                 }
               ],
               "type": {
@@ -103918,6 +103982,88 @@
         },
         {
           "kind": "INPUT_OBJECT",
+          "name": "UpdateSocialMediaInput",
+          "description": "UpdateSocialMediaInput updates existing a social media item under the given channelID.",
+          "fields": null,
+          "inputFields": [
+            {
+              "name": "channelID",
+              "description": "The unique channel identifier.",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "ID",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "id",
+              "description": "The unique indentifier of the social media item.",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "ID",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "title",
+              "description": "The visible text of the social media item.",
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "url",
+              "description": "The web address of the social media item.",
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              },
+              "defaultValue": null
+            }
+          ],
+          "interfaces": null,
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "OBJECT",
+          "name": "UpdateSocialMediaPayload",
+          "description": "UpdateSocialMediaPayload returns the updated social media.",
+          "fields": [
+            {
+              "name": "socialMedia",
+              "description": "The social media that was updated.",
+              "args": [],
+              "type": {
+                "kind": "OBJECT",
+                "name": "SocialMedia",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "INPUT_OBJECT",
           "name": "UpdateSpotlightBetaPreferenceInput",
           "description": "UpdateSpotlightBetaPreferenceInput requests to opt-in or opt-out of the Spotlight beta.",
           "fields": null,
@@ -110016,6 +110162,57 @@
           ],
           "inputFields": null,
           "interfaces": [],
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "INPUT_OBJECT",
+          "name": "UserByAttribute",
+          "description": "Exactly one of the identifiers must be specified.",
+          "fields": null,
+          "inputFields": [
+            {
+              "name": "broadcasterOfClipSlug",
+              "description": "The human-readable identifier for a clip.\nWhen specified, returns the broadcaster of the clip.",
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "login",
+              "description": "The user's login.",
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "ownsCollectionID",
+              "description": "The identifier for a video collection.\nWhen specified, returns the owner of the collection.",
+              "type": {
+                "kind": "SCALAR",
+                "name": "ID",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "ownsVideoID",
+              "description": "The identifier for a video.\nWhen specified, returns the owner of the video.",
+              "type": {
+                "kind": "SCALAR",
+                "name": "ID",
+                "ofType": null
+              },
+              "defaultValue": null
+            }
+          ],
+          "interfaces": null,
           "enumValues": null,
           "possibleTypes": null
         },
