@@ -12004,6 +12004,18 @@
               "deprecationReason": "Use user.offlineImageURL instead."
             },
             {
+              "name": "videoStreamSettings",
+              "description": "Video stream settings for ingesting a stream such as stream key, latency mode, or vod save preference.",
+              "args": [],
+              "type": {
+                "kind": "OBJECT",
+                "name": "VideoStreamSettings",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
               "name": "viewCount",
               "description": "The number of views a channel has received in its lifetime.",
               "args": [],
@@ -82191,6 +82203,12 @@
               "deprecationReason": null
             },
             {
+              "name": "SENDER_NOT_VERIFIED",
+              "description": "Sender does not have a verified account.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
               "name": "NOT_DELIVERED",
               "description": "Whisper was not delivered for an unspecified reason.",
               "isDeprecated": false,
@@ -87401,6 +87419,133 @@
           "interfaces": [],
           "enumValues": null,
           "possibleTypes": null
+        },
+        {
+          "kind": "OBJECT",
+          "name": "StreamKey",
+          "description": "StreamKey represents a RTMP stream key with its expiration date.",
+          "fields": [
+            {
+              "name": "expiresAt",
+              "description": "Stream key expiration date.",
+              "args": [],
+              "type": {
+                "kind": "SCALAR",
+                "name": "Time",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "value",
+              "description": "RTMP stream key value.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "String",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "OBJECT",
+          "name": "StreamKeyError",
+          "description": "StreamKeyError represents the error code and its translated error message response that explains why the broadcaster can't start a stream.",
+          "fields": [
+            {
+              "name": "code",
+              "description": "code is the error code for why the broadcaster is not allow to broadcast.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "String",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "links",
+              "description": "Link is the url link that is associated from the translated message.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "LIST",
+                  "name": null,
+                  "ofType": {
+                    "kind": "NON_NULL",
+                    "name": null,
+                    "ofType": {
+                      "kind": "SCALAR",
+                      "name": "String",
+                      "ofType": null
+                    }
+                  }
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "message",
+              "description": "message is the translated message for why the broadcaster is not allow to broadcast.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "String",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "UNION",
+          "name": "StreamKeyResult",
+          "description": "StreamKeyResult represents StreamKey or StreamKeyError.",
+          "fields": null,
+          "inputFields": null,
+          "interfaces": null,
+          "enumValues": null,
+          "possibleTypes": [
+            {
+              "kind": "OBJECT",
+              "name": "StreamKey",
+              "ofType": null
+            },
+            {
+              "kind": "OBJECT",
+              "name": "StreamKeyError",
+              "ofType": null
+            }
+          ]
         },
         {
           "kind": "INPUT_OBJECT",
@@ -112313,6 +112458,141 @@
               "deprecationReason": null
             }
           ],
+          "possibleTypes": null
+        },
+        {
+          "kind": "OBJECT",
+          "name": "VideoStreamSettings",
+          "description": "Video stream settings for ingesting a stream such as stream key, latency mode, or vod save preference.\nRepresents a user's channel setting when starting a streamm.",
+          "fields": [
+            {
+              "name": "authorizedUsers",
+              "description": "A list of Twitch users who are authorized to stream on behalf of a broadcaster.",
+              "args": [],
+              "type": {
+                "kind": "LIST",
+                "name": null,
+                "ofType": {
+                  "kind": "NON_NULL",
+                  "name": null,
+                  "ofType": {
+                    "kind": "OBJECT",
+                    "name": "User",
+                    "ofType": null
+                  }
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "backupStreamKeys",
+              "description": "A list of stream keys to be used for backup redundant stream.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "LIST",
+                  "name": null,
+                  "ofType": {
+                    "kind": "NON_NULL",
+                    "name": null,
+                    "ofType": {
+                      "kind": "UNION",
+                      "name": "StreamKeyResult",
+                      "ofType": null
+                    }
+                  }
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "delaySeconds",
+              "description": "The number of seconds delay for a stream. When this is set, a stream will be ingested with specified delay in seconds.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Int",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "disconnectSlateDurationSeconds",
+              "description": "The number of seconds to display the disconnect slate while the stream is unstable.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Int",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "isLowLatency",
+              "description": "Whether or not a stream should be started as a low latency stream.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Boolean",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "shouldArchiveVODs",
+              "description": "Whether or not the broadcaster prefers to archive the vod for a stream.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Boolean",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "streamKey",
+              "description": "The RTMP stream key for the user's channel. This key is required to stream a video to Twitch.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "UNION",
+                  "name": "StreamKeyResult",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
+          "enumValues": null,
           "possibleTypes": null
         },
         {
