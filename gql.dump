@@ -32527,6 +32527,68 @@
           "possibleTypes": null
         },
         {
+          "kind": "INPUT_OBJECT",
+          "name": "DeleteSocialMediaInput",
+          "description": "Mutation input to delete a social media item by ID under the given channelID.",
+          "fields": null,
+          "inputFields": [
+            {
+              "name": "channelID",
+              "description": "The ID of the channel the social media belongs to.",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "ID",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "id",
+              "description": "The ID of the social media item.",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "ID",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            }
+          ],
+          "interfaces": null,
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "OBJECT",
+          "name": "DeleteSocialMediaPayload",
+          "description": "DeleteSocialMediaPayload returns an error, if any.",
+          "fields": [
+            {
+              "name": "socialMedia",
+              "description": "The social media that was deleted.",
+              "args": [],
+              "type": {
+                "kind": "OBJECT",
+                "name": "SocialMedia",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
           "kind": "OBJECT",
           "name": "DeleteSquadStreamInvitationError",
           "description": "Errors from deleteSquadStreamInvitation mutation.",
@@ -53750,6 +53812,33 @@
               "type": {
                 "kind": "OBJECT",
                 "name": "DeleteRoomMessagePayload",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "deleteSocialMedia",
+              "description": "deleteSocialMedia deletes a social media item for a Channel.",
+              "args": [
+                {
+                  "name": "input",
+                  "description": null,
+                  "type": {
+                    "kind": "NON_NULL",
+                    "name": null,
+                    "ofType": {
+                      "kind": "INPUT_OBJECT",
+                      "name": "DeleteSocialMediaInput",
+                      "ofType": null
+                    }
+                  },
+                  "defaultValue": null
+                }
+              ],
+              "type": {
+                "kind": "OBJECT",
+                "name": "DeleteSocialMediaPayload",
                 "ofType": null
               },
               "isDeprecated": false,
