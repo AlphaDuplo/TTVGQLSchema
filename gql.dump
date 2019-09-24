@@ -63575,22 +63575,6 @@
               "deprecationReason": null
             },
             {
-              "name": "id",
-              "description": "ID of the payment method.",
-              "args": [],
-              "type": {
-                "kind": "NON_NULL",
-                "name": null,
-                "ofType": {
-                  "kind": "SCALAR",
-                  "name": "ID",
-                  "ofType": null
-                }
-              },
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
               "name": "isRestricted",
               "description": "Whether or not payment method has restrictions.",
               "args": [],
