@@ -2664,65 +2664,6 @@
           "possibleTypes": null
         },
         {
-          "kind": "OBJECT",
-          "name": "AmazonMarketplace",
-          "description": "AmazonMarketplace represents the Amazon specific term for \"marketplace\", \nlike www.amazon.com or www.amazon.fr, that a user is active in.",
-          "fields": [
-            {
-              "name": "displayText",
-              "description": "The display text for this Amazon Marketplace, like \"www.amazon.com\" or \"www.amazon.fr\".",
-              "args": [],
-              "type": {
-                "kind": "NON_NULL",
-                "name": null,
-                "ofType": {
-                  "kind": "SCALAR",
-                  "name": "String",
-                  "ofType": null
-                }
-              },
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
-              "name": "id",
-              "description": "The standard obfuscated Amazon Marketplace ID, like \"ATVPDKIKX0DER\".",
-              "args": [],
-              "type": {
-                "kind": "NON_NULL",
-                "name": null,
-                "ofType": {
-                  "kind": "SCALAR",
-                  "name": "ID",
-                  "ofType": null
-                }
-              },
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
-              "name": "orderHistoryRedirectURL",
-              "description": "OrderHistoryRedirectUrl is the URL for the user's order history, specific to this Amazon Marketplace.",
-              "args": [],
-              "type": {
-                "kind": "NON_NULL",
-                "name": null,
-                "ofType": {
-                  "kind": "SCALAR",
-                  "name": "String",
-                  "ofType": null
-                }
-              },
-              "isDeprecated": false,
-              "deprecationReason": null
-            }
-          ],
-          "inputFields": null,
-          "interfaces": [],
-          "enumValues": null,
-          "possibleTypes": null
-        },
-        {
           "kind": "INPUT_OBJECT",
           "name": "ApplyExtensionActivationsInput",
           "description": "A mapping of extension type to list of activation configs.",
@@ -4126,55 +4067,6 @@
               "deprecationReason": null
             }
           ],
-          "possibleTypes": null
-        },
-        {
-          "kind": "OBJECT",
-          "name": "BadgePurchaseToken",
-          "description": "BadgePurchaseToken provides information related to a consumable purchase\ntoken about recently acquired badges.",
-          "fields": [
-            {
-              "name": "badge",
-              "description": "badge is the badge associated with the purchase token.",
-              "args": [],
-              "type": {
-                "kind": "NON_NULL",
-                "name": null,
-                "ofType": {
-                  "kind": "OBJECT",
-                  "name": "Badge",
-                  "ofType": null
-                }
-              },
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
-              "name": "id",
-              "description": "id is the unique badge identifier for the purchase token.",
-              "args": [],
-              "type": {
-                "kind": "NON_NULL",
-                "name": null,
-                "ofType": {
-                  "kind": "SCALAR",
-                  "name": "ID",
-                  "ofType": null
-                }
-              },
-              "isDeprecated": false,
-              "deprecationReason": null
-            }
-          ],
-          "inputFields": null,
-          "interfaces": [
-            {
-              "kind": "INTERFACE",
-              "name": "PurchaseTokenItem",
-              "ofType": null
-            }
-          ],
-          "enumValues": null,
           "possibleTypes": null
         },
         {
@@ -6633,55 +6525,6 @@
           ],
           "inputFields": null,
           "interfaces": [],
-          "enumValues": null,
-          "possibleTypes": null
-        },
-        {
-          "kind": "OBJECT",
-          "name": "BitsPurchaseToken",
-          "description": "BitsPurchaseToken provides information related to a consumable purchase \ntoken about recently acquired bits.",
-          "fields": [
-            {
-              "name": "id",
-              "description": "id is the unique bits identifier for the purchase token.",
-              "args": [],
-              "type": {
-                "kind": "NON_NULL",
-                "name": null,
-                "ofType": {
-                  "kind": "SCALAR",
-                  "name": "ID",
-                  "ofType": null
-                }
-              },
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
-              "name": "quantity",
-              "description": "quantity is the quantity of bits acquired.",
-              "args": [],
-              "type": {
-                "kind": "NON_NULL",
-                "name": null,
-                "ofType": {
-                  "kind": "SCALAR",
-                  "name": "Int",
-                  "ofType": null
-                }
-              },
-              "isDeprecated": false,
-              "deprecationReason": null
-            }
-          ],
-          "inputFields": null,
-          "interfaces": [
-            {
-              "kind": "INTERFACE",
-              "name": "PurchaseTokenItem",
-              "ofType": null
-            }
-          ],
           "enumValues": null,
           "possibleTypes": null
         },
@@ -11117,7 +10960,7 @@
           "possibleTypes": [
             {
               "kind": "OBJECT",
-              "name": "ChallengeGiveBitsEffectDetails",
+              "name": "ChallengeUseBitsEffectDetails",
               "ofType": null
             }
           ]
@@ -11176,7 +11019,7 @@
           "possibleTypes": [
             {
               "kind": "OBJECT",
-              "name": "ChallengeGiveBitsEffectSettingsDetails",
+              "name": "ChallengeUseBitsEffectSettingsDetails",
               "ofType": null
             }
           ]
@@ -11187,12 +11030,12 @@
           "description": "A summary of effects attached to a particular condition in a particular state. Keys correspond to ChallengeEffectType enum.",
           "fields": [
             {
-              "name": "giveBits",
-              "description": "GIVE_BITS effects.",
+              "name": "useBits",
+              "description": "USE_BITS effects.",
               "args": [],
               "type": {
                 "kind": "OBJECT",
-                "name": "ChallengeGiveBitsEffectSummary",
+                "name": "ChallengeUseBitsEffectSummary",
                 "ofType": null
               },
               "isDeprecated": false,
@@ -11213,8 +11056,8 @@
           "interfaces": null,
           "enumValues": [
             {
-              "name": "GIVE_BITS",
-              "description": "Type of effect that results in giving bits from one user to another.",
+              "name": "USE_BITS",
+              "description": "Type of effect that results in using a user's bits.",
               "isDeprecated": false,
               "deprecationReason": null
             },
@@ -11229,12 +11072,12 @@
         },
         {
           "kind": "OBJECT",
-          "name": "ChallengeGiveBitsEffectDetails",
-          "description": "Details of the GiveBits effect.",
+          "name": "ChallengeUseBitsEffectDetails",
+          "description": "Details of the UseBits effect.",
           "fields": [
             {
               "name": "benefactor",
-              "description": "The user who gives the bits.",
+              "description": "The user who uses the bits.",
               "args": [],
               "type": {
                 "kind": "OBJECT",
@@ -11246,7 +11089,7 @@
             },
             {
               "name": "bitsAmount",
-              "description": "The amount of bits to be given.",
+              "description": "The amount of bits to be used.",
               "args": [],
               "type": {
                 "kind": "NON_NULL",
@@ -11268,8 +11111,8 @@
         },
         {
           "kind": "OBJECT",
-          "name": "ChallengeGiveBitsEffectSettingsDetails",
-          "description": "Details of the GiveBits effect settings.",
+          "name": "ChallengeUseBitsEffectSettingsDetails",
+          "description": "Details of the UseBits effect settings.",
           "fields": [
             {
               "name": "bitsRecipientWeightedShares",
@@ -11286,7 +11129,7 @@
                     "name": null,
                     "ofType": {
                       "kind": "OBJECT",
-                      "name": "ChallengeGiveBitsPoolRecipientWeightedShare",
+                      "name": "ChallengeUseBitsPoolRecipientWeightedShare",
                       "ofType": null
                     }
                   }
@@ -11303,8 +11146,8 @@
         },
         {
           "kind": "OBJECT",
-          "name": "ChallengeGiveBitsEffectSummary",
-          "description": "A summary of GIVE_BITS effects attached to a particular condition in a particular state.",
+          "name": "ChallengeUseBitsEffectSummary",
+          "description": "A summary of USE_BITS effects attached to a particular condition in a particular state.",
           "fields": [
             {
               "name": "totalBitsAmount",
@@ -11324,7 +11167,7 @@
             },
             {
               "name": "totalEffects",
-              "description": "Total count of GIVE_BITS effects rolling up to a particular condition in a particular state.",
+              "description": "Total count of USE_BITS effects rolling up to a particular condition in a particular state.",
               "args": [],
               "type": {
                 "kind": "NON_NULL",
@@ -11346,8 +11189,8 @@
         },
         {
           "kind": "OBJECT",
-          "name": "ChallengeGiveBitsPoolRecipientWeightedShare",
-          "description": "ChallengeGiveBitsPoolRecipientWeightedShare represents the weighted share of the total bits pool\nthat a recipient user is entitled to upon condition satisfaction.",
+          "name": "ChallengeUseBitsPoolRecipientWeightedShare",
+          "description": "ChallengeUseBitsPoolRecipientWeightedShare represents the weighted share of the total bits pool\nthat a recipient user is entitled to upon condition satisfaction.",
           "fields": [
             {
               "name": "recipient",
@@ -18378,72 +18221,6 @@
         },
         {
           "kind": "OBJECT",
-          "name": "CommerceAmendment",
-          "description": "A user amendment for Commerce initiatives.",
-          "fields": [
-            {
-              "name": "id",
-              "description": null,
-              "args": [],
-              "type": {
-                "kind": "NON_NULL",
-                "name": null,
-                "ofType": {
-                  "kind": "SCALAR",
-                  "name": "ID",
-                  "ofType": null
-                }
-              },
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
-              "name": "isSigned",
-              "description": "If this amendment is signed or not.",
-              "args": [],
-              "type": {
-                "kind": "NON_NULL",
-                "name": null,
-                "ofType": {
-                  "kind": "SCALAR",
-                  "name": "Boolean",
-                  "ofType": null
-                }
-              },
-              "isDeprecated": false,
-              "deprecationReason": null
-            }
-          ],
-          "inputFields": null,
-          "interfaces": [],
-          "enumValues": null,
-          "possibleTypes": null
-        },
-        {
-          "kind": "ENUM",
-          "name": "CommerceAmendmentType",
-          "description": "Types of CommerceAmendments for UserTwitchConnection.",
-          "fields": null,
-          "inputFields": null,
-          "interfaces": null,
-          "enumValues": [
-            {
-              "name": "GAME_COMMERCE",
-              "description": "The game commerce amendment for purchase payouts.",
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
-              "name": "GAME_COMMERCE_V2",
-              "description": "The updated game commerce amendment for purchase payouts, to allow payouts for retail items.",
-              "isDeprecated": false,
-              "deprecationReason": null
-            }
-          ],
-          "possibleTypes": null
-        },
-        {
-          "kind": "OBJECT",
           "name": "Community",
           "description": "A community is a social structure of Twitch users. Streamers may use them to\nreach viewers interested in a specific type of content, and viewers can use them\nto discover that content.",
           "fields": [
@@ -22478,108 +22255,6 @@
           "possibleTypes": null
         },
         {
-          "kind": "OBJECT",
-          "name": "Crate",
-          "description": "A crate which users can open to get Twitch loot.",
-          "fields": [
-            {
-              "name": "iconType",
-              "description": "The product icon type for the crate.  Once implemented, UI will prefer this and fallback to iconURL.",
-              "args": [],
-              "type": {
-                "kind": "NON_NULL",
-                "name": null,
-                "ofType": {
-                  "kind": "SCALAR",
-                  "name": "String",
-                  "ofType": null
-                }
-              },
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
-              "name": "iconURL",
-              "description": "The product icon url for the crate.\nOptionally set 'size' param to change the icon to be a square of size width/height.",
-              "args": [
-                {
-                  "name": "size",
-                  "description": null,
-                  "type": {
-                    "kind": "SCALAR",
-                    "name": "Int",
-                    "ofType": null
-                  },
-                  "defaultValue": null
-                }
-              ],
-              "type": {
-                "kind": "NON_NULL",
-                "name": null,
-                "ofType": {
-                  "kind": "SCALAR",
-                  "name": "String",
-                  "ofType": null
-                }
-              },
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
-              "name": "id",
-              "description": "The associated crate id.",
-              "args": [],
-              "type": {
-                "kind": "NON_NULL",
-                "name": null,
-                "ofType": {
-                  "kind": "SCALAR",
-                  "name": "ID",
-                  "ofType": null
-                }
-              },
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
-              "name": "openURL",
-              "description": "The url to request when opening the crate.",
-              "args": [],
-              "type": {
-                "kind": "NON_NULL",
-                "name": null,
-                "ofType": {
-                  "kind": "SCALAR",
-                  "name": "String",
-                  "ofType": null
-                }
-              },
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
-              "name": "title",
-              "description": "The product title for the crate.",
-              "args": [],
-              "type": {
-                "kind": "NON_NULL",
-                "name": null,
-                "ofType": {
-                  "kind": "SCALAR",
-                  "name": "String",
-                  "ofType": null
-                }
-              },
-              "isDeprecated": false,
-              "deprecationReason": null
-            }
-          ],
-          "inputFields": null,
-          "interfaces": [],
-          "enumValues": null,
-          "possibleTypes": null
-        },
-        {
           "kind": "INPUT_OBJECT",
           "name": "CreateBitsChallengeConditionForExtensionInput",
           "description": "CreateBitsChallengeConditionForExtensionInput creates a Bits condition on behalf of a user by an extension.",
@@ -23340,7 +23015,7 @@
           "enumValues": [
             {
               "name": "BITS_BENEFACTOR_INELIGIBLE",
-              "description": "User tried to create a condition participant with a GIVE_BITS effect type, but they are ineligible to give bits.",
+              "description": "User tried to create a condition participant with a USE_BITS effect type, but they are ineligible to use bits.",
               "isDeprecated": false,
               "deprecationReason": null
             },
@@ -34225,72 +33900,6 @@
           "possibleTypes": null
         },
         {
-          "kind": "INPUT_OBJECT",
-          "name": "DismissPurchaseTokenInput",
-          "description": "Deprecated: this feature is discontinued.",
-          "fields": null,
-          "inputFields": [
-            {
-              "name": "channelID",
-              "description": "Channel ID associated with the token.",
-              "type": {
-                "kind": "NON_NULL",
-                "name": null,
-                "ofType": {
-                  "kind": "SCALAR",
-                  "name": "ID",
-                  "ofType": null
-                }
-              },
-              "defaultValue": null
-            },
-            {
-              "name": "token",
-              "description": "The identifier for the purchase token that will be dismissed.",
-              "type": {
-                "kind": "NON_NULL",
-                "name": null,
-                "ofType": {
-                  "kind": "SCALAR",
-                  "name": "String",
-                  "ofType": null
-                }
-              },
-              "defaultValue": null
-            }
-          ],
-          "interfaces": null,
-          "enumValues": null,
-          "possibleTypes": null
-        },
-        {
-          "kind": "OBJECT",
-          "name": "DismissPurchaseTokenPayload",
-          "description": null,
-          "fields": [
-            {
-              "name": "token",
-              "description": "The purchase token identifier.",
-              "args": [],
-              "type": {
-                "kind": "NON_NULL",
-                "name": null,
-                "ofType": {
-                  "kind": "SCALAR",
-                  "name": "String",
-                  "ofType": null
-                }
-              },
-              "isDeprecated": false,
-              "deprecationReason": null
-            }
-          ],
-          "inputFields": null,
-          "interfaces": [],
-          "enumValues": null,
-          "possibleTypes": null
-        },
-        {
           "kind": "OBJECT",
           "name": "DismissRitualTokenError",
           "description": null,
@@ -35479,55 +35088,6 @@
               "deprecationReason": null
             }
           ],
-          "possibleTypes": null
-        },
-        {
-          "kind": "OBJECT",
-          "name": "EmoteSetPurchaseToken",
-          "description": "EmoteSetPurchaseToken provides information related to a consumable purchase \ntoken about recently acquired emote sets.",
-          "fields": [
-            {
-              "name": "emoteSet",
-              "description": "emoteSet is the emote set associated with the purchase token.",
-              "args": [],
-              "type": {
-                "kind": "NON_NULL",
-                "name": null,
-                "ofType": {
-                  "kind": "OBJECT",
-                  "name": "EmoteSet",
-                  "ofType": null
-                }
-              },
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
-              "name": "id",
-              "description": "id is the unique emote set identifier for the purchase token.",
-              "args": [],
-              "type": {
-                "kind": "NON_NULL",
-                "name": null,
-                "ofType": {
-                  "kind": "SCALAR",
-                  "name": "ID",
-                  "ofType": null
-                }
-              },
-              "isDeprecated": false,
-              "deprecationReason": null
-            }
-          ],
-          "inputFields": null,
-          "interfaces": [
-            {
-              "kind": "INTERFACE",
-              "name": "PurchaseTokenItem",
-              "ofType": null
-            }
-          ],
-          "enumValues": null,
           "possibleTypes": null
         },
         {
@@ -44097,65 +43657,6 @@
           "possibleTypes": null
         },
         {
-          "kind": "OBJECT",
-          "name": "FulfillmentDetail",
-          "description": "Information about how to acquire or launch a game.\nFor Commenrce.",
-          "fields": [
-            {
-              "name": "description",
-              "description": "Markdown description of how to acquire or launch a game. (May contain a link to a download site or launcher).",
-              "args": [],
-              "type": {
-                "kind": "NON_NULL",
-                "name": null,
-                "ofType": {
-                  "kind": "SCALAR",
-                  "name": "String",
-                  "ofType": null
-                }
-              },
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
-              "name": "id",
-              "description": null,
-              "args": [],
-              "type": {
-                "kind": "NON_NULL",
-                "name": null,
-                "ofType": {
-                  "kind": "SCALAR",
-                  "name": "ID",
-                  "ofType": null
-                }
-              },
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
-              "name": "isExternal",
-              "description": "True if the game is available from an external site.",
-              "args": [],
-              "type": {
-                "kind": "NON_NULL",
-                "name": null,
-                "ofType": {
-                  "kind": "SCALAR",
-                  "name": "Boolean",
-                  "ofType": null
-                }
-              },
-              "isDeprecated": false,
-              "deprecationReason": null
-            }
-          ],
-          "inputFields": null,
-          "interfaces": [],
-          "enumValues": null,
-          "possibleTypes": null
-        },
-        {
           "kind": "INPUT_OBJECT",
           "name": "GDPRConsent",
           "description": "GDPR Consent contains user consent on different tracking vendors.",
@@ -44579,18 +44080,6 @@
               },
               "isDeprecated": false,
               "deprecationReason": null
-            },
-            {
-              "name": "product",
-              "description": "Commerce-related details for this game including purchase information.\nIf no commerce items are available this will be null. If a client only\nneeds to check for the existence of game details without loading those\ndetails it should request only the `GameProduct.id` field and check\nif the resulting object is null or not.",
-              "args": [],
-              "type": {
-                "kind": "OBJECT",
-                "name": "GameProduct",
-                "ofType": null
-              },
-              "isDeprecated": true,
-              "deprecationReason": "Game sales discontinued"
             },
             {
               "name": "self",
@@ -45305,345 +44794,6 @@
                   "name": "Float",
                   "ofType": null
                 }
-              },
-              "isDeprecated": false,
-              "deprecationReason": null
-            }
-          ],
-          "inputFields": null,
-          "interfaces": [],
-          "enumValues": null,
-          "possibleTypes": null
-        },
-        {
-          "kind": "OBJECT",
-          "name": "GameProduct",
-          "description": "Details about how to acquire and launch this game as well as available in-game content purchases.\nFor Commerce.",
-          "fields": [
-            {
-              "name": "acquisition",
-              "description": "Information about how a game is acquired. e.g. \"Get this Game\" link that directs to the developer's external download page.",
-              "args": [],
-              "type": {
-                "kind": "OBJECT",
-                "name": "FulfillmentDetail",
-                "ofType": null
-              },
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
-              "name": "developer",
-              "description": "Name of the game developer. (e.g. Blizzard).",
-              "args": [],
-              "type": {
-                "kind": "NON_NULL",
-                "name": null,
-                "ofType": {
-                  "kind": "SCALAR",
-                  "name": "String",
-                  "ofType": null
-                }
-              },
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
-              "name": "edition",
-              "description": "The edition of the game (e.g. Collector's Edition).",
-              "args": [],
-              "type": {
-                "kind": "SCALAR",
-                "name": "String",
-                "ofType": null
-              },
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
-              "name": "esrbRating",
-              "description": "ESRB rating information for the game.",
-              "args": [],
-              "type": {
-                "kind": "OBJECT",
-                "name": "MaturityRating",
-                "ofType": null
-              },
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
-              "name": "eulaURL",
-              "description": "Developer-provided EULA link for their game.",
-              "args": [],
-              "type": {
-                "kind": "SCALAR",
-                "name": "String",
-                "ofType": null
-              },
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
-              "name": "featureDetails",
-              "description": "Game features.",
-              "args": [],
-              "type": {
-                "kind": "NON_NULL",
-                "name": null,
-                "ofType": {
-                  "kind": "LIST",
-                  "name": null,
-                  "ofType": {
-                    "kind": "NON_NULL",
-                    "name": null,
-                    "ofType": {
-                      "kind": "SCALAR",
-                      "name": "String",
-                      "ofType": null
-                    }
-                  }
-                }
-              },
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
-              "name": "genres",
-              "description": "List of genres for this product.",
-              "args": [],
-              "type": {
-                "kind": "NON_NULL",
-                "name": null,
-                "ofType": {
-                  "kind": "LIST",
-                  "name": null,
-                  "ofType": {
-                    "kind": "NON_NULL",
-                    "name": null,
-                    "ofType": {
-                      "kind": "SCALAR",
-                      "name": "String",
-                      "ofType": null
-                    }
-                  }
-                }
-              },
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
-              "name": "id",
-              "description": null,
-              "args": [],
-              "type": {
-                "kind": "NON_NULL",
-                "name": null,
-                "ofType": {
-                  "kind": "SCALAR",
-                  "name": "ID",
-                  "ofType": null
-                }
-              },
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
-              "name": "inGameContent",
-              "description": "Information about purchasable in-game items.",
-              "args": [],
-              "type": {
-                "kind": "NON_NULL",
-                "name": null,
-                "ofType": {
-                  "kind": "LIST",
-                  "name": null,
-                  "ofType": {
-                    "kind": "OBJECT",
-                    "name": "InGameContent",
-                    "ofType": null
-                  }
-                }
-              },
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
-              "name": "info",
-              "description": "Information about how to purchase this game.",
-              "args": [],
-              "type": {
-                "kind": "NON_NULL",
-                "name": null,
-                "ofType": {
-                  "kind": "OBJECT",
-                  "name": "ProductInfo",
-                  "ofType": null
-                }
-              },
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
-              "name": "launchPlatform",
-              "description": "Information about how a game is launched.",
-              "args": [],
-              "type": {
-                "kind": "OBJECT",
-                "name": "FulfillmentDetail",
-                "ofType": null
-              },
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
-              "name": "media",
-              "description": "Screenshots, Videos, Box Art, etc.",
-              "args": [],
-              "type": {
-                "kind": "OBJECT",
-                "name": "ProductMedia",
-                "ofType": null
-              },
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
-              "name": "minimumSystemRequirement",
-              "description": "The minimum system requirements needed to run the game.",
-              "args": [],
-              "type": {
-                "kind": "OBJECT",
-                "name": "SystemRequirement",
-                "ofType": null
-              },
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
-              "name": "publisher",
-              "description": "E.g. Electronic Arts.",
-              "args": [],
-              "type": {
-                "kind": "NON_NULL",
-                "name": null,
-                "ofType": {
-                  "kind": "SCALAR",
-                  "name": "String",
-                  "ofType": null
-                }
-              },
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
-              "name": "recommendedSystemRequirement",
-              "description": "The recommended system requirements needed to run the game.",
-              "args": [],
-              "type": {
-                "kind": "OBJECT",
-                "name": "SystemRequirement",
-                "ofType": null
-              },
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
-              "name": "releaseEndDate",
-              "description": "Date that this game ends being buyable.",
-              "args": [],
-              "type": {
-                "kind": "NON_NULL",
-                "name": null,
-                "ofType": {
-                  "kind": "SCALAR",
-                  "name": "Time",
-                  "ofType": null
-                }
-              },
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
-              "name": "releaseStartDate",
-              "description": "Date that this game starts being buyable.",
-              "args": [],
-              "type": {
-                "kind": "NON_NULL",
-                "name": null,
-                "ofType": {
-                  "kind": "SCALAR",
-                  "name": "Time",
-                  "ofType": null
-                }
-              },
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
-              "name": "supportURL",
-              "description": "The support URL of the game (e.g. https://playbreakaway.com/support).",
-              "args": [],
-              "type": {
-                "kind": "SCALAR",
-                "name": "String",
-                "ofType": null
-              },
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
-              "name": "supportedLanguages",
-              "description": "Languages that this product supports.",
-              "args": [],
-              "type": {
-                "kind": "NON_NULL",
-                "name": null,
-                "ofType": {
-                  "kind": "LIST",
-                  "name": null,
-                  "ofType": {
-                    "kind": "OBJECT",
-                    "name": "ProductLanguage",
-                    "ofType": null
-                  }
-                }
-              },
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
-              "name": "supportedPlatforms",
-              "description": "List of platforms the game is available on.",
-              "args": [],
-              "type": {
-                "kind": "NON_NULL",
-                "name": null,
-                "ofType": {
-                  "kind": "LIST",
-                  "name": null,
-                  "ofType": {
-                    "kind": "NON_NULL",
-                    "name": null,
-                    "ofType": {
-                      "kind": "OBJECT",
-                      "name": "SupportedPlatform",
-                      "ofType": null
-                    }
-                  }
-                }
-              },
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
-              "name": "websiteURL",
-              "description": "The website URL of the game (e.g. https://playbreakaway.com).",
-              "args": [],
-              "type": {
-                "kind": "SCALAR",
-                "name": "String",
-                "ofType": null
               },
               "isDeprecated": false,
               "deprecationReason": null
@@ -47055,193 +46205,6 @@
         },
         {
           "kind": "OBJECT",
-          "name": "InGameContent",
-          "description": "Information about a purchasable in-game item.\nFor Commerce.",
-          "fields": [
-            {
-              "name": "description",
-              "description": "Short description of the in-game item.",
-              "args": [],
-              "type": {
-                "kind": "NON_NULL",
-                "name": null,
-                "ofType": {
-                  "kind": "SCALAR",
-                  "name": "String",
-                  "ofType": null
-                }
-              },
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
-              "name": "id",
-              "description": null,
-              "args": [],
-              "type": {
-                "kind": "NON_NULL",
-                "name": null,
-                "ofType": {
-                  "kind": "SCALAR",
-                  "name": "ID",
-                  "ofType": null
-                }
-              },
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
-              "name": "info",
-              "description": "Detailed information about this purchasable item.",
-              "args": [],
-              "type": {
-                "kind": "NON_NULL",
-                "name": null,
-                "ofType": {
-                  "kind": "OBJECT",
-                  "name": "ProductInfo",
-                  "ofType": null
-                }
-              },
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
-              "name": "tags",
-              "description": "List of tags describing the type of content this is.",
-              "args": [],
-              "type": {
-                "kind": "NON_NULL",
-                "name": null,
-                "ofType": {
-                  "kind": "LIST",
-                  "name": null,
-                  "ofType": {
-                    "kind": "NON_NULL",
-                    "name": null,
-                    "ofType": {
-                      "kind": "SCALAR",
-                      "name": "String",
-                      "ofType": null
-                    }
-                  }
-                }
-              },
-              "isDeprecated": false,
-              "deprecationReason": null
-            }
-          ],
-          "inputFields": null,
-          "interfaces": [],
-          "enumValues": null,
-          "possibleTypes": null
-        },
-        {
-          "kind": "OBJECT",
-          "name": "InGameContentPurchaseToken",
-          "description": "InGameContentPurchaseToken provides information related to a consumable purchase \ntoken about recently acquired in game content.",
-          "fields": [
-            {
-              "name": "asin",
-              "description": "asin is the purchased Amazon ASIN (a unique identifier for products at \nAmazon) to be shared.",
-              "args": [],
-              "type": {
-                "kind": "NON_NULL",
-                "name": null,
-                "ofType": {
-                  "kind": "SCALAR",
-                  "name": "String",
-                  "ofType": null
-                }
-              },
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
-              "name": "description",
-              "description": "description is the description of the in game content.",
-              "args": [],
-              "type": {
-                "kind": "NON_NULL",
-                "name": null,
-                "ofType": {
-                  "kind": "SCALAR",
-                  "name": "String",
-                  "ofType": null
-                }
-              },
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
-              "name": "id",
-              "description": "id is the unique in game content identifier for the purchase token.",
-              "args": [],
-              "type": {
-                "kind": "NON_NULL",
-                "name": null,
-                "ofType": {
-                  "kind": "SCALAR",
-                  "name": "ID",
-                  "ofType": null
-                }
-              },
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
-              "name": "imageURL",
-              "description": "imageURL is the URL for the image to be used for the in game content.\nAn optional width can be specified to return an image of the given width. If\nno size is specified the images native size will be used.",
-              "args": [
-                {
-                  "name": "width",
-                  "description": null,
-                  "type": {
-                    "kind": "SCALAR",
-                    "name": "Int",
-                    "ofType": null
-                  },
-                  "defaultValue": null
-                }
-              ],
-              "type": {
-                "kind": "SCALAR",
-                "name": "String",
-                "ofType": null
-              },
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
-              "name": "title",
-              "description": "title is the title to use for the in game content.",
-              "args": [],
-              "type": {
-                "kind": "NON_NULL",
-                "name": null,
-                "ofType": {
-                  "kind": "SCALAR",
-                  "name": "String",
-                  "ofType": null
-                }
-              },
-              "isDeprecated": false,
-              "deprecationReason": null
-            }
-          ],
-          "inputFields": null,
-          "interfaces": [
-            {
-              "kind": "INTERFACE",
-              "name": "PurchaseTokenItem",
-              "ofType": null
-            }
-          ],
-          "enumValues": null,
-          "possibleTypes": null
-        },
-        {
-          "kind": "OBJECT",
           "name": "IncomingFriendRequestConnection",
           "description": "Friend requests sent from other users to this user.",
           "fields": [
@@ -47661,7 +46624,7 @@
         {
           "kind": "OBJECT",
           "name": "Inventory",
-          "description": "Contains the inventory for a particular user. Inventory consists of\nDrops awarded, Crates, emotes from Crates, badges from Crates, and\nBits.",
+          "description": "Contains the inventory for a particular user, which consists of drops.",
           "fields": [
             {
               "name": "drops",
@@ -49782,143 +48745,6 @@
             }
           ],
           "interfaces": null,
-          "enumValues": null,
-          "possibleTypes": null
-        },
-        {
-          "kind": "OBJECT",
-          "name": "MaturityRating",
-          "description": "Governmental rating agency information.\nFor Commerce.",
-          "fields": [
-            {
-              "name": "details",
-              "description": "List of rating information (eg \"Blood\", \"Violence\", etc).",
-              "args": [],
-              "type": {
-                "kind": "NON_NULL",
-                "name": null,
-                "ofType": {
-                  "kind": "LIST",
-                  "name": null,
-                  "ofType": {
-                    "kind": "NON_NULL",
-                    "name": null,
-                    "ofType": {
-                      "kind": "SCALAR",
-                      "name": "String",
-                      "ofType": null
-                    }
-                  }
-                }
-              },
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
-              "name": "iconURL",
-              "description": "URL of icon to display for this rating.",
-              "args": [],
-              "type": {
-                "kind": "NON_NULL",
-                "name": null,
-                "ofType": {
-                  "kind": "SCALAR",
-                  "name": "String",
-                  "ofType": null
-                }
-              },
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
-              "name": "id",
-              "description": null,
-              "args": [],
-              "type": {
-                "kind": "NON_NULL",
-                "name": null,
-                "ofType": {
-                  "kind": "SCALAR",
-                  "name": "ID",
-                  "ofType": null
-                }
-              },
-              "isDeprecated": false,
-              "deprecationReason": null
-            }
-          ],
-          "inputFields": null,
-          "interfaces": [],
-          "enumValues": null,
-          "possibleTypes": null
-        },
-        {
-          "kind": "OBJECT",
-          "name": "Media",
-          "description": "Media associated with a product.",
-          "fields": [
-            {
-              "name": "images",
-              "description": "Associated images.",
-              "args": [],
-              "type": {
-                "kind": "NON_NULL",
-                "name": null,
-                "ofType": {
-                  "kind": "LIST",
-                  "name": null,
-                  "ofType": {
-                    "kind": "OBJECT",
-                    "name": "Image",
-                    "ofType": null
-                  }
-                }
-              },
-              "isDeprecated": false,
-              "deprecationReason": null
-            }
-          ],
-          "inputFields": null,
-          "interfaces": [],
-          "enumValues": null,
-          "possibleTypes": null
-        },
-        {
-          "kind": "OBJECT",
-          "name": "MerchandiseProduct",
-          "description": "A product is an item that we sell on twitch\nFor Commerce.",
-          "fields": [
-            {
-              "name": "media",
-              "description": "The media associated with a merch item.",
-              "args": [],
-              "type": {
-                "kind": "NON_NULL",
-                "name": null,
-                "ofType": {
-                  "kind": "OBJECT",
-                  "name": "Media",
-                  "ofType": null
-                }
-              },
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
-              "name": "productInfo",
-              "description": "The product information associated with a merch item.",
-              "args": [],
-              "type": {
-                "kind": "OBJECT",
-                "name": "ProductInfo",
-                "ofType": null
-              },
-              "isDeprecated": false,
-              "deprecationReason": null
-            }
-          ],
-          "inputFields": null,
-          "interfaces": [],
           "enumValues": null,
           "possibleTypes": null
         },
@@ -55146,33 +53972,6 @@
               "deprecationReason": null
             },
             {
-              "name": "dismissPurchaseToken",
-              "description": "dismissPurchaseToken allows the current user to dismiss a purchase token notification without sharing in chat.",
-              "args": [
-                {
-                  "name": "input",
-                  "description": null,
-                  "type": {
-                    "kind": "NON_NULL",
-                    "name": null,
-                    "ofType": {
-                      "kind": "INPUT_OBJECT",
-                      "name": "DismissPurchaseTokenInput",
-                      "ofType": null
-                    }
-                  },
-                  "defaultValue": null
-                }
-              ],
-              "type": {
-                "kind": "OBJECT",
-                "name": "DismissPurchaseTokenPayload",
-                "ofType": null
-              },
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
               "name": "dismissRitualToken",
               "description": "Permanently dismiss a ritual token without redeeming it.",
               "args": [
@@ -56901,33 +55700,6 @@
               "deprecationReason": null
             },
             {
-              "name": "setAmendmentAcceptance",
-              "description": "setAmendmentAcceptance sets that the acting user has agreed to the given amendment type.",
-              "args": [
-                {
-                  "name": "input",
-                  "description": null,
-                  "type": {
-                    "kind": "NON_NULL",
-                    "name": null,
-                    "ofType": {
-                      "kind": "INPUT_OBJECT",
-                      "name": "SetAmendmentAcceptanceInput",
-                      "ofType": null
-                    }
-                  },
-                  "defaultValue": null
-                }
-              ],
-              "type": {
-                "kind": "OBJECT",
-                "name": "SetAmendmentAcceptancePayload",
-                "ofType": null
-              },
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
               "name": "setAutoRefillSettings",
               "description": "Sets the user's auto refill settings.",
               "args": [
@@ -57543,33 +56315,6 @@
               "type": {
                 "kind": "OBJECT",
                 "name": "SetUserResidencePayload",
-                "ofType": null
-              },
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
-              "name": "sharePurchaseTokenInChat",
-              "description": "sharePurchaseTokenInChat allows the current user to share a purchase token in the chat with a message.",
-              "args": [
-                {
-                  "name": "input",
-                  "description": null,
-                  "type": {
-                    "kind": "NON_NULL",
-                    "name": null,
-                    "ofType": {
-                      "kind": "INPUT_OBJECT",
-                      "name": "SharePurchaseTokenInChatInput",
-                      "ofType": null
-                    }
-                  },
-                  "defaultValue": null
-                }
-              ],
-              "type": {
-                "kind": "OBJECT",
-                "name": "SharePurchaseTokenInChatPayload",
                 "ofType": null
               },
               "isDeprecated": false,
@@ -68806,513 +67551,6 @@
         },
         {
           "kind": "OBJECT",
-          "name": "ProductInfo",
-          "description": "General purchase information for a commerce item (games or in-game content).\nFor Commerce.",
-          "fields": [
-            {
-              "name": "asin",
-              "description": "Amazon identifier for this product.",
-              "args": [],
-              "type": {
-                "kind": "SCALAR",
-                "name": "ID",
-                "ofType": null
-              },
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
-              "name": "crateASINs",
-              "description": "List of ASINs for crates that will be grated as part of this purchase.",
-              "args": [],
-              "type": {
-                "kind": "NON_NULL",
-                "name": null,
-                "ofType": {
-                  "kind": "LIST",
-                  "name": null,
-                  "ofType": {
-                    "kind": "NON_NULL",
-                    "name": null,
-                    "ofType": {
-                      "kind": "SCALAR",
-                      "name": "ID",
-                      "ofType": null
-                    }
-                  }
-                }
-              },
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
-              "name": "description",
-              "description": "Description of the product.",
-              "args": [],
-              "type": {
-                "kind": "NON_NULL",
-                "name": null,
-                "ofType": {
-                  "kind": "SCALAR",
-                  "name": "String",
-                  "ofType": null
-                }
-              },
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
-              "name": "id",
-              "description": null,
-              "args": [],
-              "type": {
-                "kind": "NON_NULL",
-                "name": null,
-                "ofType": {
-                  "kind": "SCALAR",
-                  "name": "ID",
-                  "ofType": null
-                }
-              },
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
-              "name": "imageURL",
-              "description": "Image to display with this offer. Can be box art or a picture of the in-game item.\nAn optional size can be specified to return a square image of the given size. If no size is specified\nthe images native size will be used (typically 256x256).\nIf the product doesn't have an image this will return null for all sizes.",
-              "args": [
-                {
-                  "name": "size",
-                  "description": null,
-                  "type": {
-                    "kind": "SCALAR",
-                    "name": "Int",
-                    "ofType": null
-                  },
-                  "defaultValue": null
-                }
-              ],
-              "type": {
-                "kind": "SCALAR",
-                "name": "String",
-                "ofType": null
-              },
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
-              "name": "isEntitled",
-              "description": "True if the authenticated user is entitled to this product (has already purchased it), otherwise false.",
-              "args": [],
-              "type": {
-                "kind": "NON_NULL",
-                "name": null,
-                "ofType": {
-                  "kind": "SCALAR",
-                  "name": "Boolean",
-                  "ofType": null
-                }
-              },
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
-              "name": "isFeatured",
-              "description": "True is the item should be featured.",
-              "args": [],
-              "type": {
-                "kind": "NON_NULL",
-                "name": null,
-                "ofType": {
-                  "kind": "SCALAR",
-                  "name": "Boolean",
-                  "ofType": null
-                }
-              },
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
-              "name": "isForSale",
-              "description": "True if the item can currently be purchased or false if the offer has expired.",
-              "args": [],
-              "type": {
-                "kind": "NON_NULL",
-                "name": null,
-                "ofType": {
-                  "kind": "SCALAR",
-                  "name": "Boolean",
-                  "ofType": null
-                }
-              },
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
-              "name": "isNew",
-              "description": "True if the item should be denoted as \"New\".",
-              "args": [],
-              "type": {
-                "kind": "NON_NULL",
-                "name": null,
-                "ofType": {
-                  "kind": "SCALAR",
-                  "name": "Boolean",
-                  "ofType": null
-                }
-              },
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
-              "name": "isOutOfStock",
-              "description": "True if the item is out of stock.",
-              "args": [],
-              "type": {
-                "kind": "NON_NULL",
-                "name": null,
-                "ofType": {
-                  "kind": "SCALAR",
-                  "name": "Boolean",
-                  "ofType": null
-                }
-              },
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
-              "name": "originalPrice",
-              "description": "The original price of the item to be displayed during a sale.",
-              "args": [],
-              "type": {
-                "kind": "SCALAR",
-                "name": "String",
-                "ofType": null
-              },
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
-              "name": "price",
-              "description": "Purchase price to display for this item.",
-              "args": [],
-              "type": {
-                "kind": "NON_NULL",
-                "name": null,
-                "ofType": {
-                  "kind": "SCALAR",
-                  "name": "String",
-                  "ofType": null
-                }
-              },
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
-              "name": "primeOffer",
-              "description": "The PrimeOffer associated with the ProductInfo if there is currently a live offer.",
-              "args": [],
-              "type": {
-                "kind": "OBJECT",
-                "name": "PrimeOffer",
-                "ofType": null
-              },
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
-              "name": "purchaseURL",
-              "description": "External link to redirect to when purchasing this item.",
-              "args": [],
-              "type": {
-                "kind": "NON_NULL",
-                "name": null,
-                "ofType": {
-                  "kind": "SCALAR",
-                  "name": "String",
-                  "ofType": null
-                }
-              },
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
-              "name": "title",
-              "description": "Name of the product.",
-              "args": [],
-              "type": {
-                "kind": "NON_NULL",
-                "name": null,
-                "ofType": {
-                  "kind": "SCALAR",
-                  "name": "String",
-                  "ofType": null
-                }
-              },
-              "isDeprecated": false,
-              "deprecationReason": null
-            }
-          ],
-          "inputFields": null,
-          "interfaces": [],
-          "enumValues": null,
-          "possibleTypes": null
-        },
-        {
-          "kind": "OBJECT",
-          "name": "ProductLanguage",
-          "description": "Language provides information about how the language is supported for a product.\nFor Commerce.",
-          "fields": [
-            {
-              "name": "hasAudio",
-              "description": "True if there are audio tracks for this language, false otherwise.",
-              "args": [],
-              "type": {
-                "kind": "NON_NULL",
-                "name": null,
-                "ofType": {
-                  "kind": "SCALAR",
-                  "name": "Boolean",
-                  "ofType": null
-                }
-              },
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
-              "name": "hasInterface",
-              "description": "True if the interface is localized for this language, false otherwise.",
-              "args": [],
-              "type": {
-                "kind": "NON_NULL",
-                "name": null,
-                "ofType": {
-                  "kind": "SCALAR",
-                  "name": "Boolean",
-                  "ofType": null
-                }
-              },
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
-              "name": "hasSubtitles",
-              "description": "True if the subtitles are localized for this language, false otherwise.",
-              "args": [],
-              "type": {
-                "kind": "NON_NULL",
-                "name": null,
-                "ofType": {
-                  "kind": "SCALAR",
-                  "name": "Boolean",
-                  "ofType": null
-                }
-              },
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
-              "name": "id",
-              "description": null,
-              "args": [],
-              "type": {
-                "kind": "NON_NULL",
-                "name": null,
-                "ofType": {
-                  "kind": "SCALAR",
-                  "name": "ID",
-                  "ofType": null
-                }
-              },
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
-              "name": "language",
-              "description": "The product language.",
-              "args": [],
-              "type": {
-                "kind": "NON_NULL",
-                "name": null,
-                "ofType": {
-                  "kind": "SCALAR",
-                  "name": "String",
-                  "ofType": null
-                }
-              },
-              "isDeprecated": false,
-              "deprecationReason": null
-            }
-          ],
-          "inputFields": null,
-          "interfaces": [],
-          "enumValues": null,
-          "possibleTypes": null
-        },
-        {
-          "kind": "OBJECT",
-          "name": "ProductMedia",
-          "description": "Aggregates all media associated with this product. E.g. screnshots, box art, videos.\nFor Commerce.",
-          "fields": [
-            {
-              "name": "backgroundImageURL",
-              "description": "The URL of the background image for the detail page.",
-              "args": [
-                {
-                  "name": "width",
-                  "description": null,
-                  "type": {
-                    "kind": "SCALAR",
-                    "name": "Int",
-                    "ofType": null
-                  },
-                  "defaultValue": null
-                },
-                {
-                  "name": "height",
-                  "description": null,
-                  "type": {
-                    "kind": "SCALAR",
-                    "name": "Int",
-                    "ofType": null
-                  },
-                  "defaultValue": null
-                }
-              ],
-              "type": {
-                "kind": "NON_NULL",
-                "name": null,
-                "ofType": {
-                  "kind": "SCALAR",
-                  "name": "String",
-                  "ofType": null
-                }
-              },
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
-              "name": "boxArtURL",
-              "description": "The URL of the box art image.",
-              "args": [
-                {
-                  "name": "width",
-                  "description": null,
-                  "type": {
-                    "kind": "SCALAR",
-                    "name": "Int",
-                    "ofType": null
-                  },
-                  "defaultValue": null
-                },
-                {
-                  "name": "height",
-                  "description": null,
-                  "type": {
-                    "kind": "SCALAR",
-                    "name": "Int",
-                    "ofType": null
-                  },
-                  "defaultValue": null
-                }
-              ],
-              "type": {
-                "kind": "NON_NULL",
-                "name": null,
-                "ofType": {
-                  "kind": "SCALAR",
-                  "name": "String",
-                  "ofType": null
-                }
-              },
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
-              "name": "id",
-              "description": null,
-              "args": [],
-              "type": {
-                "kind": "NON_NULL",
-                "name": null,
-                "ofType": {
-                  "kind": "SCALAR",
-                  "name": "ID",
-                  "ofType": null
-                }
-              },
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
-              "name": "screenshotURLs",
-              "description": "The URLs of the product screenshots.",
-              "args": [
-                {
-                  "name": "width",
-                  "description": null,
-                  "type": {
-                    "kind": "SCALAR",
-                    "name": "Int",
-                    "ofType": null
-                  },
-                  "defaultValue": null
-                },
-                {
-                  "name": "height",
-                  "description": null,
-                  "type": {
-                    "kind": "SCALAR",
-                    "name": "Int",
-                    "ofType": null
-                  },
-                  "defaultValue": null
-                }
-              ],
-              "type": {
-                "kind": "NON_NULL",
-                "name": null,
-                "ofType": {
-                  "kind": "LIST",
-                  "name": null,
-                  "ofType": {
-                    "kind": "NON_NULL",
-                    "name": null,
-                    "ofType": {
-                      "kind": "SCALAR",
-                      "name": "String",
-                      "ofType": null
-                    }
-                  }
-                }
-              },
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
-              "name": "videos",
-              "description": "The videos for this product\nIs null if there is a problem retrieving the list of videos.\nElements are null if there is a problem retrieving contents of individual videos.",
-              "args": [],
-              "type": {
-                "kind": "LIST",
-                "name": null,
-                "ofType": {
-                  "kind": "OBJECT",
-                  "name": "Video",
-                  "ofType": null
-                }
-              },
-              "isDeprecated": false,
-              "deprecationReason": null
-            }
-          ],
-          "inputFields": null,
-          "interfaces": [],
-          "enumValues": null,
-          "possibleTypes": null
-        },
-        {
-          "kind": "OBJECT",
           "name": "ProductPurchase",
           "description": "Contains the product's checkout price and tax info for a purchase and error if a final price cannot be determined.",
           "fields": [
@@ -69981,276 +68219,6 @@
             }
           ],
           "possibleTypes": null
-        },
-        {
-          "kind": "OBJECT",
-          "name": "PurchaseToken",
-          "description": "PurchaseToken is a token that appears in the chat, specific to \na tuid/channel (i.e. if a customer buys a product, we give them the option of \nsharing it in the channel they bought it from).",
-          "fields": [
-            {
-              "name": "asin",
-              "description": "asin is the purchased Amazon ASIN (a unique identifier for products at \nAmazon) to be shared.",
-              "args": [],
-              "type": {
-                "kind": "SCALAR",
-                "name": "String",
-                "ofType": null
-              },
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
-              "name": "badges",
-              "description": "badges is the set of badges to be shared.  There may be duplicate badges\nassociated with the same token.",
-              "args": [],
-              "type": {
-                "kind": "NON_NULL",
-                "name": null,
-                "ofType": {
-                  "kind": "LIST",
-                  "name": null,
-                  "ofType": {
-                    "kind": "OBJECT",
-                    "name": "BadgePurchaseToken",
-                    "ofType": null
-                  }
-                }
-              },
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
-              "name": "bits",
-              "description": "bits is the set of bits to be shared.",
-              "args": [],
-              "type": {
-                "kind": "NON_NULL",
-                "name": null,
-                "ofType": {
-                  "kind": "LIST",
-                  "name": null,
-                  "ofType": {
-                    "kind": "OBJECT",
-                    "name": "BitsPurchaseToken",
-                    "ofType": null
-                  }
-                }
-              },
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
-              "name": "crateCount",
-              "description": "crateCount is the number of crates associated with the purchase.",
-              "args": [],
-              "type": {
-                "kind": "NON_NULL",
-                "name": null,
-                "ofType": {
-                  "kind": "SCALAR",
-                  "name": "Int",
-                  "ofType": null
-                }
-              },
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
-              "name": "emoteSets",
-              "description": "emoteSets is the set of emote sets to be shared.  There may be duplicate\nemote sets associated with the same token.",
-              "args": [],
-              "type": {
-                "kind": "NON_NULL",
-                "name": null,
-                "ofType": {
-                  "kind": "LIST",
-                  "name": null,
-                  "ofType": {
-                    "kind": "OBJECT",
-                    "name": "EmoteSetPurchaseToken",
-                    "ofType": null
-                  }
-                }
-              },
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
-              "name": "id",
-              "description": "id is the unique message identifier.",
-              "args": [],
-              "type": {
-                "kind": "NON_NULL",
-                "name": null,
-                "ofType": {
-                  "kind": "SCALAR",
-                  "name": "ID",
-                  "ofType": null
-                }
-              },
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
-              "name": "imageURL",
-              "description": "imageURL is the URL for the image to be used for the purchase token.\nAn optional width can be specified to return an image of the given width. If\nno size is specified the images native size will be used.",
-              "args": [
-                {
-                  "name": "width",
-                  "description": null,
-                  "type": {
-                    "kind": "SCALAR",
-                    "name": "Int",
-                    "ofType": null
-                  },
-                  "defaultValue": null
-                }
-              ],
-              "type": {
-                "kind": "SCALAR",
-                "name": "String",
-                "ofType": null
-              },
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
-              "name": "inGameContents",
-              "description": "In game content is the in game content to be shared.",
-              "args": [],
-              "type": {
-                "kind": "NON_NULL",
-                "name": null,
-                "ofType": {
-                  "kind": "LIST",
-                  "name": null,
-                  "ofType": {
-                    "kind": "OBJECT",
-                    "name": "InGameContentPurchaseToken",
-                    "ofType": null
-                  }
-                }
-              },
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
-              "name": "status",
-              "description": "status is the status of the purchase token.",
-              "args": [],
-              "type": {
-                "kind": "NON_NULL",
-                "name": null,
-                "ofType": {
-                  "kind": "SCALAR",
-                  "name": "String",
-                  "ofType": null
-                }
-              },
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
-              "name": "timeReceived",
-              "description": "timeReceived is the time the chat token token was created.",
-              "args": [],
-              "type": {
-                "kind": "NON_NULL",
-                "name": null,
-                "ofType": {
-                  "kind": "SCALAR",
-                  "name": "Time",
-                  "ofType": null
-                }
-              },
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
-              "name": "title",
-              "description": "title is the title to be used for the purchase token.",
-              "args": [],
-              "type": {
-                "kind": "NON_NULL",
-                "name": null,
-                "ofType": {
-                  "kind": "SCALAR",
-                  "name": "String",
-                  "ofType": null
-                }
-              },
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
-              "name": "token",
-              "description": "token is the consumable purchase token.",
-              "args": [],
-              "type": {
-                "kind": "NON_NULL",
-                "name": null,
-                "ofType": {
-                  "kind": "SCALAR",
-                  "name": "String",
-                  "ofType": null
-                }
-              },
-              "isDeprecated": false,
-              "deprecationReason": null
-            }
-          ],
-          "inputFields": null,
-          "interfaces": [],
-          "enumValues": null,
-          "possibleTypes": null
-        },
-        {
-          "kind": "INTERFACE",
-          "name": "PurchaseTokenItem",
-          "description": null,
-          "fields": [
-            {
-              "name": "id",
-              "description": null,
-              "args": [],
-              "type": {
-                "kind": "NON_NULL",
-                "name": null,
-                "ofType": {
-                  "kind": "SCALAR",
-                  "name": "ID",
-                  "ofType": null
-                }
-              },
-              "isDeprecated": false,
-              "deprecationReason": null
-            }
-          ],
-          "inputFields": null,
-          "interfaces": null,
-          "enumValues": null,
-          "possibleTypes": [
-            {
-              "kind": "OBJECT",
-              "name": "EmoteSetPurchaseToken",
-              "ofType": null
-            },
-            {
-              "kind": "OBJECT",
-              "name": "BadgePurchaseToken",
-              "ofType": null
-            },
-            {
-              "kind": "OBJECT",
-              "name": "BitsPurchaseToken",
-              "ofType": null
-            },
-            {
-              "kind": "OBJECT",
-              "name": "InGameContentPurchaseToken",
-              "ofType": null
-            }
-          ]
         },
         {
           "kind": "ENUM",
@@ -71950,26 +69918,6 @@
               },
               "isDeprecated": false,
               "deprecationReason": null
-            },
-            {
-              "name": "merchandise",
-              "description": "Get a list of all Twitch Merch products.",
-              "args": [],
-              "type": {
-                "kind": "NON_NULL",
-                "name": null,
-                "ofType": {
-                  "kind": "LIST",
-                  "name": null,
-                  "ofType": {
-                    "kind": "OBJECT",
-                    "name": "MerchandiseProduct",
-                    "ofType": null
-                  }
-                }
-              },
-              "isDeprecated": true,
-              "deprecationReason": "Merch sales discontinued on Twitch"
             },
             {
               "name": "organization",
@@ -78657,101 +76605,6 @@
         },
         {
           "kind": "OBJECT",
-          "name": "RetailProduct",
-          "description": "Details associated with a retail product offer.\nFor Commerce.",
-          "fields": [
-            {
-              "name": "brandName",
-              "description": "The brand name associated with the retail item (e.g. \"Riot Games\", \"Razer\", \"Blizzard Entertainment\").",
-              "args": [],
-              "type": {
-                "kind": "NON_NULL",
-                "name": null,
-                "ofType": {
-                  "kind": "SCALAR",
-                  "name": "String",
-                  "ofType": null
-                }
-              },
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
-              "name": "detailBullets",
-              "description": "List of description details for the item.",
-              "args": [],
-              "type": {
-                "kind": "LIST",
-                "name": null,
-                "ofType": {
-                  "kind": "NON_NULL",
-                  "name": null,
-                  "ofType": {
-                    "kind": "SCALAR",
-                    "name": "String",
-                    "ofType": null
-                  }
-                }
-              },
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
-              "name": "id",
-              "description": null,
-              "args": [],
-              "type": {
-                "kind": "NON_NULL",
-                "name": null,
-                "ofType": {
-                  "kind": "SCALAR",
-                  "name": "ID",
-                  "ofType": null
-                }
-              },
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
-              "name": "info",
-              "description": "Information about how to purchase this retail item.",
-              "args": [],
-              "type": {
-                "kind": "NON_NULL",
-                "name": null,
-                "ofType": {
-                  "kind": "OBJECT",
-                  "name": "ProductInfo",
-                  "ofType": null
-                }
-              },
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
-              "name": "isPrimeEligible",
-              "description": "Whether this retail offer is eligible for prime shipping on Amazon.",
-              "args": [],
-              "type": {
-                "kind": "NON_NULL",
-                "name": null,
-                "ofType": {
-                  "kind": "SCALAR",
-                  "name": "Boolean",
-                  "ofType": null
-                }
-              },
-              "isDeprecated": false,
-              "deprecationReason": null
-            }
-          ],
-          "inputFields": null,
-          "interfaces": [],
-          "enumValues": null,
-          "possibleTypes": null
-        },
-        {
-          "kind": "OBJECT",
           "name": "RevokeVIPError",
           "description": "RevokeVIPError contains details about a client error that occurred.",
           "fields": [
@@ -84436,58 +82289,6 @@
         },
         {
           "kind": "INPUT_OBJECT",
-          "name": "SetAmendmentAcceptanceInput",
-          "description": null,
-          "fields": null,
-          "inputFields": [
-            {
-              "name": "amendmentType",
-              "description": "Amendment type that is being accepted by acting user.",
-              "type": {
-                "kind": "NON_NULL",
-                "name": null,
-                "ofType": {
-                  "kind": "ENUM",
-                  "name": "CommerceAmendmentType",
-                  "ofType": null
-                }
-              },
-              "defaultValue": null
-            }
-          ],
-          "interfaces": null,
-          "enumValues": null,
-          "possibleTypes": null
-        },
-        {
-          "kind": "OBJECT",
-          "name": "SetAmendmentAcceptancePayload",
-          "description": null,
-          "fields": [
-            {
-              "name": "twitch",
-              "description": "Amendment type that was accepted by acting user.",
-              "args": [],
-              "type": {
-                "kind": "NON_NULL",
-                "name": null,
-                "ofType": {
-                  "kind": "OBJECT",
-                  "name": "UserTwitchConnection",
-                  "ofType": null
-                }
-              },
-              "isDeprecated": false,
-              "deprecationReason": null
-            }
-          ],
-          "inputFields": null,
-          "interfaces": [],
-          "enumValues": null,
-          "possibleTypes": null
-        },
-        {
-          "kind": "INPUT_OBJECT",
           "name": "SetAutoRefillSettingsInput",
           "description": "Input for setting auto refill settings.",
           "fields": null,
@@ -86801,86 +84602,6 @@
                 "kind": "UNION",
                 "name": "ShareTarget",
                 "ofType": null
-              },
-              "isDeprecated": false,
-              "deprecationReason": null
-            }
-          ],
-          "inputFields": null,
-          "interfaces": [],
-          "enumValues": null,
-          "possibleTypes": null
-        },
-        {
-          "kind": "INPUT_OBJECT",
-          "name": "SharePurchaseTokenInChatInput",
-          "description": "Deprecated: this feature is discontinued.",
-          "fields": null,
-          "inputFields": [
-            {
-              "name": "channelID",
-              "description": "The channel ID containing the purchase token.",
-              "type": {
-                "kind": "NON_NULL",
-                "name": null,
-                "ofType": {
-                  "kind": "SCALAR",
-                  "name": "ID",
-                  "ofType": null
-                }
-              },
-              "defaultValue": null
-            },
-            {
-              "name": "message",
-              "description": "The message to use in chat when sharing.  Must not be empty String.",
-              "type": {
-                "kind": "NON_NULL",
-                "name": null,
-                "ofType": {
-                  "kind": "SCALAR",
-                  "name": "String",
-                  "ofType": null
-                }
-              },
-              "defaultValue": null
-            },
-            {
-              "name": "token",
-              "description": "The purchase token identifier.",
-              "type": {
-                "kind": "NON_NULL",
-                "name": null,
-                "ofType": {
-                  "kind": "SCALAR",
-                  "name": "String",
-                  "ofType": null
-                }
-              },
-              "defaultValue": null
-            }
-          ],
-          "interfaces": null,
-          "enumValues": null,
-          "possibleTypes": null
-        },
-        {
-          "kind": "OBJECT",
-          "name": "SharePurchaseTokenInChatPayload",
-          "description": "SharePurchaseTokenInChatPayload contains the token value of the shared purchase token.",
-          "fields": [
-            {
-              "name": "token",
-              "description": "The purchase token identifier.",
-              "args": [],
-              "type": {
-                "kind": "NON_NULL",
-                "name": null,
-                "ofType": {
-                  "kind": "SCALAR",
-                  "name": "String",
-                  "ofType": null
-                }
               },
               "isDeprecated": false,
               "deprecationReason": null
@@ -89486,22 +87207,6 @@
               "deprecationReason": null
             },
             {
-              "name": "retailOffers",
-              "description": "Retail products to be displayed alongside this stream (broadcaster + game).\nWill only include a small number (<10) of products per stream, so no pagination needed.",
-              "args": [],
-              "type": {
-                "kind": "LIST",
-                "name": null,
-                "ofType": {
-                  "kind": "OBJECT",
-                  "name": "RetailProduct",
-                  "ofType": null
-                }
-              },
-              "isDeprecated": true,
-              "deprecationReason": "Retail sales discontinued"
-            },
-            {
               "name": "self",
               "description": "self contains information on the relationship between the current user (anonymous or authenticated) and this stream.",
               "args": [],
@@ -90096,22 +87801,6 @@
               },
               "isDeprecated": false,
               "deprecationReason": null
-            },
-            {
-              "name": "retailOffers",
-              "description": "The retail products that sohuld be displayed on this stream for this user.",
-              "args": [],
-              "type": {
-                "kind": "LIST",
-                "name": null,
-                "ofType": {
-                  "kind": "OBJECT",
-                  "name": "RetailProduct",
-                  "ofType": null
-                }
-              },
-              "isDeprecated": true,
-              "deprecationReason": "Retail sales discontinued"
             }
           ],
           "inputFields": null,
@@ -93549,228 +91238,6 @@
                   "kind": "SCALAR",
                   "name": "Int",
                   "ofType": null
-                }
-              },
-              "isDeprecated": false,
-              "deprecationReason": null
-            }
-          ],
-          "inputFields": null,
-          "interfaces": [],
-          "enumValues": null,
-          "possibleTypes": null
-        },
-        {
-          "kind": "OBJECT",
-          "name": "SupportedPlatform",
-          "description": "Platform information for a game.\nNOTE: Should have been named GameSupportedPlatform.\nFor Commerce.",
-          "fields": [
-            {
-              "name": "iconURL",
-              "description": "URL of an icon for this platform.",
-              "args": [],
-              "type": {
-                "kind": "NON_NULL",
-                "name": null,
-                "ofType": {
-                  "kind": "SCALAR",
-                  "name": "String",
-                  "ofType": null
-                }
-              },
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
-              "name": "id",
-              "description": null,
-              "args": [],
-              "type": {
-                "kind": "NON_NULL",
-                "name": null,
-                "ofType": {
-                  "kind": "SCALAR",
-                  "name": "ID",
-                  "ofType": null
-                }
-              },
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
-              "name": "name",
-              "description": "Name of the platform.",
-              "args": [],
-              "type": {
-                "kind": "NON_NULL",
-                "name": null,
-                "ofType": {
-                  "kind": "SCALAR",
-                  "name": "String",
-                  "ofType": null
-                }
-              },
-              "isDeprecated": false,
-              "deprecationReason": null
-            }
-          ],
-          "inputFields": null,
-          "interfaces": [],
-          "enumValues": null,
-          "possibleTypes": null
-        },
-        {
-          "kind": "OBJECT",
-          "name": "SystemRequirement",
-          "description": "SystemRequirement aggregates information about the hardware and software needed to run the product.\nFor Commerce.",
-          "fields": [
-            {
-              "name": "directXVersion",
-              "description": "The required Direct X version.",
-              "args": [],
-              "type": {
-                "kind": "NON_NULL",
-                "name": null,
-                "ofType": {
-                  "kind": "SCALAR",
-                  "name": "String",
-                  "ofType": null
-                }
-              },
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
-              "name": "hardDriveSpace",
-              "description": "The required available hard drive space.",
-              "args": [],
-              "type": {
-                "kind": "NON_NULL",
-                "name": null,
-                "ofType": {
-                  "kind": "SCALAR",
-                  "name": "String",
-                  "ofType": null
-                }
-              },
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
-              "name": "id",
-              "description": null,
-              "args": [],
-              "type": {
-                "kind": "NON_NULL",
-                "name": null,
-                "ofType": {
-                  "kind": "SCALAR",
-                  "name": "ID",
-                  "ofType": null
-                }
-              },
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
-              "name": "osVersion",
-              "description": "The supported operating system versions.",
-              "args": [],
-              "type": {
-                "kind": "NON_NULL",
-                "name": null,
-                "ofType": {
-                  "kind": "LIST",
-                  "name": null,
-                  "ofType": {
-                    "kind": "NON_NULL",
-                    "name": null,
-                    "ofType": {
-                      "kind": "SCALAR",
-                      "name": "String",
-                      "ofType": null
-                    }
-                  }
-                }
-              },
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
-              "name": "other",
-              "description": "Misc requirements.",
-              "args": [],
-              "type": {
-                "kind": "NON_NULL",
-                "name": null,
-                "ofType": {
-                  "kind": "SCALAR",
-                  "name": "String",
-                  "ofType": null
-                }
-              },
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
-              "name": "processor",
-              "description": "The suggested processors.",
-              "args": [],
-              "type": {
-                "kind": "NON_NULL",
-                "name": null,
-                "ofType": {
-                  "kind": "LIST",
-                  "name": null,
-                  "ofType": {
-                    "kind": "NON_NULL",
-                    "name": null,
-                    "ofType": {
-                      "kind": "SCALAR",
-                      "name": "String",
-                      "ofType": null
-                    }
-                  }
-                }
-              },
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
-              "name": "ram",
-              "description": "The suggested amount of RAM.",
-              "args": [],
-              "type": {
-                "kind": "NON_NULL",
-                "name": null,
-                "ofType": {
-                  "kind": "SCALAR",
-                  "name": "String",
-                  "ofType": null
-                }
-              },
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
-              "name": "videoCard",
-              "description": "The suggested video cards.",
-              "args": [],
-              "type": {
-                "kind": "NON_NULL",
-                "name": null,
-                "ofType": {
-                  "kind": "LIST",
-                  "name": null,
-                  "ofType": {
-                    "kind": "NON_NULL",
-                    "name": null,
-                    "ofType": {
-                      "kind": "SCALAR",
-                      "name": "String",
-                      "ofType": null
-                    }
-                  }
                 }
               },
               "isDeprecated": false,
@@ -106040,26 +103507,6 @@
               "deprecationReason": "Retail sales discontinued"
             },
             {
-              "name": "amazonMarketplaces",
-              "description": "amazonMarketplaces returns a list of Amazon marketplaces in which this user is active in.",
-              "args": [],
-              "type": {
-                "kind": "NON_NULL",
-                "name": null,
-                "ofType": {
-                  "kind": "LIST",
-                  "name": null,
-                  "ofType": {
-                    "kind": "OBJECT",
-                    "name": "AmazonMarketplace",
-                    "ofType": null
-                  }
-                }
-              },
-              "isDeprecated": true,
-              "deprecationReason": "Game sales discontinued"
-            },
-            {
               "name": "autoModProperties",
               "description": "AutoModProperties is a mapping of automod categories to levels, i.e. a user has indicated they want level 4, or\nthe highest level of moderation for profanity, but level 1 for everything else.",
               "args": [],
@@ -106791,26 +104238,6 @@
               },
               "isDeprecated": false,
               "deprecationReason": null
-            },
-            {
-              "name": "crates",
-              "description": "A list of Twitch crates in a user's inventory.\nThis is only returned if the request is authenticated by the same user who's email is requested.",
-              "args": [],
-              "type": {
-                "kind": "NON_NULL",
-                "name": null,
-                "ofType": {
-                  "kind": "LIST",
-                  "name": null,
-                  "ofType": {
-                    "kind": "OBJECT",
-                    "name": "Crate",
-                    "ofType": null
-                  }
-                }
-              },
-              "isDeprecated": true,
-              "deprecationReason": "Game sales discontinued."
             },
             {
               "name": "createdAt",
@@ -111120,26 +108547,6 @@
               "deprecationReason": null
             },
             {
-              "name": "purchaseTokens",
-              "description": "purchaseTokens are the purchase tokens and their current state.\nThey can be used with ConsumeChatToken to share a recent purchase in another user's channel.",
-              "args": [],
-              "type": {
-                "kind": "NON_NULL",
-                "name": null,
-                "ofType": {
-                  "kind": "LIST",
-                  "name": null,
-                  "ofType": {
-                    "kind": "OBJECT",
-                    "name": "PurchaseToken",
-                    "ofType": null
-                  }
-                }
-              },
-              "isDeprecated": true,
-              "deprecationReason": "Game sales discontinued"
-            },
-            {
               "name": "resubNotification",
               "description": "The most recent resub token to use for sending a special message.\nIf no notification is pending this will be null.",
               "args": [],
@@ -111562,49 +108969,6 @@
           "name": "UserTwitchConnection",
           "description": "The relationship between the user and Twitch.",
           "fields": [
-            {
-              "name": "commerceAmendment",
-              "description": "The current state of the game commerce amendments for the user.",
-              "args": [
-                {
-                  "name": "types",
-                  "description": null,
-                  "type": {
-                    "kind": "NON_NULL",
-                    "name": null,
-                    "ofType": {
-                      "kind": "LIST",
-                      "name": null,
-                      "ofType": {
-                        "kind": "NON_NULL",
-                        "name": null,
-                        "ofType": {
-                          "kind": "ENUM",
-                          "name": "CommerceAmendmentType",
-                          "ofType": null
-                        }
-                      }
-                    }
-                  },
-                  "defaultValue": null
-                }
-              ],
-              "type": {
-                "kind": "NON_NULL",
-                "name": null,
-                "ofType": {
-                  "kind": "LIST",
-                  "name": null,
-                  "ofType": {
-                    "kind": "OBJECT",
-                    "name": "CommerceAmendment",
-                    "ofType": null
-                  }
-                }
-              },
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
             {
               "name": "overwatchLeagueTeamPreference",
               "description": "Returns the User's preferred team in Overwatch League.",
