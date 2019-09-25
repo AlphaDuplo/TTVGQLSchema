@@ -62385,6 +62385,22 @@
               "deprecationReason": null
             },
             {
+              "name": "chargeInstrumentID",
+              "description": "ID of the payment method that can be referenced by other systems.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "ID",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
               "name": "expirationMonth",
               "description": "Credit card expiration month, if paymentType is CREDIT_CARD.",
               "args": [],
