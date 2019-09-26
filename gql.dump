@@ -78688,13 +78688,9 @@
               "name": "size",
               "description": "Size of the long edge of the Component Extension, relative to the length of the corresponding\ninteractable dimension of the video.",
               "type": {
-                "kind": "NON_NULL",
-                "name": null,
-                "ofType": {
-                  "kind": "SCALAR",
-                  "name": "Float",
-                  "ofType": null
-                }
+                "kind": "SCALAR",
+                "name": "Float",
+                "ofType": null
               },
               "defaultValue": null
             },
