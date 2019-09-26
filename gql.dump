@@ -55038,6 +55038,33 @@
               "deprecationReason": null
             },
             {
+              "name": "regenerateStreamKey",
+              "description": "regenerateStreamKey generates a new stream key for the broadcaster and returns the newly generated stream key.",
+              "args": [
+                {
+                  "name": "input",
+                  "description": null,
+                  "type": {
+                    "kind": "NON_NULL",
+                    "name": null,
+                    "ofType": {
+                      "kind": "INPUT_OBJECT",
+                      "name": "RegenerateStreamKeyInput",
+                      "ofType": null
+                    }
+                  },
+                  "defaultValue": null
+                }
+              ],
+              "type": {
+                "kind": "OBJECT",
+                "name": "RegenerateStreamKeyPayload",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
               "name": "regenerateVerificationCode",
               "description": "regenerateVerificationCode generates a new verification code and resends the verification message with the new code.",
               "args": [
@@ -73797,6 +73824,54 @@
                   "name": "Int",
                   "ofType": null
                 }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "INPUT_OBJECT",
+          "name": "RegenerateStreamKeyInput",
+          "description": "RegenerateStreamKeyInput is input required to regenerate a broadcaster's stream key.",
+          "fields": null,
+          "inputFields": [
+            {
+              "name": "channelID",
+              "description": "channelID of the broadcaster.",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "ID",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            }
+          ],
+          "interfaces": null,
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "OBJECT",
+          "name": "RegenerateStreamKeyPayload",
+          "description": "RegenerateStreamKeyPayload contains the VideoStreamSettings with updated stream key.",
+          "fields": [
+            {
+              "name": "channel",
+              "description": "The updated video stream for channel.",
+              "args": [],
+              "type": {
+                "kind": "OBJECT",
+                "name": "Channel",
+                "ofType": null
               },
               "isDeprecated": false,
               "deprecationReason": null
