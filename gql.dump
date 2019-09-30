@@ -58965,6 +58965,33 @@
               "deprecationReason": null
             },
             {
+              "name": "updateVideoStreamSettings",
+              "description": "updateVideoStreamSettings updates the broadcaster's video stream settings such as latency mode.",
+              "args": [
+                {
+                  "name": "input",
+                  "description": null,
+                  "type": {
+                    "kind": "NON_NULL",
+                    "name": null,
+                    "ofType": {
+                      "kind": "INPUT_OBJECT",
+                      "name": "UpdateVideoStreamSettingsInput",
+                      "ofType": null
+                    }
+                  },
+                  "defaultValue": null
+                }
+              ],
+              "type": {
+                "kind": "OBJECT",
+                "name": "UpdateVideoStreamSettingsPayload",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
               "name": "updateVisibility",
               "description": "Changes the user's visibility setting. This is an account-level setting that will cause the user's availability to\nappear differently to other users, despite what sessions are reporting. See the VisibilityInput enum for details on\nthe effects of each value.\n\nBecause this is an account-level setting, it should only be used in response to the user expressing clear intention\nto change their visibility. Setting a status for an individual session should be done using setSessionStatus.",
               "args": [
@@ -103500,6 +103527,162 @@
                   "name": "Video",
                   "ofType": null
                 }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "OBJECT",
+          "name": "UpdateVideoStreamSettingsError",
+          "description": "Error that may be returned by the UpdateVideoStreamSettings mutation.",
+          "fields": [
+            {
+              "name": "code",
+              "description": "Type of mutation error.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "ENUM",
+                  "name": "UpdateVideoStreamSettingsErrorCode",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "ENUM",
+          "name": "UpdateVideoStreamSettingsErrorCode",
+          "description": "UpdateVideoStreamSettingsErrorCode is the client error type that occurred during the UpdateVideoStreamSettings mutation.",
+          "fields": null,
+          "inputFields": null,
+          "interfaces": null,
+          "enumValues": [
+            {
+              "name": "CHANNEL_NOT_FOUND",
+              "description": "The broadcaster is not found.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "PERMISSION_DENIED",
+              "description": "Permission denied to add an authorized user.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "INVALID_ARGUMENT",
+              "description": "Invalid argument to add an authorized user.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "possibleTypes": null
+        },
+        {
+          "kind": "INPUT_OBJECT",
+          "name": "UpdateVideoStreamSettingsInput",
+          "description": "UpdateVideoStreamSettingsInput updates the broadcaster's stream settings such as stream delay length seconds or stream key.",
+          "fields": null,
+          "inputFields": [
+            {
+              "name": "channelID",
+              "description": "ChannelID of the broadcaster. This has to be same as authenticated user's userID.",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "ID",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "delaySeconds",
+              "description": "The number of seconds delay for a stream. When this is set, a stream will be ingested with specified delay in seconds. Maximum is set to 900 seconds.",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Int",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "isLowLatency",
+              "description": "Whether or not a stream should be started as a low latency stream.",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Boolean",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "shouldArchiveVODs",
+              "description": "Whether or not the broadcaster prefers to archive the vod for a stream.",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Boolean",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "shouldShowDisconnectSlate",
+              "description": "Whether or not to show the disconnect slate.",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Boolean",
+                "ofType": null
+              },
+              "defaultValue": null
+            }
+          ],
+          "interfaces": null,
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "OBJECT",
+          "name": "UpdateVideoStreamSettingsPayload",
+          "description": "UpdateVideoStreamSettingsPayload returns the updated video stream settings for the broadcaster.",
+          "fields": [
+            {
+              "name": "channel",
+              "description": "The updated Channel for the broadcaster.",
+              "args": [],
+              "type": {
+                "kind": "OBJECT",
+                "name": "Channel",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "error",
+              "description": "Error code.",
+              "args": [],
+              "type": {
+                "kind": "OBJECT",
+                "name": "UpdateVideoStreamSettingsError",
+                "ofType": null
               },
               "isDeprecated": false,
               "deprecationReason": null
