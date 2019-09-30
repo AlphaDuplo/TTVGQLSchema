@@ -14267,6 +14267,18 @@
           "description": "Bits partner settings associated with the badges.",
           "fields": [
             {
+              "name": "canUploadBadgeTierEmoticons",
+              "description": "Whether or not the broadcaster is enabled to upload bits badge tier emote rewards.",
+              "args": [],
+              "type": {
+                "kind": "SCALAR",
+                "name": "Boolean",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
               "name": "tiers",
               "description": "A list of tiers, starting from 1 bit to as high as 5,000,000 bits.",
               "args": [],
@@ -97311,6 +97323,18 @@
           "name": "UpdateBitsBadgeTiersPayload",
           "description": "Results of bits badge tier updates.",
           "fields": [
+            {
+              "name": "canUploadBadgeTierEmoticons",
+              "description": "Whether or not the broadcaster is enabled to upload bits badge tier emote rewards.",
+              "args": [],
+              "type": {
+                "kind": "SCALAR",
+                "name": "Boolean",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
             {
               "name": "error",
               "description": "Service error, if any.",
