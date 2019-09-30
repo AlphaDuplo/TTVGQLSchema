@@ -11832,6 +11832,18 @@
               "deprecationReason": null
             },
             {
+              "name": "ownerChanletAttributes",
+              "description": "Configurations for chanlets this channel owns.",
+              "args": [],
+              "type": {
+                "kind": "OBJECT",
+                "name": "OwnerChanletAttributes",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
               "name": "partnership",
               "description": "Channel partnership information; whether the channel is a Twitch partner.",
               "args": [],
@@ -58155,6 +58167,33 @@
               "deprecationReason": null
             },
             {
+              "name": "updateOwnerChanletAttributes",
+              "description": "updateOwnerChanletAttributes updates/creates a new set of owner chanlet attributes for a Channel.",
+              "args": [
+                {
+                  "name": "input",
+                  "description": null,
+                  "type": {
+                    "kind": "NON_NULL",
+                    "name": null,
+                    "ofType": {
+                      "kind": "INPUT_OBJECT",
+                      "name": "UpdateOwnerChanletAttributesInput",
+                      "ofType": null
+                    }
+                  },
+                  "defaultValue": null
+                }
+              ],
+              "type": {
+                "kind": "OBJECT",
+                "name": "UpdateOwnerChanletAttributesPayload",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
               "name": "updatePanel",
               "description": "updatePanel updates the data for a given panel.",
               "args": [
@@ -61572,6 +61611,33 @@
                 "ofType": {
                   "kind": "SCALAR",
                   "name": "String",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "OBJECT",
+          "name": "OwnerChanletAttributes",
+          "description": "OwnerChanletAttributes store configuration flags for child chanlets the channel owns.",
+          "fields": [
+            {
+              "name": "isChanletFeatureDisabled",
+              "description": "Whether to show the child chanlets.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Boolean",
                   "ofType": null
                 }
               },
@@ -100488,6 +100554,68 @@
               "type": {
                 "kind": "OBJECT",
                 "name": "OrganizationMember",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "INPUT_OBJECT",
+          "name": "UpdateOwnerChanletAttributesInput",
+          "description": "UpdateOwnerChanletAttributesInput updates the owner chanlet attributes.",
+          "fields": null,
+          "inputFields": [
+            {
+              "name": "channelID",
+              "description": "The ID of the owner chanlet (channel that owns chanlets).",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "ID",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "isChanletFeatureDisabled",
+              "description": "Whether the chanlets should return for the viewers.",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Boolean",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            }
+          ],
+          "interfaces": null,
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "OBJECT",
+          "name": "UpdateOwnerChanletAttributesPayload",
+          "description": "UpdateOwnerChanletAttributesPayload returns the new chanlet that was created.",
+          "fields": [
+            {
+              "name": "ownerChanletAttributes",
+              "description": "Resulted OwnerChanletAttributes from the update. This is expected to match the input.",
+              "args": [],
+              "type": {
+                "kind": "OBJECT",
+                "name": "OwnerChanletAttributes",
                 "ofType": null
               },
               "isDeprecated": false,
