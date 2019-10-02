@@ -2391,6 +2391,148 @@
           "possibleTypes": null
         },
         {
+          "kind": "OBJECT",
+          "name": "AddStreamAuthorizedUserError",
+          "description": "Error that may be returned by the AddStreamAuthorizedUser mutation.",
+          "fields": [
+            {
+              "name": "code",
+              "description": "Type of mutation error.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "ENUM",
+                  "name": "AddStreamAuthorizedUserErrorCode",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "ENUM",
+          "name": "AddStreamAuthorizedUserErrorCode",
+          "description": "AddStreamAuthorizedUserErrorCode is the client error type that occurred during the AddStreamAuthorizedUser mutation.",
+          "fields": null,
+          "inputFields": null,
+          "interfaces": null,
+          "enumValues": [
+            {
+              "name": "TARGET_USER_UNRETURNABLE",
+              "description": "Unable to assign the Targeted user to stream on behalf of the broadcaster.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "CHANNEL_NOT_FOUND",
+              "description": "The broadcaster is not found.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "MAX_ACCOUNT_LIMIT",
+              "description": "Maximum limit for adding authorized user is reached.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "PERMISSION_DENIED",
+              "description": "Permission denied to add an authorized user.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "INVALID_ARGUMENT",
+              "description": "Invalid argument to add an authorized user.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "possibleTypes": null
+        },
+        {
+          "kind": "INPUT_OBJECT",
+          "name": "AddStreamAuthorizedUserInput",
+          "description": "AddStreamAuthorizedUserInput contains the channelID for the broadcaster and the authorized userID.",
+          "fields": null,
+          "inputFields": [
+            {
+              "name": "authorizedUserID",
+              "description": "authorizedUserID for an authorized user who is allow to stream on behalf of broadcaster.",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "ID",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "channelID",
+              "description": "channelID of the broadcaster.",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "ID",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            }
+          ],
+          "interfaces": null,
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "OBJECT",
+          "name": "AddStreamAuthorizedUserPayload",
+          "description": "AddStreamAuthorizedUserPayload contains the VideoStreamSettings with updated authorized users.",
+          "fields": [
+            {
+              "name": "channel",
+              "description": "The updated channel of broadcaster.",
+              "args": [],
+              "type": {
+                "kind": "OBJECT",
+                "name": "Channel",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "error",
+              "description": "Error code.",
+              "args": [],
+              "type": {
+                "kind": "OBJECT",
+                "name": "AddStreamAuthorizedUserError",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
           "kind": "ENUM",
           "name": "AdrollType",
           "description": "The type of ad break being requested.",
@@ -32755,6 +32897,148 @@
           "possibleTypes": null
         },
         {
+          "kind": "OBJECT",
+          "name": "DeleteStreamAuthorizedUserError",
+          "description": "Error that may be returned by the DeleteStreamAuthorizedUser mutation.",
+          "fields": [
+            {
+              "name": "code",
+              "description": "Type of mutation error.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "ENUM",
+                  "name": "DeleteStreamAuthorizedUserErrorCode",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "ENUM",
+          "name": "DeleteStreamAuthorizedUserErrorCode",
+          "description": "DeleteStreamAuthorizedUserErrorCode is the client error type that occurred during the DeleteStreamAuthorizedUser mutation.",
+          "fields": null,
+          "inputFields": null,
+          "interfaces": null,
+          "enumValues": [
+            {
+              "name": "TARGET_USER_UNRETURNABLE",
+              "description": "Unable to assign the Targeted user to stream on behalf of the broadcaster.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "CHANNEL_NOT_FOUND",
+              "description": "The broadcaster is not found.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "MAX_ACCOUNT_LIMIT",
+              "description": "Maximum limit for adding authorized user is reached.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "PERMISSION_DENIED",
+              "description": "Permission denied to add an authorized user.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "INVALID_ARGUMENT",
+              "description": "Invalid argument to add an authorized user.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "possibleTypes": null
+        },
+        {
+          "kind": "INPUT_OBJECT",
+          "name": "DeleteStreamAuthorizedUserInput",
+          "description": "DeleteStreamAuthorizedUserInput contains the channelID for the broadcaster and the authorized userID.",
+          "fields": null,
+          "inputFields": [
+            {
+              "name": "authorizedUserID",
+              "description": "authorizedUserID for an authorized user who was allowed to stream on behalf of broadcaster.",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "ID",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "channelID",
+              "description": "channelID of the broadcaster.",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "ID",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            }
+          ],
+          "interfaces": null,
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "OBJECT",
+          "name": "DeleteStreamAuthorizedUserPayload",
+          "description": "DeleteStreamAuthorizedUserPayload contains the VideoStreamSettings with updated authorized users.",
+          "fields": [
+            {
+              "name": "channel",
+              "description": "The updated channel of broadcaster.",
+              "args": [],
+              "type": {
+                "kind": "OBJECT",
+                "name": "Channel",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "error",
+              "description": "Error code.",
+              "args": [],
+              "type": {
+                "kind": "OBJECT",
+                "name": "AddStreamAuthorizedUserError",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
           "kind": "INPUT_OBJECT",
           "name": "DeleteUserColorsInput",
           "description": "Inputs for the DeleteUserColors mutation.",
@@ -51343,6 +51627,33 @@
               "deprecationReason": null
             },
             {
+              "name": "addStreamAuthorizedUser",
+              "description": "Adds a user to stream on behalf of broadcaster.",
+              "args": [
+                {
+                  "name": "input",
+                  "description": null,
+                  "type": {
+                    "kind": "NON_NULL",
+                    "name": null,
+                    "ofType": {
+                      "kind": "INPUT_OBJECT",
+                      "name": "AddStreamAuthorizedUserInput",
+                      "ofType": null
+                    }
+                  },
+                  "defaultValue": null
+                }
+              ],
+              "type": {
+                "kind": "OBJECT",
+                "name": "AddStreamAuthorizedUserPayload",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
               "name": "allocateKeysForBounty",
               "description": "Allocates product keys that a broadcaster may need to complete the bounty.",
               "args": [
@@ -53910,6 +54221,33 @@
               "type": {
                 "kind": "OBJECT",
                 "name": "DeleteSquadStreamInvitationPayload",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "deleteStreamAuthorizedUser",
+              "description": "Deletes an authorized user who was allowed to stream on behalf of broadcaster.",
+              "args": [
+                {
+                  "name": "input",
+                  "description": null,
+                  "type": {
+                    "kind": "NON_NULL",
+                    "name": null,
+                    "ofType": {
+                      "kind": "INPUT_OBJECT",
+                      "name": "DeleteStreamAuthorizedUserInput",
+                      "ofType": null
+                    }
+                  },
+                  "defaultValue": null
+                }
+              ],
+              "type": {
+                "kind": "OBJECT",
+                "name": "DeleteStreamAuthorizedUserPayload",
                 "ofType": null
               },
               "isDeprecated": false,
