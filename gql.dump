@@ -34680,7 +34680,7 @@
           "fields": [
             {
               "name": "applicableChannels",
-              "description": "What channels this campaign is targeted to\n(Empty list == all channels for the games are allowed)\nAn applicable channel must also be playing an applicable game for the\ncampaign to apply to the channel.",
+              "description": "If isAvailableToAllChannels is false, applicableChannels is the list of\nwhat channels this campaign is targeted to.  If the flag is true but the\nlist is empty, that means that all whitelisted users cannot be loaded.\nAn applicable channel must also be playing an applicable game for the\ncampaign to apply to the channel.",
               "args": [],
               "type": {
                 "kind": "LIST",
@@ -34780,6 +34780,22 @@
                 "ofType": {
                   "kind": "SCALAR",
                   "name": "ID",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "isAvailableToAllChannels",
+              "description": "Indicates if this campaign is available to all channels or if only some.\nIf false, applicableChannels should contain the channels where the campaign\nis available.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Boolean",
                   "ofType": null
                 }
               },
