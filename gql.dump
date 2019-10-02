@@ -1926,15 +1926,11 @@
             },
             {
               "name": "deviceID",
-              "description": "Unique identifier of the current device.",
+              "description": "Unique identifier of the current device.\nNote: deprecated field -- the deviceID now comess of the X-Device-Id header...",
               "type": {
-                "kind": "NON_NULL",
-                "name": null,
-                "ofType": {
-                  "kind": "SCALAR",
-                  "name": "ID",
-                  "ofType": null
-                }
+                "kind": "SCALAR",
+                "name": "ID",
+                "ofType": null
               },
               "defaultValue": null
             },
@@ -2014,15 +2010,11 @@
             },
             {
               "name": "userID",
-              "description": "ID for the user associated with the new device token.",
+              "description": "ID for the user associated with the new device token.\nNote: deprecated field -- the userID now comes off the authenticated user.",
               "type": {
-                "kind": "NON_NULL",
-                "name": null,
-                "ofType": {
-                  "kind": "SCALAR",
-                  "name": "ID",
-                  "ofType": null
-                }
+                "kind": "SCALAR",
+                "name": "ID",
+                "ofType": null
               },
               "defaultValue": null
             }
@@ -69609,8 +69601,8 @@
                 "name": "DirectoryConnection",
                 "ofType": null
               },
-              "isDeprecated": false,
-              "deprecationReason": null
+              "isDeprecated": true,
+              "deprecationReason": "Communities feature is deprecated"
             },
             {
               "name": "directory",
