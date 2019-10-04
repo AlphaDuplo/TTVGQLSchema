@@ -414,6 +414,18 @@
               "deprecationReason": null
             },
             {
+              "name": "riot",
+              "description": "Connection information about a user's Riot account.",
+              "args": [],
+              "type": {
+                "kind": "OBJECT",
+                "name": "UserRiotConnectionLink",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
               "name": "steam",
               "description": "Connection information about a user's Steam account.",
               "args": [],
@@ -57514,6 +57526,33 @@
               "deprecationReason": null
             },
             {
+              "name": "unlinkRiotConnection",
+              "description": "Unlink a user's account connection to Riot.",
+              "args": [
+                {
+                  "name": "input",
+                  "description": null,
+                  "type": {
+                    "kind": "NON_NULL",
+                    "name": null,
+                    "ofType": {
+                      "kind": "INPUT_OBJECT",
+                      "name": "UnlinkRiotConnectionInput",
+                      "ofType": null
+                    }
+                  },
+                  "defaultValue": null
+                }
+              ],
+              "type": {
+                "kind": "OBJECT",
+                "name": "UnlinkRiotConnectionPayload",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
               "name": "unlinkSSO",
               "description": "Unlink an SSO app from a user's account.",
               "args": [
@@ -96473,6 +96512,54 @@
         },
         {
           "kind": "INPUT_OBJECT",
+          "name": "UnlinkRiotConnectionInput",
+          "description": "User ID input of the connection being deleted.",
+          "fields": null,
+          "inputFields": [
+            {
+              "name": "userID",
+              "description": "Twitch User ID to delete.",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "ID",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            }
+          ],
+          "interfaces": null,
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "OBJECT",
+          "name": "UnlinkRiotConnectionPayload",
+          "description": "Contains a struct of all current accounts connections.",
+          "fields": [
+            {
+              "name": "connections",
+              "description": "The complete account connections list where Riot will be null.",
+              "args": [],
+              "type": {
+                "kind": "OBJECT",
+                "name": "AccountConnectionSet",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "INPUT_OBJECT",
           "name": "UnlinkSSOInput",
           "description": null,
           "fields": null,
@@ -109029,6 +109116,33 @@
                 "kind": "SCALAR",
                 "name": "String",
                 "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "OBJECT",
+          "name": "UserRiotConnectionLink",
+          "description": "The edge between a User and a Youtube Connection.",
+          "fields": [
+            {
+              "name": "id",
+              "description": "The PUUID for the user's Riot account.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "ID",
+                  "ofType": null
+                }
               },
               "isDeprecated": false,
               "deprecationReason": null
