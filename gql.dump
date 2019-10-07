@@ -105477,6 +105477,59 @@
               "deprecationReason": null
             },
             {
+              "name": "competitions",
+              "description": "The competitions that a user is involved in.\nReturns null if the user doesn't have any competitions.\nuser and competition state can be null.",
+              "args": [
+                {
+                  "name": "first",
+                  "description": null,
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Int",
+                    "ofType": null
+                  },
+                  "defaultValue": "10"
+                },
+                {
+                  "name": "after",
+                  "description": null,
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Cursor",
+                    "ofType": null
+                  },
+                  "defaultValue": null
+                },
+                {
+                  "name": "userState",
+                  "description": null,
+                  "type": {
+                    "kind": "ENUM",
+                    "name": "CompetitionParticipantState",
+                    "ofType": null
+                  },
+                  "defaultValue": null
+                },
+                {
+                  "name": "competitionState",
+                  "description": null,
+                  "type": {
+                    "kind": "ENUM",
+                    "name": "CompetitionState",
+                    "ofType": null
+                  },
+                  "defaultValue": null
+                }
+              ],
+              "type": {
+                "kind": "OBJECT",
+                "name": "CompetitionConnection",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
               "name": "createdAt",
               "description": "When the user created their account.",
               "args": [],
