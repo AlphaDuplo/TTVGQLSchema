@@ -4749,6 +4749,46 @@
               "deprecationReason": null
             },
             {
+              "name": "emoticonUploadConfigurations",
+              "description": "The emoticon configurations for emoticons that are currently in the process of being uploaded for this tier.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "LIST",
+                  "name": null,
+                  "ofType": {
+                    "kind": "OBJECT",
+                    "name": "EmoteUploadConfiguration",
+                    "ofType": null
+                  }
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "emoticons",
+              "description": "The emoticons that are associated with this tier.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "LIST",
+                  "name": null,
+                  "ofType": {
+                    "kind": "OBJECT",
+                    "name": "Emote",
+                    "ofType": null
+                  }
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
               "name": "isEnabled",
               "description": "Whether the badge is enabled for this threshold.",
               "args": [],
@@ -35446,6 +35486,41 @@
         },
         {
           "kind": "OBJECT",
+          "name": "EmoteImageUploadConfiguration",
+          "description": "Represents the data needed to continue the upload of an emoticon image asset.",
+          "fields": [
+            {
+              "name": "uploadID",
+              "description": "The id used by upload service to publish updates via pubsub about the uploaded image.",
+              "args": [],
+              "type": {
+                "kind": "SCALAR",
+                "name": "ID",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "uploadURL",
+              "description": "The url in s3 for where the front-end should post the image asset.",
+              "args": [],
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "OBJECT",
           "name": "EmoteSet",
           "description": "Represents a group of emotes.",
           "fields": [
@@ -35556,6 +35631,53 @@
               "deprecationReason": null
             }
           ],
+          "possibleTypes": null
+        },
+        {
+          "kind": "OBJECT",
+          "name": "EmoteUploadConfiguration",
+          "description": "Represents an emote that is currently in the process of being uploaded.",
+          "fields": [
+            {
+              "name": "imageUploadConfig1X",
+              "description": "The relevant metadata for the 1X image asset.",
+              "args": [],
+              "type": {
+                "kind": "OBJECT",
+                "name": "EmoteImageUploadConfiguration",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "imageUploadConfig2X",
+              "description": "The relevant metadata for the 2X image asset.",
+              "args": [],
+              "type": {
+                "kind": "OBJECT",
+                "name": "EmoteImageUploadConfiguration",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "imageUploadConfig4X",
+              "description": "The relevant metadata for the 4X image asset.",
+              "args": [],
+              "type": {
+                "kind": "OBJECT",
+                "name": "EmoteImageUploadConfiguration",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
+          "enumValues": null,
           "possibleTypes": null
         },
         {
@@ -97690,6 +97812,12 @@
             {
               "name": "BADGE_TITLE_FAILED_MODERATION",
               "description": "Badge title did not pass moderation check.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "INVALID_EMOTE_CODE",
+              "description": "The emote code submitted collides with an existing emote code.",
               "isDeprecated": false,
               "deprecationReason": null
             },
