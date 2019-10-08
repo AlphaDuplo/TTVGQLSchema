@@ -89839,6 +89839,22 @@
               "deprecationReason": null
             },
             {
+              "name": "isExtended",
+              "description": "Whether this subscription has been extended. This means that a non-recurring subscription has been extended with additional months.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Boolean",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
               "name": "isRefundable",
               "description": "Whether the subscription is in the grace period to be cancelled and refunded.",
               "args": [],
