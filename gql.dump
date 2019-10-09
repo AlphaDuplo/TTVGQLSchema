@@ -26551,6 +26551,68 @@
           "possibleTypes": null
         },
         {
+          "kind": "OBJECT",
+          "name": "CreatePollError",
+          "description": "Vote in poll error.",
+          "fields": [
+            {
+              "name": "code",
+              "description": "Code describing the error.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "ENUM",
+                  "name": "CreatePollErrorCode",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "ENUM",
+          "name": "CreatePollErrorCode",
+          "description": "Vote in poll error code.",
+          "fields": null,
+          "inputFields": null,
+          "interfaces": null,
+          "enumValues": [
+            {
+              "name": "AUTOMOD_FAILED",
+              "description": "User attempted to create poll with restricted content.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "POLL_ALREADY_ACTIVE",
+              "description": "User attempted to create poll when a poll was already active.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "CHANNEL_NOT_BITS_ENABLED",
+              "description": "User attempted to create poll with bits on a channel where bits are not enabled.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "UNKNOWN",
+              "description": "An unknown error occurred.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "possibleTypes": null
+        },
+        {
           "kind": "INPUT_OBJECT",
           "name": "CreatePollInput",
           "description": "Inputs for creating a new poll.",
@@ -26670,6 +26732,18 @@
           "name": "CreatePollPayload",
           "description": "Outputs from the create poll mutation.",
           "fields": [
+            {
+              "name": "error",
+              "description": "If present, there was an error with the request.",
+              "args": [],
+              "type": {
+                "kind": "OBJECT",
+                "name": "CreatePollError",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
             {
               "name": "poll",
               "description": "The created poll.",
@@ -114513,6 +114587,12 @@
             {
               "name": "USER_FORBIDDEN",
               "description": "User is not allowed to vote in poll (e.g. they're banned in the channel, poll is subscriber only).",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "SELF_BITS_VOTE_NOT_ALLOWED",
+              "description": "User is not allowed to vote in their own poll with bits.",
               "isDeprecated": false,
               "deprecationReason": null
             },
