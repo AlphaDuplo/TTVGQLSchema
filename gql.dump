@@ -62249,7 +62249,7 @@
           "description": "OwnerChanletAttributes store configuration flags for child chanlets the channel owns.",
           "fields": [
             {
-              "name": "isChanletFeatureDisabled",
+              "name": "isChanletFeatureEnabled",
               "description": "Whether to show the child chanlets.",
               "args": [],
               "type": {
@@ -101405,7 +101405,7 @@
               "defaultValue": null
             },
             {
-              "name": "isChanletFeatureDisabled",
+              "name": "isChanletFeatureEnabled",
               "description": "Whether the chanlets should return for the viewers.",
               "type": {
                 "kind": "NON_NULL",
