@@ -63099,6 +63099,30 @@
               "description": "Pay with Apple In-App Purchase.",
               "isDeprecated": false,
               "deprecationReason": null
+            },
+            {
+              "name": "SKRILL",
+              "description": "Xsolla only.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "YANDEX",
+              "description": "Xsolla only.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "WEBMONEY",
+              "description": "Xsolla only.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "UNKNOWN",
+              "description": "Xsolla default.",
+              "isDeprecated": false,
+              "deprecationReason": null
             }
           ],
           "possibleTypes": null
