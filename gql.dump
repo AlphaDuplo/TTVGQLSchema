@@ -7361,6 +7361,26 @@
           "description": "A campaign defines the requirements and parameters for a set of bounties.",
           "fields": [
             {
+              "name": "allowedGames",
+              "description": "The list of games that if isAllowAllGames is false, the bounty must use.",
+              "args": [],
+              "type": {
+                "kind": "LIST",
+                "name": null,
+                "ofType": {
+                  "kind": "NON_NULL",
+                  "name": null,
+                  "ofType": {
+                    "kind": "OBJECT",
+                    "name": "Game",
+                    "ofType": null
+                  }
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
               "name": "availablePlatforms",
               "description": "The platforms on which users can play this campaign's game (ie. PC, PS4, Switch).",
               "args": [],
@@ -7501,8 +7521,8 @@
                 "name": "Game",
                 "ofType": null
               },
-              "isDeprecated": false,
-              "deprecationReason": null
+              "isDeprecated": true,
+              "deprecationReason": "Replacing with 'allowedGames' as this provides a set of available games instead of a single game"
             },
             {
               "name": "id",
@@ -7551,6 +7571,18 @@
               },
               "isDeprecated": true,
               "deprecationReason": "Use 'rejectionReason' in 'brandDetails' instead."
+            },
+            {
+              "name": "shouldAllowAllGames",
+              "description": "If a campaign allows any game to be played.",
+              "args": [],
+              "type": {
+                "kind": "SCALAR",
+                "name": "Boolean",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
             },
             {
               "name": "sponsor",
@@ -31631,6 +31663,16 @@
                 }
               },
               "defaultValue": null
+            },
+            {
+              "name": "unfulfilledRedemptionsNewStatus",
+              "description": "Rewards cannot be deleted while they have unfulfilled redemptions.\nAll unfulfilled redemptions will be set to this new state asynchronously after the reward is deleted.",
+              "type": {
+                "kind": "ENUM",
+                "name": "CommunityPointsCustomRewardRedemptionStatus",
+                "ofType": null
+              },
+              "defaultValue": "FULFILLED"
             }
           ],
           "interfaces": null,
