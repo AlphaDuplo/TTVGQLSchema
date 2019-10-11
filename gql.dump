@@ -26675,6 +26675,16 @@
               "defaultValue": null
             },
             {
+              "name": "multichoiceEnabled",
+              "description": "Denotes if the poll allows voting for multiple options.",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Boolean",
+                "ofType": null
+              },
+              "defaultValue": "false"
+            },
+            {
               "name": "ownedBy",
               "description": "Id of the channel this poll is owned by.",
               "type": {
@@ -66063,6 +66073,22 @@
               "deprecationReason": null
             },
             {
+              "name": "multichoice",
+              "description": "Multichoice voting poll settings.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "OBJECT",
+                  "name": "PollSettingsMultichoice",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
               "name": "subscriberMultiplier",
               "description": "Subscriber multiplier poll settings.",
               "args": [],
@@ -66124,6 +66150,33 @@
             {
               "name": "isEnabled",
               "description": "Whether the poll allows for users to use bits for votes.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Boolean",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "OBJECT",
+          "name": "PollSettingsMultichoice",
+          "description": "Multichoice voting enabled poll setting.",
+          "fields": [
+            {
+              "name": "isEnabled",
+              "description": "Whether the poll has multichoice voting enabled.",
               "args": [],
               "type": {
                 "kind": "NON_NULL",
