@@ -65617,6 +65617,22 @@
               "deprecationReason": null
             },
             {
+              "name": "remainingDurationMilliseconds",
+              "description": "Amount of milliseconds before the poll ends.\n0 when the polls is ended.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Int",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
               "name": "self",
               "description": "The authenticated user's relationship with this poll.\nMain use case is to check if the user has voted in the poll already.\nNull if un-authenticated user is making this query.",
               "args": [],
