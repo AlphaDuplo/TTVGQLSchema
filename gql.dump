@@ -31155,6 +31155,29 @@
         },
         {
           "kind": "OBJECT",
+          "name": "DeleteBitsBadgeTierEmoticonPayload",
+          "description": "Result of delete bits badge tier emoticon.",
+          "fields": [
+            {
+              "name": "deletedAt",
+              "description": "Time that the emoticon got deleted.",
+              "args": [],
+              "type": {
+                "kind": "SCALAR",
+                "name": "Time",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "OBJECT",
           "name": "DeleteChannelBlockedTermError",
           "description": "Errors that the mutation returns.",
           "fields": [
@@ -53970,6 +53993,33 @@
               "deprecationReason": "Should use applyExtensionActivations instead"
             },
             {
+              "name": "deleteBitsBadgeTierEmoticon",
+              "description": "Deletes a bits badge tier emoticon.",
+              "args": [
+                {
+                  "name": "input",
+                  "description": null,
+                  "type": {
+                    "kind": "NON_NULL",
+                    "name": null,
+                    "ofType": {
+                      "kind": "INPUT_OBJECT",
+                      "name": "DeleteBitsBadgeTierEmoticonInput",
+                      "ofType": null
+                    }
+                  },
+                  "defaultValue": null
+                }
+              ],
+              "type": {
+                "kind": "OBJECT",
+                "name": "DeleteBitsBadgeTierEmoticonPayload",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
               "name": "deleteChannelBlockedTerm",
               "description": "Deletes a blocked term from a channel.",
               "args": [
@@ -67945,6 +67995,105 @@
               "deprecationReason": null
             }
           ],
+          "possibleTypes": null
+        },
+        {
+          "kind": "OBJECT",
+          "name": "PrimeGiftOffer",
+          "description": "Details about a gift offer that can be sent to a CommunityGift chest.",
+          "fields": [
+            {
+              "name": "calloutIconURL",
+              "description": "The URL for offer's icon in gifter's private callout to send gifts.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "String",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "dashboardIconURL",
+              "description": "The URL for offer's icon in streamer's CommunityGift dashboard widget.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "String",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "endAt",
+              "description": "The date the offer expires and can no longer be sent as a gift.",
+              "args": [],
+              "type": {
+                "kind": "SCALAR",
+                "name": "Time",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "id",
+              "description": "Offer's id.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "ID",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "startAt",
+              "description": "The date the offer becomes active and can be sent.",
+              "args": [],
+              "type": {
+                "kind": "SCALAR",
+                "name": "Time",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "title",
+              "description": "Offer's title.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "String",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
+          "enumValues": null,
           "possibleTypes": null
         },
         {
@@ -108252,6 +108401,18 @@
               "type": {
                 "kind": "OBJECT",
                 "name": "PrimeGiftedOffer",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "primeGiftOffer",
+              "description": "Information about the offer that can be sent as a gift to the Prime community gift event.",
+              "args": [],
+              "type": {
+                "kind": "OBJECT",
+                "name": "PrimeGiftOffer",
                 "ofType": null
               },
               "isDeprecated": false,
