@@ -74992,6 +74992,36 @@
               "description": "Something unexpected occured when Redeeming the Subscription.",
               "isDeprecated": false,
               "deprecationReason": null
+            },
+            {
+              "name": "USER_HAS_REDEEMED_SUBSCRIPTION",
+              "description": "The User has already redeemed the subscription offerd by the channel.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "CHANNEL_NOT_OFF_BOARDED",
+              "description": "The channel the user is trying to redeem from has not been off-boarded.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "USER_HAS_EXISTING_SUBSCRIPTION",
+              "description": "The user already has an existing subscription to the target channel they are trying to redeem to.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "REDEEM_CHANNEL_INVALID",
+              "description": "The target Channel the user is trying to redeem to is Invalid.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "USER_NOT_SUBSCRIBED_TO_OFF_BOARDED_CHANNEL",
+              "description": "The user is not subscribed to the channel that is being off-boarded.",
+              "isDeprecated": false,
+              "deprecationReason": null
             }
           ],
           "possibleTypes": null
