@@ -88428,8 +88428,8 @@
                 "name": "Int",
                 "ofType": null
               },
-              "isDeprecated": false,
-              "deprecationReason": null
+              "isDeprecated": true,
+              "deprecationReason": "Not a supported feature anymore."
             },
             {
               "name": "directories",
@@ -88448,8 +88448,8 @@
                   }
                 }
               },
-              "isDeprecated": false,
-              "deprecationReason": null
+              "isDeprecated": true,
+              "deprecationReason": "This was made for Communities, but the feature is officially dead. Use 'game' instead"
             },
             {
               "name": "game",
@@ -88584,8 +88584,8 @@
                 "name": "Int",
                 "ofType": null
               },
-              "isDeprecated": false,
-              "deprecationReason": null
+              "isDeprecated": true,
+              "deprecationReason": "Not a supported feature anymore"
             },
             {
               "name": "platform",
