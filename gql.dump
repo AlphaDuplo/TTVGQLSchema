@@ -9253,6 +9253,22 @@
           "description": "Brand portal settings configure how a company can interact with the brand portal.",
           "fields": [
             {
+              "name": "canAccessAllGames",
+              "description": "This determines whether or not a company can access all games in brand portal.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Boolean",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
               "name": "isEnabled",
               "description": "This determines whether or not a company can access the Brand Portal.",
               "args": [],
@@ -22066,6 +22082,12 @@
             {
               "name": "COMPETED",
               "description": "The participant has competed in the competition.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "DECLINED",
+              "description": "The participant has declined the competition.",
               "isDeprecated": false,
               "deprecationReason": null
             }
