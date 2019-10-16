@@ -4856,6 +4856,45 @@
         },
         {
           "kind": "INPUT_OBJECT",
+          "name": "BitsBadgeTierEmoticonSetting",
+          "description": "BadgeTier Emoticon data to modify.",
+          "fields": null,
+          "inputFields": [
+            {
+              "name": "code",
+              "description": "The text representation that will allow a user to invoke the emoticon in chat.\nUsually consists of: a creator's emoticon prefix + a codeSuffix.",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "String",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "codeSuffix",
+              "description": "The creator-defined suffix that differentiates this emoticon from other emoticons in the channel.\nUsually begins with either a capital letter or a number.",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "String",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            }
+          ],
+          "interfaces": null,
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "INPUT_OBJECT",
           "name": "BitsBadgeTierInput",
           "description": "BadgeTier metadata to modify.",
           "fields": null,
@@ -4877,6 +4916,24 @@
                 "kind": "SCALAR",
                 "name": "Boolean",
                 "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "emoticonSettings",
+              "description": "A list of emoticons to modify.",
+              "type": {
+                "kind": "LIST",
+                "name": null,
+                "ofType": {
+                  "kind": "NON_NULL",
+                  "name": null,
+                  "ofType": {
+                    "kind": "INPUT_OBJECT",
+                    "name": "BitsBadgeTierEmoticonSetting",
+                    "ofType": null
+                  }
+                }
               },
               "defaultValue": null
             },
@@ -31004,6 +31061,73 @@
           ],
           "inputFields": null,
           "interfaces": [],
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "INPUT_OBJECT",
+          "name": "DeleteBitsBadgeTierEmoticonInput",
+          "description": "The input for delete bits badge tier emoticon.",
+          "fields": null,
+          "inputFields": [
+            {
+              "name": "channelID",
+              "description": "channelID is the owner of the emoticon being deleted.",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "ID",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "emoteID",
+              "description": "emoteID is the unique identifier for the emote.",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "ID",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "text",
+              "description": "The visual representation of the emote.\nFor example, \"O_o\" instead of \"(O|o)_(o|O)\".",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "String",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "threshold",
+              "description": "threshold is the badge tier threshold associated with this emoticon.",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Int",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            }
+          ],
+          "interfaces": null,
           "enumValues": null,
           "possibleTypes": null
         },
@@ -98185,7 +98309,7 @@
               "deprecationReason": null
             },
             {
-              "name": "INVALID_EMOTE_CODE",
+              "name": "EMOTE_CODE_ALREADY_EXISTS",
               "description": "The emote code submitted collides with an existing emote code.",
               "isDeprecated": false,
               "deprecationReason": null
