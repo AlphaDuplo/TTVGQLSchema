@@ -12095,6 +12095,41 @@
               "deprecationReason": "Use stream.isMature instead."
             },
             {
+              "name": "leaderboardSet",
+              "description": "leaderboardSet contains the set of leaderboards that are active on this channel.",
+              "args": [
+                {
+                  "name": "first",
+                  "description": null,
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Int",
+                    "ofType": null
+                  },
+                  "defaultValue": "10"
+                }
+              ],
+              "type": {
+                "kind": "OBJECT",
+                "name": "LeaderboardSet",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "leaderboardTimePeriod",
+              "description": "leaderboardTimePeriod indicates whether the leaderboard type is of WEEKLY, ALL-TIME, etc.",
+              "args": [],
+              "type": {
+                "kind": "ENUM",
+                "name": "LeaderboardTimePeriodType",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
               "name": "name",
               "description": "The channel's name.",
               "args": [],
@@ -48444,6 +48479,41 @@
               "deprecationReason": null
             }
           ],
+          "possibleTypes": null
+        },
+        {
+          "kind": "OBJECT",
+          "name": "LeaderboardSet",
+          "description": "LeaderboardSet contains the set of leaderboards that are active on a channel.",
+          "fields": [
+            {
+              "name": "bits",
+              "description": "bits contains the leaderboard of top users by number of bits cheered for the channel.",
+              "args": [],
+              "type": {
+                "kind": "OBJECT",
+                "name": "UserLeaderboard",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "subGift",
+              "description": "subGift contains the leaderboard of top users by number of sub gifts given in the channel.",
+              "args": [],
+              "type": {
+                "kind": "OBJECT",
+                "name": "UserLeaderboard",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
+          "enumValues": null,
           "possibleTypes": null
         },
         {
@@ -109879,6 +109949,238 @@
                   "name": "String",
                   "ofType": null
                 }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "OBJECT",
+          "name": "UserLeaderboard",
+          "description": "UserLeaderboard contains a leaderboard whose entries are Users.",
+          "fields": [
+            {
+              "name": "id",
+              "description": "id is the id of this leaderboard.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "ID",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "items",
+              "description": "items is the list of users in the leaderboard ordered by their score.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "OBJECT",
+                  "name": "UserLeaderboardItemConnection",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "myPosition",
+              "description": "myPosition contains the item representing the authed user's position on this leaderboard.",
+              "args": [],
+              "type": {
+                "kind": "OBJECT",
+                "name": "UserLeaderboardItem",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "secondsRemaining",
+              "description": "SecondsRemaining is the number of seconds left before the leaderboard expires (or zero for all-time).",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Int",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "OBJECT",
+          "name": "UserLeaderboardItem",
+          "description": "UserLeaderboardItem at a specific node in a leaderboard connection.",
+          "fields": [
+            {
+              "name": "id",
+              "description": "id the id of this leaderboard item.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "ID",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "rank",
+              "description": "rank the ordinal rank of this leaderboard item.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Int",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "score",
+              "description": "score the numerical value by which this leaderboard is sorted.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Int",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "user",
+              "description": "user is the user that holds this position.",
+              "args": [],
+              "type": {
+                "kind": "OBJECT",
+                "name": "User",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "OBJECT",
+          "name": "UserLeaderboardItemConnection",
+          "description": "UserLeaderboardItemConnection is used to show the various leaderboard items.",
+          "fields": [
+            {
+              "name": "edges",
+              "description": "edges ...",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "LIST",
+                  "name": null,
+                  "ofType": {
+                    "kind": "NON_NULL",
+                    "name": null,
+                    "ofType": {
+                      "kind": "OBJECT",
+                      "name": "UserLeaderboardItemEdge",
+                      "ofType": null
+                    }
+                  }
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "pageInfo",
+              "description": "pageInfo ...",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "OBJECT",
+                  "name": "PageInfo",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "OBJECT",
+          "name": "UserLeaderboardItemEdge",
+          "description": "UserLeaderboardItemEdge describes an edge in a bits leaderboard.",
+          "fields": [
+            {
+              "name": "cursor",
+              "description": "The cursor for this leaderboard edge.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Cursor",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "node",
+              "description": "The leaderboard entry at this edge.",
+              "args": [],
+              "type": {
+                "kind": "OBJECT",
+                "name": "UserLeaderboardItem",
+                "ofType": null
               },
               "isDeprecated": false,
               "deprecationReason": null
