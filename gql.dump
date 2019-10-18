@@ -3542,6 +3542,45 @@
           "description": "Contains all auto refill profiles, will have auto refill metadata in the future.",
           "fields": [
             {
+              "name": "actions",
+              "description": "Lists actions to execute during an auto refill setup session.",
+              "args": [
+                {
+                  "name": "paymentProvider",
+                  "description": null,
+                  "type": {
+                    "kind": "NON_NULL",
+                    "name": null,
+                    "ofType": {
+                      "kind": "ENUM",
+                      "name": "PaymentProvider",
+                      "ofType": null
+                    }
+                  },
+                  "defaultValue": null
+                }
+              ],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "LIST",
+                  "name": null,
+                  "ofType": {
+                    "kind": "NON_NULL",
+                    "name": null,
+                    "ofType": {
+                      "kind": "ENUM",
+                      "name": "CheckoutAction",
+                      "ofType": null
+                    }
+                  }
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
               "name": "profiles",
               "description": "The list of auto refill profiles.",
               "args": [],
@@ -14029,6 +14068,12 @@
             {
               "name": "DISABLE_NEW_CREDIT_CARD",
               "description": "Action to disable new credit cards from being added on purchases.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "AUTHORIZED_USER",
+              "description": "Action to indicate this user is authorized to make purchases.",
               "isDeprecated": false,
               "deprecationReason": null
             }
@@ -35920,7 +35965,7 @@
         {
           "kind": "ENUM",
           "name": "EmoteState",
-          "description": "The state of an emote. Can be either active or pending.",
+          "description": "The state of an emote.",
           "fields": null,
           "inputFields": null,
           "interfaces": null,
@@ -35934,6 +35979,18 @@
             {
               "name": "PENDING",
               "description": "Emote has been uploaded and is awaiting approval.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "INACTIVE",
+              "description": "Emote is inactive.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "UNKNOWN",
+              "description": "Emote has an unknown state.",
               "isDeprecated": false,
               "deprecationReason": null
             }
@@ -63904,8 +63961,14 @@
               "deprecationReason": null
             },
             {
-              "name": "XSOLLA_V3",
+              "name": "XSOLLA",
               "description": "Xsolla payment provider, usually provides Iframe for users to go through checkout process.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "XSOLLA_V3",
+              "description": "(Deprecated) Xsolla payment provider, usually provides Iframe for users to go through checkout process.",
               "isDeprecated": false,
               "deprecationReason": null
             },
