@@ -36111,6 +36111,65 @@
           "possibleTypes": null
         },
         {
+          "kind": "OBJECT",
+          "name": "EpisodeDetails",
+          "description": "Episode metadata.",
+          "fields": [
+            {
+              "name": "durationSeconds",
+              "description": "Total length of the content.",
+              "args": [],
+              "type": {
+                "kind": "SCALAR",
+                "name": "Int",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "episode",
+              "description": "The episode number.",
+              "args": [],
+              "type": {
+                "kind": "SCALAR",
+                "name": "Int",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "season",
+              "description": "The season number.",
+              "args": [],
+              "type": {
+                "kind": "SCALAR",
+                "name": "Int",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "series",
+              "description": "The name of the series.",
+              "args": [],
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
           "kind": "UNION",
           "name": "Event",
           "description": "An event represents a piece of scheduled content.  Events allow broadcasters to advertise their content\nbefore it happens.  All events:\n\n  * ... are routeable.  Each event has a URL that can be shared off-site.  The URL will usually resolve to a\n    landing page that has information on the event, and content that happened during the event.\n  * ... can be followed by Twitch users.  When a user follows an event, they get notifications on when the\n    event goes live.\n\nThere are currently two high-level categories of events.  EventLeaf, which is a single event that may or may\nnot be part of a collection, or an EventCollection that groups leaves together.",
@@ -46241,6 +46300,29 @@
           "possibleTypes": null
         },
         {
+          "kind": "ENUM",
+          "name": "GrantType",
+          "description": "Set based on the auth input type.",
+          "fields": null,
+          "inputFields": null,
+          "interfaces": null,
+          "enumValues": [
+            {
+              "name": "AUTHORIZATION_CODE",
+              "description": "Used for the initial flow after LWA, one-time usage.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "REFRESH_TOKEN",
+              "description": "Used for follow up refreshes, can be used as many times as needed.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "possibleTypes": null
+        },
+        {
           "kind": "OBJECT",
           "name": "GrantVIPError",
           "description": "GrantVIPError contains details about a client error that occurred.",
@@ -48055,6 +48137,65 @@
               "deprecationReason": null
             }
           ],
+          "possibleTypes": null
+        },
+        {
+          "kind": "OBJECT",
+          "name": "LWAToken",
+          "description": "Caller should store all of these fields.",
+          "fields": [
+            {
+              "name": "accessToken",
+              "description": "Access token to pass in on subsequent requests.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "String",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "expiresIn",
+              "description": "TTL in seconds, default is 3600.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Int",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "refreshToken",
+              "description": "Should be stored, though generally shouldn't change.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "String",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
+          "enumValues": null,
           "possibleTypes": null
         },
         {
@@ -51402,6 +51543,29 @@
               "type": {
                 "kind": "OBJECT",
                 "name": "User",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "OBJECT",
+          "name": "MovieDetails",
+          "description": "Movie metadata.",
+          "fields": [
+            {
+              "name": "durationSeconds",
+              "description": "Total length of the content.",
+              "args": [],
+              "type": {
+                "kind": "SCALAR",
+                "name": "Int",
                 "ofType": null
               },
               "isDeprecated": false,
@@ -57473,6 +57637,33 @@
               "deprecationReason": null
             },
             {
+              "name": "startWatchParty",
+              "description": "Start a Prime Video Watch Party.",
+              "args": [
+                {
+                  "name": "input",
+                  "description": null,
+                  "type": {
+                    "kind": "NON_NULL",
+                    "name": null,
+                    "ofType": {
+                      "kind": "INPUT_OBJECT",
+                      "name": "StartWatchPartyInput",
+                      "ofType": null
+                    }
+                  },
+                  "defaultValue": null
+                }
+              ],
+              "type": {
+                "kind": "OBJECT",
+                "name": "StartWatchPartyPayload",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
               "name": "stopBounty",
               "description": "stopBounty allows a user to stop tracking progress for a bounty.",
               "args": [
@@ -57494,6 +57685,33 @@
               "type": {
                 "kind": "OBJECT",
                 "name": "StopBountyPayload",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "stopWatchParty",
+              "description": "Stop a Prime Video Watch Party.",
+              "args": [
+                {
+                  "name": "input",
+                  "description": null,
+                  "type": {
+                    "kind": "NON_NULL",
+                    "name": null,
+                    "ofType": {
+                      "kind": "INPUT_OBJECT",
+                      "name": "StopWatchPartyInput",
+                      "ofType": null
+                    }
+                  },
+                  "defaultValue": null
+                }
+              ],
+              "type": {
+                "kind": "OBJECT",
+                "name": "StopWatchPartyPayload",
                 "ofType": null
               },
               "isDeprecated": false,
@@ -58991,6 +59209,33 @@
               "type": {
                 "kind": "OBJECT",
                 "name": "UpdateIsSharingActivityPayload",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "updateLWAToken",
+              "description": "Exchanges an LWA token for an Amazon OAuth token.",
+              "args": [
+                {
+                  "name": "input",
+                  "description": null,
+                  "type": {
+                    "kind": "NON_NULL",
+                    "name": null,
+                    "ofType": {
+                      "kind": "INPUT_OBJECT",
+                      "name": "UpdateLWATokenInput",
+                      "ofType": null
+                    }
+                  },
+                  "defaultValue": null
+                }
+              ],
+              "type": {
+                "kind": "OBJECT",
+                "name": "UpdateLWATokenPayload",
                 "ofType": null
               },
               "isDeprecated": false,
@@ -68928,6 +69173,84 @@
         },
         {
           "kind": "OBJECT",
+          "name": "PrimeVideoBenefit",
+          "description": "Information about the Amazon user's Prime Video benefit.",
+          "fields": [
+            {
+              "name": "error",
+              "description": "Error when the authentication token is expired.",
+              "args": [],
+              "type": {
+                "kind": "OBJECT",
+                "name": "WatchPartyError",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "isValid",
+              "description": "True if the user has valid access.",
+              "args": [],
+              "type": {
+                "kind": "SCALAR",
+                "name": "Boolean",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "OBJECT",
+          "name": "PrimeVideoRating",
+          "description": "Contains rating information for Prime Video content.",
+          "fields": [
+            {
+              "name": "count",
+              "description": "Number of votes.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Int",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "stars",
+              "description": "Fractional number of stars.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Float",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "OBJECT",
           "name": "ProductPurchase",
           "description": "Contains the product's checkout price and tax info for a purchase and error if a final price cannot be determined.",
           "fields": [
@@ -71455,6 +71778,33 @@
               "deprecationReason": null
             },
             {
+              "name": "primeVideoBenefit",
+              "description": "PrimeVideoBenefit returns a user's prime video benefits from Amazon. Requires an LWA token.",
+              "args": [
+                {
+                  "name": "accessToken",
+                  "description": null,
+                  "type": {
+                    "kind": "NON_NULL",
+                    "name": null,
+                    "ofType": {
+                      "kind": "SCALAR",
+                      "name": "String",
+                      "ofType": null
+                    }
+                  },
+                  "defaultValue": null
+                }
+              ],
+              "type": {
+                "kind": "OBJECT",
+                "name": "PrimeVideoBenefit",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
               "name": "recommendedGames",
               "description": "Fetch a group of recommended games.\n`recRequestID` is a tracking id created by the caller. This should be unique per request.\n`location` defines the source location of the recommended streams request (e.g. \"TV_APPS\").\n`context` contains parameters that are used to personalize recommendations (e.g. \"Platform\").",
               "args": [
@@ -72509,6 +72859,59 @@
               "type": {
                 "kind": "OBJECT",
                 "name": "VideoConnection",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "watchPartyItems",
+              "description": "Get a list of Prime Video items for Watch Parties.",
+              "args": [
+                {
+                  "name": "first",
+                  "description": null,
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Int",
+                    "ofType": null
+                  },
+                  "defaultValue": "10"
+                },
+                {
+                  "name": "after",
+                  "description": null,
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Cursor",
+                    "ofType": null
+                  },
+                  "defaultValue": null
+                },
+                {
+                  "name": "accessToken",
+                  "description": null,
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "String",
+                    "ofType": null
+                  },
+                  "defaultValue": null
+                },
+                {
+                  "name": "options",
+                  "description": null,
+                  "type": {
+                    "kind": "INPUT_OBJECT",
+                    "name": "WatchPartyItemSearchOptions",
+                    "ofType": null
+                  },
+                  "defaultValue": null
+                }
+              ],
+              "type": {
+                "kind": "OBJECT",
+                "name": "WatchPartyItemConnection",
                 "ofType": null
               },
               "isDeprecated": false,
@@ -82156,6 +82559,41 @@
         },
         {
           "kind": "OBJECT",
+          "name": "SeasonDetails",
+          "description": "Season metadata.",
+          "fields": [
+            {
+              "name": "episodeCount",
+              "description": "Number of episodes.",
+              "args": [],
+              "type": {
+                "kind": "SCALAR",
+                "name": "Int",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "season",
+              "description": "The season number.",
+              "args": [],
+              "type": {
+                "kind": "SCALAR",
+                "name": "Int",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "OBJECT",
           "name": "SegmentEvent",
           "description": "Segment events are sub-events that represent a piece of content that is part of a greater event.\nSegmentEvent would be good at representing:\n  * A single run of a gaming event like \"Awesome Games Done Quick 2017\".  These segments could be children\n    under a TimetableEvent which would group all the runs for \"Awesome Games Done Quick 2018\" together.\n  * A single panel in a conference like \"TwitchCon 2017\".  These segments could be children\n    under a TimetableEvent which would group all the panels for the conference together.",
           "fields": [
@@ -83850,6 +84288,29 @@
               "type": {
                 "kind": "OBJECT",
                 "name": "WhisperMessage",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "OBJECT",
+          "name": "SeriesDetails",
+          "description": "Series metadata.",
+          "fields": [
+            {
+              "name": "seasonCount",
+              "description": "Number of seasons.",
+              "args": [],
+              "type": {
+                "kind": "SCALAR",
+                "name": "Int",
                 "ofType": null
               },
               "isDeprecated": false,
@@ -88253,6 +88714,94 @@
           "possibleTypes": null
         },
         {
+          "kind": "INPUT_OBJECT",
+          "name": "StartWatchPartyInput",
+          "description": "Input for starting a PV Watch Party.",
+          "fields": null,
+          "inputFields": [
+            {
+              "name": "accessToken",
+              "description": "Amazon LWA access token.",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "String",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "channelID",
+              "description": "Channel ID of the creator.",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "ID",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "watchPartyItemID",
+              "description": "Catalog GTI to use.",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "ID",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            }
+          ],
+          "interfaces": null,
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "OBJECT",
+          "name": "StartWatchPartyPayload",
+          "description": "Returns the new Watch Party and all decoration/details.",
+          "fields": [
+            {
+              "name": "error",
+              "description": "Error if the user's token expired.",
+              "args": [],
+              "type": {
+                "kind": "OBJECT",
+                "name": "WatchPartyError",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "watchParty",
+              "description": "The watch party that was started.",
+              "args": [],
+              "type": {
+                "kind": "OBJECT",
+                "name": "WatchParty",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
           "kind": "OBJECT",
           "name": "StopBountyError",
           "description": "Error code for an error that occurs while stopping the bounty.",
@@ -88383,6 +88932,80 @@
               "type": {
                 "kind": "OBJECT",
                 "name": "User",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "INPUT_OBJECT",
+          "name": "StopWatchPartyInput",
+          "description": "Input for stopping a PV Watch Party.",
+          "fields": null,
+          "inputFields": [
+            {
+              "name": "accessToken",
+              "description": "Amazon LWA access token.",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "String",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "channelID",
+              "description": "Channel ID of the creator.",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "ID",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            }
+          ],
+          "interfaces": null,
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "OBJECT",
+          "name": "StopWatchPartyPayload",
+          "description": "Returns LWA authentication errors.",
+          "fields": [
+            {
+              "name": "error",
+              "description": "Error if the user's token expired.",
+              "args": [],
+              "type": {
+                "kind": "OBJECT",
+                "name": "WatchPartyError",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "watchParty",
+              "description": "The watch party that was stopped.",
+              "args": [],
+              "type": {
+                "kind": "OBJECT",
+                "name": "WatchParty",
                 "ofType": null
               },
               "isDeprecated": false,
@@ -101474,6 +102097,80 @@
         },
         {
           "kind": "INPUT_OBJECT",
+          "name": "UpdateLWATokenInput",
+          "description": "Exchanges one of two auth inputs for an AccessToken and RefreshToken.",
+          "fields": null,
+          "inputFields": [
+            {
+              "name": "grant",
+              "description": "Either an AuthorizationCode or a RefreshToken.",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "String",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "grantType",
+              "description": "The type of grant provided.",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "ENUM",
+                  "name": "GrantType",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            }
+          ],
+          "interfaces": null,
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "OBJECT",
+          "name": "UpdateLWATokenPayload",
+          "description": "Returns updated tokens, or an error if a new LWA flow is required.",
+          "fields": [
+            {
+              "name": "error",
+              "description": "An error in this flow means the client should redo the LWA flow.",
+              "args": [],
+              "type": {
+                "kind": "OBJECT",
+                "name": "WatchPartyError",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "token",
+              "description": "Contains all token information.",
+              "args": [],
+              "type": {
+                "kind": "OBJECT",
+                "name": "LWAToken",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "INPUT_OBJECT",
           "name": "UpdateLiveUpNotificationInput",
           "description": "The required input for a updateLiveUpNotification mutation.",
           "fields": null,
@@ -109546,6 +110243,39 @@
               "deprecationReason": null
             },
             {
+              "name": "watchParty",
+              "description": "A Watch Party if the User is currently broadcasting one.",
+              "args": [
+                {
+                  "name": "accessToken",
+                  "description": null,
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "String",
+                    "ofType": null
+                  },
+                  "defaultValue": null
+                },
+                {
+                  "name": "decorated",
+                  "description": null,
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Boolean",
+                    "ofType": null
+                  },
+                  "defaultValue": "false"
+                }
+              ],
+              "type": {
+                "kind": "OBJECT",
+                "name": "WatchPartyResult",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
               "name": "whisperSettings",
               "description": "Settings related to the Whispers (private user-to-user messaging) feature.\nOnly resolves for the authenticated user.",
               "args": [],
@@ -111017,6 +111747,22 @@
           "name": "UserSettings",
           "description": "Groups site-wide user settings together.",
           "fields": [
+            {
+              "name": "canHostWatchParties",
+              "description": "Whether the user is whitelisted to host Prime Video watch parties.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Boolean",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
             {
               "name": "channelFeedEnabled",
               "description": "The user's channel feed on/off switch.\nThe channel feed is displayed if set to true and is\nhidden if set to false.",
@@ -115489,6 +116235,926 @@
           "inputFields": null,
           "interfaces": [],
           "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "OBJECT",
+          "name": "WatchParty",
+          "description": "Contains all information for Prime Video Watch Parties.",
+          "fields": [
+            {
+              "name": "decoration",
+              "description": "Option Watch Party decoration.",
+              "args": [],
+              "type": {
+                "kind": "OBJECT",
+                "name": "WatchPartyDecoration",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "gti",
+              "description": "The catalog item id played for this watch party.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "ID",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "id",
+              "description": "Unique ID of the watch party.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "ID",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "progress",
+              "description": "Progress of the current state, null for offline watch parties.",
+              "args": [],
+              "type": {
+                "kind": "OBJECT",
+                "name": "WatchPartyProgress",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "state",
+              "description": "Current state of the watch party.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "ENUM",
+                  "name": "WatchPartyState",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "viewersCount",
+              "description": "CCVs for the watch party.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Int",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "OBJECT",
+          "name": "WatchPartyDecoration",
+          "description": "Decoration information for a Watch Party.",
+          "fields": [
+            {
+              "name": "item",
+              "description": "Fully decorated item for a watch party.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "OBJECT",
+                  "name": "WatchPartyItem",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "player",
+              "description": "Filled in only if the user is authorized to watch the content.",
+              "args": [],
+              "type": {
+                "kind": "OBJECT",
+                "name": "WatchPartyPlayer",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "OBJECT",
+          "name": "WatchPartyError",
+          "description": "Information to communicate to the user about an error state.",
+          "fields": [
+            {
+              "name": "code",
+              "description": "Error code.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "ENUM",
+                  "name": "WatchPartyErrorCode",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "ENUM",
+          "name": "WatchPartyErrorCode",
+          "description": "Enum for user errors.",
+          "fields": null,
+          "inputFields": null,
+          "interfaces": null,
+          "enumValues": [
+            {
+              "name": "BAD_REQUEST",
+              "description": "Used for invalid requests.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "FORBIDDEN",
+              "description": "Used when the access token is expired.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "REQUEST_THROTTLED",
+              "description": "Used when the user's request is throttled.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "UNKNOWN",
+              "description": "Used when the error is unknown.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "possibleTypes": null
+        },
+        {
+          "kind": "OBJECT",
+          "name": "WatchPartyItem",
+          "description": "Contains all fields needed to render a watch party item.",
+          "fields": [
+            {
+              "name": "contentRating",
+              "description": "String representing the age rating.",
+              "args": [],
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "details",
+              "description": "Additional details based on the item type.",
+              "args": [],
+              "type": {
+                "kind": "UNION",
+                "name": "WatchPartyItemDetails",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "genres",
+              "description": "List of genres.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "LIST",
+                  "name": null,
+                  "ofType": {
+                    "kind": "NON_NULL",
+                    "name": null,
+                    "ofType": {
+                      "kind": "SCALAR",
+                      "name": "String",
+                      "ofType": null
+                    }
+                  }
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "hasChildren",
+              "description": "Whether or not this item has children content.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Boolean",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "id",
+              "description": "Unique GTI.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "ID",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "isMature",
+              "description": "If the content is mature.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Boolean",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "parentID",
+              "description": "If this is a child, ID of the parent.",
+              "args": [],
+              "type": {
+                "kind": "SCALAR",
+                "name": "ID",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "primeVideoLink",
+              "description": "Link to continue watching on PV.",
+              "args": [],
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "primeVideoRating",
+              "description": "Prime video rating.",
+              "args": [],
+              "type": {
+                "kind": "OBJECT",
+                "name": "PrimeVideoRating",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "self",
+              "description": "Null if user is logged out, contains eligibility information.",
+              "args": [],
+              "type": {
+                "kind": "OBJECT",
+                "name": "WatchPartyItemSelfEdge",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "starring",
+              "description": "List of actors and actresses.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "LIST",
+                  "name": null,
+                  "ofType": {
+                    "kind": "NON_NULL",
+                    "name": null,
+                    "ofType": {
+                      "kind": "SCALAR",
+                      "name": "String",
+                      "ofType": null
+                    }
+                  }
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "summary",
+              "description": "Localized summary.",
+              "args": [],
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "thumbnailURL",
+              "description": "Localized box art.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "String",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "title",
+              "description": "Localized title.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "String",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "type",
+              "description": "Video content type, i.e. episode or series.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "ENUM",
+                  "name": "WatchPartyItemType",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "yearPublished",
+              "description": "Publication year.",
+              "args": [],
+              "type": {
+                "kind": "SCALAR",
+                "name": "Int",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "OBJECT",
+          "name": "WatchPartyItemConnection",
+          "description": "Watch party items, returned in a query.",
+          "fields": [
+            {
+              "name": "edges",
+              "description": "One item per edge.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "LIST",
+                  "name": null,
+                  "ofType": {
+                    "kind": "NON_NULL",
+                    "name": null,
+                    "ofType": {
+                      "kind": "OBJECT",
+                      "name": "WatchPartyItemEdge",
+                      "ofType": null
+                    }
+                  }
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "error",
+              "description": "Used for user authentication errors.",
+              "args": [],
+              "type": {
+                "kind": "OBJECT",
+                "name": "WatchPartyError",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "pageInfo",
+              "description": "Pagination info.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "OBJECT",
+                  "name": "PageInfo",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "UNION",
+          "name": "WatchPartyItemDetails",
+          "description": "Additional information about content.",
+          "fields": null,
+          "inputFields": null,
+          "interfaces": null,
+          "enumValues": null,
+          "possibleTypes": [
+            {
+              "kind": "OBJECT",
+              "name": "EpisodeDetails",
+              "ofType": null
+            },
+            {
+              "kind": "OBJECT",
+              "name": "MovieDetails",
+              "ofType": null
+            },
+            {
+              "kind": "OBJECT",
+              "name": "SeasonDetails",
+              "ofType": null
+            },
+            {
+              "kind": "OBJECT",
+              "name": "SeriesDetails",
+              "ofType": null
+            }
+          ]
+        },
+        {
+          "kind": "OBJECT",
+          "name": "WatchPartyItemEdge",
+          "description": "Represents a single item for a watch party.",
+          "fields": [
+            {
+              "name": "cursor",
+              "description": "Cursor to continue querying from here.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Cursor",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "node",
+              "description": "Item information.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "OBJECT",
+                  "name": "WatchPartyItem",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "OBJECT",
+          "name": "WatchPartyItemEligibility",
+          "description": "Contains information about viewer eligibility, likely to change.",
+          "fields": [
+            {
+              "name": "canView",
+              "description": "Whether the viewer can watch this content.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Boolean",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "reason",
+              "description": "Localized string explaining why if canView is false.",
+              "args": [],
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "INPUT_OBJECT",
+          "name": "WatchPartyItemSearchOptions",
+          "description": "Options for querying for catalog items.",
+          "fields": null,
+          "inputFields": [
+            {
+              "name": "parentID",
+              "description": "Parameter to query for a parent's children items.",
+              "type": {
+                "kind": "SCALAR",
+                "name": "ID",
+                "ofType": null
+              },
+              "defaultValue": null
+            }
+          ],
+          "interfaces": null,
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "OBJECT",
+          "name": "WatchPartyItemSelfEdge",
+          "description": "Used for upselling Prime, populated from authentication or geotoken.",
+          "fields": [
+            {
+              "name": "eligibility",
+              "description": "Info about whether or not the user can view this piece of content.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "OBJECT",
+                  "name": "WatchPartyItemEligibility",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "willShowPrimeUpsell",
+              "description": "True if the content is PV gated and we will upsell.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Boolean",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "ENUM",
+          "name": "WatchPartyItemType",
+          "description": "Content types for Prime Video.",
+          "fields": null,
+          "inputFields": null,
+          "interfaces": null,
+          "enumValues": [
+            {
+              "name": "UNKNOWN",
+              "description": "Default type.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "EPISODE",
+              "description": "A leaf node episode in a series/season.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "MOVIE",
+              "description": "A leaf node movie.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "SEASON",
+              "description": "Usually a collection of episodes.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "SERIES",
+              "description": "Usually a collection of seasons.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "possibleTypes": null
+        },
+        {
+          "kind": "OBJECT",
+          "name": "WatchPartyPlayer",
+          "description": "Contains information needed to initialize a PV player and play content.",
+          "fields": [
+            {
+              "name": "deviceProxyBaseURL",
+              "description": "Device Proxy URL to initialize the PV player.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "String",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "sdkInit",
+              "description": "Parameters to initialize the PV player.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "String",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "token",
+              "description": "Token to initialize the PV player.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "String",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "OBJECT",
+          "name": "WatchPartyProgress",
+          "description": "Tracks the current state.",
+          "fields": [
+            {
+              "name": "durationSeconds",
+              "description": "Total duration of the current state.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Int",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "positionSeconds",
+              "description": "Current position in seconds of the state.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Int",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "start",
+              "description": "Wall clock time for the start of the current state.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Time",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "OBJECT",
+          "name": "WatchPartyResult",
+          "description": "Wrapper to allow passing back errors.",
+          "fields": [
+            {
+              "name": "error",
+              "description": "Used for user authentication errors.",
+              "args": [],
+              "type": {
+                "kind": "OBJECT",
+                "name": "WatchPartyError",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "session",
+              "description": "Can be null if the channel is offline or for authentication errors.",
+              "args": [],
+              "type": {
+                "kind": "OBJECT",
+                "name": "WatchParty",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "ENUM",
+          "name": "WatchPartyState",
+          "description": "Enum for state.",
+          "fields": null,
+          "inputFields": null,
+          "interfaces": null,
+          "enumValues": [
+            {
+              "name": "UNKNOWN",
+              "description": "Default value.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "HYPE_IN",
+              "description": "Pre-play countdown.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "IN_PROGRESS",
+              "description": "In progress, video playback.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "OFFLINE",
+              "description": "Offline.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
           "possibleTypes": null
         },
         {
