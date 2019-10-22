@@ -23,8 +23,8 @@
                 "name": "String",
                 "ofType": null
               },
-              "isDeprecated": true,
-              "deprecationReason": "No longer needed."
+              "isDeprecated": false,
+              "deprecationReason": null
             },
             {
               "name": "programID",
@@ -35,8 +35,8 @@
                 "name": "ID",
                 "ofType": null
               },
-              "isDeprecated": true,
-              "deprecationReason": "No longer needed."
+              "isDeprecated": false,
+              "deprecationReason": null
             }
           ],
           "inputFields": null,
