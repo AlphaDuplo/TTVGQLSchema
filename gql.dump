@@ -4788,6 +4788,22 @@
               "deprecationReason": null
             },
             {
+              "name": "canUploadEmoticons",
+              "description": "Whether the broadcaster can upload emoticons for this tier.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Boolean",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
               "name": "emoticonUploadConfigurations",
               "description": "The emoticon configurations for emoticons that are currently in the process of being uploaded for this tier.",
               "args": [],
