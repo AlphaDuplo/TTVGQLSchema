@@ -27844,12 +27844,12 @@
           "description": "CreateSocialMediaPayload returns the new social medias that were created.",
           "fields": [
             {
-              "name": "socialMedia",
-              "description": "The social media that was created.",
+              "name": "channel",
+              "description": "The channel of the social media that was created.",
               "args": [],
               "type": {
                 "kind": "OBJECT",
-                "name": "SocialMedia",
+                "name": "Channel",
                 "ofType": null
               },
               "isDeprecated": false,
@@ -33176,12 +33176,12 @@
           "description": "DeleteSocialMediaPayload returns an error, if any.",
           "fields": [
             {
-              "name": "socialMedia",
-              "description": "The social media that was deleted.",
+              "name": "channel",
+              "description": "The channel of the social media that was deleted.",
               "args": [],
               "type": {
                 "kind": "OBJECT",
-                "name": "SocialMedia",
+                "name": "Channel",
                 "ofType": null
               },
               "isDeprecated": false,
@@ -104101,12 +104101,12 @@
           "description": "UpdateSocialMediaPayload returns the updated social media.",
           "fields": [
             {
-              "name": "socialMedia",
-              "description": "The social media that was updated.",
+              "name": "channel",
+              "description": "The social media channel that was updated.",
               "args": [],
               "type": {
                 "kind": "OBJECT",
-                "name": "SocialMedia",
+                "name": "Channel",
                 "ofType": null
               },
               "isDeprecated": false,
