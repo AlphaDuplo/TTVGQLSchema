@@ -22663,6 +22663,128 @@
           "possibleTypes": null
         },
         {
+          "kind": "OBJECT",
+          "name": "Consent",
+          "description": "The consent status returned for the current user.",
+          "fields": [
+            {
+              "name": "id",
+              "description": "The unique identifier of a consent status.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "ID",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "privacyLawName",
+              "description": "Privacy law, e.g. CCPA or GDPR.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "ENUM",
+                  "name": "PrivacyLawName",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "shouldShowNotification",
+              "description": "Identifier to determine whether should notification to the user.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Boolean",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "shouldShowSettingsPage",
+              "description": "Identifier to determine whether should show the consent settings page to the user.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Boolean",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "vendorStatus",
+              "description": "A list of vendor consent status of a user.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "LIST",
+                  "name": null,
+                  "ofType": {
+                    "kind": "NON_NULL",
+                    "name": null,
+                    "ofType": {
+                      "kind": "OBJECT",
+                      "name": "VendorConsentStatus",
+                      "ofType": null
+                    }
+                  }
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "ENUM",
+          "name": "ConsentStatus",
+          "description": "ConsentStatus is the flag to show user gives or denies the consent.",
+          "fields": null,
+          "inputFields": null,
+          "interfaces": null,
+          "enumValues": [
+            {
+              "name": "GIVEN",
+              "description": "User gives consent.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "DENIED",
+              "description": "User denies consent.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "possibleTypes": null
+        },
+        {
           "kind": "ENUM",
           "name": "ContentType",
           "description": "An enumeration on the different content type that enable tagging.",
@@ -59163,6 +59285,33 @@
               "deprecationReason": null
             },
             {
+              "name": "updateConsent",
+              "description": "Update a consent status or create a new consent status.",
+              "args": [
+                {
+                  "name": "input",
+                  "description": null,
+                  "type": {
+                    "kind": "NON_NULL",
+                    "name": null,
+                    "ofType": {
+                      "kind": "INPUT_OBJECT",
+                      "name": "UpdateConsentInput",
+                      "ofType": null
+                    }
+                  },
+                  "defaultValue": null
+                }
+              ],
+              "type": {
+                "kind": "OBJECT",
+                "name": "UpdateConsentPayload",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
               "name": "updateContentTags",
               "description": "updateContentTags updates the tags specified and associates it with the piece of content specified.",
               "args": [
@@ -61205,7 +61354,7 @@
         {
           "kind": "ENUM",
           "name": "OfferDeliveryMethod",
-          "description": "Deliver method type for Prime Offers entitlements.",
+          "description": "Deliver method type for Prime Offers entitlements.\nNote: This should have been named PrimeOfferDeliveryMethod.",
           "fields": null,
           "inputFields": null,
           "interfaces": null,
@@ -61224,13 +61373,7 @@
             },
             {
               "name": "EXTERNAL",
-              "description": "Mispelling of the EXTERNAL_OFFER method.",
-              "isDeprecated": true,
-              "deprecationReason": "Use EXTERNAL_OFFER instead."
-            },
-            {
-              "name": "EXTERNAL_OFFER",
-              "description": "The entitlement will be delivered via external means.",
+              "description": "Misspelling of EXTERNAL_OFFER.",
               "isDeprecated": false,
               "deprecationReason": null
             }
@@ -69345,6 +69488,29 @@
           "possibleTypes": null
         },
         {
+          "kind": "ENUM",
+          "name": "PrivacyLawName",
+          "description": "PrivacyLawName is the privacy law.",
+          "fields": null,
+          "inputFields": null,
+          "interfaces": null,
+          "enumValues": [
+            {
+              "name": "CCPA",
+              "description": "Privacy law CCPA.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "GDPR",
+              "description": "Privacy GDPR.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "possibleTypes": null
+        },
+        {
           "kind": "OBJECT",
           "name": "ProductPurchase",
           "description": "Contains the product's checkout price and tax info for a purchase and error if a final price cannot be determined.",
@@ -70551,6 +70717,33 @@
               "type": {
                 "kind": "OBJECT",
                 "name": "CompetitionConnection",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "consent",
+              "description": "Get a privacy consent status from a user, e.g. GDPR or CCPA.",
+              "args": [
+                {
+                  "name": "consentSessionID",
+                  "description": null,
+                  "type": {
+                    "kind": "NON_NULL",
+                    "name": null,
+                    "ofType": {
+                      "kind": "SCALAR",
+                      "name": "ID",
+                      "ofType": null
+                    }
+                  },
+                  "defaultValue": null
+                }
+              ],
+              "type": {
+                "kind": "OBJECT",
+                "name": "Consent",
                 "ofType": null
               },
               "isDeprecated": false,
@@ -101491,6 +101684,142 @@
           "possibleTypes": null
         },
         {
+          "kind": "OBJECT",
+          "name": "UpdateConsentError",
+          "description": "Error associated with mutation UpdateConsent.",
+          "fields": [
+            {
+              "name": "code",
+              "description": "Error code.",
+              "args": [],
+              "type": {
+                "kind": "ENUM",
+                "name": "UpdateConsentErrorCode",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "ENUM",
+          "name": "UpdateConsentErrorCode",
+          "description": "Client Error Code.",
+          "fields": null,
+          "inputFields": null,
+          "interfaces": null,
+          "enumValues": [
+            {
+              "name": "INVALID_VENDOR_LAW_CONSENT_STATUS",
+              "description": "Invalid vendor name or law name or consent status.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "possibleTypes": null
+        },
+        {
+          "kind": "INPUT_OBJECT",
+          "name": "UpdateConsentInput",
+          "description": "UpdateConsentInput updates or creates a consent status for a privacy law.",
+          "fields": null,
+          "inputFields": [
+            {
+              "name": "consentSessionID",
+              "description": "Consent Session ID.",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "ID",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "privacyLawName",
+              "description": "Privacy rule set of applicable law, e.g. CCPA or GDPR.",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "ENUM",
+                  "name": "PrivacyLawName",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "vendorStatus",
+              "description": "Consent status for each vendor.",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "LIST",
+                  "name": null,
+                  "ofType": {
+                    "kind": "NON_NULL",
+                    "name": null,
+                    "ofType": {
+                      "kind": "INPUT_OBJECT",
+                      "name": "VendorConsentStatusInput",
+                      "ofType": null
+                    }
+                  }
+                }
+              },
+              "defaultValue": null
+            }
+          ],
+          "interfaces": null,
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "OBJECT",
+          "name": "UpdateConsentPayload",
+          "description": "UpdateConsentPayload returns the created or updated consent status.",
+          "fields": [
+            {
+              "name": "consent",
+              "description": "The full consent status given by the user after the create request.",
+              "args": [],
+              "type": {
+                "kind": "OBJECT",
+                "name": "Consent",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "error",
+              "description": "The possible error returned from service.",
+              "args": [],
+              "type": {
+                "kind": "OBJECT",
+                "name": "UpdateConsentError",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
           "kind": "INPUT_OBJECT",
           "name": "UpdateContentTagsInput",
           "description": "Update tags associated with CLIP, STREAM, or VOD with contentID.",
@@ -112457,6 +112786,167 @@
           "inputFields": null,
           "interfaces": [],
           "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "OBJECT",
+          "name": "VendorConsentStatus",
+          "description": "VendorConsentStatus is the consent status of each vendor.",
+          "fields": [
+            {
+              "name": "consentStatus",
+              "description": "User consentStatus for this vendor.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "ENUM",
+                  "name": "ConsentStatus",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "hasUserSetConsent",
+              "description": "A flag that shows if the consent is given by the user or by consent service as default value.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Boolean",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "isVisible",
+              "description": "A flag that shows if the vendor should be visible to the consent settings page.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Boolean",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "name",
+              "description": "Vendor name.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "ENUM",
+                  "name": "VendorName",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "INPUT_OBJECT",
+          "name": "VendorConsentStatusInput",
+          "description": "VendorConsentStatusInput is the input struct for vendor consent status.",
+          "fields": null,
+          "inputFields": [
+            {
+              "name": "consentStatus",
+              "description": "Consent status of this vendor.",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "ENUM",
+                  "name": "ConsentStatus",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "name",
+              "description": "name of the vendor.",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "ENUM",
+                  "name": "VendorName",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            }
+          ],
+          "interfaces": null,
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "ENUM",
+          "name": "VendorName",
+          "description": "VendorName is the vendor name.",
+          "fields": null,
+          "inputFields": null,
+          "interfaces": null,
+          "enumValues": [
+            {
+              "name": "AMAZON",
+              "description": "AMAZON is Amazon.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "BRANCH",
+              "description": "BRANCH is Branch.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "COMSCORE",
+              "description": "COMSCORE is ComScore.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "GOOGLE",
+              "description": "GOOGLE is Google.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "NIELSEN",
+              "description": "NIELSEN is Nielsen.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "SALESFORCE_DMP",
+              "description": "SALESFORCE_DMP is Salesforce_DMP.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
           "possibleTypes": null
         },
         {
