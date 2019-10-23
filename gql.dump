@@ -23098,6 +23098,16 @@
               "defaultValue": null
             },
             {
+              "name": "shouldAllowAllGames",
+              "description": "If the campaign should allow any game to be played.",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Boolean",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
               "name": "startAt",
               "description": "When the campaign will start.",
               "type": {
