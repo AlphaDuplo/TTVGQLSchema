@@ -61205,26 +61205,32 @@
         {
           "kind": "ENUM",
           "name": "OfferDeliveryMethod",
-          "description": "Deliver method type for Prime Offers entitlements.\nNote: This should have been named PrimeOfferDeliveryMethod.",
+          "description": "Deliver method type for Prime Offers entitlements.",
           "fields": null,
           "inputFields": null,
           "interfaces": null,
           "enumValues": [
             {
               "name": "CLAIM_CODE",
-              "description": null,
+              "description": "The entitlement will be delivered as a claim code, which can be used to get the entitlement.",
               "isDeprecated": false,
               "deprecationReason": null
             },
             {
               "name": "DIRECT_ENTITLEMENT",
-              "description": null,
+              "description": "The entitlement will be directly delivered.",
               "isDeprecated": false,
               "deprecationReason": null
             },
             {
               "name": "EXTERNAL",
-              "description": null,
+              "description": "Mispelling of the EXTERNAL_OFFER method.",
+              "isDeprecated": true,
+              "deprecationReason": "Use EXTERNAL_OFFER instead."
+            },
+            {
+              "name": "EXTERNAL_OFFER",
+              "description": "The entitlement will be delivered via external means.",
               "isDeprecated": false,
               "deprecationReason": null
             }
