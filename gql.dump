@@ -27128,7 +27128,7 @@
                 "name": "Boolean",
                 "ofType": null
               },
-              "defaultValue": "false"
+              "defaultValue": "true"
             },
             {
               "name": "ownedBy",
@@ -66608,6 +66608,18 @@
               "deprecationReason": null
             },
             {
+              "name": "topContributor",
+              "description": "The top contributor for the poll.",
+              "args": [],
+              "type": {
+                "kind": "OBJECT",
+                "name": "PollTopContributor",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
               "name": "totalVoters",
               "description": "Total number of unique voters that have voted in this poll.",
               "args": [],
@@ -67288,6 +67300,45 @@
                   "name": "ID",
                   "ofType": null
                 }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "OBJECT",
+          "name": "PollTopContributor",
+          "description": "Top contributor to the poll and the bits they contributed.",
+          "fields": [
+            {
+              "name": "bitsAmount",
+              "description": "Bits amount contributed.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Int",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "user",
+              "description": "Top contributor to the poll.",
+              "args": [],
+              "type": {
+                "kind": "OBJECT",
+                "name": "User",
+                "ofType": null
               },
               "isDeprecated": false,
               "deprecationReason": null
