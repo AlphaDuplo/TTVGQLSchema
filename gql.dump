@@ -116732,7 +116732,7 @@
             },
             {
               "name": "choiceIndex",
-              "description": "The index of the choice that is chosen in the poll.",
+              "description": "Important: The ***ONE INDEXED*** (NOT ZERO INDEXED) position of the choice that is chosen in the poll.",
               "type": {
                 "kind": "NON_NULL",
                 "name": null,
