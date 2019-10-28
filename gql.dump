@@ -67526,7 +67526,7 @@
           "fields": [
             {
               "name": "id",
-              "description": "The id of the choice.",
+              "description": "The id of the PollVoterChoice.",
               "args": [],
               "type": {
                 "kind": "NON_NULL",
@@ -67536,6 +67536,18 @@
                   "name": "ID",
                   "ofType": null
                 }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "pollChoice",
+              "description": "The poll choice.",
+              "args": [],
+              "type": {
+                "kind": "OBJECT",
+                "name": "PollChoice",
+                "ofType": null
               },
               "isDeprecated": false,
               "deprecationReason": null
