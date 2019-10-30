@@ -69988,6 +69988,12 @@
               "description": "Privacy GDPR.",
               "isDeprecated": false,
               "deprecationReason": null
+            },
+            {
+              "name": "ROW",
+              "description": "Rest of World.",
+              "isDeprecated": false,
+              "deprecationReason": null
             }
           ],
           "possibleTypes": null
