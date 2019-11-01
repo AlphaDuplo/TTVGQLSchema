@@ -57238,33 +57238,6 @@
               "deprecationReason": null
             },
             {
-              "name": "restrictVideo",
-              "description": "restrictVideo creates a restriction to an Archive type video.",
-              "args": [
-                {
-                  "name": "input",
-                  "description": null,
-                  "type": {
-                    "kind": "NON_NULL",
-                    "name": null,
-                    "ofType": {
-                      "kind": "INPUT_OBJECT",
-                      "name": "RestrictVideoInput",
-                      "ofType": null
-                    }
-                  },
-                  "defaultValue": null
-                }
-              ],
-              "type": {
-                "kind": "OBJECT",
-                "name": "RestrictVideoPayload",
-                "ofType": null
-              },
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
               "name": "revokeVIP",
               "description": "Revoke the VIP status of a user from a channel.",
               "args": [
@@ -60781,33 +60754,6 @@
               "type": {
                 "kind": "OBJECT",
                 "name": "UpdateVideoCommentPayload",
-                "ofType": null
-              },
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
-              "name": "updateVideoRestriction",
-              "description": "updateVideoRestriction creates a restriction to an Archive type video.",
-              "args": [
-                {
-                  "name": "input",
-                  "description": null,
-                  "type": {
-                    "kind": "NON_NULL",
-                    "name": null,
-                    "ofType": {
-                      "kind": "INPUT_OBJECT",
-                      "name": "UpdateVideoRestrictionInput",
-                      "ofType": null
-                    }
-                  },
-                  "defaultValue": null
-                }
-              ],
-              "type": {
-                "kind": "OBJECT",
-                "name": "UpdateVideoRestrictionPayload",
                 "ofType": null
               },
               "isDeprecated": false,
@@ -79222,86 +79168,6 @@
               "deprecationReason": null
             }
           ],
-          "possibleTypes": null
-        },
-        {
-          "kind": "INPUT_OBJECT",
-          "name": "RestrictVideoInput",
-          "description": "Inputs to the restrictVideo mutation.",
-          "fields": null,
-          "inputFields": [
-            {
-              "name": "channelID",
-              "description": "The channel that ones the archive video.",
-              "type": {
-                "kind": "NON_NULL",
-                "name": null,
-                "ofType": {
-                  "kind": "SCALAR",
-                  "name": "ID",
-                  "ofType": null
-                }
-              },
-              "defaultValue": null
-            },
-            {
-              "name": "reason",
-              "description": "The reason for creating this restriction.",
-              "type": {
-                "kind": "NON_NULL",
-                "name": null,
-                "ofType": {
-                  "kind": "SCALAR",
-                  "name": "String",
-                  "ofType": null
-                }
-              },
-              "defaultValue": null
-            },
-            {
-              "name": "videoID",
-              "description": "The ID of the archive type video to create a video restriction.",
-              "type": {
-                "kind": "NON_NULL",
-                "name": null,
-                "ofType": {
-                  "kind": "SCALAR",
-                  "name": "ID",
-                  "ofType": null
-                }
-              },
-              "defaultValue": null
-            }
-          ],
-          "interfaces": null,
-          "enumValues": null,
-          "possibleTypes": null
-        },
-        {
-          "kind": "OBJECT",
-          "name": "RestrictVideoPayload",
-          "description": "Output to the restrictVideo mutation.",
-          "fields": [
-            {
-              "name": "video",
-              "description": "The video that was updated.",
-              "args": [],
-              "type": {
-                "kind": "NON_NULL",
-                "name": null,
-                "ofType": {
-                  "kind": "OBJECT",
-                  "name": "Video",
-                  "ofType": null
-                }
-              },
-              "isDeprecated": false,
-              "deprecationReason": null
-            }
-          ],
-          "inputFields": null,
-          "interfaces": [],
-          "enumValues": null,
           "possibleTypes": null
         },
         {
@@ -106737,86 +106603,6 @@
                 "kind": "OBJECT",
                 "name": "Video",
                 "ofType": null
-              },
-              "isDeprecated": false,
-              "deprecationReason": null
-            }
-          ],
-          "inputFields": null,
-          "interfaces": [],
-          "enumValues": null,
-          "possibleTypes": null
-        },
-        {
-          "kind": "INPUT_OBJECT",
-          "name": "UpdateVideoRestrictionInput",
-          "description": "Inputs to the updateVideoRestriction mutation.",
-          "fields": null,
-          "inputFields": [
-            {
-              "name": "channelID",
-              "description": "The channel that ones the archive video.",
-              "type": {
-                "kind": "NON_NULL",
-                "name": null,
-                "ofType": {
-                  "kind": "SCALAR",
-                  "name": "ID",
-                  "ofType": null
-                }
-              },
-              "defaultValue": null
-            },
-            {
-              "name": "reason",
-              "description": "The reason for creating this restriction.",
-              "type": {
-                "kind": "NON_NULL",
-                "name": null,
-                "ofType": {
-                  "kind": "SCALAR",
-                  "name": "String",
-                  "ofType": null
-                }
-              },
-              "defaultValue": null
-            },
-            {
-              "name": "videoID",
-              "description": "The ID of the archive type video to create a video restriction.",
-              "type": {
-                "kind": "NON_NULL",
-                "name": null,
-                "ofType": {
-                  "kind": "SCALAR",
-                  "name": "ID",
-                  "ofType": null
-                }
-              },
-              "defaultValue": null
-            }
-          ],
-          "interfaces": null,
-          "enumValues": null,
-          "possibleTypes": null
-        },
-        {
-          "kind": "OBJECT",
-          "name": "UpdateVideoRestrictionPayload",
-          "description": "Output to the updateVideoRestriction mutation.",
-          "fields": [
-            {
-              "name": "video",
-              "description": "The video that was updated.",
-              "args": [],
-              "type": {
-                "kind": "NON_NULL",
-                "name": null,
-                "ofType": {
-                  "kind": "OBJECT",
-                  "name": "Video",
-                  "ofType": null
-                }
               },
               "isDeprecated": false,
               "deprecationReason": null
