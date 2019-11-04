@@ -23452,6 +23452,16 @@
               "defaultValue": null
             },
             {
+              "name": "sponsor",
+              "description": "The optional name of the sponsor of the campaign.",
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
               "name": "startAt",
               "description": "When the campaign will start.",
               "type": {
