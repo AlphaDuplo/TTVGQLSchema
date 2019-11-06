@@ -7211,6 +7211,18 @@
                 "name": "Time",
                 "ofType": null
               },
+              "isDeprecated": true,
+              "deprecationReason": "Replacing with 'claimedAt' for consistency with 'At' suffix"
+            },
+            {
+              "name": "claimedAt",
+              "description": "When the bounty was claimed by the user.",
+              "args": [],
+              "type": {
+                "kind": "SCALAR",
+                "name": "Time",
+                "ofType": null
+              },
               "isDeprecated": false,
               "deprecationReason": null
             },
@@ -7224,10 +7236,22 @@
                 "ofType": null
               },
               "isDeprecated": true,
-              "deprecationReason": "Replacing with 'endTime' as that is a more descriptive property name for the value."
+              "deprecationReason": "Replacing with 'expiresAt' as that is a more descriptive property name for the value."
             },
             {
               "name": "endTime",
+              "description": "When the the user stops tracking.",
+              "args": [],
+              "type": {
+                "kind": "SCALAR",
+                "name": "Time",
+                "ofType": null
+              },
+              "isDeprecated": true,
+              "deprecationReason": "Replacing with 'trackingStoppedAt' as that is a more descriptive property name for the value."
+            },
+            {
+              "name": "expiresAt",
               "description": "When the bounty expires.",
               "args": [],
               "type": {
@@ -7419,8 +7443,8 @@
                 "name": "Time",
                 "ofType": null
               },
-              "isDeprecated": false,
-              "deprecationReason": null
+              "isDeprecated": true,
+              "deprecationReason": "Replacing with 'trackingStartedAt' as that is a more descriptive property name for the value."
             },
             {
               "name": "status",
@@ -7434,6 +7458,30 @@
                   "name": "BountyStatus",
                   "ofType": null
                 }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "trackingStartedAt",
+              "description": "When the user starts tracking the bounty.",
+              "args": [],
+              "type": {
+                "kind": "SCALAR",
+                "name": "Time",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "trackingStoppedAt",
+              "description": "When the user stops tracking the bounty.",
+              "args": [],
+              "type": {
+                "kind": "SCALAR",
+                "name": "Time",
+                "ofType": null
               },
               "isDeprecated": false,
               "deprecationReason": null
