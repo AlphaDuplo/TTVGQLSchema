@@ -37068,6 +37068,18 @@
               "deprecationReason": null
             },
             {
+              "name": "suffix",
+              "description": "For subscription and bits badge tier emotes, this is the user generated suffix.\nFor example, for \"lirikLUL\" suffix would be \"LUL\".",
+              "args": [],
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
               "name": "text",
               "description": "The visual representation of the emote.\nFor example, \"O_o\" instead of \"(O|o)_(o|O)\".",
               "args": [],
