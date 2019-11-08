@@ -64523,6 +64523,22 @@
               "deprecationReason": null
             },
             {
+              "name": "renderStyle",
+              "description": "Type of onsite render style.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "ENUM",
+                  "name": "OnsiteNotificationRenderStyle",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
               "name": "thumbnailURL",
               "description": "A URL to a thumbnail image.",
               "args": [],
@@ -64591,6 +64607,38 @@
                 "ofType": {
                   "kind": "SCALAR",
                   "name": "String",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "id",
+              "description": "ID of the action.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "ID",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "modalID",
+              "description": "ID of the modal that will open on click, if it is a modal CTA.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "ID",
                   "ofType": null
                 }
               },
@@ -64758,6 +64806,29 @@
           "inputFields": null,
           "interfaces": [],
           "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "ENUM",
+          "name": "OnsiteNotificationRenderStyle",
+          "description": "Used to determine how to render the onsite notification.",
+          "fields": null,
+          "inputFields": null,
+          "interfaces": null,
+          "enumValues": [
+            {
+              "name": "DEFAULT",
+              "description": "The default render style with no buttons and a single click CTA.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "TWO_BUTTONS",
+              "description": "Rendered with two CTA buttons.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
           "possibleTypes": null
         },
         {
