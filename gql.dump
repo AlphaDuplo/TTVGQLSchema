@@ -58782,6 +58782,33 @@
               "deprecationReason": null
             },
             {
+              "name": "publishCompetitionPhase",
+              "description": "Publish a Competition Phase.",
+              "args": [
+                {
+                  "name": "input",
+                  "description": null,
+                  "type": {
+                    "kind": "NON_NULL",
+                    "name": null,
+                    "ofType": {
+                      "kind": "INPUT_OBJECT",
+                      "name": "PublishCompetitionPhaseInput",
+                      "ofType": null
+                    }
+                  },
+                  "defaultValue": null
+                }
+              ],
+              "type": {
+                "kind": "OBJECT",
+                "name": "PublishCompetitionPhasePayload",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
               "name": "readNotifications",
               "description": "readNotifications sets the read state to true for one or more onsite notifications of the authenticated user.",
               "args": [
@@ -72629,6 +72656,68 @@
               },
               "isDeprecated": false,
               "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "INPUT_OBJECT",
+          "name": "PublishCompetitionPhaseInput",
+          "description": "Publish a Phase.",
+          "fields": null,
+          "inputFields": [
+            {
+              "name": "competitionID",
+              "description": "Unique competition ID for the competition that the phase is in.",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "ID",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "phaseID",
+              "description": "Unique phase ID.",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "ID",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            }
+          ],
+          "interfaces": null,
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "OBJECT",
+          "name": "PublishCompetitionPhasePayload",
+          "description": "Data that was mutated after the competition was created.",
+          "fields": [
+            {
+              "name": "phase",
+              "description": "The phase that was published.",
+              "args": [],
+              "type": {
+                "kind": "OBJECT",
+                "name": "CompetitionPhase",
+                "ofType": null
+              },
+              "isDeprecated": true,
+              "deprecationReason": "internal use only. interface is subject to change and iteration"
             }
           ],
           "inputFields": null,
