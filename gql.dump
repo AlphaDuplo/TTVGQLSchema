@@ -9136,6 +9136,59 @@
         },
         {
           "kind": "ENUM",
+          "name": "BountyKeyProductType",
+          "description": "Represents all the currently possible key product types.",
+          "fields": null,
+          "inputFields": null,
+          "interfaces": null,
+          "enumValues": [
+            {
+              "name": "COUPON",
+              "description": "The key is a coupon code.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "DLC",
+              "description": "The key is for downloadable content or a game expansion.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "GAME",
+              "description": "The key is a game code.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "GIFTCARD",
+              "description": "The key is for a gift card.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "GIVEAWAY",
+              "description": "The key is a code for a giveaway.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "IGC",
+              "description": "The key is for in game content - character skins, customization, etc.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "OTHER",
+              "description": "The key is for something else.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "possibleTypes": null
+        },
+        {
+          "kind": "ENUM",
           "name": "BountyModerationFailReason",
           "description": "The reason why bounty failed moderation.",
           "fields": null,
@@ -9285,6 +9338,18 @@
               "type": {
                 "kind": "SCALAR",
                 "name": "String",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "productType",
+              "description": "The product type of the key - GAME, DLC, GIVEAWAY, GIFTCARD, etc.",
+              "args": [],
+              "type": {
+                "kind": "ENUM",
+                "name": "BountyKeyProductType",
                 "ofType": null
               },
               "isDeprecated": false,
@@ -58805,8 +58870,8 @@
                 "name": "PublishCompetitionPhasePayload",
                 "ofType": null
               },
-              "isDeprecated": false,
-              "deprecationReason": null
+              "isDeprecated": true,
+              "deprecationReason": "internal use only. interface is subject to change and iteration"
             },
             {
               "name": "readNotifications",
@@ -94878,6 +94943,163 @@
         },
         {
           "kind": "OBJECT",
+          "name": "SubscriptionCommunityGifting",
+          "description": "An Offer for purchasing community gift subscriptions with associated metadata about the Offer.\nComposes the \"model\" (Offer) with the \"view\" metadata about the offer.",
+          "fields": [
+            {
+              "name": "assets",
+              "description": "The image assets for this offer.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "OBJECT",
+                  "name": "SubscriptionCommunityGiftingAssets",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "offer",
+              "description": "The Offer document for this Community Gift offer.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "OBJECT",
+                  "name": "Offer",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "quantity",
+              "description": "The default number of subscriptions that this offer is offering.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Int",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "type",
+              "description": "The type of this community gifting offer.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "ENUM",
+                  "name": "SubscriptionCommunityGiftingType",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "OBJECT",
+          "name": "SubscriptionCommunityGiftingAssets",
+          "description": "Groups image assets related to the community gifting Offer.",
+          "fields": [
+            {
+              "name": "imageURL1x",
+              "description": "The link to the 1x pixel density image asset for this community gifting offer.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "String",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "imageURL2x",
+              "description": "The link to the 2x pixel density image asset for this community gifting offer.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "String",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "imageURL4x",
+              "description": "The link to the 4x pixel density image asset for this community gifting offer.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "String",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "ENUM",
+          "name": "SubscriptionCommunityGiftingType",
+          "description": "Describes the type of community gifting Offer that is being resolved.",
+          "fields": null,
+          "inputFields": null,
+          "interfaces": null,
+          "enumValues": [
+            {
+              "name": "BUNDLE",
+              "description": "A preset bundle of fixed-quantity community gift subscriptions.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "CUSTOM",
+              "description": "An offer that allows the user to choose how many gift subscriptions they would like to purchase.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "possibleTypes": null
+        },
+        {
+          "kind": "OBJECT",
           "name": "SubscriptionGift",
           "description": "Gift information for a subscription benefit.",
           "fields": [
@@ -95199,6 +95421,72 @@
         },
         {
           "kind": "OBJECT",
+          "name": "SubscriptionGifting",
+          "description": "A parent field for grouping the different types of gift subscriptions.",
+          "fields": [
+            {
+              "name": "community",
+              "description": "Offers and associated metadata for purchasing community gift subscriptions.",
+              "args": [],
+              "type": {
+                "kind": "LIST",
+                "name": null,
+                "ofType": {
+                  "kind": "NON_NULL",
+                  "name": null,
+                  "ofType": {
+                    "kind": "OBJECT",
+                    "name": "SubscriptionCommunityGifting",
+                    "ofType": null
+                  }
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "standard",
+              "description": "Offers for purchasing a gift subscription to the given user.",
+              "args": [
+                {
+                  "name": "recipientLogin",
+                  "description": null,
+                  "type": {
+                    "kind": "NON_NULL",
+                    "name": null,
+                    "ofType": {
+                      "kind": "SCALAR",
+                      "name": "String",
+                      "ofType": null
+                    }
+                  },
+                  "defaultValue": null
+                }
+              ],
+              "type": {
+                "kind": "LIST",
+                "name": null,
+                "ofType": {
+                  "kind": "NON_NULL",
+                  "name": null,
+                  "ofType": {
+                    "kind": "OBJECT",
+                    "name": "SubscriptionStandardGifting",
+                    "ofType": null
+                  }
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "OBJECT",
           "name": "SubscriptionInterval",
           "description": "Represents the interval of a subscription product.",
           "fields": [
@@ -95419,6 +95707,22 @@
                 "kind": "OBJECT",
                 "name": "SubscriptionPromotion",
                 "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "gifting",
+              "description": "The different types of gift subscriptions (\"Community\" vs \"Standard\").",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "OBJECT",
+                  "name": "SubscriptionGifting",
+                  "ofType": null
+                }
               },
               "isDeprecated": false,
               "deprecationReason": null
@@ -96486,6 +96790,33 @@
               "deprecationReason": null
             }
           ],
+          "possibleTypes": null
+        },
+        {
+          "kind": "OBJECT",
+          "name": "SubscriptionStandardGifting",
+          "description": "An Offer for purchasing a Standard (AKA \"single\" or \"targetted\") gift subscription for a specific user.\nThis type exists as a futureproofing measure as gifting will evolve over time.",
+          "fields": [
+            {
+              "name": "offer",
+              "description": "The Offer document for this Standard Gift offer.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "OBJECT",
+                  "name": "Offer",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
+          "enumValues": null,
           "possibleTypes": null
         },
         {
