@@ -49339,6 +49339,27 @@
           "possibleTypes": null
         },
         {
+          "kind": "INPUT_OBJECT",
+          "name": "HypeTrainKickoffInput",
+          "description": "HypeTrainKickoffInput specifies settings for kicking off hype trains.",
+          "fields": null,
+          "inputFields": [
+            {
+              "name": "eventsThreshold",
+              "description": "The number of qualifying events needed to kickoff a hype train.",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Int",
+                "ofType": null
+              },
+              "defaultValue": null
+            }
+          ],
+          "interfaces": null,
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
           "kind": "OBJECT",
           "name": "HypeTrainLevel",
           "description": "The Hype Train level configuration, which includes information about level completion and associated rewards.",
@@ -62151,6 +62172,33 @@
               },
               "isDeprecated": true,
               "deprecationReason": "Switching to saveExtensionManifest"
+            },
+            {
+              "name": "updateHypeTrainConfig",
+              "description": "updateHypeTrainConfig allows a user to update the channel's hype train configurations.",
+              "args": [
+                {
+                  "name": "input",
+                  "description": null,
+                  "type": {
+                    "kind": "NON_NULL",
+                    "name": null,
+                    "ofType": {
+                      "kind": "INPUT_OBJECT",
+                      "name": "UpdateHypeTrainConfigInput",
+                      "ofType": null
+                    }
+                  },
+                  "defaultValue": null
+                }
+              ],
+              "type": {
+                "kind": "OBJECT",
+                "name": "UpdateHypeTrainConfigPayload",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
             },
             {
               "name": "updateIsSharingActivity",
@@ -105847,6 +105895,80 @@
               "type": {
                 "kind": "OBJECT",
                 "name": "ExtensionManifest",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "INPUT_OBJECT",
+          "name": "UpdateHypeTrainConfigInput",
+          "description": "UpdateHypeTrainConfigInput takes series of optional config settings.",
+          "fields": null,
+          "inputFields": [
+            {
+              "name": "cooldownPeriodMinutes",
+              "description": "Length of the cooldown period after a hype train ends.",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Int",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "difficulty",
+              "description": "The difficulty of hype train levels.",
+              "type": {
+                "kind": "ENUM",
+                "name": "HypeTrainDifficulty",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "isEnabled",
+              "description": "Whether hype train should be enabled.",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Boolean",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "kickoff",
+              "description": "Hype Train kickoff settings.",
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "HypeTrainKickoffInput",
+                "ofType": null
+              },
+              "defaultValue": null
+            }
+          ],
+          "interfaces": null,
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "OBJECT",
+          "name": "UpdateHypeTrainConfigPayload",
+          "description": "UpdateHypeTrainConfigPayload is the response that contains the updated config.",
+          "fields": [
+            {
+              "name": "config",
+              "description": "The updated hype train config for the channel.",
+              "args": [],
+              "type": {
+                "kind": "OBJECT",
+                "name": "HypeTrainConfig",
                 "ofType": null
               },
               "isDeprecated": false,
