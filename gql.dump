@@ -19903,6 +19903,22 @@
               "deprecationReason": null
             },
             {
+              "name": "cheerPoints",
+              "description": "How many points are earned for cheering in a channel.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Int",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
               "name": "claimPeriodMinutes",
               "description": "How many minutes will pass in between bonus claims becoming available.",
               "args": [],
@@ -20024,6 +20040,22 @@
                 "ofType": {
                   "kind": "SCALAR",
                   "name": "Float",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "subscriptionGiftPoints",
+              "description": "How many points are earned for gifting a subscription in a channel.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Int",
                   "ofType": null
                 }
               },
@@ -21337,6 +21369,105 @@
         },
         {
           "kind": "OBJECT",
+          "name": "CommunityPointsLimitedEarnings",
+          "description": "Availability of limited earn actions for a viewer in a specific channel.",
+          "fields": [
+            {
+              "name": "cheerAvailableAt",
+              "description": "Timestamp of when points will become available for cheering on the channel.\nThis will be nil if isCheerAvailable is true and can be nil when isCheerAvailable is false\nindicating that there is not currently a time in the future when it will become available.",
+              "args": [],
+              "type": {
+                "kind": "SCALAR",
+                "name": "Time",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "id",
+              "description": "A unique identifier.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "ID",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "isCheerAvailable",
+              "description": "Can the user cheer to get points on the channel.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Boolean",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "isFollowAvailable",
+              "description": "Can the user follow to get points on the channel.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Boolean",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "isSubscriptionGiftAvailable",
+              "description": "Can the user gift a subscription in the channel to get points on the channel.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Boolean",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "subscriptionGiftAvailableAt",
+              "description": "Timestamp of when points will become available for gifting subscriptions on the channel.\nThis will be nil if isSubscriptionGiftAvailable is true and can be nil when isSubscriptionGiftAvailable is false\nindicating that there is not currently a time in the future when it will become available.",
+              "args": [],
+              "type": {
+                "kind": "SCALAR",
+                "name": "Time",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "OBJECT",
           "name": "CommunityPointsMultiplier",
           "description": "A multiplier affecting the rate of community points earned for a user in a channel.",
           "fields": [
@@ -21472,6 +21603,18 @@
                   "name": "Boolean",
                   "ofType": null
                 }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "limitedEarnings",
+              "description": "Availability of limited earning actions for the user in this channel.",
+              "args": [],
+              "type": {
+                "kind": "OBJECT",
+                "name": "CommunityPointsLimitedEarnings",
+                "ofType": null
               },
               "isDeprecated": false,
               "deprecationReason": null
