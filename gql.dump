@@ -48538,7 +48538,13 @@
             }
           ],
           "inputFields": null,
-          "interfaces": [],
+          "interfaces": [
+            {
+              "kind": "INTERFACE",
+              "name": "HypeTrainReward",
+              "ofType": null
+            }
+          ],
           "enumValues": null,
           "possibleTypes": null
         },
@@ -49045,7 +49051,13 @@
             }
           ],
           "inputFields": null,
-          "interfaces": [],
+          "interfaces": [
+            {
+              "kind": "INTERFACE",
+              "name": "HypeTrainReward",
+              "ofType": null
+            }
+          ],
           "enumValues": null,
           "possibleTypes": null
         },
@@ -49835,7 +49847,18 @@
           "inputFields": null,
           "interfaces": null,
           "enumValues": null,
-          "possibleTypes": []
+          "possibleTypes": [
+            {
+              "kind": "OBJECT",
+              "name": "HypeTrainEmoteReward",
+              "ofType": null
+            },
+            {
+              "kind": "OBJECT",
+              "name": "HypeTrainBadgeReward",
+              "ofType": null
+            }
+          ]
         },
         {
           "kind": "ENUM",
@@ -95088,6 +95111,22 @@
             {
               "name": "imageURL2x",
               "description": "The link to the 2x pixel density image asset for this community gifting offer.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "String",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "imageURL3x",
+              "description": "The link to the 3x pixel density image asset for this community gifting offer.",
               "args": [],
               "type": {
                 "kind": "NON_NULL",
