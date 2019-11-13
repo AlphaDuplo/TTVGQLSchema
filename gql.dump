@@ -1869,6 +1869,26 @@
               "defaultValue": null
             },
             {
+              "name": "discordUsername",
+              "description": "The participant's Discord username.",
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "inGameUsername",
+              "description": "The participant's in-game username.",
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
               "name": "state",
               "description": "The state the participant in. Defaults to INVITED if not specified.",
               "type": {
