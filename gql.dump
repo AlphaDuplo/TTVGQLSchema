@@ -1942,6 +1942,84 @@
         },
         {
           "kind": "INPUT_OBJECT",
+          "name": "AddCompetitionPhaseInput",
+          "description": "Add a Phase to a Competition.",
+          "fields": null,
+          "inputFields": [
+            {
+              "name": "competitionID",
+              "description": "Unique Competition ID.",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "ID",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "lobbyMaxSize",
+              "description": "The max lobby size of the phase.",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Int",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "name",
+              "description": "The name of the Phase.",
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "numPlayersToProgress",
+              "description": "The number of players to progress in a Phase.",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Int",
+                "ofType": null
+              },
+              "defaultValue": null
+            }
+          ],
+          "interfaces": null,
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "OBJECT",
+          "name": "AddCompetitionPhasePayload",
+          "description": "Data that was mutated after the Phase was created.",
+          "fields": [
+            {
+              "name": "phase",
+              "description": "The competition Phase that was added.",
+              "args": [],
+              "type": {
+                "kind": "OBJECT",
+                "name": "CompetitionPhase",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "INPUT_OBJECT",
           "name": "AddDeviceTokenInput",
           "description": "AddDeviceTokenInput accepts a token and other parameters to add a device token to a given user.",
           "fields": null,
@@ -55308,6 +55386,33 @@
               "deprecationReason": null
             },
             {
+              "name": "addCompetitionPhase",
+              "description": "Add CompetitionPhase to a competition.",
+              "args": [
+                {
+                  "name": "input",
+                  "description": null,
+                  "type": {
+                    "kind": "NON_NULL",
+                    "name": null,
+                    "ofType": {
+                      "kind": "INPUT_OBJECT",
+                      "name": "AddCompetitionPhaseInput",
+                      "ofType": null
+                    }
+                  },
+                  "defaultValue": null
+                }
+              ],
+              "type": {
+                "kind": "OBJECT",
+                "name": "AddCompetitionPhasePayload",
+                "ofType": null
+              },
+              "isDeprecated": true,
+              "deprecationReason": "internal use only. interface is subject to change and iteration"
+            },
+            {
               "name": "addDeviceToken",
               "description": "addDeviceToken associates a new push notification token to the given user.",
               "args": [
@@ -59025,6 +59130,33 @@
               },
               "isDeprecated": false,
               "deprecationReason": null
+            },
+            {
+              "name": "populateCompetitionPhase",
+              "description": "populateCompetitionPhase populates a competition phase with the winners from the previous round.",
+              "args": [
+                {
+                  "name": "input",
+                  "description": null,
+                  "type": {
+                    "kind": "NON_NULL",
+                    "name": null,
+                    "ofType": {
+                      "kind": "INPUT_OBJECT",
+                      "name": "PopulateCompetitionPhaseInput",
+                      "ofType": null
+                    }
+                  },
+                  "defaultValue": null
+                }
+              ],
+              "type": {
+                "kind": "OBJECT",
+                "name": "PopulateCompetitionPhasePayload",
+                "ofType": null
+              },
+              "isDeprecated": true,
+              "deprecationReason": "internal use only. interface is subject to change and iteration"
             },
             {
               "name": "publishClip",
@@ -70751,6 +70883,78 @@
               "deprecationReason": null
             }
           ],
+          "possibleTypes": null
+        },
+        {
+          "kind": "INPUT_OBJECT",
+          "name": "PopulateCompetitionPhaseInput",
+          "description": "Populate a Phase in a Competition.",
+          "fields": null,
+          "inputFields": [
+            {
+              "name": "competitionID",
+              "description": "Unique Competition ID.",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "ID",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "fromPhaseID",
+              "description": "Unique Phase ID to populate from, if provided.",
+              "type": {
+                "kind": "SCALAR",
+                "name": "ID",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "toPhaseID",
+              "description": "Unique Phase ID for the phase to be populated.",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "ID",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            }
+          ],
+          "interfaces": null,
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "OBJECT",
+          "name": "PopulateCompetitionPhasePayload",
+          "description": "Data that was mutated after the Phase was Populated.",
+          "fields": [
+            {
+              "name": "phase",
+              "description": "The competition Phase which was populated.",
+              "args": [],
+              "type": {
+                "kind": "OBJECT",
+                "name": "CompetitionPhase",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
+          "enumValues": null,
           "possibleTypes": null
         },
         {
