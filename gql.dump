@@ -59213,6 +59213,33 @@
               "deprecationReason": "internal use only. interface is subject to change and iteration"
             },
             {
+              "name": "purchaseOffer",
+              "description": "purchaseOffer completes the purchase of an offer.",
+              "args": [
+                {
+                  "name": "input",
+                  "description": null,
+                  "type": {
+                    "kind": "NON_NULL",
+                    "name": null,
+                    "ofType": {
+                      "kind": "INPUT_OBJECT",
+                      "name": "PurchaseOfferInput",
+                      "ofType": null
+                    }
+                  },
+                  "defaultValue": null
+                }
+              ],
+              "type": {
+                "kind": "OBJECT",
+                "name": "PurchaseOfferPayload",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
               "name": "readNotifications",
               "description": "readNotifications sets the read state to true for one or more onsite notifications of the authenticated user.",
               "args": [
@@ -64740,6 +64767,45 @@
           "possibleTypes": null
         },
         {
+          "kind": "INPUT_OBJECT",
+          "name": "OfferTagBindingInput",
+          "description": "OfferTagBindingInput defines a key-value pair.",
+          "fields": null,
+          "inputFields": [
+            {
+              "name": "key",
+              "description": "The key of the tag.",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "String",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "value",
+              "description": "The value of the tag.",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "String",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            }
+          ],
+          "interfaces": null,
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
           "kind": "OBJECT",
           "name": "Onboarding",
           "description": "Current state of the user in the onboarding process.",
@@ -67491,6 +67557,16 @@
             {
               "name": "localStorageDeviceID",
               "description": "Twilight's storage device ID.",
+              "type": {
+                "kind": "SCALAR",
+                "name": "ID",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "offerSessionID",
+              "description": "Offer Session ID.",
               "type": {
                 "kind": "SCALAR",
                 "name": "ID",
@@ -73266,6 +73342,284 @@
             {
               "name": "NOT_APPLICABLE",
               "description": "Not applicable as user is eligible to make a purchase.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "possibleTypes": null
+        },
+        {
+          "kind": "INPUT_OBJECT",
+          "name": "PurchaseOfferInput",
+          "description": "PurchaseOfferInput contains the necessary fields to purchase an offer.",
+          "fields": null,
+          "inputFields": [
+            {
+              "name": "giftRecipientUserIDs",
+              "description": "User IDs of the gift purchase recipients (if the Offer is a gift).",
+              "type": {
+                "kind": "LIST",
+                "name": null,
+                "ofType": {
+                  "kind": "NON_NULL",
+                  "name": null,
+                  "ofType": {
+                    "kind": "SCALAR",
+                    "name": "ID",
+                    "ofType": null
+                  }
+                }
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "offerID",
+              "description": "The ID of the Offer.",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "ID",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "paymentSession",
+              "description": "Payments' session tracking.",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "INPUT_OBJECT",
+                  "name": "PaymentSession",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "purchasingUserID",
+              "description": "The ID of the user making the purchase.",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "ID",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "quantity",
+              "description": "The number of units purchased.",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Int",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "tagBindings",
+              "description": "The static and dynamic bindings of the attributes on an Offer.",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "LIST",
+                  "name": null,
+                  "ofType": {
+                    "kind": "NON_NULL",
+                    "name": null,
+                    "ofType": {
+                      "kind": "INPUT_OBJECT",
+                      "name": "OfferTagBindingInput",
+                      "ofType": null
+                    }
+                  }
+                }
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "tenantTracking",
+              "description": "Tenant-specific tracking params.",
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              },
+              "defaultValue": null
+            }
+          ],
+          "interfaces": null,
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "OBJECT",
+          "name": "PurchaseOfferPayload",
+          "description": "PurchaseOfferPayload returns the order created for the purchase.",
+          "fields": [
+            {
+              "name": "purchaseOrder",
+              "description": "The Purchase Order created for this purchase attempt.",
+              "args": [],
+              "type": {
+                "kind": "OBJECT",
+                "name": "PurchaseOrder",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "OBJECT",
+          "name": "PurchaseOrder",
+          "description": "PurchaseOrder is the record of a purchase made by a user.",
+          "fields": [
+            {
+              "name": "actionTokenID",
+              "description": "The action token ID used to facilitate the 3D Secure flow.",
+              "args": [],
+              "type": {
+                "kind": "SCALAR",
+                "name": "ID",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "id",
+              "description": "The ID of the Purchase Order.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "ID",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "state",
+              "description": "The state of the Purchase Order.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "ENUM",
+                  "name": "PurchaseOrderState",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "ENUM",
+          "name": "PurchaseOrderState",
+          "description": "PurchaseOrderState is the current state of the Purchase Order.",
+          "fields": null,
+          "inputFields": null,
+          "interfaces": null,
+          "enumValues": [
+            {
+              "name": "UNKNOWN",
+              "description": "The Purchase Order is in an unknown state.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "INITIATED",
+              "description": "The Purchase Order flow has been initiated and is at its starting state.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "PAYMENT_PENDING",
+              "description": "The Purchase Order has a scheduled future-dated payment to complete the purchase.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "FULFILLMENT_INITIATED",
+              "description": "The Purchase Order has been paid and fulfillment has been kicked off.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "SUCCESS",
+              "description": "The Purchase Order has been successfully fulfilled.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "THREE_D_SECURE_CHALLENGE_REQUIRED",
+              "description": "The Purchase Order failed and requires 3DS2 verification.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "FAILED",
+              "description": "The Purchase Order failed.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "CANCEL_BENEFITS_INITIATED",
+              "description": "The Purchase Order's benefit cancellation has been kicked off.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "BENEFITS_CANCELLED",
+              "description": "The Purchase Order's benefits have been fully cancelled.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "REFUND_INITIATED",
+              "description": "A refund has been kicked off for the Purchase Order.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "REFUND_APPLIED",
+              "description": "A refund has been successfully applied to the Purchase Order.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "REFUND_FAILED",
+              "description": "A refund has failed to the Purchase Order.",
               "isDeprecated": false,
               "deprecationReason": null
             }
