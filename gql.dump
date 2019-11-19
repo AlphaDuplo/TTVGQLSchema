@@ -51182,6 +51182,64 @@
         },
         {
           "kind": "INPUT_OBJECT",
+          "name": "InvalidateAuthenticatedSessionsInput",
+          "description": "Arguments for the invalidation of all of a user's sessions.",
+          "fields": null,
+          "inputFields": [
+            {
+              "name": "keepSession",
+              "description": "Session to keep alive.",
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "userID",
+              "description": "Twitch user owner of the sessions.",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "ID",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            }
+          ],
+          "interfaces": null,
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "OBJECT",
+          "name": "InvalidateAuthenticatedSessionsPayload",
+          "description": "Payload after invalidating sessions.",
+          "fields": [
+            {
+              "name": "user",
+              "description": "Twitch User.",
+              "args": [],
+              "type": {
+                "kind": "OBJECT",
+                "name": "User",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "INPUT_OBJECT",
           "name": "InvalidateEmailAssociationInput",
           "description": "InvalidateEmailAssociationPayload is input required to mark a user as not owning an email address.",
           "fields": null,
@@ -59335,6 +59393,33 @@
               "deprecationReason": null
             },
             {
+              "name": "invalidateAuthenticatedSessions",
+              "description": "Invalidates authenticated sessions.",
+              "args": [
+                {
+                  "name": "input",
+                  "description": null,
+                  "type": {
+                    "kind": "NON_NULL",
+                    "name": null,
+                    "ofType": {
+                      "kind": "INPUT_OBJECT",
+                      "name": "InvalidateAuthenticatedSessionsInput",
+                      "ofType": null
+                    }
+                  },
+                  "defaultValue": null
+                }
+              ],
+              "type": {
+                "kind": "OBJECT",
+                "name": "InvalidateAuthenticatedSessionsPayload",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
               "name": "invalidateEmailAssociation",
               "description": "Invalidates an association to an email.",
               "args": [
@@ -62824,6 +62909,33 @@
               "type": {
                 "kind": "OBJECT",
                 "name": "UpdateCompetitionPayload",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "updateCompetitionLobbyPlacements",
+              "description": "Updates placements for LobbyParticipants in a Lobby in a Phase in a Competition.",
+              "args": [
+                {
+                  "name": "input",
+                  "description": null,
+                  "type": {
+                    "kind": "NON_NULL",
+                    "name": null,
+                    "ofType": {
+                      "kind": "INPUT_OBJECT",
+                      "name": "UpdateCompetitionLobbyPlacementsInput",
+                      "ofType": null
+                    }
+                  },
+                  "defaultValue": null
+                }
+              ],
+              "type": {
+                "kind": "OBJECT",
+                "name": "UpdateCompetitionLobbyPlacementsPayload",
                 "ofType": null
               },
               "isDeprecated": false,
@@ -106750,6 +106862,157 @@
             }
           ],
           "interfaces": null,
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "INPUT_OBJECT",
+          "name": "UpdateCompetitionLobbyPlacementsInput",
+          "description": "Update the placements of LobbyParticipants in a Lobby in a Phase in a Competition.",
+          "fields": null,
+          "inputFields": [
+            {
+              "name": "competitionID",
+              "description": "Unique Competition ID.",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "ID",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "lobbyID",
+              "description": "Unique Lobby ID.",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "ID",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "participants",
+              "description": "List of lobby participant placements to update.",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "LIST",
+                  "name": null,
+                  "ofType": {
+                    "kind": "NON_NULL",
+                    "name": null,
+                    "ofType": {
+                      "kind": "INPUT_OBJECT",
+                      "name": "UpdateCompetitionLobbyPlacementsParticipantsInput",
+                      "ofType": null
+                    }
+                  }
+                }
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "phaseID",
+              "description": "Unique Phase ID.",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "ID",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            }
+          ],
+          "interfaces": null,
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "INPUT_OBJECT",
+          "name": "UpdateCompetitionLobbyPlacementsParticipantsInput",
+          "description": "Represents the mapping from a participant's identifiers and placement in a CompetitionLobby.",
+          "fields": null,
+          "inputFields": [
+            {
+              "name": "id",
+              "description": "Unique ID for CompetitionLobbyParticipant.",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "ID",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "placement",
+              "description": "Placement for the participant in this CompetitionLobby.",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Int",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "twitchUserID",
+              "description": "Twitch User id for this CompetitionLobbyParticipant.",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "ID",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            }
+          ],
+          "interfaces": null,
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "OBJECT",
+          "name": "UpdateCompetitionLobbyPlacementsPayload",
+          "description": "Data that was mutated after the lobby was updated.",
+          "fields": [
+            {
+              "name": "competitionLobby",
+              "description": "The competition lobby that was updated.",
+              "args": [],
+              "type": {
+                "kind": "OBJECT",
+                "name": "CompetitionLobby",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
           "enumValues": null,
           "possibleTypes": null
         },
