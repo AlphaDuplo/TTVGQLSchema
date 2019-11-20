@@ -1989,6 +1989,24 @@
                 "ofType": null
               },
               "defaultValue": null
+            },
+            {
+              "name": "scoringRules",
+              "description": "Scoring rules for a Phase.",
+              "type": {
+                "kind": "LIST",
+                "name": null,
+                "ofType": {
+                  "kind": "NON_NULL",
+                  "name": null,
+                  "ofType": {
+                    "kind": "INPUT_OBJECT",
+                    "name": "CompetitionScoringRuleInput",
+                    "ofType": null
+                  }
+                }
+              },
+              "defaultValue": null
             }
           ],
           "interfaces": null,
@@ -23710,6 +23728,45 @@
           ],
           "inputFields": null,
           "interfaces": [],
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "INPUT_OBJECT",
+          "name": "CompetitionScoringRuleInput",
+          "description": "Scoring rule to add to a phase.",
+          "fields": null,
+          "inputFields": [
+            {
+              "name": "placement",
+              "description": "Placement for a scoring rule.",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Int",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "points",
+              "description": "Points for a scoring rule.",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Int",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            }
+          ],
+          "interfaces": null,
           "enumValues": null,
           "possibleTypes": null
         },
