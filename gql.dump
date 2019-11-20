@@ -45371,6 +45371,68 @@
           "possibleTypes": null
         },
         {
+          "kind": "INPUT_OBJECT",
+          "name": "FinalizeCompetitionPhaseInput",
+          "description": "Finalize a competition phase, preventing future updates.",
+          "fields": null,
+          "inputFields": [
+            {
+              "name": "competitionID",
+              "description": "Unique competition ID for the competition that the phase is in.",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "ID",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "phaseID",
+              "description": "Unique phase ID.",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "ID",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            }
+          ],
+          "interfaces": null,
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "OBJECT",
+          "name": "FinalizeCompetitionPhasePayload",
+          "description": "Data that was mutated after the competition was created.",
+          "fields": [
+            {
+              "name": "phase",
+              "description": "The phase that was finalized.",
+              "args": [],
+              "type": {
+                "kind": "OBJECT",
+                "name": "CompetitionPhase",
+                "ofType": null
+              },
+              "isDeprecated": true,
+              "deprecationReason": "internal use only. interface is subject to change and iteration"
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
           "kind": "OBJECT",
           "name": "FirstCheerTutorial",
           "description": "Settings specific to the first cheer tutorial.",
@@ -59134,6 +59196,33 @@
               },
               "isDeprecated": false,
               "deprecationReason": null
+            },
+            {
+              "name": "finalizeCompetitionPhase",
+              "description": "Finalize a phase of a competition, preventing future updates.",
+              "args": [
+                {
+                  "name": "input",
+                  "description": null,
+                  "type": {
+                    "kind": "NON_NULL",
+                    "name": null,
+                    "ofType": {
+                      "kind": "INPUT_OBJECT",
+                      "name": "FinalizeCompetitionPhaseInput",
+                      "ofType": null
+                    }
+                  },
+                  "defaultValue": null
+                }
+              ],
+              "type": {
+                "kind": "OBJECT",
+                "name": "FinalizeCompetitionPhasePayload",
+                "ofType": null
+              },
+              "isDeprecated": true,
+              "deprecationReason": "internal use only. interface is subject to change and iteration"
             },
             {
               "name": "followCommunity",
