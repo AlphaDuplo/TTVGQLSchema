@@ -7059,6 +7059,16 @@
                     }
                   },
                   "defaultValue": null
+                },
+                {
+                  "name": "paymentSession",
+                  "description": null,
+                  "type": {
+                    "kind": "INPUT_OBJECT",
+                    "name": "PaymentSession",
+                    "ofType": null
+                  },
+                  "defaultValue": null
                 }
               ],
               "type": {
@@ -112550,8 +112560,8 @@
                 "name": "CampaignProperties",
                 "ofType": null
               },
-              "isDeprecated": false,
-              "deprecationReason": null
+              "isDeprecated": true,
+              "deprecationReason": "campaign events have been deprecated"
             },
             {
               "name": "canStartCommunityGift",
