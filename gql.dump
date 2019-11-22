@@ -112694,8 +112694,8 @@
                 "name": "Campaign",
                 "ofType": null
               },
-              "isDeprecated": false,
-              "deprecationReason": null
+              "isDeprecated": true,
+              "deprecationReason": "campaign events have been deprecated"
             },
             {
               "name": "campaignProperties",
