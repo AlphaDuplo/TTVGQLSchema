@@ -115357,6 +115357,33 @@
               "deprecationReason": null
             },
             {
+              "name": "purchaseOrder",
+              "description": "PurchaseOrder returns a user's purchase order.",
+              "args": [
+                {
+                  "name": "id",
+                  "description": null,
+                  "type": {
+                    "kind": "NON_NULL",
+                    "name": null,
+                    "ofType": {
+                      "kind": "SCALAR",
+                      "name": "ID",
+                      "ofType": null
+                    }
+                  },
+                  "defaultValue": null
+                }
+              ],
+              "type": {
+                "kind": "OBJECT",
+                "name": "PurchaseOrder",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
               "name": "raid",
               "description": "An ongoing raid on the user's channel.",
               "args": [],
