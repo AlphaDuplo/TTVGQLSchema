@@ -80205,6 +80205,12 @@
               "deprecationReason": null
             },
             {
+              "name": "MESSAGE_IS_COMMAND",
+              "description": "The redemption message starts with a '/' like a chat command.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
               "name": "UNKNOWN",
               "description": "An unknown error occurred.",
               "isDeprecated": false,
@@ -88909,6 +88915,12 @@
             {
               "name": "REWARD_FORBIDDEN",
               "description": "The user is not allowed to redeem this reward on this channel.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "MESSAGE_IS_COMMAND",
+              "description": "The user's message starts with a '/' like a chat command.",
               "isDeprecated": false,
               "deprecationReason": null
             },
