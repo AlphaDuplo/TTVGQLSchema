@@ -49463,7 +49463,19 @@
             },
             {
               "name": "HARD",
-              "description": "Hard, the hardest difficulty level.",
+              "description": "Hard, the hard difficulty level.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "SUPER_HARD",
+              "description": "Super Hard, the harder difficulty level.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "INSANE",
+              "description": "Insane, the hardest difficulty level.",
               "isDeprecated": false,
               "deprecationReason": null
             },
