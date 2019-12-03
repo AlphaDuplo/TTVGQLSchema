@@ -56080,8 +56080,8 @@
                 "name": "AddCompetitionParticipantPayload",
                 "ofType": null
               },
-              "isDeprecated": false,
-              "deprecationReason": null
+              "isDeprecated": true,
+              "deprecationReason": "internal use only. interface is subject to change and iteration"
             },
             {
               "name": "addCompetitionPhase",
@@ -57307,8 +57307,8 @@
                 "name": "CreateCompetitionPayload",
                 "ofType": null
               },
-              "isDeprecated": false,
-              "deprecationReason": null
+              "isDeprecated": true,
+              "deprecationReason": "internal use only. interface is subject to change and iteration"
             },
             {
               "name": "createContentTags",
@@ -58356,8 +58356,8 @@
                 "name": "DeleteCompetitionPayload",
                 "ofType": null
               },
-              "isDeprecated": false,
-              "deprecationReason": null
+              "isDeprecated": true,
+              "deprecationReason": "internal use only. interface is subject to change and iteration"
             },
             {
               "name": "deleteContentTags",
@@ -60447,8 +60447,8 @@
                 "name": "RemoveCompetitionParticipantPayload",
                 "ofType": null
               },
-              "isDeprecated": false,
-              "deprecationReason": null
+              "isDeprecated": true,
+              "deprecationReason": "internal use only. interface is subject to change and iteration"
             },
             {
               "name": "removeEditor",
@@ -63132,8 +63132,8 @@
                 "name": "UpdateCompetitionPayload",
                 "ofType": null
               },
-              "isDeprecated": false,
-              "deprecationReason": null
+              "isDeprecated": true,
+              "deprecationReason": "internal use only. interface is subject to change and iteration"
             },
             {
               "name": "updateCompetitionLobbyPlacements",
@@ -63159,8 +63159,8 @@
                 "name": "UpdateCompetitionLobbyPlacementsPayload",
                 "ofType": null
               },
-              "isDeprecated": false,
-              "deprecationReason": null
+              "isDeprecated": true,
+              "deprecationReason": "internal use only. interface is subject to change and iteration"
             },
             {
               "name": "updateCompetitionParticipant",
@@ -63186,8 +63186,35 @@
                 "name": "UpdateCompetitionParticipantPayload",
                 "ofType": null
               },
-              "isDeprecated": false,
-              "deprecationReason": null
+              "isDeprecated": true,
+              "deprecationReason": "internal use only. interface is subject to change and iteration"
+            },
+            {
+              "name": "updateCompetitionPhase",
+              "description": "Update Competition Phase Details.",
+              "args": [
+                {
+                  "name": "input",
+                  "description": null,
+                  "type": {
+                    "kind": "NON_NULL",
+                    "name": null,
+                    "ofType": {
+                      "kind": "INPUT_OBJECT",
+                      "name": "UpdateCompetitionPhaseInput",
+                      "ofType": null
+                    }
+                  },
+                  "defaultValue": null
+                }
+              ],
+              "type": {
+                "kind": "OBJECT",
+                "name": "UpdateCompetitionPhasePayload",
+                "ofType": null
+              },
+              "isDeprecated": true,
+              "deprecationReason": "internal use only. interface is subject to change and iteration"
             },
             {
               "name": "updateConsent",
@@ -107497,6 +107524,98 @@
               },
               "isDeprecated": false,
               "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "INPUT_OBJECT",
+          "name": "UpdateCompetitionPhaseInput",
+          "description": "Update a Phase.",
+          "fields": null,
+          "inputFields": [
+            {
+              "name": "competitionID",
+              "description": "Unique competition ID for the competition that the phase is in.",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "ID",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "lobbyMaxSize",
+              "description": "The max lobby size of the phase.",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Int",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "numPlayersToProgress",
+              "description": "The number of players to progress in a Phase.",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Int",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "phaseID",
+              "description": "Unique phase ID.",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "ID",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "phaseName",
+              "description": "The name of the Phase.",
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              },
+              "defaultValue": null
+            }
+          ],
+          "interfaces": null,
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "OBJECT",
+          "name": "UpdateCompetitionPhasePayload",
+          "description": "Data that was mutated after the phase was updated.",
+          "fields": [
+            {
+              "name": "phase",
+              "description": "The phase that was updated.",
+              "args": [],
+              "type": {
+                "kind": "OBJECT",
+                "name": "CompetitionPhase",
+                "ofType": null
+              },
+              "isDeprecated": true,
+              "deprecationReason": "internal use only. interface is subject to change and iteration"
             }
           ],
           "inputFields": null,
