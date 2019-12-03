@@ -20878,6 +20878,22 @@
               "deprecationReason": null
             },
             {
+              "name": "shouldRedemptionsSkipRequestQueue",
+              "description": "Whether redemptions for this reward should skip the broadcaster's request queue and get\nautomatically fulfilled.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Boolean",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
               "name": "title",
               "description": "The short title displayed for this reward.",
               "args": [],
@@ -26059,6 +26075,16 @@
                 "ofType": null
               },
               "defaultValue": null
+            },
+            {
+              "name": "shouldRedemptionsSkipRequestQueue",
+              "description": "Optional boolean for whether redemptions for this reward should skip the broadcaster's\nrequest queue and get automatically fulfilled. Defaults to false.",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Boolean",
+                "ofType": null
+              },
+              "defaultValue": "false"
             },
             {
               "name": "title",
@@ -60020,6 +60046,33 @@
               "deprecationReason": null
             },
             {
+              "name": "recordMissionReferralExperiment",
+              "description": "Record a Mission Referral to a channel page.",
+              "args": [
+                {
+                  "name": "input",
+                  "description": null,
+                  "type": {
+                    "kind": "NON_NULL",
+                    "name": null,
+                    "ofType": {
+                      "kind": "INPUT_OBJECT",
+                      "name": "RecordMissionReferralExperimentInput",
+                      "ofType": null
+                    }
+                  },
+                  "defaultValue": null
+                }
+              ],
+              "type": {
+                "kind": "OBJECT",
+                "name": "RecordMissionReferralExperimentPayload",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
               "name": "redeemClaimable",
               "description": "Redeem a claimable code, like a bits key code to add bits to your account, etc.",
               "args": [
@@ -74079,6 +74132,67 @@
           "possibleTypes": null
         },
         {
+          "kind": "INPUT_OBJECT",
+          "name": "PurchasableOfferParams",
+          "description": "Parameters to get details about a purchasable offer for the current logged in user.",
+          "fields": null,
+          "inputFields": [
+            {
+              "name": "giftRecipientIDs",
+              "description": "List of gift recipient IDs if the offer is giftable.",
+              "type": {
+                "kind": "LIST",
+                "name": null,
+                "ofType": {
+                  "kind": "NON_NULL",
+                  "name": null,
+                  "ofType": {
+                    "kind": "SCALAR",
+                    "name": "ID",
+                    "ofType": null
+                  }
+                }
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "offerID",
+              "description": "The ID of the Offer.",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "ID",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "tagBindings",
+              "description": "The static and dynamic bindings of the attributes on an Offer.",
+              "type": {
+                "kind": "LIST",
+                "name": null,
+                "ofType": {
+                  "kind": "NON_NULL",
+                  "name": null,
+                  "ofType": {
+                    "kind": "INPUT_OBJECT",
+                    "name": "OfferTagBindingInput",
+                    "ofType": null
+                  }
+                }
+              },
+              "defaultValue": null
+            }
+          ],
+          "interfaces": null,
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
           "kind": "ENUM",
           "name": "PurchaseIneligibilityReason",
           "description": "Set of purchase Ineligibility reasons.",
@@ -76655,6 +76769,33 @@
               "type": {
                 "kind": "OBJECT",
                 "name": "PrimeVideoBenefit",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "purchasableOffer",
+              "description": "Get details about a purchasable offer for the current logged in user.\nThis field can only be requested if an OAuth token is supplied with the request.\nIf the OAuth token is not supplied or if the offer does not exist, this will return null.",
+              "args": [
+                {
+                  "name": "params",
+                  "description": null,
+                  "type": {
+                    "kind": "NON_NULL",
+                    "name": null,
+                    "ofType": {
+                      "kind": "INPUT_OBJECT",
+                      "name": "PurchasableOfferParams",
+                      "ofType": null
+                    }
+                  },
+                  "defaultValue": null
+                }
+              ],
+              "type": {
+                "kind": "OBJECT",
+                "name": "Offer",
                 "ofType": null
               },
               "isDeprecated": false,
@@ -79800,6 +79941,68 @@
               "type": {
                 "kind": "OBJECT",
                 "name": "RecordAdEventError",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "INPUT_OBJECT",
+          "name": "RecordMissionReferralExperimentInput",
+          "description": "This mutation handles incoming referrals that are part of a Mission (similar to a quest or goal).\nA user can generate a referral link to share with their friends.\nThis records a referral, which comes from a referral URL for a given channel.",
+          "fields": null,
+          "inputFields": [
+            {
+              "name": "channelID",
+              "description": "The channel that the referral link references.",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "ID",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "referralCode",
+              "description": "The referral link code, corresponds to a user (recruiter).",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "String",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            }
+          ],
+          "interfaces": null,
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "OBJECT",
+          "name": "RecordMissionReferralExperimentPayload",
+          "description": "The result of an RecordMissionReferral mutation.",
+          "fields": [
+            {
+              "name": "user",
+              "description": "The user who followed the referral link.",
+              "args": [],
+              "type": {
+                "kind": "OBJECT",
+                "name": "User",
                 "ofType": null
               },
               "isDeprecated": false,
@@ -106597,6 +106800,16 @@
               "defaultValue": null
             },
             {
+              "name": "shouldRedemptionsSkipRequestQueue",
+              "description": "Whether redemptions for this reward should skip the broadcaster's request queue and get\nautomatically fulfilled.",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Boolean",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
               "name": "title",
               "description": "The short title displayed for this reward.",
               "type": {
@@ -112431,7 +112644,7 @@
             },
             {
               "name": "bitsProducts",
-              "description": "BitsProductEligibility checks for a given user if they are eligible to purchase a given product from the associated\nprovider, quantity, and locale.\nbitsProduct(id: ID!, provider: BitsProductProvider!, quantity: Int!, locale: String!): BitsProductEligibility!\nbitsProducts is a list of bits products that a user is able to purchase.\nUnlike bitsOffers, this does not return any pricing information, only information\nabout the purchaseable. A provider must be supplied, which is the payment platform\nbeing currently used. An optional list of SKUs can be provided if we are looking up\na specific set of products for a user.",
+              "description": "BitsProductEligibility checks for a given user if they are eligible to purchase a given product from the associated\nprovider, quantity, and locale.\nbitsProduct(id: ID!, provider: BitsProductProvider!, quantity: Int!, locale: String!): BitsProductEligibility!\nbitsProducts is a list of bits products that a user is able to purchase.\nUnlike bitsOffers, this does not return any pricing information, only information\nabout the purchasable. A provider must be supplied, which is the payment platform\nbeing currently used. An optional list of SKUs can be provided if we are looking up\na specific set of products for a user.",
               "args": [
                 {
                   "name": "provider",
