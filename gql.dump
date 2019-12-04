@@ -22565,6 +22565,39 @@
               "deprecationReason": null
             },
             {
+              "name": "leaderboard",
+              "description": "Calculates the total score of the CompetitionParticipants in the competition.",
+              "args": [
+                {
+                  "name": "first",
+                  "description": null,
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Int",
+                    "ofType": null
+                  },
+                  "defaultValue": "10"
+                },
+                {
+                  "name": "after",
+                  "description": null,
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Cursor",
+                    "ofType": null
+                  },
+                  "defaultValue": null
+                }
+              ],
+              "type": {
+                "kind": "OBJECT",
+                "name": "CompetitionLeaderboardConnection",
+                "ofType": null
+              },
+              "isDeprecated": true,
+              "deprecationReason": "Subject to change"
+            },
+            {
               "name": "maxParticipants",
               "description": "The max number of participants that can be in a competition.",
               "args": [],
@@ -22823,6 +22856,100 @@
                 "ofType": {
                   "kind": "OBJECT",
                   "name": "Competition",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "OBJECT",
+          "name": "CompetitionLeaderboardConnection",
+          "description": "List of competition participants and their scores.",
+          "fields": [
+            {
+              "name": "edges",
+              "description": "The elements of the list.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "LIST",
+                  "name": null,
+                  "ofType": {
+                    "kind": "NON_NULL",
+                    "name": null,
+                    "ofType": {
+                      "kind": "OBJECT",
+                      "name": "CompetitionLeaderboardEdge",
+                      "ofType": null
+                    }
+                  }
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "pageInfo",
+              "description": "Are there more competition participants on the leaderboard and what is the cursor.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "OBJECT",
+                  "name": "PageInfo",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "OBJECT",
+          "name": "CompetitionLeaderboardEdge",
+          "description": "Contains information about a competition participant relationship to a leaderboard (connection),\nand the participant themselves.",
+          "fields": [
+            {
+              "name": "cursor",
+              "description": "Opaque cursor describing this edge's position in the paginated list.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Cursor",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "node",
+              "description": "A competition participant record on the leaderboard.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "OBJECT",
+                  "name": "CompetitionParticipant",
                   "ofType": null
                 }
               },
@@ -23255,7 +23382,7 @@
         {
           "kind": "OBJECT",
           "name": "CompetitionParticipantConnection",
-          "description": "Paginated list of Partiticpants in a Competition.",
+          "description": "Paginated list of Participants in a Competition.",
           "fields": [
             {
               "name": "edges",
@@ -23326,7 +23453,7 @@
             },
             {
               "name": "node",
-              "description": "A competition record in the list of competitons.",
+              "description": "A competition record in the list of competitions.",
               "args": [],
               "type": {
                 "kind": "NON_NULL",
