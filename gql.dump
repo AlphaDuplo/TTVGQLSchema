@@ -107763,6 +107763,24 @@
                 "ofType": null
               },
               "defaultValue": null
+            },
+            {
+              "name": "scoringRules",
+              "description": "Scoring rules for a Phase.",
+              "type": {
+                "kind": "LIST",
+                "name": null,
+                "ofType": {
+                  "kind": "NON_NULL",
+                  "name": null,
+                  "ofType": {
+                    "kind": "INPUT_OBJECT",
+                    "name": "CompetitionScoringRuleInput",
+                    "ofType": null
+                  }
+                }
+              },
+              "defaultValue": null
             }
           ],
           "interfaces": null,
