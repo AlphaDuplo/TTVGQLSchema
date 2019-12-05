@@ -50493,6 +50493,22 @@
               "deprecationReason": null
             },
             {
+              "name": "remainingSeconds",
+              "description": "The number of seconds left until this Hype Train execution ends.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Int",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
               "name": "total",
               "description": "The total progression overall that has occurred in the Hype Train across all levels.",
               "args": [],
