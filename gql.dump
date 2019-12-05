@@ -23346,6 +23346,22 @@
               "deprecationReason": null
             },
             {
+              "name": "totalScore",
+              "description": "The total score for the competition participant.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Int",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
               "name": "updatedAt",
               "description": "The time the participant was last updated.",
               "args": [],
@@ -77615,8 +77631,8 @@
                   }
                 }
               },
-              "isDeprecated": false,
-              "deprecationReason": null
+              "isDeprecated": true,
+              "deprecationReason": "replaced with subscriptionTokenBundleProducts"
             },
             {
               "name": "subscriptionTokenBundleProducts",
@@ -97311,13 +97327,9 @@
               "description": "The Offer document for this Community Gift offer.",
               "args": [],
               "type": {
-                "kind": "NON_NULL",
-                "name": null,
-                "ofType": {
-                  "kind": "OBJECT",
-                  "name": "Offer",
-                  "ofType": null
-                }
+                "kind": "OBJECT",
+                "name": "Offer",
+                "ofType": null
               },
               "isDeprecated": false,
               "deprecationReason": null
@@ -97806,19 +97818,25 @@
             },
             {
               "name": "standard",
-              "description": "Offers for purchasing a gift subscription to the given user.",
+              "description": "Offers for purchasing a gift subscription to the given user.\nThis will prefer the ID if both login and ID are provided.\nIf neither are provided, this will return null.",
               "args": [
+                {
+                  "name": "recipientID",
+                  "description": null,
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "ID",
+                    "ofType": null
+                  },
+                  "defaultValue": null
+                },
                 {
                   "name": "recipientLogin",
                   "description": null,
                   "type": {
-                    "kind": "NON_NULL",
-                    "name": null,
-                    "ofType": {
-                      "kind": "SCALAR",
-                      "name": "String",
-                      "ofType": null
-                    }
+                    "kind": "SCALAR",
+                    "name": "String",
+                    "ofType": null
                   },
                   "defaultValue": null
                 }
@@ -99162,13 +99180,9 @@
               "description": "The Offer document for this Standard Gift offer.",
               "args": [],
               "type": {
-                "kind": "NON_NULL",
-                "name": null,
-                "ofType": {
-                  "kind": "OBJECT",
-                  "name": "Offer",
-                  "ofType": null
-                }
+                "kind": "OBJECT",
+                "name": "Offer",
+                "ofType": null
               },
               "isDeprecated": false,
               "deprecationReason": null
