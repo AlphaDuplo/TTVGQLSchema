@@ -14743,13 +14743,9 @@
                   "name": "productType",
                   "description": null,
                   "type": {
-                    "kind": "NON_NULL",
-                    "name": null,
-                    "ofType": {
-                      "kind": "ENUM",
-                      "name": "PurchaseableProductType",
-                      "ofType": null
-                    }
+                    "kind": "ENUM",
+                    "name": "PurchaseableProductType",
+                    "ofType": null
                   },
                   "defaultValue": null
                 },
@@ -14757,12 +14753,26 @@
                   "name": "productID",
                   "description": null,
                   "type": {
-                    "kind": "NON_NULL",
+                    "kind": "SCALAR",
+                    "name": "ID",
+                    "ofType": null
+                  },
+                  "defaultValue": null
+                },
+                {
+                  "name": "offerTagBindings",
+                  "description": null,
+                  "type": {
+                    "kind": "LIST",
                     "name": null,
                     "ofType": {
-                      "kind": "SCALAR",
-                      "name": "ID",
-                      "ofType": null
+                      "kind": "NON_NULL",
+                      "name": null,
+                      "ofType": {
+                        "kind": "INPUT_OBJECT",
+                        "name": "OfferTagBindingInput",
+                        "ofType": null
+                      }
                     }
                   },
                   "defaultValue": null
@@ -14773,6 +14783,34 @@
                   "type": {
                     "kind": "SCALAR",
                     "name": "Int",
+                    "ofType": null
+                  },
+                  "defaultValue": null
+                },
+                {
+                  "name": "giftRecipientIDs",
+                  "description": null,
+                  "type": {
+                    "kind": "LIST",
+                    "name": null,
+                    "ofType": {
+                      "kind": "NON_NULL",
+                      "name": null,
+                      "ofType": {
+                        "kind": "SCALAR",
+                        "name": "ID",
+                        "ofType": null
+                      }
+                    }
+                  },
+                  "defaultValue": null
+                },
+                {
+                  "name": "tenantTracking",
+                  "description": null,
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "String",
                     "ofType": null
                   },
                   "defaultValue": null
