@@ -37599,6 +37599,41 @@
           "possibleTypes": null
         },
         {
+          "kind": "ENUM",
+          "name": "EligiblePaymentMethod",
+          "description": "The list of payment methods that are supported for web checkout.",
+          "fields": null,
+          "inputFields": null,
+          "interfaces": null,
+          "enumValues": [
+            {
+              "name": "AMAZON_PAY",
+              "description": "Amazon Pay payment method.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "PAYPAL",
+              "description": "Paypal payment method.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "CREDIT_CARD",
+              "description": "Credit card payment method.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "XSOLLA",
+              "description": "Xsolla payment method.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "possibleTypes": null
+        },
+        {
           "kind": "OBJECT",
           "name": "EmbeddedEmote",
           "description": "EmbeddedEmote is an encoding format used to describe an emote embedded in a string of text.\n\nExample:\n  body = \"hey KappaHD\"\n  from = 4\n  to = 10\n\n  \"KappaHD\" will be replaced with the KappaHD emote image.",
@@ -65811,6 +65846,51 @@
           "description": "The authenticated user's relationship with the offer.",
           "fields": [
             {
+              "name": "checkoutActions",
+              "description": "Returns any fraud-related checkout actions that the client must invoke.",
+              "args": [
+                {
+                  "name": "quantity",
+                  "description": null,
+                  "type": {
+                    "kind": "NON_NULL",
+                    "name": null,
+                    "ofType": {
+                      "kind": "SCALAR",
+                      "name": "Int",
+                      "ofType": null
+                    }
+                  },
+                  "defaultValue": null
+                },
+                {
+                  "name": "paymentSession",
+                  "description": null,
+                  "type": {
+                    "kind": "INPUT_OBJECT",
+                    "name": "PaymentSession",
+                    "ofType": null
+                  },
+                  "defaultValue": null
+                }
+              ],
+              "type": {
+                "kind": "LIST",
+                "name": null,
+                "ofType": {
+                  "kind": "NON_NULL",
+                  "name": null,
+                  "ofType": {
+                    "kind": "ENUM",
+                    "name": "CheckoutAction",
+                    "ofType": null
+                  }
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
               "name": "checkoutConfiguration",
               "description": "Configs that initiate the user's checkout flow for this Offer.",
               "args": [],
@@ -65818,6 +65898,26 @@
                 "kind": "OBJECT",
                 "name": "CheckoutConfiguration",
                 "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "eligiblePaymentMethods",
+              "description": "Provides a list of eligible payment methods that the user can select for this offer.",
+              "args": [],
+              "type": {
+                "kind": "LIST",
+                "name": null,
+                "ofType": {
+                  "kind": "NON_NULL",
+                  "name": null,
+                  "ofType": {
+                    "kind": "ENUM",
+                    "name": "EligiblePaymentMethod",
+                    "ofType": null
+                  }
+                }
               },
               "isDeprecated": false,
               "deprecationReason": null
