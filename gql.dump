@@ -65603,6 +65603,34 @@
               "deprecationReason": null
             },
             {
+              "name": "maxQuantityOverride",
+              "description": "Allows tenants to override the maximum purchasable quantity for an offer \nwithin a checkout session (used in purchase velocity cases).",
+              "args": [],
+              "type": {
+                "kind": "SCALAR",
+                "name": "Int",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "purchaseType",
+              "description": "Provides extra contextual details for the type of purchase.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "ENUM",
+                  "name": "OfferPurchaseType",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
               "name": "reasonCode",
               "description": "If the user is ineligible for the Offer, then this code is set\nas the reason why the user is ineligible.",
               "args": [],
@@ -65740,6 +65768,41 @@
           "inputFields": null,
           "interfaces": [],
           "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "ENUM",
+          "name": "OfferPurchaseType",
+          "description": "OfferPUrchaseType provides extra contextual details for the type of purchase.",
+          "fields": null,
+          "inputFields": null,
+          "interfaces": null,
+          "enumValues": [
+            {
+              "name": "DEFAULT_PURCHASE",
+              "description": "This offer is a default, standard purchase.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "UPGRADE_RECURRING_SUB_TIER",
+              "description": "This offer being purchased will be a tier upgrade from their current active tier.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "DOWNGRADE_RECURRING_SUB_TIER",
+              "description": "This offer being purchased will be a tier downgrade from their current active tier.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "FUTURE_PURCHASE",
+              "description": "This offer being purchased is future-dated.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
           "possibleTypes": null
         },
         {
@@ -72304,7 +72367,7 @@
         {
           "kind": "OBJECT",
           "name": "Premiere",
-          "description": null,
+          "description": "DEPRECATED.",
           "fields": [
             {
               "name": "id",
@@ -72319,8 +72382,8 @@
                   "ofType": null
                 }
               },
-              "isDeprecated": false,
-              "deprecationReason": null
+              "isDeprecated": true,
+              "deprecationReason": "Premieres as a product has been deprecated"
             },
             {
               "name": "items",
@@ -72352,8 +72415,8 @@
                 "name": "PremiereConnection",
                 "ofType": null
               },
-              "isDeprecated": false,
-              "deprecationReason": null
+              "isDeprecated": true,
+              "deprecationReason": "Premieres as a product has been deprecated"
             },
             {
               "name": "pastPremiere",
@@ -72364,8 +72427,8 @@
                 "name": "Video",
                 "ofType": null
               },
-              "isDeprecated": false,
-              "deprecationReason": null
+              "isDeprecated": true,
+              "deprecationReason": "Premieres as a product has been deprecated"
             },
             {
               "name": "premiereEvent",
@@ -72376,8 +72439,8 @@
                 "name": "PremiereEvent",
                 "ofType": null
               },
-              "isDeprecated": false,
-              "deprecationReason": null
+              "isDeprecated": true,
+              "deprecationReason": "Premieres as a product has been deprecated"
             },
             {
               "name": "status",
@@ -72392,8 +72455,8 @@
                   "ofType": null
                 }
               },
-              "isDeprecated": false,
-              "deprecationReason": null
+              "isDeprecated": true,
+              "deprecationReason": "Premieres as a product has been deprecated"
             },
             {
               "name": "user",
@@ -72404,8 +72467,8 @@
                 "name": "User",
                 "ofType": null
               },
-              "isDeprecated": false,
-              "deprecationReason": null
+              "isDeprecated": true,
+              "deprecationReason": "Premieres as a product has been deprecated"
             }
           ],
           "inputFields": null,
@@ -72416,7 +72479,7 @@
         {
           "kind": "OBJECT",
           "name": "PremiereConnection",
-          "description": "Paginated list of videos.",
+          "description": "DEPRECATED.\nPaginated list of videos.",
           "fields": [
             {
               "name": "edges",
@@ -72431,8 +72494,8 @@
                   "ofType": null
                 }
               },
-              "isDeprecated": false,
-              "deprecationReason": null
+              "isDeprecated": true,
+              "deprecationReason": "Premieres as a product has been deprecated"
             },
             {
               "name": "pageInfo",
@@ -72443,8 +72506,8 @@
                 "name": "PageInfo",
                 "ofType": null
               },
-              "isDeprecated": false,
-              "deprecationReason": null
+              "isDeprecated": true,
+              "deprecationReason": "Premieres as a product has been deprecated"
             },
             {
               "name": "totalCount",
@@ -72455,8 +72518,8 @@
                 "name": "Int",
                 "ofType": null
               },
-              "isDeprecated": false,
-              "deprecationReason": null
+              "isDeprecated": true,
+              "deprecationReason": "Premieres as a product has been deprecated"
             }
           ],
           "inputFields": null,
@@ -72467,7 +72530,7 @@
         {
           "kind": "OBJECT",
           "name": "PremiereEvent",
-          "description": "PremiereEvent represents a one-off, stand-alone event where the content is a Premiere.",
+          "description": "DEPRECATED.\nPremiereEvent represents a one-off, stand-alone event where the content is a Premiere.",
           "fields": [
             {
               "name": "channel",
@@ -72478,8 +72541,8 @@
                 "name": "User",
                 "ofType": null
               },
-              "isDeprecated": false,
-              "deprecationReason": null
+              "isDeprecated": true,
+              "deprecationReason": "Premieres as a product has been deprecated"
             },
             {
               "name": "createdAt",
@@ -72494,8 +72557,8 @@
                   "ofType": null
                 }
               },
-              "isDeprecated": false,
-              "deprecationReason": null
+              "isDeprecated": true,
+              "deprecationReason": "Premieres as a product has been deprecated"
             },
             {
               "name": "description",
@@ -72510,8 +72573,8 @@
                   "ofType": null
                 }
               },
-              "isDeprecated": false,
-              "deprecationReason": null
+              "isDeprecated": true,
+              "deprecationReason": "Premieres as a product has been deprecated"
             },
             {
               "name": "endAt",
@@ -72526,8 +72589,8 @@
                   "ofType": null
                 }
               },
-              "isDeprecated": false,
-              "deprecationReason": null
+              "isDeprecated": true,
+              "deprecationReason": "Premieres as a product has been deprecated"
             },
             {
               "name": "game",
@@ -72538,8 +72601,8 @@
                 "name": "Game",
                 "ofType": null
               },
-              "isDeprecated": false,
-              "deprecationReason": null
+              "isDeprecated": true,
+              "deprecationReason": "Premieres as a product has been deprecated"
             },
             {
               "name": "id",
@@ -72554,8 +72617,8 @@
                   "ofType": null
                 }
               },
-              "isDeprecated": false,
-              "deprecationReason": null
+              "isDeprecated": true,
+              "deprecationReason": "Premieres as a product has been deprecated"
             },
             {
               "name": "imageID",
@@ -72570,8 +72633,8 @@
                   "ofType": null
                 }
               },
-              "isDeprecated": false,
-              "deprecationReason": null
+              "isDeprecated": true,
+              "deprecationReason": "Premieres as a product has been deprecated"
             },
             {
               "name": "imageURL",
@@ -72607,8 +72670,8 @@
                   "ofType": null
                 }
               },
-              "isDeprecated": false,
-              "deprecationReason": null
+              "isDeprecated": true,
+              "deprecationReason": "Premieres as a product has been deprecated"
             },
             {
               "name": "language",
@@ -72623,8 +72686,8 @@
                   "ofType": null
                 }
               },
-              "isDeprecated": false,
-              "deprecationReason": null
+              "isDeprecated": true,
+              "deprecationReason": "Premieres as a product has been deprecated"
             },
             {
               "name": "owner",
@@ -72635,8 +72698,8 @@
                 "name": "User",
                 "ofType": null
               },
-              "isDeprecated": false,
-              "deprecationReason": null
+              "isDeprecated": true,
+              "deprecationReason": "Premieres as a product has been deprecated"
             },
             {
               "name": "premiere",
@@ -72647,8 +72710,8 @@
                 "name": "Premiere",
                 "ofType": null
               },
-              "isDeprecated": false,
-              "deprecationReason": null
+              "isDeprecated": true,
+              "deprecationReason": "Premieres as a product has been deprecated"
             },
             {
               "name": "self",
@@ -72659,8 +72722,8 @@
                 "name": "EventSelfConnection",
                 "ofType": null
               },
-              "isDeprecated": false,
-              "deprecationReason": null
+              "isDeprecated": true,
+              "deprecationReason": "Premieres as a product has been deprecated"
             },
             {
               "name": "startAt",
@@ -72675,8 +72738,8 @@
                   "ofType": null
                 }
               },
-              "isDeprecated": false,
-              "deprecationReason": null
+              "isDeprecated": true,
+              "deprecationReason": "Premieres as a product has been deprecated"
             },
             {
               "name": "stats",
@@ -72687,8 +72750,8 @@
                 "name": "EventStats",
                 "ofType": null
               },
-              "isDeprecated": false,
-              "deprecationReason": null
+              "isDeprecated": true,
+              "deprecationReason": "Premieres as a product has been deprecated"
             },
             {
               "name": "title",
@@ -72703,8 +72766,8 @@
                   "ofType": null
                 }
               },
-              "isDeprecated": false,
-              "deprecationReason": null
+              "isDeprecated": true,
+              "deprecationReason": "Premieres as a product has been deprecated"
             },
             {
               "name": "updatedAt",
@@ -72719,8 +72782,8 @@
                   "ofType": null
                 }
               },
-              "isDeprecated": false,
-              "deprecationReason": null
+              "isDeprecated": true,
+              "deprecationReason": "Premieres as a product has been deprecated"
             }
           ],
           "inputFields": null,
@@ -72737,7 +72800,7 @@
         {
           "kind": "UNION",
           "name": "PremiereItem",
-          "description": "The types of objects that can be contained in a premiere.",
+          "description": "DEPRECATED.\nThe types of objects that can be contained in a premiere.",
           "fields": null,
           "inputFields": null,
           "interfaces": null,
@@ -72753,11 +72816,11 @@
         {
           "kind": "OBJECT",
           "name": "PremiereItemEdge",
-          "description": "A page entry, that contains a premiere item and a cursor to return\nfrom the query to allow pagination.\nNOTE: this should have been named PremiereEdge.",
+          "description": "DEPRECATED.\nA page entry, that contains a premiere item and a cursor to return\nfrom the query to allow pagination.\nNOTE: this should have been named PremiereEdge.",
           "fields": [
             {
               "name": "cursor",
-              "description": null,
+              "description": "Cursor is a cursor.",
               "args": [],
               "type": {
                 "kind": "NON_NULL",
@@ -72768,12 +72831,12 @@
                   "ofType": null
                 }
               },
-              "isDeprecated": false,
-              "deprecationReason": null
+              "isDeprecated": true,
+              "deprecationReason": "Premieres as a product has been deprecated"
             },
             {
               "name": "node",
-              "description": null,
+              "description": "Node is a node.",
               "args": [],
               "type": {
                 "kind": "NON_NULL",
@@ -72784,8 +72847,8 @@
                   "ofType": null
                 }
               },
-              "isDeprecated": false,
-              "deprecationReason": null
+              "isDeprecated": true,
+              "deprecationReason": "Premieres as a product has been deprecated"
             }
           ],
           "inputFields": null,
@@ -72796,7 +72859,7 @@
         {
           "kind": "ENUM",
           "name": "PremiereStatus",
-          "description": null,
+          "description": "DEPRECATED.",
           "fields": null,
           "inputFields": null,
           "interfaces": null,
@@ -72804,44 +72867,44 @@
             {
               "name": "UNSCHEDULED",
               "description": "An unscheduled premiere.",
-              "isDeprecated": false,
-              "deprecationReason": null
+              "isDeprecated": true,
+              "deprecationReason": "Premieres as a product has been deprecated"
             },
             {
               "name": "SCHEDULED",
               "description": "A scheduled premiere.",
-              "isDeprecated": false,
-              "deprecationReason": null
+              "isDeprecated": true,
+              "deprecationReason": "Premieres as a product has been deprecated"
             },
             {
               "name": "CANCELLED",
               "description": "A cancelled premiere.",
-              "isDeprecated": false,
-              "deprecationReason": null
+              "isDeprecated": true,
+              "deprecationReason": "Premieres as a product has been deprecated"
             },
             {
               "name": "STARTED",
               "description": "A premiere that has been started.",
-              "isDeprecated": false,
-              "deprecationReason": null
+              "isDeprecated": true,
+              "deprecationReason": "Premieres as a product has been deprecated"
             },
             {
               "name": "SUCCESS",
               "description": "A successfully completed premiere.",
-              "isDeprecated": false,
-              "deprecationReason": null
+              "isDeprecated": true,
+              "deprecationReason": "Premieres as a product has been deprecated"
             },
             {
               "name": "FAILED",
               "description": "A failed premiere. Examples of failed premieres are premieres that attempt to run\nprior to the video being processed (or failed processing,) or the event failing\nin the middle due to technical difficulties.",
-              "isDeprecated": false,
-              "deprecationReason": null
+              "isDeprecated": true,
+              "deprecationReason": "Premieres as a product has been deprecated"
             },
             {
               "name": "UNKNOWN",
               "description": "An unknown status to ensure we are able to return something.",
-              "isDeprecated": false,
-              "deprecationReason": null
+              "isDeprecated": true,
+              "deprecationReason": "Premieres as a product has been deprecated"
             }
           ],
           "possibleTypes": null
