@@ -948,6 +948,33 @@
               "deprecationReason": null
             },
             {
+              "name": "experimentTreatment",
+              "description": "Get the ad experiment treatment group for a specified experiment bucket.",
+              "args": [
+                {
+                  "name": "bucket",
+                  "description": null,
+                  "type": {
+                    "kind": "NON_NULL",
+                    "name": null,
+                    "ofType": {
+                      "kind": "SCALAR",
+                      "name": "String",
+                      "ofType": null
+                    }
+                  },
+                  "defaultValue": null
+                }
+              ],
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
               "name": "frequency",
               "description": "How often ad breaks can be run on this channel.",
               "args": [],
