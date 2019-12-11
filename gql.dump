@@ -29788,6 +29788,23 @@
           "possibleTypes": null
         },
         {
+          "kind": "ENUM",
+          "name": "CreateSocialMediaError",
+          "description": "CreateSocialMediaError is a user error while creating a social media.",
+          "fields": null,
+          "inputFields": null,
+          "interfaces": null,
+          "enumValues": [
+            {
+              "name": "FAILED_TITLE_MODERATION",
+              "description": "The title failed moderation.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "possibleTypes": null
+        },
+        {
           "kind": "INPUT_OBJECT",
           "name": "CreateSocialMediaInput",
           "description": "CreateSocialMediaInput creates social media under the given channelID.",
@@ -29852,6 +29869,18 @@
               "type": {
                 "kind": "OBJECT",
                 "name": "Channel",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "error",
+              "description": "The potential error when creating a social media.",
+              "args": [],
+              "type": {
+                "kind": "ENUM",
+                "name": "CreateSocialMediaError",
                 "ofType": null
               },
               "isDeprecated": false,
@@ -53061,49 +53090,6 @@
         },
         {
           "kind": "OBJECT",
-          "name": "LimitedBetaStatus",
-          "description": "LimitedBetaStatus contains status information for a limited opt-in beta test.\nIt is only accessible to the currentUser and will be null in all other cases.",
-          "fields": [
-            {
-              "name": "isInvited",
-              "description": "isInvited is true if the user has been accepted into the test or false otherwise.",
-              "args": [],
-              "type": {
-                "kind": "NON_NULL",
-                "name": null,
-                "ofType": {
-                  "kind": "SCALAR",
-                  "name": "Boolean",
-                  "ofType": null
-                }
-              },
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
-              "name": "isRequested",
-              "description": "isRequested is true if the user has opted-in to the test or false otherwise.",
-              "args": [],
-              "type": {
-                "kind": "NON_NULL",
-                "name": null,
-                "ofType": {
-                  "kind": "SCALAR",
-                  "name": "Boolean",
-                  "ofType": null
-                }
-              },
-              "isDeprecated": false,
-              "deprecationReason": null
-            }
-          ],
-          "inputFields": null,
-          "interfaces": [],
-          "enumValues": null,
-          "possibleTypes": null
-        },
-        {
-          "kind": "OBJECT",
           "name": "LinkOEmbed",
           "description": "LinkOEmbed is a link oEmbed.  This looks strange being empty, but mirrors the oEmbed official spec most exactly.",
           "fields": [
@@ -64157,33 +64143,6 @@
               "type": {
                 "kind": "OBJECT",
                 "name": "UpdateSocialMediaPayload",
-                "ofType": null
-              },
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
-              "name": "updateSpotlightBetaPreference",
-              "description": "updateSpotlightBetaPreference allows a user to opt in or out of Spotlight's beta test.",
-              "args": [
-                {
-                  "name": "input",
-                  "description": null,
-                  "type": {
-                    "kind": "NON_NULL",
-                    "name": null,
-                    "ofType": {
-                      "kind": "INPUT_OBJECT",
-                      "name": "UpdateSpotlightBetaPreferenceInput",
-                      "ofType": null
-                    }
-                  },
-                  "defaultValue": null
-                }
-              ],
-              "type": {
-                "kind": "OBJECT",
-                "name": "UpdateSpotlightBetaPreferencePayload",
                 "ofType": null
               },
               "isDeprecated": false,
@@ -110880,6 +110839,23 @@
           "possibleTypes": null
         },
         {
+          "kind": "ENUM",
+          "name": "UpdateSocialMediaError",
+          "description": "UpdateSocialMediaError is a user error while creating a social media.",
+          "fields": null,
+          "inputFields": null,
+          "interfaces": null,
+          "enumValues": [
+            {
+              "name": "FAILED_TITLE_MODERATION",
+              "description": "The title failed moderation.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "possibleTypes": null
+        },
+        {
           "kind": "INPUT_OBJECT",
           "name": "UpdateSocialMediaInput",
           "description": "UpdateSocialMediaInput updates existing a social media item under the given channelID.",
@@ -110954,50 +110930,14 @@
               },
               "isDeprecated": false,
               "deprecationReason": null
-            }
-          ],
-          "inputFields": null,
-          "interfaces": [],
-          "enumValues": null,
-          "possibleTypes": null
-        },
-        {
-          "kind": "INPUT_OBJECT",
-          "name": "UpdateSpotlightBetaPreferenceInput",
-          "description": "UpdateSpotlightBetaPreferenceInput requests to opt-in or opt-out of the Spotlight beta.",
-          "fields": null,
-          "inputFields": [
+            },
             {
-              "name": "isRequested",
-              "description": "IsRequest determines if the user would like to opt-in or opt-out of the beta.",
-              "type": {
-                "kind": "NON_NULL",
-                "name": null,
-                "ofType": {
-                  "kind": "SCALAR",
-                  "name": "Boolean",
-                  "ofType": null
-                }
-              },
-              "defaultValue": null
-            }
-          ],
-          "interfaces": null,
-          "enumValues": null,
-          "possibleTypes": null
-        },
-        {
-          "kind": "OBJECT",
-          "name": "UpdateSpotlightBetaPreferencePayload",
-          "description": "UpdateSpotlightBetaPreferencePayload returns updated beta status for Spotlight.",
-          "fields": [
-            {
-              "name": "user",
-              "description": "user whose Spotlight beta status was updated.",
+              "name": "error",
+              "description": "The potential error when updating a social media.",
               "args": [],
               "type": {
-                "kind": "OBJECT",
-                "name": "User",
+                "kind": "ENUM",
+                "name": "UpdateSocialMediaError",
                 "ofType": null
               },
               "isDeprecated": false,
@@ -116467,18 +116407,6 @@
               "type": {
                 "kind": "OBJECT",
                 "name": "UserSettings",
-                "ofType": null
-              },
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
-              "name": "spotlightBetaStatus",
-              "description": "spotlightBetaStatus checks if the user has access to the Spotlight beta.\nUsers can only view their own beta status.",
-              "args": [],
-              "type": {
-                "kind": "OBJECT",
-                "name": "LimitedBetaStatus",
                 "ofType": null
               },
               "isDeprecated": false,
