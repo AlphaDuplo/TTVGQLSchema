@@ -12302,6 +12302,22 @@
               "deprecationReason": null
             },
             {
+              "name": "availableDrops",
+              "description": "A list of available Drops that viewers of this channel can claim when certain game events are met.",
+              "args": [],
+              "type": {
+                "kind": "LIST",
+                "name": null,
+                "ofType": {
+                  "kind": "OBJECT",
+                  "name": "DropObject",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
               "name": "bannedUsers",
               "description": "A paginated list of users who are banned from this channel.",
               "args": [
@@ -12917,6 +12933,18 @@
               },
               "isDeprecated": true,
               "deprecationReason": "Use user.subscriptionProducts instead."
+            },
+            {
+              "name": "trailer",
+              "description": "Channel trailer for this channel.",
+              "args": [],
+              "type": {
+                "kind": "OBJECT",
+                "name": "Trailer",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
             },
             {
               "name": "updatedAt",
@@ -17140,6 +17168,104 @@
               "type": {
                 "kind": "OBJECT",
                 "name": "ClaimCommunityPointsError",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "INPUT_OBJECT",
+          "name": "ClaimDropRewardsInput",
+          "description": "ClaimDropRewardsInput has fields required to claim a drop.",
+          "fields": null,
+          "inputFields": [
+            {
+              "name": "dropInstanceID",
+              "description": "dropInstanceID is the unique drop instance to claim.",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "ID",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "userID",
+              "description": "userID is the ID of the user attempting to claim the drop.",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "ID",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            }
+          ],
+          "interfaces": null,
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "OBJECT",
+          "name": "ClaimDropRewardsPayload",
+          "description": "ClaimDropRewardsPayload returns the state of the claim.",
+          "fields": [
+            {
+              "name": "dropInstanceID",
+              "description": "dropInstanceID is the same as the provided input.",
+              "args": [],
+              "type": {
+                "kind": "SCALAR",
+                "name": "ID",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "rewards",
+              "description": "rewards lists the rewards that were claimed and their statuses.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "LIST",
+                  "name": null,
+                  "ofType": {
+                    "kind": "NON_NULL",
+                    "name": null,
+                    "ofType": {
+                      "kind": "OBJECT",
+                      "name": "DropReward",
+                      "ofType": null
+                    }
+                  }
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "status",
+              "description": "status is an enum specifying the status of the claim request.",
+              "args": [],
+              "type": {
+                "kind": "ENUM",
+                "name": "DropInstanceEligibilityStatus",
                 "ofType": null
               },
               "isDeprecated": false,
@@ -37299,6 +37425,73 @@
           "possibleTypes": null
         },
         {
+          "kind": "OBJECT",
+          "name": "DropEligibility",
+          "description": "Contains all of the information about a Drop awarded to a user.",
+          "fields": [
+            {
+              "name": "dropInstanceID",
+              "description": "The unique ID of this drop instance.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "ID",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "rewards",
+              "description": "Rewards available to the user for this drop and their statuses.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "LIST",
+                  "name": null,
+                  "ofType": {
+                    "kind": "NON_NULL",
+                    "name": null,
+                    "ofType": {
+                      "kind": "OBJECT",
+                      "name": "DropReward",
+                      "ofType": null
+                    }
+                  }
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "status",
+              "description": "User eligibility for this drop instance.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "ENUM",
+                  "name": "DropInstanceEligibilityStatus",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
           "kind": "ENUM",
           "name": "DropImageType",
           "description": "DropImageType is the list of possible uses that an image can have for drops.",
@@ -37315,6 +37508,360 @@
             {
               "name": "ITEM",
               "description": "Image for showing a viewer what item a developer awarded as a drop.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "possibleTypes": null
+        },
+        {
+          "kind": "ENUM",
+          "name": "DropInstanceEligibilityStatus",
+          "description": "Status enums for a drop instance.",
+          "fields": null,
+          "inputFields": null,
+          "interfaces": null,
+          "enumValues": [
+            {
+              "name": "ELIGIBLE_FOR_ALL",
+              "description": "User can claim all rewards.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "LIMITED",
+              "description": "User can claim some rewards.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "ENTITLEMENT_LIMIT_REACHED",
+              "description": "User can not claim any of the rewards in this drop instance.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "DROP_INSTANCE_ALREADY_CLAIMED",
+              "description": "User has already claimed this drop instance.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "EXPIRED",
+              "description": "The claim duration has expired and user can no longer claim this drop instance.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "UNKNOWN",
+              "description": "Unknown is returned if a status is returned from the backend that was not expected.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "possibleTypes": null
+        },
+        {
+          "kind": "OBJECT",
+          "name": "DropObject",
+          "description": "Contains all of the information about a Drop awarded to a user.",
+          "fields": [
+            {
+              "name": "description",
+              "description": "The description of this drop.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "String",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "endDate",
+              "description": "The date at which this drop can no longer occur.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Time",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "game",
+              "description": "The game associated with this drop.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "OBJECT",
+                  "name": "Game",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "id",
+              "description": "The Drops ID.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "ID",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "imageURL",
+              "description": "An image asset for this drop.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "String",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "name",
+              "description": "The friendly name of this drop.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "String",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "ownerID",
+              "description": "The OrganizationID of the owner of this drop.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "ID",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "ownerName",
+              "description": "The friendly name of the owner of this drop.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "String",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "startDate",
+              "description": "The date at which this drop can start to occur.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Time",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "OBJECT",
+          "name": "DropReward",
+          "description": "Contains all of the information about a Drop awarded to a user.",
+          "fields": [
+            {
+              "name": "availability",
+              "description": "An availability enum for this reward.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "ENUM",
+                  "name": "DropRewardAvailability",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "description",
+              "description": "The display description of this award object.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "String",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "id",
+              "description": "The ID of this reward object.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "ID",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "imageAssetURL",
+              "description": "An image asset for this reward object.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "String",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "name",
+              "description": "The display name of this award object.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "String",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "ownerID",
+              "description": "The ID of the owner of the item for this reward.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "ID",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "ownerName",
+              "description": "The display name of item owner for this drop.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "String",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "ENUM",
+          "name": "DropRewardAvailability",
+          "description": "Availability enum for Drop Rewards.",
+          "fields": null,
+          "inputFields": null,
+          "interfaces": null,
+          "enumValues": [
+            {
+              "name": "AVAILABLE",
+              "description": "User can claim this item.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "LIMIT_REACHED",
+              "description": "User has claimed this item already the maximum number of times.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "UNKNOWN",
+              "description": "Unknown is returned when an unexpected status is received from the backend.",
               "isDeprecated": false,
               "deprecationReason": null
             }
@@ -57070,6 +57617,33 @@
               "deprecationReason": null
             },
             {
+              "name": "claimDropRewards",
+              "description": "claimDropRewards allows a user to attempt to claim their rewards from a Drops 2.0 drop.",
+              "args": [
+                {
+                  "name": "input",
+                  "description": null,
+                  "type": {
+                    "kind": "NON_NULL",
+                    "name": null,
+                    "ofType": {
+                      "kind": "INPUT_OBJECT",
+                      "name": "ClaimDropRewardsInput",
+                      "ofType": null
+                    }
+                  },
+                  "defaultValue": null
+                }
+              ],
+              "type": {
+                "kind": "OBJECT",
+                "name": "ClaimDropRewardsPayload",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
               "name": "claimGiftedOffer",
               "description": "claimGiftedOffer allows a user to claim an offer that was gifted to them.",
               "args": [
@@ -61383,6 +61957,33 @@
               "deprecationReason": null
             },
             {
+              "name": "setChannelTrailer",
+              "description": "Set a channel's trailer.\nA channel trailer can only be modified by its corresponding user, a channel editor, or a Twitch admin.",
+              "args": [
+                {
+                  "name": "input",
+                  "description": null,
+                  "type": {
+                    "kind": "NON_NULL",
+                    "name": null,
+                    "ofType": {
+                      "kind": "INPUT_OBJECT",
+                      "name": "SetChannelTrailerInput",
+                      "ofType": null
+                    }
+                  },
+                  "defaultValue": null
+                }
+              ],
+              "type": {
+                "kind": "OBJECT",
+                "name": "SetChannelTrailerPayload",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
               "name": "setChatPauseSetting",
               "description": "Set a user's Chat Pause setting.",
               "args": [
@@ -63526,6 +64127,33 @@
               },
               "isDeprecated": true,
               "deprecationReason": "Use setContentTags instead"
+            },
+            {
+              "name": "updateDropsOptOutStatus",
+              "description": "updateDropsOptOutStatus allows the user to update their drops opt-out status.",
+              "args": [
+                {
+                  "name": "input",
+                  "description": null,
+                  "type": {
+                    "kind": "NON_NULL",
+                    "name": null,
+                    "ofType": {
+                      "kind": "INPUT_OBJECT",
+                      "name": "UpdateDropsOptOutStatusInput",
+                      "ofType": null
+                    }
+                  },
+                  "defaultValue": null
+                }
+              ],
+              "type": {
+                "kind": "OBJECT",
+                "name": "UpdateDropsOptOutStatusPayload",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
             },
             {
               "name": "updateEventBroadcastNotifications",
@@ -76096,6 +76724,33 @@
               "type": {
                 "kind": "INTERFACE",
                 "name": "Directory",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "dropEligibility",
+              "description": "Determine the currently logged in users eligibility for the specified drop.",
+              "args": [
+                {
+                  "name": "dropInstanceID",
+                  "description": null,
+                  "type": {
+                    "kind": "NON_NULL",
+                    "name": null,
+                    "ofType": {
+                      "kind": "SCALAR",
+                      "name": "ID",
+                      "ofType": null
+                    }
+                  },
+                  "defaultValue": null
+                }
+              ],
+              "type": {
+                "kind": "OBJECT",
+                "name": "DropEligibility",
                 "ofType": null
               },
               "isDeprecated": false,
@@ -90437,6 +91092,99 @@
           "possibleTypes": null
         },
         {
+          "kind": "ENUM",
+          "name": "SetChannelTrailerErrorCode",
+          "description": "SetChannelTrailerErrorCode are the types of errors that the setChannelTrailer mutation may return.",
+          "fields": null,
+          "inputFields": null,
+          "interfaces": null,
+          "enumValues": [
+            {
+              "name": "UNAUTHORIZED",
+              "description": "The caller is not authorized to update the user's trailer settings.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "VOD_TOO_LONG",
+              "description": "The vod is longer than 60 seconds (max time for channel trailers).",
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "possibleTypes": null
+        },
+        {
+          "kind": "INPUT_OBJECT",
+          "name": "SetChannelTrailerInput",
+          "description": "Inputs to the setChannelTrailer mutation.",
+          "fields": null,
+          "inputFields": [
+            {
+              "name": "channelID",
+              "description": "The channel whose trailer should be updated.",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "ID",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "trailerVideoID",
+              "description": "The ID of the video that should be used as the channel's trailer,\nor null if the trailer should be cleared.",
+              "type": {
+                "kind": "SCALAR",
+                "name": "ID",
+                "ofType": null
+              },
+              "defaultValue": null
+            }
+          ],
+          "interfaces": null,
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "OBJECT",
+          "name": "SetChannelTrailerPayload",
+          "description": "Output of the setChannelTrailer mutation.",
+          "fields": [
+            {
+              "name": "channel",
+              "description": "The channel whose trailer vod was modified.",
+              "args": [],
+              "type": {
+                "kind": "OBJECT",
+                "name": "Channel",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "error",
+              "description": "The error if the mutation failed in an expected way, or null if the mutation was successful.",
+              "args": [],
+              "type": {
+                "kind": "ENUM",
+                "name": "SetChannelTrailerErrorCode",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
           "kind": "INPUT_OBJECT",
           "name": "SetChatPauseSettingInput",
           "description": "The required input to set a user's chat pause setting.",
@@ -102815,6 +103563,29 @@
         },
         {
           "kind": "OBJECT",
+          "name": "Trailer",
+          "description": "A trailer is a video meant to introduce viewers to the creator and the type\nof content they produce.",
+          "fields": [
+            {
+              "name": "video",
+              "description": "The trailer video. This may be null if the channel has no trailer.",
+              "args": [],
+              "type": {
+                "kind": "OBJECT",
+                "name": "Video",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "OBJECT",
           "name": "TranscodeSession",
           "description": "TranscodeSession is session metadata related to transcode.",
           "fields": [
@@ -108287,6 +109058,80 @@
               "type": {
                 "kind": "UNION",
                 "name": "TaggedContent",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "INPUT_OBJECT",
+          "name": "UpdateDropsOptOutStatusInput",
+          "description": "The required input for a updateDropsOptOutStatus mutation.",
+          "fields": null,
+          "inputFields": [
+            {
+              "name": "isOptedOut",
+              "description": "Channel's drop opt-out Status.",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Boolean",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "userID",
+              "description": "The Id of the user whose broadcast setting is being updated.",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "ID",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            }
+          ],
+          "interfaces": null,
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "OBJECT",
+          "name": "UpdateDropsOptOutStatusPayload",
+          "description": "The result of a updateDropsOptOutStatus mutation.",
+          "fields": [
+            {
+              "name": "isOptedOut",
+              "description": "Status is the updated status.",
+              "args": [],
+              "type": {
+                "kind": "SCALAR",
+                "name": "Boolean",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "userID",
+              "description": "userID is the user who wishes to opt out of drops.",
+              "args": [],
+              "type": {
+                "kind": "SCALAR",
+                "name": "ID",
                 "ofType": null
               },
               "isDeprecated": false,
