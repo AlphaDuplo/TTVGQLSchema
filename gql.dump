@@ -87944,18 +87944,6 @@
               "deprecationReason": null
             },
             {
-              "name": "relatedLiveChannels",
-              "description": "Contains results for related live channels.",
-              "args": [],
-              "type": {
-                "kind": "OBJECT",
-                "name": "SearchForResultRelatedLiveChannels",
-                "ofType": null
-              },
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
               "name": "users",
               "description": "Contains results for users.",
               "args": [],
@@ -88095,49 +88083,6 @@
                   "name": "Int",
                   "ofType": null
                 }
-              },
-              "isDeprecated": false,
-              "deprecationReason": null
-            }
-          ],
-          "inputFields": null,
-          "interfaces": [],
-          "enumValues": null,
-          "possibleTypes": null
-        },
-        {
-          "kind": "OBJECT",
-          "name": "SearchForResultRelatedLiveChannels",
-          "description": "Contains results for related live channels.",
-          "fields": [
-            {
-              "name": "items",
-              "description": "List of matching user results.",
-              "args": [],
-              "type": {
-                "kind": "LIST",
-                "name": null,
-                "ofType": {
-                  "kind": "NON_NULL",
-                  "name": null,
-                  "ofType": {
-                    "kind": "OBJECT",
-                    "name": "User",
-                    "ofType": null
-                  }
-                }
-              },
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
-              "name": "score",
-              "description": "Optional score associated with the related live section.",
-              "args": [],
-              "type": {
-                "kind": "SCALAR",
-                "name": "Int",
-                "ofType": null
               },
               "isDeprecated": false,
               "deprecationReason": null
