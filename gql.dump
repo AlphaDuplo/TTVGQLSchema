@@ -5050,6 +5050,37 @@
           "possibleTypes": null
         },
         {
+          "kind": "INPUT_OBJECT",
+          "name": "BillingAuthInfo",
+          "description": "BillingAuthInfo holds data to facilitate the Fraud analysis.",
+          "fields": null,
+          "inputFields": [
+            {
+              "name": "recurlyFraudSessionID",
+              "description": "Fraud Session ID.",
+              "type": {
+                "kind": "SCALAR",
+                "name": "ID",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "threeDSecureActionResultTokenID",
+              "description": "Token generated after completing a 3-D Secure device fingerprinting or \nauthentication challenge.",
+              "type": {
+                "kind": "SCALAR",
+                "name": "ID",
+                "ofType": null
+              },
+              "defaultValue": null
+            }
+          ],
+          "interfaces": null,
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
           "kind": "OBJECT",
           "name": "BitsAdOffer",
           "description": "BitsAdOffer is an offer to earn bits by watching an ad or interacting with an engagement.",
@@ -75262,6 +75293,16 @@
           "description": "PurchaseOfferInput contains the necessary fields to purchase an offer.",
           "fields": null,
           "inputFields": [
+            {
+              "name": "billingAuthInfo",
+              "description": "Data to facilitate the Fraud analysis.",
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "BillingAuthInfo",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
             {
               "name": "giftRecipientUserIDs",
               "description": "User IDs of the gift purchase recipients (if the Offer is a gift).",
