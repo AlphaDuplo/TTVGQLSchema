@@ -108088,6 +108088,16 @@
               "defaultValue": null
             },
             {
+              "name": "shouldResetImage",
+              "description": "A flag to reset this custom reward's image to the default.",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Boolean",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
               "name": "title",
               "description": "The short title displayed for this reward.",
               "type": {
