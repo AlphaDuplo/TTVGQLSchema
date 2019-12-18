@@ -20666,8 +20666,8 @@
                 "name": "CommunityPointsEarlyAccessSettings",
                 "ofType": null
               },
-              "isDeprecated": false,
-              "deprecationReason": null
+              "isDeprecated": true,
+              "deprecationReason": "Early Access period is over."
             },
             {
               "name": "earning",
@@ -20742,8 +20742,8 @@
                   "ofType": null
                 }
               },
-              "isDeprecated": false,
-              "deprecationReason": null
+              "isDeprecated": true,
+              "deprecationReason": "Early Access period is over."
             },
             {
               "name": "isEnabled",
@@ -20774,8 +20774,8 @@
                   "ofType": null
                 }
               },
-              "isDeprecated": false,
-              "deprecationReason": null
+              "isDeprecated": true,
+              "deprecationReason": "Early Access period is over."
             },
             {
               "name": "name",
@@ -64022,8 +64022,8 @@
                 "name": "UpdateCommunityPointsEarlyAccessSettingsPayload",
                 "ofType": null
               },
-              "isDeprecated": false,
-              "deprecationReason": null
+              "isDeprecated": true,
+              "deprecationReason": "Early access period is over."
             },
             {
               "name": "updateCompetition",
