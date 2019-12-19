@@ -61665,6 +61665,33 @@
               "deprecationReason": null
             },
             {
+              "name": "runMultiplayerAds",
+              "description": "Runs multiplayer ads on a channel.",
+              "args": [
+                {
+                  "name": "input",
+                  "description": null,
+                  "type": {
+                    "kind": "NON_NULL",
+                    "name": null,
+                    "ofType": {
+                      "kind": "INPUT_OBJECT",
+                      "name": "RunMultiplayerAdsInput",
+                      "ofType": null
+                    }
+                  },
+                  "defaultValue": null
+                }
+              ],
+              "type": {
+                "kind": "OBJECT",
+                "name": "RunMultiplayerAdsPayload",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
               "name": "saveExtensionManifest",
               "description": "saveExtensionManifest allows a user to update the manifest for an extension in development.",
               "args": [
@@ -86533,6 +86560,111 @@
           "possibleTypes": null
         },
         {
+          "kind": "ENUM",
+          "name": "RunMultiplayerAdErrorCode",
+          "description": "Errors that can result from running multiplayer ads.",
+          "fields": null,
+          "inputFields": null,
+          "interfaces": null,
+          "enumValues": [
+            {
+              "name": "CHANNEL_NOT_LIVE",
+              "description": "The channel is not live, so ads cannot be run on it.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "OFFER_EXPIRED",
+              "description": "At least one of the multiplayer ad offers has expired.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "OFFER_NOT_FOUND",
+              "description": "At least one of the multiplayer ad offers was not found.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "UNKNOWN",
+              "description": "An unknown error has occurred.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "possibleTypes": null
+        },
+        {
+          "kind": "INPUT_OBJECT",
+          "name": "RunMultiplayerAdsInput",
+          "description": "Inputs for running multiplayer ads.",
+          "fields": null,
+          "inputFields": [
+            {
+              "name": "channelID",
+              "description": "ID of the channel the ads will run on.",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "ID",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "offerIDs",
+              "description": "The ID of the ad offers to run.",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "LIST",
+                  "name": null,
+                  "ofType": {
+                    "kind": "NON_NULL",
+                    "name": null,
+                    "ofType": {
+                      "kind": "SCALAR",
+                      "name": "ID",
+                      "ofType": null
+                    }
+                  }
+                }
+              },
+              "defaultValue": null
+            }
+          ],
+          "interfaces": null,
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "OBJECT",
+          "name": "RunMultiplayerAdsPayload",
+          "description": "The response after running multiplayer ads.",
+          "fields": [
+            {
+              "name": "error",
+              "description": "The error that has occurred.\nNull if the operation is successful.",
+              "args": [],
+              "type": {
+                "kind": "ENUM",
+                "name": "RunMultiplayerAdErrorCode",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
           "kind": "OBJECT",
           "name": "SCETitle",
           "description": "Sony Computer Entertainment (SCE) title properties.\nUsed as part of stream metadata for PlayStation.",
@@ -97738,6 +97870,22 @@
                     "name": "SubscriberScoreBreakdown",
                     "ofType": null
                   }
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "count",
+              "description": "Current subscriber count.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Int",
+                  "ofType": null
                 }
               },
               "isDeprecated": false,
