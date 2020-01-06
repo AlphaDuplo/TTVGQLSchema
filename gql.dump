@@ -31276,6 +31276,12 @@
           "interfaces": null,
           "enumValues": [
             {
+              "name": "NO_CREDIT_TYPE",
+              "description": "Indicates that there is no specific type of Credit in this model.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
               "name": "SUB_TOKEN",
               "description": "A sub token type.",
               "isDeprecated": false,
