@@ -121385,7 +121385,7 @@
             },
             {
               "name": "status",
-              "description": "When broadcastType is:\n- ARCHIVE: status goes from RECORDING to RECORDED.\n- HIGHLIGHT: status goes from UNPROCESSED to RECORDED.\n- UPLOAD: status goes from CREATED to UPLOADING, to PENDING_TRANSCODE, to RECORDED, or FAILED if anything goes wrong.\n- PREMIERE_UPLOAD: status goes from CREATED to UPLOADING, to PENDING_TRANSCODE, to RECORDED, or FAILED if anything goes wrong.\n- PAST_PREMIERE: status goes from RECORDING to RECORDED.",
+              "description": "When broadcastType is:\n- ARCHIVE: status goes from RECORDING to RECORDED.\n- HIGHLIGHT: status goes from UNPROCESSED to RECORDED.\n- UPLOAD: status goes from CREATED to UPLOADING, to PENDING_TRANSCODE, to RECORDED, or FAILED if anything goes wrong.\n- PREMIERE_UPLOAD: status goes from CREATED to UPLOADING, to PENDING_TRANSCODE, to RECORDED, or FAILED if anything goes wrong for this legacy broadcast type.\n- PAST_PREMIERE: status goes from RECORDING to RECORDED for this legacy broadcast type.",
               "args": [],
               "type": {
                 "kind": "ENUM",
