@@ -21389,7 +21389,7 @@
         {
           "kind": "OBJECT",
           "name": "CommunityPointsCustomRewardRedemptionConnection",
-          "description": "A paginated list of Community Points redemptions, and its metadata.",
+          "description": "A paginated list of Community Points redemptions, and its metadata.\nOnly returns results for logged-in, authorized users, otherwise returns a nil response.",
           "fields": [
             {
               "name": "edges",
@@ -22202,7 +22202,7 @@
         {
           "kind": "OBJECT",
           "name": "CommunityPointsRewardSummary",
-          "description": "A summary of information about redemptions of a given custom community points reward.",
+          "description": "A summary of information about redemptions of a given custom community points reward.\nOnly returns results for logged-in, authorized users, otherwise returns a nil response.",
           "fields": [
             {
               "name": "count",
