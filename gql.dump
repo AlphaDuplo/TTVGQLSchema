@@ -85661,7 +85661,7 @@
         {
           "kind": "OBJECT",
           "name": "Room",
-          "description": "DEPRECATED.\nA chatroom associated with a channel where members of the room can exchange messages.",
+          "description": "A chatroom associated with a channel where members of the room can exchange messages.",
           "fields": [
             {
               "name": "id",
@@ -85676,8 +85676,8 @@
                   "ofType": null
                 }
               },
-              "isDeprecated": true,
-              "deprecationReason": "The Rooms product has been sunset"
+              "isDeprecated": false,
+              "deprecationReason": null
             },
             {
               "name": "isPreviewable",
@@ -85693,7 +85693,7 @@
                 }
               },
               "isDeprecated": true,
-              "deprecationReason": "The Rooms product has been sunset"
+              "deprecationReason": "Use room.minimumReadMessagesRole instead"
             },
             {
               "name": "members",
@@ -85725,8 +85725,8 @@
                 "name": "RoomMemberConnection",
                 "ofType": null
               },
-              "isDeprecated": true,
-              "deprecationReason": "The Rooms product has been sunset"
+              "isDeprecated": false,
+              "deprecationReason": null
             },
             {
               "name": "messages",
@@ -85788,8 +85788,8 @@
                 "name": "RoomMessageConnection",
                 "ofType": null
               },
-              "isDeprecated": true,
-              "deprecationReason": "The Rooms product has been sunset"
+              "isDeprecated": false,
+              "deprecationReason": null
             },
             {
               "name": "minimumAllowedRole",
@@ -85805,7 +85805,7 @@
                 }
               },
               "isDeprecated": true,
-              "deprecationReason": "The Rooms product has been sunset"
+              "deprecationReason": "Use room.minimumReadMessagesRole and room.maximumReadMessagesRole instead"
             },
             {
               "name": "modes",
@@ -85816,8 +85816,8 @@
                 "name": "RoomModes",
                 "ofType": null
               },
-              "isDeprecated": true,
-              "deprecationReason": "The Rooms product has been sunset"
+              "isDeprecated": false,
+              "deprecationReason": null
             },
             {
               "name": "name",
@@ -85832,8 +85832,8 @@
                   "ofType": null
                 }
               },
-              "isDeprecated": true,
-              "deprecationReason": "The Rooms product has been sunset"
+              "isDeprecated": false,
+              "deprecationReason": null
             },
             {
               "name": "owner",
@@ -85848,8 +85848,8 @@
                   "ofType": null
                 }
               },
-              "isDeprecated": true,
-              "deprecationReason": "The Rooms product has been sunset"
+              "isDeprecated": false,
+              "deprecationReason": null
             },
             {
               "name": "rolePermissions",
@@ -85860,8 +85860,8 @@
                 "name": "RoomRolePermissions",
                 "ofType": null
               },
-              "isDeprecated": true,
-              "deprecationReason": "The Rooms product has been sunset"
+              "isDeprecated": false,
+              "deprecationReason": null
             },
             {
               "name": "self",
@@ -85872,8 +85872,8 @@
                 "name": "RoomView",
                 "ofType": null
               },
-              "isDeprecated": true,
-              "deprecationReason": "The Rooms product has been sunset"
+              "isDeprecated": false,
+              "deprecationReason": null
             },
             {
               "name": "topic",
@@ -85884,8 +85884,8 @@
                 "name": "String",
                 "ofType": null
               },
-              "isDeprecated": true,
-              "deprecationReason": "The Rooms product has been sunset"
+              "isDeprecated": false,
+              "deprecationReason": null
             }
           ],
           "inputFields": null,
@@ -85896,7 +85896,7 @@
         {
           "kind": "OBJECT",
           "name": "RoomMemberConnection",
-          "description": "DEPRECATED\nPaginated list of room members (users).",
+          "description": "Paginated list of room members (users).",
           "fields": [
             {
               "name": "edges",
@@ -85915,8 +85915,8 @@
                   }
                 }
               },
-              "isDeprecated": true,
-              "deprecationReason": "The Rooms product has been sunset"
+              "isDeprecated": false,
+              "deprecationReason": null
             },
             {
               "name": "pageInfo",
@@ -85931,8 +85931,8 @@
                   "ofType": null
                 }
               },
-              "isDeprecated": true,
-              "deprecationReason": "The Rooms product has been sunset"
+              "isDeprecated": false,
+              "deprecationReason": null
             }
           ],
           "inputFields": null,
@@ -85958,8 +85958,8 @@
                   "ofType": null
                 }
               },
-              "isDeprecated": true,
-              "deprecationReason": "The Rooms product has been sunset"
+              "isDeprecated": false,
+              "deprecationReason": null
             },
             {
               "name": "node",
@@ -85970,8 +85970,8 @@
                 "name": "User",
                 "ofType": null
               },
-              "isDeprecated": true,
-              "deprecationReason": "The Rooms product has been sunset"
+              "isDeprecated": false,
+              "deprecationReason": null
             },
             {
               "name": "type",
@@ -85986,8 +85986,8 @@
                   "ofType": null
                 }
               },
-              "isDeprecated": true,
-              "deprecationReason": "The Rooms product has been sunset"
+              "isDeprecated": false,
+              "deprecationReason": null
             }
           ],
           "inputFields": null,
@@ -85998,7 +85998,7 @@
         {
           "kind": "ENUM",
           "name": "RoomMemberType",
-          "description": "DEPRECATED\nType of user for grouping users in the rooms member list.",
+          "description": "Type of user for grouping users in the rooms member list.",
           "fields": null,
           "inputFields": null,
           "interfaces": null,
@@ -86006,38 +86006,38 @@
             {
               "name": "BROADCASTER",
               "description": "User that is the broadcaster.",
-              "isDeprecated": true,
-              "deprecationReason": "The Rooms product has been sunset"
+              "isDeprecated": false,
+              "deprecationReason": null
             },
             {
               "name": "STAFF",
               "description": "User that is staff.",
-              "isDeprecated": true,
-              "deprecationReason": "The Rooms product has been sunset"
+              "isDeprecated": false,
+              "deprecationReason": null
             },
             {
               "name": "ADMIN",
               "description": "User that is admin.",
-              "isDeprecated": true,
-              "deprecationReason": "The Rooms product has been sunset"
+              "isDeprecated": false,
+              "deprecationReason": null
             },
             {
               "name": "GLOBALMOD",
               "description": "User that is global moderator.",
-              "isDeprecated": true,
-              "deprecationReason": "The Rooms product has been sunset"
+              "isDeprecated": false,
+              "deprecationReason": null
             },
             {
               "name": "MOD",
-              "description": "User that is a channel moderator.",
-              "isDeprecated": true,
-              "deprecationReason": "The Rooms product has been sunset"
+              "description": "User that is channel moderator.",
+              "isDeprecated": false,
+              "deprecationReason": null
             },
             {
               "name": "REGULAR",
               "description": "User that has no special role.",
-              "isDeprecated": true,
-              "deprecationReason": "The Rooms product has been sunset"
+              "isDeprecated": false,
+              "deprecationReason": null
             }
           ],
           "possibleTypes": null
@@ -86045,7 +86045,7 @@
         {
           "kind": "OBJECT",
           "name": "RoomMessage",
-          "description": "DEPRECATED\nA message sent from a user to a room.",
+          "description": "A message sent from a user to a room.",
           "fields": [
             {
               "name": "content",
@@ -86060,8 +86060,8 @@
                   "ofType": null
                 }
               },
-              "isDeprecated": true,
-              "deprecationReason": "The Rooms product has been sunset"
+              "isDeprecated": false,
+              "deprecationReason": null
             },
             {
               "name": "deletedAt",
@@ -86072,8 +86072,8 @@
                 "name": "Time",
                 "ofType": null
               },
-              "isDeprecated": true,
-              "deprecationReason": "The Rooms product has been sunset"
+              "isDeprecated": false,
+              "deprecationReason": null
             },
             {
               "name": "id",
@@ -86088,8 +86088,8 @@
                   "ofType": null
                 }
               },
-              "isDeprecated": true,
-              "deprecationReason": "The Rooms product has been sunset"
+              "isDeprecated": false,
+              "deprecationReason": null
             },
             {
               "name": "room",
@@ -86104,8 +86104,8 @@
                   "ofType": null
                 }
               },
-              "isDeprecated": true,
-              "deprecationReason": "The Rooms product has been sunset"
+              "isDeprecated": false,
+              "deprecationReason": null
             },
             {
               "name": "sender",
@@ -86120,8 +86120,8 @@
                   "ofType": null
                 }
               },
-              "isDeprecated": true,
-              "deprecationReason": "The Rooms product has been sunset"
+              "isDeprecated": false,
+              "deprecationReason": null
             },
             {
               "name": "sentAt",
@@ -86136,8 +86136,8 @@
                   "ofType": null
                 }
               },
-              "isDeprecated": true,
-              "deprecationReason": "The Rooms product has been sunset"
+              "isDeprecated": false,
+              "deprecationReason": null
             }
           ],
           "inputFields": null,
@@ -86148,7 +86148,7 @@
         {
           "kind": "OBJECT",
           "name": "RoomMessageConnection",
-          "description": "DEPRECATED\nPaginated list of messages in a room.",
+          "description": "Paginated list of messages in a room.",
           "fields": [
             {
               "name": "edges",
@@ -86167,8 +86167,8 @@
                   }
                 }
               },
-              "isDeprecated": true,
-              "deprecationReason": "The Rooms product has been sunset"
+              "isDeprecated": false,
+              "deprecationReason": null
             },
             {
               "name": "pageInfo",
@@ -86183,8 +86183,8 @@
                   "ofType": null
                 }
               },
-              "isDeprecated": true,
-              "deprecationReason": "The Rooms product has been sunset"
+              "isDeprecated": false,
+              "deprecationReason": null
             }
           ],
           "inputFields": null,
@@ -86195,7 +86195,7 @@
         {
           "kind": "OBJECT",
           "name": "RoomMessageContent",
-          "description": "DEPRECATED\nThe content of a user's message to a room.",
+          "description": "The content of a user's message to a room.",
           "fields": [
             {
               "name": "fragments",
@@ -86214,8 +86214,8 @@
                   }
                 }
               },
-              "isDeprecated": true,
-              "deprecationReason": "The Rooms product has been sunset"
+              "isDeprecated": false,
+              "deprecationReason": null
             },
             {
               "name": "text",
@@ -86230,8 +86230,8 @@
                   "ofType": null
                 }
               },
-              "isDeprecated": true,
-              "deprecationReason": "The Rooms product has been sunset"
+              "isDeprecated": false,
+              "deprecationReason": null
             }
           ],
           "inputFields": null,
@@ -86257,8 +86257,8 @@
                   "ofType": null
                 }
               },
-              "isDeprecated": true,
-              "deprecationReason": "The Rooms product has been sunset"
+              "isDeprecated": false,
+              "deprecationReason": null
             },
             {
               "name": "node",
@@ -86269,8 +86269,8 @@
                 "name": "RoomMessageItem",
                 "ofType": null
               },
-              "isDeprecated": true,
-              "deprecationReason": "The Rooms product has been sunset"
+              "isDeprecated": false,
+              "deprecationReason": null
             }
           ],
           "inputFields": null,
@@ -86281,7 +86281,7 @@
         {
           "kind": "OBJECT",
           "name": "RoomMessageFragment",
-          "description": "DEPRECATED\nOne parsed part of a message, which may be an emote, mention, or plaintext.",
+          "description": "One parsed part of a message, which may be an emote, mention, or plaintext.",
           "fields": [
             {
               "name": "content",
@@ -86292,8 +86292,8 @@
                 "name": "FragmentContent",
                 "ofType": null
               },
-              "isDeprecated": true,
-              "deprecationReason": "The Rooms product has been sunset"
+              "isDeprecated": false,
+              "deprecationReason": null
             },
             {
               "name": "text",
@@ -86308,8 +86308,8 @@
                   "ofType": null
                 }
               },
-              "isDeprecated": true,
-              "deprecationReason": "The Rooms product has been sunset"
+              "isDeprecated": false,
+              "deprecationReason": null
             }
           ],
           "inputFields": null,
@@ -86320,7 +86320,7 @@
         {
           "kind": "OBJECT",
           "name": "RoomMessageGroupMention",
-          "description": "DEPRECATED\nRoomMessageGroupMention represents a group mention, such as @here.",
+          "description": "RoomMessageGroupMention represents a group mention, such as @here.",
           "fields": [
             {
               "name": "type",
@@ -86335,8 +86335,8 @@
                   "ofType": null
                 }
               },
-              "isDeprecated": true,
-              "deprecationReason": "The Rooms product has been sunset"
+              "isDeprecated": false,
+              "deprecationReason": null
             }
           ],
           "inputFields": null,
@@ -86371,8 +86371,8 @@
             {
               "name": "HERE",
               "description": "An @here mention.",
-              "isDeprecated": true,
-              "deprecationReason": "The Rooms product has been sunset"
+              "isDeprecated": false,
+              "deprecationReason": null
             }
           ],
           "possibleTypes": null
@@ -86395,8 +86395,8 @@
                   "ofType": null
                 }
               },
-              "isDeprecated": true,
-              "deprecationReason": "The Rooms product has been sunset"
+              "isDeprecated": false,
+              "deprecationReason": null
             },
             {
               "name": "r9kModeEnabled",
@@ -86411,8 +86411,8 @@
                   "ofType": null
                 }
               },
-              "isDeprecated": true,
-              "deprecationReason": "The Rooms product has been sunset"
+              "isDeprecated": false,
+              "deprecationReason": null
             },
             {
               "name": "slowModeDurationSeconds",
@@ -86427,8 +86427,8 @@
                   "ofType": null
                 }
               },
-              "isDeprecated": true,
-              "deprecationReason": "The Rooms product has been sunset"
+              "isDeprecated": false,
+              "deprecationReason": null
             }
           ],
           "inputFields": null,
@@ -86439,7 +86439,7 @@
         {
           "kind": "OBJECT",
           "name": "RoomPermissions",
-          "description": "DEPRECATED\nRepresents the permissions a user has in a room.",
+          "description": "Represents the permissions a user has in a room.",
           "fields": [
             {
               "name": "moderate",
@@ -86454,8 +86454,8 @@
                   "ofType": null
                 }
               },
-              "isDeprecated": true,
-              "deprecationReason": "The Rooms product has been sunset"
+              "isDeprecated": false,
+              "deprecationReason": null
             },
             {
               "name": "readMessages",
@@ -86470,8 +86470,8 @@
                   "ofType": null
                 }
               },
-              "isDeprecated": true,
-              "deprecationReason": "The Rooms product has been sunset"
+              "isDeprecated": false,
+              "deprecationReason": null
             },
             {
               "name": "sendMessages",
@@ -86486,8 +86486,8 @@
                   "ofType": null
                 }
               },
-              "isDeprecated": true,
-              "deprecationReason": "The Rooms product has been sunset"
+              "isDeprecated": false,
+              "deprecationReason": null
             }
           ],
           "inputFields": null,
@@ -86498,7 +86498,7 @@
         {
           "kind": "ENUM",
           "name": "RoomRole",
-          "description": "DEPRECATED\nDescribes the role a user must be in order to perform an action, such as sending messages. Roles are\nhierarchical, so users that meet a role also meet all lower roles as well. For example, a moderator\nmeets the subscriber role, even if they are not subscribed to the channel. Roles are defined in order\nfrom highest to lowest in the enum.",
+          "description": "Describes the role a user must be in order to perform an action, such as sending messages. Roles are\nhierarchical, so users that meet a role also meet all lower roles as well. For example, a moderator\nmeets the subscriber role, even if they are not subscribed to the channel. Roles are defined in order\nfrom highest to lowest in the enum.",
           "fields": null,
           "inputFields": null,
           "interfaces": null,
@@ -86506,26 +86506,26 @@
             {
               "name": "BROADCASTER",
               "description": "The channel owner.",
-              "isDeprecated": true,
-              "deprecationReason": "The Rooms product has been sunset"
+              "isDeprecated": false,
+              "deprecationReason": null
             },
             {
               "name": "MODERATOR",
               "description": "A moderator for the channel.",
-              "isDeprecated": true,
-              "deprecationReason": "The Rooms product has been sunset"
+              "isDeprecated": false,
+              "deprecationReason": null
             },
             {
               "name": "SUBSCRIBER",
               "description": "A subscriber of the channel.",
-              "isDeprecated": true,
-              "deprecationReason": "The Rooms product has been sunset"
+              "isDeprecated": false,
+              "deprecationReason": null
             },
             {
               "name": "EVERYONE",
               "description": "All users.",
-              "isDeprecated": true,
-              "deprecationReason": "The Rooms product has been sunset"
+              "isDeprecated": false,
+              "deprecationReason": null
             }
           ],
           "possibleTypes": null
@@ -86533,7 +86533,7 @@
         {
           "kind": "OBJECT",
           "name": "RoomRolePermissions",
-          "description": "DEPRECATED\nRoomRolePermissions describes the role necessary to perform actions in a room.",
+          "description": "RoomRolePermissions describes the role necessary to perform actions in a room.",
           "fields": [
             {
               "name": "read",
@@ -86548,8 +86548,8 @@
                   "ofType": null
                 }
               },
-              "isDeprecated": true,
-              "deprecationReason": "The Rooms product has been sunset"
+              "isDeprecated": false,
+              "deprecationReason": null
             },
             {
               "name": "send",
@@ -86564,8 +86564,8 @@
                   "ofType": null
                 }
               },
-              "isDeprecated": true,
-              "deprecationReason": "The Rooms product has been sunset"
+              "isDeprecated": false,
+              "deprecationReason": null
             }
           ],
           "inputFields": null,
@@ -86576,7 +86576,7 @@
         {
           "kind": "OBJECT",
           "name": "RoomView",
-          "description": "DEPRECATED\nA RoomView represents the authenticated user's self connection to a room, and includes the user's\nsettings and permissions.",
+          "description": "A RoomView represents the authenticated user's self connection to a room, and includes the user's\nsettings and permissions.",
           "fields": [
             {
               "name": "isArchived",
@@ -86591,8 +86591,8 @@
                   "ofType": null
                 }
               },
-              "isDeprecated": true,
-              "deprecationReason": "The Rooms product has been sunset"
+              "isDeprecated": false,
+              "deprecationReason": null
             },
             {
               "name": "isMuted",
@@ -86607,8 +86607,8 @@
                   "ofType": null
                 }
               },
-              "isDeprecated": true,
-              "deprecationReason": "The Rooms product has been sunset"
+              "isDeprecated": false,
+              "deprecationReason": null
             },
             {
               "name": "isUnread",
@@ -86623,8 +86623,8 @@
                   "ofType": null
                 }
               },
-              "isDeprecated": true,
-              "deprecationReason": "The Rooms product has been sunset"
+              "isDeprecated": false,
+              "deprecationReason": null
             },
             {
               "name": "lastReadAt",
@@ -86635,8 +86635,8 @@
                 "name": "Time",
                 "ofType": null
               },
-              "isDeprecated": true,
-              "deprecationReason": "The Rooms product has been sunset"
+              "isDeprecated": false,
+              "deprecationReason": null
             },
             {
               "name": "permissions",
@@ -86647,8 +86647,8 @@
                 "name": "RoomPermissions",
                 "ofType": null
               },
-              "isDeprecated": true,
-              "deprecationReason": "The Rooms product has been sunset"
+              "isDeprecated": false,
+              "deprecationReason": null
             },
             {
               "name": "room",
@@ -86663,8 +86663,8 @@
                   "ofType": null
                 }
               },
-              "isDeprecated": true,
-              "deprecationReason": "The Rooms product has been sunset"
+              "isDeprecated": false,
+              "deprecationReason": null
             },
             {
               "name": "unreadMentionCount",
@@ -86679,8 +86679,8 @@
                   "ofType": null
                 }
               },
-              "isDeprecated": true,
-              "deprecationReason": "The Rooms product has been sunset"
+              "isDeprecated": false,
+              "deprecationReason": null
             }
           ],
           "inputFields": null,
@@ -114798,8 +114798,8 @@
                   }
                 }
               },
-              "isDeprecated": true,
-              "deprecationReason": "The Rooms product has been sunset"
+              "isDeprecated": false,
+              "deprecationReason": null
             },
             {
               "name": "chatColor",
@@ -116564,8 +116564,8 @@
                   "ofType": null
                 }
               },
-              "isDeprecated": true,
-              "deprecationReason": "The Rooms product has been sunset"
+              "isDeprecated": false,
+              "deprecationReason": null
             },
             {
               "name": "modLogs",
