@@ -38174,6 +38174,96 @@
         },
         {
           "kind": "OBJECT",
+          "name": "EditableChannelConnection",
+          "description": "Paginated list of channels a user is an editor for.",
+          "fields": [
+            {
+              "name": "edges",
+              "description": "The elements of the list.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "LIST",
+                  "name": null,
+                  "ofType": {
+                    "kind": "NON_NULL",
+                    "name": null,
+                    "ofType": {
+                      "kind": "OBJECT",
+                      "name": "EditableChannelEdge",
+                      "ofType": null
+                    }
+                  }
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "pageInfo",
+              "description": "Information about this page.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "OBJECT",
+                  "name": "PageInfo",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "OBJECT",
+          "name": "EditableChannelEdge",
+          "description": "Points to a editable channel with the editor.",
+          "fields": [
+            {
+              "name": "cursor",
+              "description": "Opaque cursor describing this edge's position in the paginated list.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Cursor",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "node",
+              "description": "The user whose channel has the editor.",
+              "args": [],
+              "type": {
+                "kind": "OBJECT",
+                "name": "User",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "OBJECT",
           "name": "EditorConnection",
           "description": "Paginated list of editors of a channel.",
           "fields": [
@@ -115206,6 +115296,18 @@
               "type": {
                 "kind": "SCALAR",
                 "name": "String",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "editableChannels",
+              "description": "A list of channels where the user is an editor.",
+              "args": [],
+              "type": {
+                "kind": "OBJECT",
+                "name": "EditableChannelConnection",
                 "ofType": null
               },
               "isDeprecated": false,
