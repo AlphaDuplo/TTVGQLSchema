@@ -4682,6 +4682,41 @@
           "possibleTypes": null
         },
         {
+          "kind": "ENUM",
+          "name": "BadgeTierEmotesFilter",
+          "description": "A filter for controlling which Bits Badge Tier Emotes to return.",
+          "fields": null,
+          "inputFields": null,
+          "interfaces": null,
+          "enumValues": [
+            {
+              "name": "ALL",
+              "description": "Returns all bits badge tier emotes for this channel.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "LOCKED",
+              "description": "Returns all locked bits badge tier emotes for this user in this channel.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "LOCKED_PREVIEW",
+              "description": "Returns a few of the locked bits badge tier emotes for this user in this channel.\nWhich emotes and the exact number are determined by the back-end.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "UNLOCKED",
+              "description": "Returns all unlocked bits badge tier emotes for this user in this channel.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "possibleTypes": null
+        },
+        {
           "kind": "OBJECT",
           "name": "BanUserFromChatRoomError",
           "description": null,
@@ -15279,6 +15314,41 @@
                   "ofType": {
                     "kind": "OBJECT",
                     "name": "Badge",
+                    "ofType": null
+                  }
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "badgeTierEmotes",
+              "description": "Badge tier emotes are the emotes in this channel that are unlocked when a user unlocks a Bits badge tier.\nFilter determines which emotes are returned.",
+              "args": [
+                {
+                  "name": "filter",
+                  "description": null,
+                  "type": {
+                    "kind": "NON_NULL",
+                    "name": null,
+                    "ofType": {
+                      "kind": "ENUM",
+                      "name": "BadgeTierEmotesFilter",
+                      "ofType": null
+                    }
+                  },
+                  "defaultValue": null
+                }
+              ],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "LIST",
+                  "name": null,
+                  "ofType": {
+                    "kind": "OBJECT",
+                    "name": "Emote",
                     "ofType": null
                   }
                 }
