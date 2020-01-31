@@ -79673,7 +79673,7 @@
           "interfaces": null,
           "enumValues": [
             {
-              "name": "PLATFORMS",
+              "name": "PLATFORM",
               "description": "Return referrals grouped by platforms.",
               "isDeprecated": false,
               "deprecationReason": null
@@ -109903,6 +109903,16 @@
               "defaultValue": null
             },
             {
+              "name": "isBadgeModifierHidden",
+              "description": "Whether the user wants to hide Badge Modifiers.",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Boolean",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
               "name": "isFounderBadgesHidden",
               "description": "If the user wants to hide their Founder Badges.",
               "type": {
@@ -116690,6 +116700,22 @@
             {
               "name": "giftsToFollowedChannelsOnly",
               "description": "If the user only wants to receive gifts to channels they follow.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Boolean",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "isBadgeModifierHidden",
+              "description": "If the user wants to hide Badge Modifier.",
               "args": [],
               "type": {
                 "kind": "NON_NULL",
