@@ -29601,8 +29601,59 @@
           "possibleTypes": null
         },
         {
-          "kind": "ENUM",
+          "kind": "OBJECT",
           "name": "CreateScheduleSegmentError",
+          "description": "CreateScheduleSegmentError is a wrapper for error associated with the CreateScheduleSegment mutation.",
+          "fields": [
+            {
+              "name": "code",
+              "description": "Error code.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "ENUM",
+                  "name": "CreateScheduleSegmentErrorCode",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "maximum",
+              "description": "If the error is related to an input out of service-defined bounds, provide the maximum allowed value.",
+              "args": [],
+              "type": {
+                "kind": "SCALAR",
+                "name": "Int",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "minimum",
+              "description": "If the error is related to an input out of service-defined bounds, provide the miniimum allowed value.",
+              "args": [],
+              "type": {
+                "kind": "SCALAR",
+                "name": "Int",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "ENUM",
+          "name": "CreateScheduleSegmentErrorCode",
           "description": "The possible errors when creating a schedule segment.",
           "fields": null,
           "inputFields": null,
@@ -29615,26 +29666,26 @@
               "deprecationReason": null
             },
             {
+              "name": "INVALID_CATEGORY_COUNT",
+              "description": "The number of categories is invalid. Refer to the error for min and max acceptable values.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
               "name": "OVERLAPPING_SEGMENTS",
               "description": "The segment time overlaps with another segment time.",
               "isDeprecated": false,
               "deprecationReason": null
             },
             {
-              "name": "UNKNOWN_ERROR",
-              "description": "The segment was not created for an unknown reason.",
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
               "name": "INVALID_TITLE",
-              "description": "The title is not valid.",
+              "description": "The title length is invalid. Refer to the error for min and max acceptable values.",
               "isDeprecated": false,
               "deprecationReason": null
             },
             {
-              "name": "INVALID_START_TIME",
-              "description": "The start time is not valid.",
+              "name": "TITLE_FAILED_MODERATION",
+              "description": "The title failed the moderation check.",
               "isDeprecated": false,
               "deprecationReason": null
             },
@@ -29670,7 +29721,7 @@
             },
             {
               "name": "INVALID_DURATION",
-              "description": "The start duration is not valid.",
+              "description": "The duration is invalid. Refer to the error for min and max acceptable values.",
               "isDeprecated": false,
               "deprecationReason": null
             },
@@ -29681,8 +29732,8 @@
               "deprecationReason": null
             },
             {
-              "name": "TOO_MANY_SEGMENTS",
-              "description": "Reached the limit of number of segments.",
+              "name": "INVALID_SEGMENT_COUNT",
+              "description": "The number of segments is invalid. Refer to the error for min and max acceptable values.",
               "isDeprecated": false,
               "deprecationReason": null
             }
@@ -29773,13 +29824,9 @@
               "name": "title",
               "description": "The title of the new segment.",
               "type": {
-                "kind": "NON_NULL",
-                "name": null,
-                "ofType": {
-                  "kind": "SCALAR",
-                  "name": "String",
-                  "ofType": null
-                }
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
               },
               "defaultValue": null
             }
@@ -29798,7 +29845,7 @@
               "description": "The possible error.",
               "args": [],
               "type": {
-                "kind": "ENUM",
+                "kind": "OBJECT",
                 "name": "CreateScheduleSegmentError",
                 "ofType": null
               },
@@ -108498,8 +108545,59 @@
           "possibleTypes": null
         },
         {
-          "kind": "ENUM",
+          "kind": "OBJECT",
           "name": "UpdateScheduleSegmentError",
+          "description": "UpdateScheduleSegmentError is a wrapper for error associated with the UpdateScheduleSegment mutation.",
+          "fields": [
+            {
+              "name": "code",
+              "description": "Error code.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "ENUM",
+                  "name": "UpdateScheduleSegmentErrorCode",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "maximum",
+              "description": "If the error is related to an input out of service-defined bounds, provide the maximum allowed value.",
+              "args": [],
+              "type": {
+                "kind": "SCALAR",
+                "name": "Int",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "minimum",
+              "description": "If the error is related to an input out of service-defined bounds, provide the miniimum allowed value.",
+              "args": [],
+              "type": {
+                "kind": "SCALAR",
+                "name": "Int",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "ENUM",
+          "name": "UpdateScheduleSegmentErrorCode",
           "description": "The possible error returned.",
           "fields": null,
           "inputFields": null,
@@ -108508,6 +108606,12 @@
             {
               "name": "PERMISSION_DENIED",
               "description": "Not authorized to update this segment.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "INVALID_CATEGORY_COUNT",
+              "description": "The number of categories is in valid. Refer to the error for min and max acceptable values.",
               "isDeprecated": false,
               "deprecationReason": null
             },
@@ -108530,8 +108634,8 @@
               "deprecationReason": null
             },
             {
-              "name": "UNKNOWN_ERROR",
-              "description": "The segment was not updated for an unknown reason.",
+              "name": "INVALID_TITLE",
+              "description": "The title length is invalid. Refer to the error for min and max acceptable values.",
               "isDeprecated": false,
               "deprecationReason": null
             },
@@ -108567,13 +108671,7 @@
             },
             {
               "name": "INVALID_DURATION",
-              "description": "The segment duration is not valid.",
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
-              "name": "INVALID_TITLE",
-              "description": "The title is not valid.",
+              "description": "The duration is invalid. Refer to the error for min and max acceptable values.",
               "isDeprecated": false,
               "deprecationReason": null
             },
@@ -108703,7 +108801,7 @@
               "description": "The possible error returned.",
               "args": [],
               "type": {
-                "kind": "ENUM",
+                "kind": "OBJECT",
                 "name": "UpdateScheduleSegmentError",
                 "ofType": null
               },
