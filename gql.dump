@@ -44733,6 +44733,50 @@
           "possibleTypes": null
         },
         {
+          "kind": "OBJECT",
+          "name": "FollowUserError",
+          "description": "Information to communicate to the user about an error state.",
+          "fields": [
+            {
+              "name": "code",
+              "description": "Error code.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "ENUM",
+                  "name": "FollowUserErrorCode",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "ENUM",
+          "name": "FollowUserErrorCode",
+          "description": "Enum for follow errors.",
+          "fields": null,
+          "inputFields": null,
+          "interfaces": null,
+          "enumValues": [
+            {
+              "name": "FORBIDDEN",
+              "description": "Used when fromUser is being blocked by targetUser.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "possibleTypes": null
+        },
+        {
           "kind": "INPUT_OBJECT",
           "name": "FollowUserInput",
           "description": null,
@@ -44776,6 +44820,18 @@
           "name": "FollowUserPayload",
           "description": null,
           "fields": [
+            {
+              "name": "error",
+              "description": "Used for user blocked errors.",
+              "args": [],
+              "type": {
+                "kind": "OBJECT",
+                "name": "FollowUserError",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
             {
               "name": "follow",
               "description": "The new follow relationship.",
