@@ -1035,6 +1035,18 @@
               "deprecationReason": null
             },
             {
+              "name": "isMultiplayerAdsForSubsEnabled",
+              "description": "If multiplayer ads are enabled for subscribers on this channel.",
+              "args": [],
+              "type": {
+                "kind": "SCALAR",
+                "name": "Boolean",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
               "name": "isPictureByPictureAdEligible",
               "description": "A bool that represents a streamer's eligibility to run a picture by picture ad.",
               "args": [],
@@ -103045,6 +103057,16 @@
             {
               "name": "hasDisablePrerollsNotificationsEnabled",
               "description": "Toggle for disable prerolls for midrolls notifcations.\nThe \"Disable Prerolls\" product is a way for streamers to disable preroll ads by running midroll ads.\nThe streamer can choose to enable notifications (ie. \"Preroll Ads are now disabled for X minutes\") for this product.",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Boolean",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "isMultiplayerAdsForSubsEnabled",
+              "description": "Toggle for enable multiplayer ads for subs.",
               "type": {
                 "kind": "SCALAR",
                 "name": "Boolean",
