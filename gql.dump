@@ -29647,12 +29647,12 @@
               "deprecationReason": null
             },
             {
-              "name": "segment",
-              "description": "The new segment.",
+              "name": "schedule",
+              "description": "The updated schedule with the created segment.",
               "args": [],
               "type": {
                 "kind": "OBJECT",
-                "name": "ScheduleSegment",
+                "name": "Schedule",
                 "ofType": null
               },
               "isDeprecated": false,
@@ -82616,6 +82616,61 @@
         },
         {
           "kind": "OBJECT",
+          "name": "RevenueConfig",
+          "description": "Revenue configuration data related to a subscription product.",
+          "fields": [
+            {
+              "name": "id",
+              "description": "Unique identifier for the revenue configuration.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "ID",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "splitPercent",
+              "description": "0-100 percent value of revenue the broadcaster will earn.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Int",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "startAt",
+              "description": "Start time of when the revenue split configuration takes effect.",
+              "args": [],
+              "type": {
+                "kind": "SCALAR",
+                "name": "Time",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "OBJECT",
           "name": "RevokeVIPError",
           "description": "RevokeVIPError contains details about a client error that occurred.",
           "fields": [
@@ -96926,6 +96981,18 @@
               "deprecationReason": null
             },
             {
+              "name": "revenueConfig",
+              "description": "The currently active revenue configuration record for the subscription product.",
+              "args": [],
+              "type": {
+                "kind": "OBJECT",
+                "name": "RevenueConfig",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
               "name": "self",
               "description": "The connection for user to the subscription product.",
               "args": [],
@@ -108404,7 +108471,7 @@
             },
             {
               "name": "INVALID_CATEGORY_COUNT",
-              "description": "The number of categories is in valid. Refer to the error for min and max acceptable values.",
+              "description": "The number of categories is invalid. Refer to the error for min and max acceptable values.",
               "isDeprecated": false,
               "deprecationReason": null
             },
@@ -108602,12 +108669,12 @@
               "deprecationReason": null
             },
             {
-              "name": "segment",
-              "description": "The updated segment.",
+              "name": "schedule",
+              "description": "The updated schedule with the updated segment.",
               "args": [],
               "type": {
                 "kind": "OBJECT",
-                "name": "ScheduleSegment",
+                "name": "Schedule",
                 "ofType": null
               },
               "isDeprecated": false,
