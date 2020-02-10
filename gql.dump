@@ -23839,6 +23839,18 @@
               "description": "Live competition.",
               "isDeprecated": false,
               "deprecationReason": null
+            },
+            {
+              "name": "CHECK_IN",
+              "description": "A competition that's awaiting check-ins.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "READY",
+              "description": "A competition that's ready to be started.",
+              "isDeprecated": false,
+              "deprecationReason": null
             }
           ],
           "possibleTypes": null
