@@ -17302,20 +17302,6 @@
                 }
               },
               "defaultValue": null
-            },
-            {
-              "name": "userID",
-              "description": "userID is the ID of the user attempting to claim the drop.",
-              "type": {
-                "kind": "NON_NULL",
-                "name": null,
-                "ofType": {
-                  "kind": "SCALAR",
-                  "name": "ID",
-                  "ofType": null
-                }
-              },
-              "defaultValue": null
             }
           ],
           "interfaces": null,
