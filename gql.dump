@@ -23053,6 +23053,18 @@
           "description": "A Lobby in a phase.",
           "fields": [
             {
+              "name": "advanceNextLobby",
+              "description": "Lobby ID of lobby to advance the winner to.",
+              "args": [],
+              "type": {
+                "kind": "SCALAR",
+                "name": "ID",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
               "name": "id",
               "description": "Unique lobby ID.",
               "args": [],
@@ -23064,6 +23076,18 @@
                   "name": "ID",
                   "ofType": null
                 }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "lossNextLobby",
+              "description": "Lobby ID of lobby to advance the loser to.",
+              "args": [],
+              "type": {
+                "kind": "SCALAR",
+                "name": "ID",
+                "ofType": null
               },
               "isDeprecated": false,
               "deprecationReason": null
