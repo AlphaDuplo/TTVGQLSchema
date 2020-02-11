@@ -22522,6 +22522,22 @@
           "description": "A Competition created by a competition organizer.",
           "fields": [
             {
+              "name": "checkInDurationMinutes",
+              "description": "The number of minutes allocated for participants to check-in into the competition.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Int",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
               "name": "contactDescription",
               "description": "The contact details for the competition.",
               "args": [],
@@ -22534,8 +22550,8 @@
                   "ofType": null
                 }
               },
-              "isDeprecated": false,
-              "deprecationReason": null
+              "isDeprecated": true,
+              "deprecationReason": "Will no longer be used in favor of publicContactInfo/participantOnlyContactInfo fields"
             },
             {
               "name": "createdAt",
@@ -22555,7 +22571,7 @@
             },
             {
               "name": "description",
-              "description": "Long form description of the competition.",
+              "description": "Long form text block description for the competition and will be converted to Markdown client-side.",
               "args": [],
               "type": {
                 "kind": "SCALAR",
@@ -22578,8 +22594,8 @@
                   "ofType": null
                 }
               },
-              "isDeprecated": false,
-              "deprecationReason": null
+              "isDeprecated": true,
+              "deprecationReason": "Will no longer be used in favor of publicContactInfo/participantOnlyContactInfo fields"
             },
             {
               "name": "endAt",
@@ -22606,8 +22622,8 @@
                 "name": "ID",
                 "ofType": null
               },
-              "isDeprecated": false,
-              "deprecationReason": null
+              "isDeprecated": true,
+              "deprecationReason": "Will no longer be used"
             },
             {
               "name": "game",
@@ -22695,8 +22711,8 @@
                   "ofType": null
                 }
               },
-              "isDeprecated": false,
-              "deprecationReason": null
+              "isDeprecated": true,
+              "deprecationReason": "Will no longer be used"
             },
             {
               "name": "name",
@@ -22721,6 +22737,18 @@
               "type": {
                 "kind": "OBJECT",
                 "name": "User",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "participantOnlyContactInfo",
+              "description": "The participant-facing points of contact for the competition that only registered participants can see.",
+              "args": [],
+              "type": {
+                "kind": "OBJECT",
+                "name": "CompetitionContactInfo",
                 "ofType": null
               },
               "isDeprecated": false,
@@ -22790,12 +22818,80 @@
                 "name": "String",
                 "ofType": null
               },
+              "isDeprecated": true,
+              "deprecationReason": "Will be replaced by new field prizeDescription"
+            },
+            {
+              "name": "prizeDescription",
+              "description": "Long form text block description that explains the prizing for the competition and will be converted to Markdown client-side.",
+              "args": [],
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "publicContactInfo",
+              "description": "The public points of contact for the competition that anyone can see.",
+              "args": [],
+              "type": {
+                "kind": "OBJECT",
+                "name": "CompetitionContactInfo",
+                "ofType": null
+              },
               "isDeprecated": false,
               "deprecationReason": null
             },
             {
               "name": "region",
               "description": "region e.g. NA, EU, APAC, ...",
+              "args": [],
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              },
+              "isDeprecated": true,
+              "deprecationReason": "Will no longer be used"
+            },
+            {
+              "name": "registrationEndAt",
+              "description": "The time the competition is scheduled to end registation.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Time",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "registrationType",
+              "description": "The type of a registration for the competition. e.g. OPEN, INVITATIONAL, ...",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "ENUM",
+                  "name": "RegistrationType",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "rulesDescription",
+              "description": "Long form text block description that explains the rules for the competition and will be converted to Markdown client-side.",
               "args": [],
               "type": {
                 "kind": "SCALAR",
@@ -22833,6 +22929,34 @@
                   "name": "CompetitionState",
                   "ofType": null
                 }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "teamSize",
+              "description": "The number of participants within a single team entity. Can be 1 for solo-type competitions.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Int",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "termsURL",
+              "description": "Link URL to any addtional terms and conditions.",
+              "args": [],
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
               },
               "isDeprecated": false,
               "deprecationReason": null
@@ -22900,6 +23024,41 @@
                   "name": "PageInfo",
                   "ofType": null
                 }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "OBJECT",
+          "name": "CompetitionContactInfo",
+          "description": "The contact information to contact the organizers for the competition.",
+          "fields": [
+            {
+              "name": "discordURL",
+              "description": "Link to Discord server for competition contact purposes.",
+              "args": [],
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "email",
+              "description": "Email address point of contact for the competition.",
+              "args": [],
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
               },
               "isDeprecated": false,
               "deprecationReason": null
@@ -80136,6 +80295,29 @@
           "inputFields": null,
           "interfaces": [],
           "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "ENUM",
+          "name": "RegistrationType",
+          "description": "The registration type signifies the policy for participants to join the competition.",
+          "fields": null,
+          "inputFields": null,
+          "interfaces": null,
+          "enumValues": [
+            {
+              "name": "OPEN",
+              "description": "Open competition that anyone can join.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "INVITATIONAL",
+              "description": "Invite-only competition where only invited participants can join.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
           "possibleTypes": null
         },
         {
