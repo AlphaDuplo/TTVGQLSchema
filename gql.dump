@@ -99601,24 +99601,44 @@
           "fields": [
             {
               "name": "follows",
-              "description": "Number of follows during this timestamp.",
+              "description": "Deprecated: Number of follows during this timestamp.",
               "args": [],
               "type": {
                 "kind": "SCALAR",
                 "name": "Int",
                 "ofType": null
               },
-              "isDeprecated": false,
-              "deprecationReason": null
+              "isDeprecated": true,
+              "deprecationReason": "Use user.timeseriesStats.follows instead."
             },
             {
               "name": "timestamp",
               "description": "Timestamp of the broken down time series.",
               "args": [],
               "type": {
-                "kind": "SCALAR",
-                "name": "Time",
-                "ofType": null
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Time",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "value",
+              "description": "Value at the timestamp.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Float",
+                  "ofType": null
+                }
               },
               "isDeprecated": false,
               "deprecationReason": null
@@ -99634,6 +99654,102 @@
           "name": "TimeseriesStats",
           "description": "Stats within a time frame broken down by granularity.",
           "fields": [
+            {
+              "name": "adBreaksInSeconds",
+              "description": "Seconds of ads played per time chunk.",
+              "args": [],
+              "type": {
+                "kind": "LIST",
+                "name": null,
+                "ofType": {
+                  "kind": "OBJECT",
+                  "name": "TimeseriesItem",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "averageViewers",
+              "description": "Average number of viewers per time chunk.",
+              "args": [],
+              "type": {
+                "kind": "LIST",
+                "name": null,
+                "ofType": {
+                  "kind": "OBJECT",
+                  "name": "TimeseriesItem",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "chatMessages",
+              "description": "Number of chat messages per time chunk.",
+              "args": [],
+              "type": {
+                "kind": "LIST",
+                "name": null,
+                "ofType": {
+                  "kind": "OBJECT",
+                  "name": "TimeseriesItem",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "clipViews",
+              "description": "Number of clip views per time chunk.",
+              "args": [],
+              "type": {
+                "kind": "LIST",
+                "name": null,
+                "ofType": {
+                  "kind": "OBJECT",
+                  "name": "TimeseriesItem",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "clipsCreated",
+              "description": "Number of clips created per time chunk.",
+              "args": [],
+              "type": {
+                "kind": "LIST",
+                "name": null,
+                "ofType": {
+                  "kind": "OBJECT",
+                  "name": "TimeseriesItem",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "follows",
+              "description": "Number of follows during this timestamp.",
+              "args": [],
+              "type": {
+                "kind": "LIST",
+                "name": null,
+                "ofType": {
+                  "kind": "OBJECT",
+                  "name": "TimeseriesItem",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
             {
               "name": "granularity",
               "description": "Granularity of the time series, default unit is five minutes.",
@@ -99652,7 +99768,55 @@
             },
             {
               "name": "items",
-              "description": "List of the number of follows within a time period, broken up by granularity.",
+              "description": "Deprecated: List of the number of follows within a time period, broken up by granularity.",
+              "args": [],
+              "type": {
+                "kind": "LIST",
+                "name": null,
+                "ofType": {
+                  "kind": "OBJECT",
+                  "name": "TimeseriesItem",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": true,
+              "deprecationReason": "Use specific metric from user.timeseriesStats instead."
+            },
+            {
+              "name": "liveViews",
+              "description": "Live number of views per time chunk.",
+              "args": [],
+              "type": {
+                "kind": "LIST",
+                "name": null,
+                "ofType": {
+                  "kind": "OBJECT",
+                  "name": "TimeseriesItem",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "newSubscriptions",
+              "description": "Number of subscriptions per time chunk.",
+              "args": [],
+              "type": {
+                "kind": "LIST",
+                "name": null,
+                "ofType": {
+                  "kind": "OBJECT",
+                  "name": "TimeseriesItem",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "uniqueChatters",
+              "description": "Number of people chatting per time chunk.",
               "args": [],
               "type": {
                 "kind": "LIST",
