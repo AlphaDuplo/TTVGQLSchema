@@ -85988,7 +85988,7 @@
             },
             {
               "name": "nextSegment",
-              "description": "The next segment of the schedule.",
+              "description": "The next segment of the schedule. This will prepend 'next-' to the segmentID because it has different behavior from segments returned in the 'segments' field.",
               "args": [],
               "type": {
                 "kind": "OBJECT",
@@ -86001,7 +86001,28 @@
             {
               "name": "segments",
               "description": "The segments of the schedule.",
-              "args": [],
+              "args": [
+                {
+                  "name": "utcOffsetMinutes",
+                  "description": null,
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Int",
+                    "ofType": null
+                  },
+                  "defaultValue": null
+                },
+                {
+                  "name": "startingWeekday",
+                  "description": null,
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "String",
+                    "ofType": null
+                  },
+                  "defaultValue": null
+                }
+              ],
               "type": {
                 "kind": "LIST",
                 "name": null,
