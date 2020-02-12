@@ -64925,7 +64925,7 @@
             },
             {
               "name": "extra",
-              "description": "Optional extra notification content.\nWhen type is \"vodupload\", extra is Video.\nWhen type is \"hotclipfollower\", extra is Clip.\nWhen type is \"hotclip\", extra is Clip.\nWhen type is \"subgiftreceived\", extra is User.\nWhen type is \"vodcomment\", extra is VideoComment.\nWhen type is \"vodcommentmod\", extra is VideoComment.\nWhen type is \"vodcommentreply\", extra is VideoComment.\nWhen destination is \"ChannelPage\", extra is User.\nWhen destination is \"BrowseGame\", extra is Game.",
+              "description": "Optional extra notification content.\nWhen type is \"vodupload\", extra is Video.\nWhen type is \"hotclipfollower\", extra is Clip.\nWhen type is \"hotclip\", extra is Clip.\nWhen type is \"subgiftreceived\", extra is User.\nWhen type is \"vodcomment\", extra is VideoComment.\nWhen type is \"vodcommentmod\", extra is VideoComment.\nWhen type is \"vodcommentreply\", extra is VideoComment.\nWhen destination is \"ChannelPage\", extra is User.\nWhen destination is \"BrowseGame\", extra is Game.\nWhen destination is \"ExternalLink\", extra is OnsiteNotificationExternalLink.",
               "args": [],
               "type": {
                 "kind": "UNION",
@@ -65220,6 +65220,11 @@
             },
             {
               "kind": "OBJECT",
+              "name": "OnsiteNotificationExternalLink",
+              "ofType": null
+            },
+            {
+              "kind": "OBJECT",
               "name": "User",
               "ofType": null
             },
@@ -65262,6 +65267,33 @@
                 "ofType": {
                   "kind": "OBJECT",
                   "name": "OnsiteNotification",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "OBJECT",
+          "name": "OnsiteNotificationExternalLink",
+          "description": "Extra onsite notification content returned when the notification links to an external site.",
+          "fields": [
+            {
+              "name": "url",
+              "description": "The link that the notification opens when clicked.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "String",
                   "ofType": null
                 }
               },
