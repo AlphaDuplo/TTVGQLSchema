@@ -20012,6 +20012,26 @@
               "deprecationReason": "Should use earning.raidPoints instead"
             },
             {
+              "name": "smartCostsAcknowledgements",
+              "description": "A list of Smart Costs acknowledgements.",
+              "args": [],
+              "type": {
+                "kind": "LIST",
+                "name": null,
+                "ofType": {
+                  "kind": "NON_NULL",
+                  "name": null,
+                  "ofType": {
+                    "kind": "OBJECT",
+                    "name": "SmartCostsAcknowledgement",
+                    "ofType": null
+                  }
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
               "name": "summarizedRewards",
               "description": "A summary of information about unfulfilled redemptions of each custom reward.",
               "args": [],
@@ -60566,6 +60586,33 @@
               "deprecationReason": "Early access period is over."
             },
             {
+              "name": "updateCommunityPointsSmartCostsAcknowledgements",
+              "description": "Update an automatic Community Points reward cost acknowledgements.",
+              "args": [
+                {
+                  "name": "input",
+                  "description": null,
+                  "type": {
+                    "kind": "NON_NULL",
+                    "name": null,
+                    "ofType": {
+                      "kind": "INPUT_OBJECT",
+                      "name": "UpdateCommunityPointsSmartCostsAcknowledgementsInput",
+                      "ofType": null
+                    }
+                  },
+                  "defaultValue": null
+                }
+              ],
+              "type": {
+                "kind": "OBJECT",
+                "name": "UpdateCommunityPointsSmartCostsAcknowledgementsPayload",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
               "name": "updateCompetition",
               "description": "Update Competition.",
               "args": [
@@ -90047,6 +90094,88 @@
         },
         {
           "kind": "OBJECT",
+          "name": "SmartCostsAcknowledgement",
+          "description": "The type representing Community Points Smart Costs Acknowledgements.",
+          "fields": [
+            {
+              "name": "lastAcknowledgedCost",
+              "description": "The last acknowledged cost.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Int",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "rewardType",
+              "description": "The type of automatic reward the smart costs acknowledgement is for.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "ENUM",
+                  "name": "CommunityPointsAutomaticRewardType",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "INPUT_OBJECT",
+          "name": "SmartCostsAcknowledgementInput",
+          "description": "The input representing Community Points Smart Costs Acknowledgements.",
+          "fields": null,
+          "inputFields": [
+            {
+              "name": "lastAcknowledgedCost",
+              "description": "The last acknowledged cost.",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Int",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "rewardType",
+              "description": "The type of automatic reward the smart costs acknowledgement is for.",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "ENUM",
+                  "name": "CommunityPointsAutomaticRewardType",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            }
+          ],
+          "interfaces": null,
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "OBJECT",
           "name": "SmiliesSet",
           "description": "Wrapper around the standard emoticon groups for Prime Emoticons.",
           "fields": [
@@ -103744,6 +103873,148 @@
               "type": {
                 "kind": "OBJECT",
                 "name": "UpdateCommunityPointsEarlyAccessError",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "OBJECT",
+          "name": "UpdateCommunityPointsSmartCostsAcknowledgementsError",
+          "description": "An error from updating a Community Points Smart Costs Acknowledgements in a channel.",
+          "fields": [
+            {
+              "name": "code",
+              "description": "An identifier for the error that occurred.",
+              "args": [],
+              "type": {
+                "kind": "ENUM",
+                "name": "UpdateCommunityPointsSmartCostsAcknowledgementsErrorCode",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "ENUM",
+          "name": "UpdateCommunityPointsSmartCostsAcknowledgementsErrorCode",
+          "description": "The possible reasons updating a Community Points Smart Costs Acknowledgement in a channel could fail.",
+          "fields": null,
+          "inputFields": null,
+          "interfaces": null,
+          "enumValues": [
+            {
+              "name": "UNKNOWN",
+              "description": "An unexpected error occurred.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "FORBIDDEN",
+              "description": "The current user is not allowed to update a smart costs acknowledgement in this channel.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "LAST_ACKNOWLEDGED_COST_INVALID",
+              "description": "The cost is invalid. Must be a positive integer.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "possibleTypes": null
+        },
+        {
+          "kind": "INPUT_OBJECT",
+          "name": "UpdateCommunityPointsSmartCostsAcknowledgementsInput",
+          "description": "Input required for updating community points smart costs acknowledgements.",
+          "fields": null,
+          "inputFields": [
+            {
+              "name": "acknowledgements",
+              "description": "List of acknowledgements to update.",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "LIST",
+                  "name": null,
+                  "ofType": {
+                    "kind": "NON_NULL",
+                    "name": null,
+                    "ofType": {
+                      "kind": "INPUT_OBJECT",
+                      "name": "SmartCostsAcknowledgementInput",
+                      "ofType": null
+                    }
+                  }
+                }
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "channelID",
+              "description": "The channel ID that the reward is being updated in.",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "ID",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            }
+          ],
+          "interfaces": null,
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "OBJECT",
+          "name": "UpdateCommunityPointsSmartCostsAcknowledgementsPayload",
+          "description": "Payload returned after updating Community Points Smart Costs Acknowledgements.",
+          "fields": [
+            {
+              "name": "acknowledgements",
+              "description": "List of acknowledgements for community points smart costs that were updated.",
+              "args": [],
+              "type": {
+                "kind": "LIST",
+                "name": null,
+                "ofType": {
+                  "kind": "NON_NULL",
+                  "name": null,
+                  "ofType": {
+                    "kind": "OBJECT",
+                    "name": "SmartCostsAcknowledgement",
+                    "ofType": null
+                  }
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "error",
+              "description": "An error that occurred while updating a Community Points Smart Costs Acknowledgements in a channel.",
+              "args": [],
+              "type": {
+                "kind": "OBJECT",
+                "name": "UpdateCommunityPointsSmartCostsAcknowledgementsError",
                 "ofType": null
               },
               "isDeprecated": false,
