@@ -78126,6 +78126,24 @@
               "description": "Return referrals grouped by country.",
               "isDeprecated": false,
               "deprecationReason": null
+            },
+            {
+              "name": "CHANNEL",
+              "description": "Return referrals grouped by channel.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "INTERNAL",
+              "description": "Return referrals grouped by internal source.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "EXTERNAL",
+              "description": "Return referrals grouped by external source.",
+              "isDeprecated": false,
+              "deprecationReason": null
             }
           ],
           "possibleTypes": null
@@ -78141,6 +78159,24 @@
             {
               "name": "ALL",
               "description": "Return all referral sources.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "EXTERNAL_LIVE_WEB",
+              "description": "Return live video play referrals from external sources, filtered by the web platform.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "INTERNAL_CHANNEL_LIVE_WEB",
+              "description": "Return live video play referrals from internal channels, filtered by the web platform.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "INTERNAL_LIVE_WEB",
+              "description": "Return live video play referrals from internal sources, filtered by the web platform.",
               "isDeprecated": false,
               "deprecationReason": null
             }
