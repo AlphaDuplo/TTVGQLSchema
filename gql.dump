@@ -121309,6 +121309,18 @@
               "deprecationReason": null
             },
             {
+              "name": "lastMessage",
+              "description": "The last message sent in this thread. Null if no messages in this thread.",
+              "args": [],
+              "type": {
+                "kind": "OBJECT",
+                "name": "WhisperMessage",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
               "name": "messages",
               "description": "List of messages in the thread.",
               "args": [
@@ -121398,8 +121410,8 @@
                 "name": "WhisperMessage",
                 "ofType": null
               },
-              "isDeprecated": false,
-              "deprecationReason": null
+              "isDeprecated": true,
+              "deprecationReason": "Not used. Use lastMessage to get the last message. "
             },
             {
               "name": "whitelistedUntil",
