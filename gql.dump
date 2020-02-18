@@ -22369,6 +22369,37 @@
           "possibleTypes": null
         },
         {
+          "kind": "INPUT_OBJECT",
+          "name": "CompetitionContactInfoInput",
+          "description": "The contact information input used to contact the organizers for the competition.",
+          "fields": null,
+          "inputFields": [
+            {
+              "name": "discordURL",
+              "description": "Link to Discord server for competition contact purposes.",
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "email",
+              "description": "Email address point of contact for the competition.",
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              },
+              "defaultValue": null
+            }
+          ],
+          "interfaces": null,
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
           "kind": "OBJECT",
           "name": "CompetitionEdge",
           "description": "Contains information about a Competition's relationship to a given page (connection),\nand the Competition itself.",
@@ -25556,6 +25587,16 @@
           "fields": null,
           "inputFields": [
             {
+              "name": "checkInDurationMinutes",
+              "description": "The number of minutes allocated for participants to check-in into the competition.",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Int",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
               "name": "contactDescription",
               "description": "The contact details for the competition.",
               "type": {
@@ -25635,7 +25676,7 @@
             },
             {
               "name": "maxParticipants",
-              "description": "The max participants for a competition.",
+              "description": "The max number of participants that can be in a competition.",
               "type": {
                 "kind": "SCALAR",
                 "name": "Int",
@@ -25668,6 +25709,16 @@
               "defaultValue": null
             },
             {
+              "name": "participantOnlyContactInfo",
+              "description": "The participant-facing points of contact for the competition that only registered participants can see.",
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "CompetitionContactInfoInput",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
               "name": "prize",
               "description": "The prize of the competiton e.g. $1000.",
               "type": {
@@ -25678,8 +25729,66 @@
               "defaultValue": null
             },
             {
+              "name": "prizeDescription",
+              "description": "Long form text block description that explains the prizing for the competition and will be converted to Markdown client-side.",
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "publicContactInfo",
+              "description": "The public points of contact for the competition that anyone can see.",
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "CompetitionContactInfoInput",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
               "name": "region",
               "description": "region e.g. NA, EU, APAC, ...",
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "registrationEndAt",
+              "description": "The time the competition is scheduled to end registation.",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Time",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "registrationType",
+              "description": "The type of a registration for the competition. e.g. OPEN, INVITATIONAL, ...",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "ENUM",
+                  "name": "RegistrationType",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "rulesDescription",
+              "description": "Long form text block description that explains the rules for the competition and will be converted to Markdown client-side.",
               "type": {
                 "kind": "SCALAR",
                 "name": "String",
@@ -25707,6 +25816,30 @@
               "type": {
                 "kind": "ENUM",
                 "name": "CompetitionState",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "teamSize",
+              "description": "The number of participants within a single team entity. Can be 1 for solo-type competitions.",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Int",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "termsURL",
+              "description": "Link URL to any addtional terms and conditions.",
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
                 "ofType": null
               },
               "defaultValue": null
