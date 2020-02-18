@@ -43896,6 +43896,12 @@
               "description": "Used when fromUser is being blocked by targetUser.",
               "isDeprecated": false,
               "deprecationReason": null
+            },
+            {
+              "name": "TOO_MANY_FOLLOWS",
+              "description": "Used when user has reached their follow cap.",
+              "isDeprecated": false,
+              "deprecationReason": null
             }
           ],
           "possibleTypes": null
