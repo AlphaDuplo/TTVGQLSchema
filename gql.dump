@@ -37029,7 +37029,42 @@
         {
           "kind": "ENUM",
           "name": "EligiblePaymentMethod",
-          "description": "The list of payment methods that are supported for web checkout.",
+          "description": "The list of names of payment methods that are supported for web checkout.",
+          "fields": null,
+          "inputFields": null,
+          "interfaces": null,
+          "enumValues": [
+            {
+              "name": "AMAZON_PAY",
+              "description": "Amazon Pay payment method.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "PAYPAL",
+              "description": "Paypal payment method.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "CREDIT_CARD",
+              "description": "Credit card payment method.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "XSOLLA",
+              "description": "Xsolla payment method.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "possibleTypes": null
+        },
+        {
+          "kind": "ENUM",
+          "name": "EligiblePaymentMethodName",
+          "description": "The list of names of payment methods that are supported for web checkout.",
           "fields": null,
           "inputFields": null,
           "interfaces": null,
@@ -63200,6 +63235,26 @@
               "deprecationReason": null
             },
             {
+              "name": "eligiblePaymentMethodNames",
+              "description": "Provides a list of eligible payment methods that the user can select for this offer.\nThis is a temporary field for the migration of eligiblePaymentMethods field.",
+              "args": [],
+              "type": {
+                "kind": "LIST",
+                "name": null,
+                "ofType": {
+                  "kind": "NON_NULL",
+                  "name": null,
+                  "ofType": {
+                    "kind": "ENUM",
+                    "name": "EligiblePaymentMethodName",
+                    "ofType": null
+                  }
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
               "name": "eligiblePaymentMethods",
               "description": "Provides a list of eligible payment methods that the user can select for this offer.",
               "args": [],
@@ -63216,8 +63271,8 @@
                   }
                 }
               },
-              "isDeprecated": false,
-              "deprecationReason": null
+              "isDeprecated": true,
+              "deprecationReason": "Use eligiblePaymentMethodNames instead"
             }
           ],
           "inputFields": null,
@@ -65886,6 +65941,35 @@
           "inputFields": null,
           "interfaces": [],
           "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "ENUM",
+          "name": "PaymentMethodAvailabilityStatus",
+          "description": "The list of availability statuses for a payment method.",
+          "fields": null,
+          "inputFields": null,
+          "interfaces": null,
+          "enumValues": [
+            {
+              "name": "AVAILABLE",
+              "description": "Available status.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "DEGRADED",
+              "description": "Degraded status.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "FULL_OUTAGE",
+              "description": "Full outage status.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
           "possibleTypes": null
         },
         {
