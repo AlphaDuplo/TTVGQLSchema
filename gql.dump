@@ -120465,8 +120465,8 @@
                   "ofType": null
                 }
               },
-              "isDeprecated": false,
-              "deprecationReason": null
+              "isDeprecated": true,
+              "deprecationReason": "Use decoration.item.id"
             },
             {
               "name": "id",
@@ -120573,7 +120573,7 @@
             },
             {
               "name": "player",
-              "description": "Filled in only if the user is authorized to watch the content.",
+              "description": "Authenticated: filled in only if the user is authorized to watch the content.",
               "args": [],
               "type": {
                 "kind": "OBJECT",
