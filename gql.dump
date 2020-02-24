@@ -81341,6 +81341,12 @@
               "description": "The restriction is exempt for owning a product.",
               "isDeprecated": false,
               "deprecationReason": null
+            },
+            {
+              "name": "ORGANIZATION_MEMBER",
+              "description": "The restriction is exempt for viewers that are in the same org as the channel owner.",
+              "isDeprecated": false,
+              "deprecationReason": null
             }
           ],
           "possibleTypes": null
@@ -81409,6 +81415,12 @@
             {
               "name": "ALL_ACCESS_PASS",
               "description": "The resource is restricted by the All-Access Pass.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "ORGANIZATION_ACCESS_ONLY",
+              "description": "The resource is restricted by the organization membership logic in RBAC.",
               "isDeprecated": false,
               "deprecationReason": null
             }
@@ -81811,6 +81823,33 @@
                 "kind": "OBJECT",
                 "name": "User",
                 "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "OBJECT",
+          "name": "RewardedVideo",
+          "description": "Rewarded Video information.",
+          "fields": [
+            {
+              "name": "isEligible",
+              "description": "A flag indicating if the user is eligible for rewarded videos.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Boolean",
+                  "ofType": null
+                }
               },
               "isDeprecated": false,
               "deprecationReason": null
@@ -112825,6 +112864,18 @@
               "type": {
                 "kind": "OBJECT",
                 "name": "UserResidence",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "rewardedVideo",
+              "description": "Info on rewarded video for a user (eligibility).",
+              "args": [],
+              "type": {
+                "kind": "OBJECT",
+                "name": "RewardedVideo",
                 "ofType": null
               },
               "isDeprecated": false,
