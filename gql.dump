@@ -53615,6 +53615,41 @@
         },
         {
           "kind": "OBJECT",
+          "name": "ModViewSettings",
+          "description": "Settings for Mod View Page.",
+          "fields": [
+            {
+              "name": "tutorialSeenAt",
+              "description": "Date that tuorial was SEEN (nullable when tutorial is dismissed or unseen).",
+              "args": [],
+              "type": {
+                "kind": "SCALAR",
+                "name": "Time",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "tutorialState",
+              "description": "Setting to store whether the user has completed the mod view tutorial.",
+              "args": [],
+              "type": {
+                "kind": "ENUM",
+                "name": "TutorialState",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "OBJECT",
           "name": "MovieDetails",
           "description": "Movie metadata.",
           "fields": [
@@ -59422,6 +59457,33 @@
               "type": {
                 "kind": "OBJECT",
                 "name": "SetModLogsAccessPayload",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "setModViewSettings",
+              "description": "Set a user's mod view page tutorial seen state & time.",
+              "args": [
+                {
+                  "name": "input",
+                  "description": null,
+                  "type": {
+                    "kind": "NON_NULL",
+                    "name": null,
+                    "ofType": {
+                      "kind": "INPUT_OBJECT",
+                      "name": "SetModViewSettingsInput",
+                      "ofType": null
+                    }
+                  },
+                  "defaultValue": null
+                }
+              ],
+              "type": {
+                "kind": "OBJECT",
+                "name": "SetModViewSettingsPayload",
                 "ofType": null
               },
               "isDeprecated": false,
@@ -89116,6 +89178,68 @@
         },
         {
           "kind": "INPUT_OBJECT",
+          "name": "SetModViewSettingsInput",
+          "description": "The required input to set a user's mod view settings relating to turorial.",
+          "fields": null,
+          "inputFields": [
+            {
+              "name": "tutorialSeenAt",
+              "description": "The time the tutorial on the mod view page was seen.",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Time",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "tutorialState",
+              "description": "The viewed state of the tutorial on the mod view page.",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "ENUM",
+                  "name": "TutorialState",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            }
+          ],
+          "interfaces": null,
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "OBJECT",
+          "name": "SetModViewSettingsPayload",
+          "description": "Result of a setModViewSettings mutation.",
+          "fields": [
+            {
+              "name": "modViewSettings",
+              "description": "The newly resolved modviewsettings resolver.",
+              "args": [],
+              "type": {
+                "kind": "OBJECT",
+                "name": "ModViewSettings",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "INPUT_OBJECT",
           "name": "SetNotificationSettingInput",
           "description": null,
           "fields": null,
@@ -100519,6 +100643,35 @@
           ],
           "interfaces": null,
           "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "ENUM",
+          "name": "TutorialState",
+          "description": "TutorialState represents the possible states of the user's viewing of the mod view tutorial.",
+          "fields": null,
+          "inputFields": null,
+          "interfaces": null,
+          "enumValues": [
+            {
+              "name": "DISMISSED",
+              "description": "DISMISSED occurs when a user dismisses the tutorial.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "SEEN",
+              "description": "SEEN occurs when a user has seen every step in a tutorial.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "UNSEEN",
+              "description": "UNSEEN is the initial state, before a user has either dismissed or viewed the tutorial entirely.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
           "possibleTypes": null
         },
         {
@@ -112017,6 +112170,18 @@
               "type": {
                 "kind": "OBJECT",
                 "name": "ModLogsAccess",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "modViewSettings",
+              "description": "A user's settings related to the moderation view page.",
+              "args": [],
+              "type": {
+                "kind": "OBJECT",
+                "name": "ModViewSettings",
                 "ofType": null
               },
               "isDeprecated": false,
