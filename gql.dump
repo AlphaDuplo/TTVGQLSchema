@@ -63332,8 +63332,32 @@
           "interfaces": null,
           "enumValues": [
             {
+              "name": "ALREADY_PURCHASED",
+              "description": "Not eligible because the user has already purchased this offer.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "COULD_NOT_VERIFY",
+              "description": "Not eligible because something about the transaction could not be verified.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
               "name": "MAX_TOKEN_BALANCE",
               "description": "Offer would exceed user's max token balance.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "NONE",
+              "description": "No ineligibility reason was given.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "OTHER",
+              "description": "The reason for ineligibility could not be resolved.",
               "isDeprecated": false,
               "deprecationReason": null
             }
