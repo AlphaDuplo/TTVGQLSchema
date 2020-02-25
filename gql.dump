@@ -13857,6 +13857,18 @@
               "deprecationReason": null
             },
             {
+              "name": "quickActionStore",
+              "description": "Channel's store of quick actions on stream manager page.",
+              "args": [],
+              "type": {
+                "kind": "OBJECT",
+                "name": "QuickActionStore",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
               "name": "restrictionType",
               "description": "If restricted, how the resource is restricted.",
               "args": [],
@@ -17191,6 +17203,18 @@
               "type": {
                 "kind": "SCALAR",
                 "name": "ID",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "isUserAccountConnected",
+              "description": "UserAccountConnected is a boolean specifying if the user has a connected account link to the game the Reward is for.",
+              "args": [],
+              "type": {
+                "kind": "SCALAR",
+                "name": "Boolean",
                 "ofType": null
               },
               "isDeprecated": false,
@@ -75594,6 +75618,38 @@
           "description": "Represents a single quick action.",
           "fields": [
             {
+              "name": "category",
+              "description": "Category name of QA for client side store sections.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "ENUM",
+                  "name": "QuickActionCategory",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "isEnabled",
+              "description": "If the user currently has this QA enabled.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Boolean",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
               "name": "name",
               "description": "The name of the item. Quick action IDs are represented by their canonical names.",
               "args": [],
@@ -75608,11 +75664,74 @@
               },
               "isDeprecated": false,
               "deprecationReason": null
+            },
+            {
+              "name": "scope",
+              "description": "Scope can be \"local\" or \"global\".",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "ENUM",
+                  "name": "QuickActionScope",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
             }
           ],
           "inputFields": null,
           "interfaces": [],
           "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "ENUM",
+          "name": "QuickActionCategory",
+          "description": "Valid Categories of quick actions.",
+          "fields": null,
+          "inputFields": null,
+          "interfaces": null,
+          "enumValues": [
+            {
+              "name": "UNCATEGORIZED",
+              "description": "Uncategorized quick action.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "MANAGE_YOUR_STREAM",
+              "description": "Stream management quick actions.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "MONETIZE_YOUR_STREAM",
+              "description": "Monetization quick actions.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "GROW_YOUR_COMMUNITY",
+              "description": "Community growth quick actions.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "MANAGE_YOUR_CHAT",
+              "description": "Chat management quick actions.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "EXTENSIONS",
+              "description": "extensions quick actions.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
           "possibleTypes": null
         },
         {
@@ -75873,6 +75992,64 @@
               "deprecationReason": null
             }
           ],
+          "possibleTypes": null
+        },
+        {
+          "kind": "ENUM",
+          "name": "QuickActionScope",
+          "description": "Valid scopes of quick actions.",
+          "fields": null,
+          "inputFields": null,
+          "interfaces": null,
+          "enumValues": [
+            {
+              "name": "GLOBAL",
+              "description": "global refers to QAs available to all users.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "LOCAL",
+              "description": "local scope refers to QAs unique to the user, i.e. extension QAs.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "possibleTypes": null
+        },
+        {
+          "kind": "OBJECT",
+          "name": "QuickActionStore",
+          "description": "Represents a list of quick actions for the store.",
+          "fields": [
+            {
+              "name": "quickActions",
+              "description": "A list of quick actions available for the user's store.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "LIST",
+                  "name": null,
+                  "ofType": {
+                    "kind": "NON_NULL",
+                    "name": null,
+                    "ofType": {
+                      "kind": "OBJECT",
+                      "name": "QuickAction",
+                      "ofType": null
+                    }
+                  }
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
+          "enumValues": null,
           "possibleTypes": null
         },
         {
