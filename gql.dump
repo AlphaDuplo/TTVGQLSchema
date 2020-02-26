@@ -93806,6 +93806,49 @@
           "possibleTypes": null
         },
         {
+          "kind": "OBJECT",
+          "name": "StreamSession",
+          "description": "The start and end time of a stream session for a user.",
+          "fields": [
+            {
+              "name": "endedAt",
+              "description": "The end time for the stream session.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Time",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "startedAt",
+              "description": "The start time for the stream session.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Time",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
           "kind": "ENUM",
           "name": "StreamSort",
           "description": "Possible ways of sorting collections of live streams.",
@@ -93870,6 +93913,22 @@
               "deprecationReason": null
             },
             {
+              "name": "averageViewers",
+              "description": "Average viewers for the time period.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Float",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
               "name": "channelID",
               "description": "The ID for the streaming channel.",
               "args": [],
@@ -93879,6 +93938,22 @@
                 "ofType": {
                   "kind": "SCALAR",
                   "name": "ID",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "clipsCreated",
+              "description": "The number of clips created during the stream summary.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Int",
                   "ofType": null
                 }
               },
@@ -93902,6 +93977,70 @@
               "deprecationReason": null
             },
             {
+              "name": "follows",
+              "description": "Number of follows for the time period.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Int",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "liveViews",
+              "description": "Live views for the time period.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Int",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "maxViewers",
+              "description": "Max viewers for the time period.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Int",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "newSubscriptions",
+              "description": "New subscriptions for the time period.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Int",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
               "name": "startedAt",
               "description": "The time that the stream session started.",
               "args": [],
@@ -93911,6 +94050,22 @@
                 "ofType": {
                   "kind": "SCALAR",
                   "name": "Time",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "uniqueChatters",
+              "description": "Unique chatters for the time period.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Int",
                   "ofType": null
                 }
               },
@@ -111046,7 +111201,7 @@
                   "defaultValue": null
                 },
                 {
-                  "name": "NumberOfIntervals",
+                  "name": "numberOfIntervals",
                   "description": null,
                   "type": {
                     "kind": "SCALAR",
@@ -113426,8 +113581,8 @@
               "deprecationReason": null
             },
             {
-              "name": "streamSummaries",
-              "description": "A list of stream summaries. Stream summaries provide analytics information\nfor a streaming session. The optional limit parameter defaults to 1.",
+              "name": "streamSessions",
+              "description": "A list of the start and end times of stream sessions.",
               "args": [
                 {
                   "name": "first",
@@ -113435,6 +113590,57 @@
                   "type": {
                     "kind": "SCALAR",
                     "name": "Int",
+                    "ofType": null
+                  },
+                  "defaultValue": null
+                },
+                {
+                  "name": "lastStartedAt",
+                  "description": null,
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Time",
+                    "ofType": null
+                  },
+                  "defaultValue": null
+                }
+              ],
+              "type": {
+                "kind": "LIST",
+                "name": null,
+                "ofType": {
+                  "kind": "NON_NULL",
+                  "name": null,
+                  "ofType": {
+                    "kind": "OBJECT",
+                    "name": "StreamSession",
+                    "ofType": null
+                  }
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "streamSummaries",
+              "description": "A list of stream summaries. Stream summaries provide analytics information\nfor a streaming session. Last started time is for querying sessions from a previous time stamp.",
+              "args": [
+                {
+                  "name": "first",
+                  "description": null,
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Int",
+                    "ofType": null
+                  },
+                  "defaultValue": null
+                },
+                {
+                  "name": "lastStartedAt",
+                  "description": null,
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Time",
                     "ofType": null
                   },
                   "defaultValue": null
