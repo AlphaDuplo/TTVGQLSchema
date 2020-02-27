@@ -63876,8 +63876,36 @@
         {
           "kind": "OBJECT",
           "name": "OfferPromotion",
-          "description": "Promotions is a modifier to an Offer.",
+          "description": "Promotion is a modifier to an Offer.",
           "fields": [
+            {
+              "name": "endAt",
+              "description": "End time of a promotion (empty if evergreen promotion).",
+              "args": [],
+              "type": {
+                "kind": "SCALAR",
+                "name": "Time",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "id",
+              "description": "Unique identifier for a Promotion.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "ID",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
             {
               "name": "listing",
               "description": "The OfferListing associated with this Promotion.",
@@ -63888,6 +63916,70 @@
                 "ofType": {
                   "kind": "OBJECT",
                   "name": "OfferListing",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": true,
+              "deprecationReason": "No longer used, currently left for backwards compatibility"
+            },
+            {
+              "name": "name",
+              "description": "Unique name for a Promotion.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "String",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "priority",
+              "description": "Describes the priority of the Promotion (the higher the priorty, the more important the promo).",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Int",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "promoDisplay",
+              "description": "Describe the Promotions metadata to display to the client.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "OBJECT",
+                  "name": "PromotionDisplay",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "startAt",
+              "description": "Start time of a promotion.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Time",
                   "ofType": null
                 }
               },
@@ -72020,6 +72112,68 @@
                 "ofType": {
                   "kind": "SCALAR",
                   "name": "String",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "ENUM",
+          "name": "PromoDiscountType",
+          "description": "Types that can only be displayed for an Offer Promotion.",
+          "fields": null,
+          "inputFields": null,
+          "interfaces": null,
+          "enumValues": [
+            {
+              "name": "DISCOUNT_TYPE_NONE",
+              "description": "No Discount type to be shown.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "DISCOUNT_TYPE_PERCENT",
+              "description": "Percent Discount type to be shown.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "possibleTypes": null
+        },
+        {
+          "kind": "OBJECT",
+          "name": "PromotionDisplay",
+          "description": "Data used to display promotional discounts to the client.",
+          "fields": [
+            {
+              "name": "discountPercent",
+              "description": "Describes the discount percent to display to the client.",
+              "args": [],
+              "type": {
+                "kind": "SCALAR",
+                "name": "Float",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "discountType",
+              "description": "Describes the type of discount that will be applied to the client.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "ENUM",
+                  "name": "PromoDiscountType",
                   "ofType": null
                 }
               },
