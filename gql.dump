@@ -14559,8 +14559,8 @@
                   "ofType": null
                 }
               },
-              "isDeprecated": false,
-              "deprecationReason": null
+              "isDeprecated": true,
+              "deprecationReason": "No longer used."
             },
             {
               "name": "isSubscribersOnlyModeEnabled",
@@ -56446,8 +56446,8 @@
                 "name": "CreateRoomPayload",
                 "ofType": null
               },
-              "isDeprecated": false,
-              "deprecationReason": null
+              "isDeprecated": true,
+              "deprecationReason": "No longer supported"
             },
             {
               "name": "createSchedule",
@@ -57279,8 +57279,8 @@
                 "name": "DeleteRoomPayload",
                 "ofType": null
               },
-              "isDeprecated": false,
-              "deprecationReason": null
+              "isDeprecated": true,
+              "deprecationReason": "No longer supported"
             },
             {
               "name": "deleteRoomMessage",
@@ -57750,8 +57750,8 @@
                 "name": "EditRoomMessagePayload",
                 "ofType": null
               },
-              "isDeprecated": false,
-              "deprecationReason": null
+              "isDeprecated": true,
+              "deprecationReason": "No longer supported"
             },
             {
               "name": "emitCampaignDiscoveryEvent",
@@ -58128,8 +58128,8 @@
                 "name": "JoinChannelRoomsPayload",
                 "ofType": null
               },
-              "isDeprecated": false,
-              "deprecationReason": null
+              "isDeprecated": true,
+              "deprecationReason": "No longer supported"
             },
             {
               "name": "joinRaid",
@@ -58182,8 +58182,8 @@
                 "name": "LeaveChannelRoomsPayload",
                 "ofType": null
               },
-              "isDeprecated": false,
-              "deprecationReason": null
+              "isDeprecated": true,
+              "deprecationReason": "No longer supported"
             },
             {
               "name": "leaveRaid",
@@ -59478,8 +59478,8 @@
                 "name": "SendRoomMessagePayload",
                 "ofType": null
               },
-              "isDeprecated": false,
-              "deprecationReason": null
+              "isDeprecated": true,
+              "deprecationReason": "No longer supported"
             },
             {
               "name": "sendWhisper",
@@ -60563,7 +60563,7 @@
             },
             {
               "name": "unbanUserFromChatRoom",
-              "description": "Removes a ban imposed on a user for an especified chat room.",
+              "description": "Removes a ban imposed on a user for a specified chat room.",
               "args": [
                 {
                   "name": "input",
@@ -62136,8 +62136,8 @@
                 "name": "UpdateRoomPayload",
                 "ofType": null
               },
-              "isDeprecated": false,
-              "deprecationReason": null
+              "isDeprecated": true,
+              "deprecationReason": "No longer supported"
             },
             {
               "name": "updateRoomModes",
@@ -62190,8 +62190,8 @@
                 "name": "UpdateRoomViewPayload",
                 "ofType": null
               },
-              "isDeprecated": false,
-              "deprecationReason": null
+              "isDeprecated": true,
+              "deprecationReason": "No longer supported"
             },
             {
               "name": "updateScheduleSegment",
@@ -104065,12 +104065,12 @@
         {
           "kind": "INPUT_OBJECT",
           "name": "UpdateChatSettingsInput",
-          "description": "Possible chat settings modifiable for the channel specified via ChannelID.",
+          "description": "Possible chat settings modifiable for the channel specified via ChannelID.\n\nNOTE: Subscribers-only chat mode settings are in the UpdateSubscriptionProduct\nmutation.",
           "fields": null,
           "inputFields": [
             {
               "name": "autoModLevel",
-              "description": "autoModLevel is an integer from 0-4 representing the level of automoderation of chat\n0 is off, 4 is the highest level of moderation.",
+              "description": "autoModLevel is an integer from 0-4 representing the level of automoderation of chat\n0 is off, 4 is the highest level of moderation.\n\nDeprecated: No longer used.",
               "type": {
                 "kind": "SCALAR",
                 "name": "Int",
@@ -104104,7 +104104,7 @@
             },
             {
               "name": "followersOnlyDurationMinutes",
-              "description": "followersOnlyDurationMinutes is the number of minutes a user must have followed the broadcaster\nbefore being able to chat.",
+              "description": "followersOnlyDurationMinutes is the number of minutes a user must have\nfollowed the broadcaster before being able to chat.",
               "type": {
                 "kind": "SCALAR",
                 "name": "Int",
@@ -104124,7 +104124,17 @@
             },
             {
               "name": "isBroadcasterLanguageModeEnabled",
-              "description": "isBroadcasterLanguageModeEnabled indicates if the broadcaster requires chat messages to\nmatch their language.",
+              "description": "isBroadcasterLanguageModeEnabled indicates if the broadcaster requires chat messages to\nmatch their language.\n\nDeprecated: No longer used.",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Boolean",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "isEmoteOnlyModeEnabled",
+              "description": "Indicates whether chat is currently enforcing that messages may only contain\nemotes.",
               "type": {
                 "kind": "SCALAR",
                 "name": "Boolean",
@@ -104134,7 +104144,17 @@
             },
             {
               "name": "isOptedOutOfGlobalBannedWordsList",
-              "description": "If isOptedOutOfGlobalBannedWordsList is true, the legacy twitch banned words list will\nbe inserted into automod if the channel has automod enabled.",
+              "description": "If isOptedOutOfGlobalBannedWordsList is true, the legacy twitch banned words list will\nbe inserted into automod if the channel has automod enabled.\n\nDeprecated: No longer used.",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Boolean",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "isUniqueChatModeEnabled",
+              "description": "Indicates whether chat is currently enforcing that messages must be\nreasonably unique from recent messages. Previously known as \"r9k mode\".",
               "type": {
                 "kind": "SCALAR",
                 "name": "Boolean",
@@ -104154,7 +104174,7 @@
             },
             {
               "name": "rules",
-              "description": "rules is a list of rules to display to users when joining a chat channel.",
+              "description": "A list of chat rules to display to users when joining a chat channel.",
               "type": {
                 "kind": "LIST",
                 "name": null,
@@ -104167,6 +104187,16 @@
                     "ofType": null
                   }
                 }
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "slowModeDurationSeconds",
+              "description": "The number of seconds a user must wait in between sending chat messages\nIf value is null, slow mode is not enabled.",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Int",
+                "ofType": null
               },
               "defaultValue": null
             }
