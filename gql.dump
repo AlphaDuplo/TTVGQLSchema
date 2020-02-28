@@ -28015,7 +28015,7 @@
             },
             {
               "name": "bitsVoting",
-              "description": "Denotes if votes can be cast with votes.",
+              "description": "Denotes if votes can be cast with bits.",
               "type": {
                 "kind": "SCALAR",
                 "name": "Boolean",
@@ -28046,6 +28046,16 @@
               "defaultValue": null
             },
             {
+              "name": "communityPointsCost",
+              "description": "The cost in Community Points for casting a vote.",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Int",
+                "ofType": null
+              },
+              "defaultValue": "0"
+            },
+            {
               "name": "durationSeconds",
               "description": "Duration of the poll in seconds.",
               "type": {
@@ -28058,6 +28068,16 @@
                 }
               },
               "defaultValue": null
+            },
+            {
+              "name": "isCommunityPointsVotingEnabled",
+              "description": "Denotes if votes can be cast with Community Points.",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Boolean",
+                "ofType": null
+              },
+              "defaultValue": "false"
             },
             {
               "name": "multichoiceEnabled",
@@ -69220,16 +69240,40 @@
               "deprecationReason": null
             },
             {
+              "name": "topBitsContributor",
+              "description": "The top Bits contributor for the poll.",
+              "args": [],
+              "type": {
+                "kind": "OBJECT",
+                "name": "PollTopBitsContributor",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "topCommunityPointsContributor",
+              "description": "The top Community Points contributor for the poll.",
+              "args": [],
+              "type": {
+                "kind": "OBJECT",
+                "name": "PollTopCommunityPointsContributor",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
               "name": "topContributor",
-              "description": "The top contributor for the poll.",
+              "description": "The top Bits contributor for the poll.",
               "args": [],
               "type": {
                 "kind": "OBJECT",
                 "name": "PollTopContributor",
                 "ofType": null
               },
-              "isDeprecated": false,
-              "deprecationReason": null
+              "isDeprecated": true,
+              "deprecationReason": "Use topBitsContributor instead."
             },
             {
               "name": "totalVoters",
@@ -69622,6 +69666,22 @@
               "deprecationReason": null
             },
             {
+              "name": "communityPointsVotes",
+              "description": "Channel Points votes poll settings.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "OBJECT",
+                  "name": "PollSettingsCommunityPointsVotes",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
               "name": "id",
               "description": "ID of poll settings.",
               "args": [],
@@ -69715,6 +69775,49 @@
             {
               "name": "isEnabled",
               "description": "Whether the poll allows for users to use bits for votes.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Boolean",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "OBJECT",
+          "name": "PollSettingsCommunityPointsVotes",
+          "description": "Channel Points votes poll settings.",
+          "fields": [
+            {
+              "name": "cost",
+              "description": "Cost of channel points for a vote.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Int",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "isEnabled",
+              "description": "Whether the poll allows for users to use channel points for votes.",
               "args": [],
               "type": {
                 "kind": "NON_NULL",
@@ -69901,6 +70004,22 @@
               "deprecationReason": null
             },
             {
+              "name": "communityPoints",
+              "description": "Total number of community points used.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Int",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
               "name": "id",
               "description": "ID of token breakdown.",
               "args": [],
@@ -69924,8 +70043,86 @@
         },
         {
           "kind": "OBJECT",
-          "name": "PollTopContributor",
+          "name": "PollTopBitsContributor",
           "description": "Top contributor to the poll and the bits they contributed.",
+          "fields": [
+            {
+              "name": "bitsAmount",
+              "description": "Bits amount contributed.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Int",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "user",
+              "description": "Top contributor to the poll.",
+              "args": [],
+              "type": {
+                "kind": "OBJECT",
+                "name": "User",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "OBJECT",
+          "name": "PollTopCommunityPointsContributor",
+          "description": "Top contributor to the poll and the community points they contributed.",
+          "fields": [
+            {
+              "name": "communityPointsAmount",
+              "description": "Community Points amount contributed.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Int",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "user",
+              "description": "Top contributor to the poll.",
+              "args": [],
+              "type": {
+                "kind": "OBJECT",
+                "name": "User",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "OBJECT",
+          "name": "PollTopContributor",
+          "description": "Top contributor to the poll and the bits they contributed.\nDeprecated: use PollTopBitsContributor instead.",
           "fields": [
             {
               "name": "bitsAmount",
@@ -69985,6 +70182,22 @@
             {
               "name": "bits",
               "description": "Total number of votes due to bits contributions.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Int",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "communityPoints",
+              "description": "Total number of votes due to Community Points contributions.",
               "args": [],
               "type": {
                 "kind": "NON_NULL",
@@ -121502,8 +121715,20 @@
               "deprecationReason": null
             },
             {
+              "name": "INVALID_COMMUNITY_POINTS_AMOUNT",
+              "description": "Request is for an invalid Community Points amount (e.g. -100 Points, or request is not for a multiple of the Points cost).",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
               "name": "INSUFFICIENT_BITS_BALANCE",
               "description": "User's bits balance is too low to perform request (e.g. they only have 10 bits and they request to spend 100).",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "INSUFFICIENT_COMMUNITY_POINTS_BALANCE",
+              "description": "Users's Community Points balance is too low to perform request (e.g. they only have 10 points and they request to spend 100).",
               "isDeprecated": false,
               "deprecationReason": null
             },
