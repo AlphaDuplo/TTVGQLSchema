@@ -1414,6 +1414,65 @@
           "possibleTypes": null
         },
         {
+          "kind": "OBJECT",
+          "name": "AdSession",
+          "description": "AdSession is the response object from an Ad Request.",
+          "fields": [
+            {
+              "name": "id",
+              "description": "id is the id of the ad.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "ID",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "lengthSeconds",
+              "description": "lengthSeconds is the length of the ad being requested in seconds.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Int",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "retryAfterSeconds",
+              "description": "retryAfterSeconds is the amount of time in seconds remaining for a user to run another ad.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Int",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
           "kind": "INPUT_OBJECT",
           "name": "AddAutohostChannelsInput",
           "description": "AddAutohostChannelsInput append channelIDs to a user's list to autohost.",
@@ -60238,6 +60297,33 @@
               "deprecationReason": null
             },
             {
+              "name": "startAd",
+              "description": "Start a new ad break.",
+              "args": [
+                {
+                  "name": "input",
+                  "description": null,
+                  "type": {
+                    "kind": "NON_NULL",
+                    "name": null,
+                    "ofType": {
+                      "kind": "INPUT_OBJECT",
+                      "name": "StartAdInput",
+                      "ofType": null
+                    }
+                  },
+                  "defaultValue": null
+                }
+              ],
+              "type": {
+                "kind": "OBJECT",
+                "name": "StartAdPayload",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
               "name": "startBounty",
               "description": "startBounty allows a user to start a bounty for tracking (e.g. track the viewers CCU for meeting the bounty's requirements).\nIf the user has not provided a title or met the other requirements to start the bounty, it will return an error.",
               "args": [
@@ -92850,6 +92936,132 @@
               "deprecationReason": null
             }
           ],
+          "possibleTypes": null
+        },
+        {
+          "kind": "OBJECT",
+          "name": "StartAdError",
+          "description": "StartAdError ...",
+          "fields": [
+            {
+              "name": "code",
+              "description": "code is the code for the error that occurs while trying to run an ad break.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "ENUM",
+                  "name": "StartAdErrorCode",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "ENUM",
+          "name": "StartAdErrorCode",
+          "description": "StartAdErrorCode ...",
+          "fields": null,
+          "inputFields": null,
+          "interfaces": null,
+          "enumValues": [
+            {
+              "name": "RATE_LIMITED",
+              "description": "The user has requested an ad break before the rate limit timer has expired.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "USER_NOT_AUTHORIZED",
+              "description": "The user is not authorized to run an ad break on the requested channel.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "UNKNOWN_ERROR",
+              "description": "An unknown error occured while trying to run an ad break.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "possibleTypes": null
+        },
+        {
+          "kind": "INPUT_OBJECT",
+          "name": "StartAdInput",
+          "description": "StartAdInput ...",
+          "fields": null,
+          "inputFields": [
+            {
+              "name": "channelID",
+              "description": "channelID is the ID of the channel the ad will run on.",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "ID",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "lengthSeconds",
+              "description": "lengthSeconds is the requested ad break length in seconds (30s ad, 60s ad, etc).",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Int",
+                "ofType": null
+              },
+              "defaultValue": null
+            }
+          ],
+          "interfaces": null,
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "OBJECT",
+          "name": "StartAdPayload",
+          "description": "StartAdPayload ...",
+          "fields": [
+            {
+              "name": "adSession",
+              "description": "adSession is the response object from an ad request.",
+              "args": [],
+              "type": {
+                "kind": "OBJECT",
+                "name": "AdSession",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "error",
+              "description": "error is the StartAdError object from a failed request.",
+              "args": [],
+              "type": {
+                "kind": "OBJECT",
+                "name": "StartAdError",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
+          "enumValues": null,
           "possibleTypes": null
         },
         {
