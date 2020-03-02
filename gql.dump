@@ -94719,6 +94719,22 @@
               "deprecationReason": null
             },
             {
+              "name": "channelReferrals",
+              "description": "Video play referral metrics for internal channel referrals.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "OBJECT",
+                  "name": "VideoPlayReferrals",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
               "name": "clipsCreated",
               "description": "The number of clips created during the stream summary.",
               "args": [],
@@ -94751,6 +94767,22 @@
               "deprecationReason": null
             },
             {
+              "name": "externalReferrals",
+              "description": "Video play referral metrics for external referrals.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "OBJECT",
+                  "name": "VideoPlayReferrals",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
               "name": "follows",
               "description": "Number of follows for the time period.",
               "args": [],
@@ -94760,6 +94792,22 @@
                 "ofType": {
                   "kind": "SCALAR",
                   "name": "Int",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "internalReferrals",
+              "description": "Video play referral metrics for internal referrals.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "OBJECT",
+                  "name": "VideoPlayReferrals",
                   "ofType": null
                 }
               },
