@@ -3299,6 +3299,29 @@
           "possibleTypes": null
         },
         {
+          "kind": "ENUM",
+          "name": "ArkoseEndpointVersion",
+          "description": "Possible errors from the mutation.",
+          "fields": null,
+          "inputFields": null,
+          "interfaces": null,
+          "enumValues": [
+            {
+              "name": "V1",
+              "description": "Version 1 endpoint.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "V2",
+              "description": "Version 2 endpoint.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "possibleTypes": null
+        },
+        {
           "kind": "OBJECT",
           "name": "AssignExtensionBillingManagerError",
           "description": "AssignExtensionBillingManagerError is the error associated with AssignExtensionBillingManager.",
@@ -62955,6 +62978,33 @@
               "deprecationReason": null
             },
             {
+              "name": "verifyRewardedVideoEligibilityCaptcha",
+              "description": "verifyRewardedVideoEligibilityCaptcha verifies a users captcha with the rewarded video system.",
+              "args": [
+                {
+                  "name": "input",
+                  "description": null,
+                  "type": {
+                    "kind": "NON_NULL",
+                    "name": null,
+                    "ofType": {
+                      "kind": "INPUT_OBJECT",
+                      "name": "VerifyRewardedVideoEligibilityCaptchaInput",
+                      "ofType": null
+                    }
+                  },
+                  "defaultValue": null
+                }
+              ],
+              "type": {
+                "kind": "OBJECT",
+                "name": "VerifyRewardedVideoEligibilityCaptchaPayload",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
               "name": "viewedNotifications",
               "description": "viewedNotifications updates when the authenticated user last saw onsite notifications.",
               "args": [],
@@ -118149,6 +118199,118 @@
               "type": {
                 "kind": "OBJECT",
                 "name": "VerificationRequest",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "OBJECT",
+          "name": "VerifyRewardedVideoEligibilityCaptchaError",
+          "description": "Error that occurred while validating with captcha token.",
+          "fields": [
+            {
+              "name": "code",
+              "description": "Error code for error that occurred while validating the captcha token.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "ENUM",
+                  "name": "VerifyRewardedVideoEligibilityCaptchaErrorCode",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "ENUM",
+          "name": "VerifyRewardedVideoEligibilityCaptchaErrorCode",
+          "description": "Error types for captcha verification.",
+          "fields": null,
+          "inputFields": null,
+          "interfaces": null,
+          "enumValues": [
+            {
+              "name": "INVALID_PARAMETER",
+              "description": "The input provided by the user was rejected.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "INTERNAL_ERROR",
+              "description": "The service had an issue unrelated to your input.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "possibleTypes": null
+        },
+        {
+          "kind": "INPUT_OBJECT",
+          "name": "VerifyRewardedVideoEligibilityCaptchaInput",
+          "description": "Inputs for registering a Captcha for WATEB.",
+          "fields": null,
+          "inputFields": [
+            {
+              "name": "arkoseEndpointVersion",
+              "description": "Whether we authenticated with V1 or V2 Arkose endpoint.",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "ENUM",
+                  "name": "ArkoseEndpointVersion",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "sessionToken",
+              "description": "The token response from Arkose to verify.",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "String",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            }
+          ],
+          "interfaces": null,
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "OBJECT",
+          "name": "VerifyRewardedVideoEligibilityCaptchaPayload",
+          "description": "The response from verifying a captcha with rewarded video systems.",
+          "fields": [
+            {
+              "name": "error",
+              "description": "The error (if one exists) returned from validating the captcha token.",
+              "args": [],
+              "type": {
+                "kind": "OBJECT",
+                "name": "VerifyRewardedVideoEligibilityCaptchaError",
                 "ofType": null
               },
               "isDeprecated": false,
