@@ -4794,6 +4794,65 @@
         },
         {
           "kind": "OBJECT",
+          "name": "Balance",
+          "description": "Balance for a Twitch User Account in a FIAT currency. Can be used to purchase\nproduct on the Twitch Platform.",
+          "fields": [
+            {
+              "name": "amount",
+              "description": "Amount in the smallest unit of subcurrency.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Int",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "currency",
+              "description": "ISO-4217 currency code of a user's balance.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "ENUM",
+                  "name": "Currency",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "exponent",
+              "description": "Number of digits after the decimal separator.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Int",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "OBJECT",
           "name": "BanUserFromChatRoomError",
           "description": null,
           "fields": [
@@ -112003,6 +112062,33 @@
               "deprecationReason": null
             },
             {
+              "name": "balances",
+              "description": "A list of this user's balances in FIAT currencies\nIf this isn't the `currentUser` this will return null.",
+              "args": [
+                {
+                  "name": "walletType",
+                  "description": null,
+                  "type": {
+                    "kind": "ENUM",
+                    "name": "WalletType",
+                    "ofType": null
+                  },
+                  "defaultValue": null
+                }
+              ],
+              "type": {
+                "kind": "LIST",
+                "name": null,
+                "ofType": {
+                  "kind": "OBJECT",
+                  "name": "Balance",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
               "name": "bannedUsers",
               "description": "A list of this user's banned users.\nA maximum of 100 users by most recent are returned\nOnly resolves for the authenticated user.",
               "args": [],
@@ -122744,6 +122830,23 @@
           "inputFields": null,
           "interfaces": [],
           "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "ENUM",
+          "name": "WalletType",
+          "description": "User's can have different wallet types based on legal and accounting\nrequirements.",
+          "fields": null,
+          "inputFields": null,
+          "interfaces": null,
+          "enumValues": [
+            {
+              "name": "GIFT_CARD",
+              "description": "Only supports loading from FIAT currencies from gift card providers.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
           "possibleTypes": null
         },
         {
