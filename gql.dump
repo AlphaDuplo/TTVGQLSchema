@@ -15942,8 +15942,8 @@
                   "ofType": null
                 }
               },
-              "isDeprecated": false,
-              "deprecationReason": null
+              "isDeprecated": true,
+              "deprecationReason": "Use leaderboard settings in user settings instead."
             },
             {
               "name": "recentCheer",
@@ -16144,8 +16144,8 @@
                 "name": "BitsLeaderboardSettings",
                 "ofType": null
               },
-              "isDeprecated": false,
-              "deprecationReason": null
+              "isDeprecated": true,
+              "deprecationReason": "Use leaderboard settings in user settings instead."
             },
             {
               "name": "recentMinimumBits",
@@ -32960,6 +32960,29 @@
           "inputFields": null,
           "interfaces": [],
           "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "ENUM",
+          "name": "DefaultLeaderboardType",
+          "description": "DefaultLeaderboardType enumerates the various types of supported Leaderboards.",
+          "fields": null,
+          "inputFields": null,
+          "interfaces": null,
+          "enumValues": [
+            {
+              "name": "CHEER",
+              "description": "Bits cheering leaderboards.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "SUBGIFT",
+              "description": "Sub gifting leaderboards.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
           "possibleTypes": null
         },
         {
@@ -51539,6 +51562,81 @@
           "possibleTypes": null
         },
         {
+          "kind": "OBJECT",
+          "name": "LeaderboardSettings",
+          "description": "Partner dashboard settings for the bits cheering and sub gifting leaderboards.",
+          "fields": [
+            {
+              "name": "defaultLeaderboard",
+              "description": "The default leaderboard the user wants to show.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "ENUM",
+                  "name": "DefaultLeaderboardType",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "isCheerEnabled",
+              "description": "Flag that is true if the user has bits cheering leaderboards turned on.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Boolean",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "isSubGiftEnabled",
+              "description": "Flag that is true if the user has sub gifting leaderboards turned on.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Boolean",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "timePeriod",
+              "description": "The time period the user wants the leaderboard to be displayed as.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "ENUM",
+                  "name": "LeaderboardTimePeriodType",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
           "kind": "ENUM",
           "name": "LeaderboardTimePeriodType",
           "description": "LeaderboardTimePeriodType enumerates the various types of supported Leaderboards.",
@@ -62134,6 +62232,33 @@
               "type": {
                 "kind": "OBJECT",
                 "name": "UpdateLWATokenPayload",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "updateLeaderboardSettings",
+              "description": "Update the user's partner settings regarding leaderboards.",
+              "args": [
+                {
+                  "name": "input",
+                  "description": null,
+                  "type": {
+                    "kind": "NON_NULL",
+                    "name": null,
+                    "ofType": {
+                      "kind": "INPUT_OBJECT",
+                      "name": "UpdateLeaderboardSettingsInput",
+                      "ofType": null
+                    }
+                  },
+                  "defaultValue": null
+                }
+              ],
+              "type": {
+                "kind": "OBJECT",
+                "name": "UpdateLeaderboardSettingsPayload",
                 "ofType": null
               },
               "isDeprecated": false,
@@ -107874,6 +107999,94 @@
         },
         {
           "kind": "INPUT_OBJECT",
+          "name": "UpdateLeaderboardSettingsInput",
+          "description": "Mutation input for updating partner leaderboard settings.",
+          "fields": null,
+          "inputFields": [
+            {
+              "name": "defaultLeaderboard",
+              "description": "The default leaderboard the user wants to show.",
+              "type": {
+                "kind": "ENUM",
+                "name": "DefaultLeaderboardType",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "isCheerEnabled",
+              "description": "Setting for enabling bits cheering leaderboards.",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Boolean",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "isSubGiftEnabled",
+              "description": "Setting for enabling sub gifting leaderboards.",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Boolean",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "timePeriod",
+              "description": "The time period the user wants the leaderboard to be displayed as.",
+              "type": {
+                "kind": "ENUM",
+                "name": "LeaderboardTimePeriodType",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "userID",
+              "description": "The user ID to update leaderboard settings.",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "ID",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            }
+          ],
+          "interfaces": null,
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "OBJECT",
+          "name": "UpdateLeaderboardSettingsPayload",
+          "description": "Result of mutation is the updated leaderboard settings object.",
+          "fields": [
+            {
+              "name": "leaderboard",
+              "description": "The updated leaderboard settings object.",
+              "args": [],
+              "type": {
+                "kind": "OBJECT",
+                "name": "LeaderboardSettings",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "INPUT_OBJECT",
           "name": "UpdateLiveUpNotificationInput",
           "description": "The required input for a updateLiveUpNotification mutation.",
           "fields": null,
@@ -117606,6 +117819,18 @@
                   "name": "Boolean",
                   "ofType": null
                 }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "leaderboard",
+              "description": "Partner settings related to leaderboards.",
+              "args": [],
+              "type": {
+                "kind": "OBJECT",
+                "name": "LeaderboardSettings",
+                "ofType": null
               },
               "isDeprecated": false,
               "deprecationReason": null
