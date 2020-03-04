@@ -17528,6 +17528,11 @@
               "kind": "OBJECT",
               "name": "BitsKeyCode",
               "ofType": null
+            },
+            {
+              "kind": "OBJECT",
+              "name": "GiftCardCode",
+              "ofType": null
             }
           ]
         },
@@ -17548,6 +17553,12 @@
             {
               "name": "SUBS_KEY_CODE",
               "description": "A key code that has a subscription to a product associated with it.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "GIFT_CARD_KEY_CODE",
+              "description": "A key code that has a gift card with monetary value associated with it.",
               "isDeprecated": false,
               "deprecationReason": null
             }
@@ -28904,6 +28915,12 @@
               "deprecationReason": null
             },
             {
+              "name": "NOT_FOUND",
+              "description": "The schedule to create a segment for was not found.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
               "name": "INVALID_CATEGORY_COUNT",
               "description": "The number of categories is invalid. Refer to the error for min and max acceptable values.",
               "isDeprecated": false,
@@ -28960,6 +28977,12 @@
             {
               "name": "INVALID_DURATION",
               "description": "The duration is invalid. Refer to the error for min and max acceptable values.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "INVALID_SEGMENT",
+              "description": "The segment is invalid.",
               "isDeprecated": false,
               "deprecationReason": null
             },
@@ -46653,6 +46676,144 @@
           ],
           "inputFields": null,
           "interfaces": [],
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "OBJECT",
+          "name": "GiftCardCode",
+          "description": "GiftCardCode that can be claimed to add a monetary balance to a user's account.",
+          "fields": [
+            {
+              "name": "description",
+              "description": "A description of what is claimable for the code.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "String",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "id",
+              "description": "The ID of the Gift Card code.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "ID",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "self",
+              "description": "The field that gives us claim information for the logged in user.",
+              "args": [],
+              "type": {
+                "kind": "INTERFACE",
+                "name": "SelfClaimEdge",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "type",
+              "description": "The type is `ClaimableType.GIFT_CARD_CODE`.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "ENUM",
+                  "name": "ClaimableType",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [
+            {
+              "kind": "INTERFACE",
+              "name": "Claimable",
+              "ofType": null
+            }
+          ],
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "OBJECT",
+          "name": "GiftCardCodeSelfClaimEdge",
+          "description": "User edge relating the pin's status to the user.",
+          "fields": [
+            {
+              "name": "canClaim",
+              "description": "If the user is eligible to claim the key code.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Boolean",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "id",
+              "description": "The user ID that is claiming the code.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "ID",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "statusCode",
+              "description": "Nullable status code for if the user cannot claim the key code.",
+              "args": [],
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [
+            {
+              "kind": "INTERFACE",
+              "name": "SelfClaimEdge",
+              "ofType": null
+            }
+          ],
           "enumValues": null,
           "possibleTypes": null
         },
@@ -75665,7 +75826,7 @@
             },
             {
               "name": "shelves",
-              "description": "Fetch shelves to display on the homepage.",
+              "description": "Fetch shelves to display on the homepage.\nDEPRECATED field arguments: platform (use context.platform), langWeightedCCU.",
               "args": [
                 {
                   "name": "requestID",
@@ -75724,6 +75885,16 @@
                     "ofType": null
                   },
                   "defaultValue": "12"
+                },
+                {
+                  "name": "context",
+                  "description": null,
+                  "type": {
+                    "kind": "INPUT_OBJECT",
+                    "name": "RecommendationsContext",
+                    "ofType": null
+                  },
+                  "defaultValue": null
                 }
               ],
               "type": {
@@ -78124,6 +78295,16 @@
           "description": "RecommendationsContext define parameters which can control recommendations logic.",
           "fields": null,
           "inputFields": [
+            {
+              "name": "country",
+              "description": "Optional ISO country code, defaults to use the country code from the geoip of the request.",
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
             {
               "name": "platform",
               "description": "Web, ios, android, etc.",
@@ -87680,6 +87861,11 @@
             {
               "kind": "OBJECT",
               "name": "BitsKeyCodeSelfClaimEdge",
+              "ofType": null
+            },
+            {
+              "kind": "OBJECT",
+              "name": "GiftCardCodeSelfClaimEdge",
               "ofType": null
             }
           ]
@@ -109152,6 +109338,12 @@
               "deprecationReason": null
             },
             {
+              "name": "TITLE_FAILED_MODERATION",
+              "description": "The title failed the moderation check.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
               "name": "INVALID_TIMEZONE",
               "description": "The timezone is not valid.",
               "isDeprecated": false,
@@ -109184,6 +109376,12 @@
             {
               "name": "INVALID_DURATION",
               "description": "The duration is invalid. Refer to the error for min and max acceptable values.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "INVALID_SEGMENT",
+              "description": "The segment is invalid.",
               "isDeprecated": false,
               "deprecationReason": null
             },
