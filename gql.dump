@@ -48156,6 +48156,18 @@
           "description": "The Hype Train config for a channel.",
           "fields": [
             {
+              "name": "calloutEmote",
+              "description": "A custom setting that will be an emote that the user has chosen (or PogChamp if not set) to display in their Hype Train events.",
+              "args": [],
+              "type": {
+                "kind": "OBJECT",
+                "name": "Emote",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
               "name": "conductorRewards",
               "description": "The conductor rewards for a Hype Train successful execution.",
               "args": [],
@@ -48342,6 +48354,22 @@
                       "ofType": null
                     }
                   }
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "themeColor",
+              "description": "A custom setting, which is a hex string, that will render the Hype Train progress bar this base color.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "String",
+                  "ofType": null
                 }
               },
               "isDeprecated": false,
@@ -107867,6 +107895,16 @@
           "fields": null,
           "inputFields": [
             {
+              "name": "calloutEmoteID",
+              "description": "Custom emote to be rendered in Hype Train messaging.",
+              "type": {
+                "kind": "SCALAR",
+                "name": "ID",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
               "name": "cooldownPeriodMinutes",
               "description": "Length of the cooldown period after a hype train ends.",
               "type": {
@@ -107902,6 +107940,16 @@
               "type": {
                 "kind": "INPUT_OBJECT",
                 "name": "HypeTrainKickoffInput",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "themeColor",
+              "description": "Custom color hex string that will be the base color of the Hype Train progress bar.",
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
                 "ofType": null
               },
               "defaultValue": null
