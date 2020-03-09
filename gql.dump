@@ -33022,29 +33022,6 @@
           "possibleTypes": null
         },
         {
-          "kind": "ENUM",
-          "name": "DefaultLeaderboardType",
-          "description": "DefaultLeaderboardType enumerates the various types of supported Leaderboards.",
-          "fields": null,
-          "inputFields": null,
-          "interfaces": null,
-          "enumValues": [
-            {
-              "name": "CHEER",
-              "description": "Bits cheering leaderboards.",
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
-              "name": "SUBGIFT",
-              "description": "Sub gifting leaderboards.",
-              "isDeprecated": false,
-              "deprecationReason": null
-            }
-          ],
-          "possibleTypes": null
-        },
-        {
           "kind": "OBJECT",
           "name": "DefaultPanel",
           "description": "DefaultPanel is the normal panel type that displays text and images.",
@@ -51662,7 +51639,7 @@
                 "name": null,
                 "ofType": {
                   "kind": "ENUM",
-                  "name": "DefaultLeaderboardType",
+                  "name": "LeaderboardType",
                   "ofType": null
                 }
               },
@@ -51746,6 +51723,29 @@
             {
               "name": "ALLTIME",
               "description": "All time leaderboards are cumulative back to when Bits launched in June of 2016.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "possibleTypes": null
+        },
+        {
+          "kind": "ENUM",
+          "name": "LeaderboardType",
+          "description": "LeaderboardType enumerates the various types of supported Leaderboards.",
+          "fields": null,
+          "inputFields": null,
+          "interfaces": null,
+          "enumValues": [
+            {
+              "name": "CHEER",
+              "description": "Bits cheering leaderboards.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "SUBGIFT",
+              "description": "Sub gifting leaderboards.",
               "isDeprecated": false,
               "deprecationReason": null
             }
@@ -108115,7 +108115,7 @@
               "description": "The default leaderboard the user wants to show.",
               "type": {
                 "kind": "ENUM",
-                "name": "DefaultLeaderboardType",
+                "name": "LeaderboardType",
                 "ofType": null
               },
               "defaultValue": null
