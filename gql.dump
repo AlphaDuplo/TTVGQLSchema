@@ -24518,6 +24518,16 @@
               "defaultValue": null
             },
             {
+              "name": "extensionInstallationChannelID",
+              "description": "ID of the channel where the extension is installed.\nTODO: change to required once the extension coordinator starts sending this param.",
+              "type": {
+                "kind": "SCALAR",
+                "name": "ID",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
               "name": "name",
               "description": "Name of the condition.",
               "type": {
