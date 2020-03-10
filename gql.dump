@@ -62363,6 +62363,87 @@
               "deprecationReason": null
             },
             {
+              "name": "updateCommunityPointsCustomRewardRedemptionStatusesByChannel",
+              "description": "Update the status of all Community Points redemptions for a channel.",
+              "args": [
+                {
+                  "name": "input",
+                  "description": null,
+                  "type": {
+                    "kind": "NON_NULL",
+                    "name": null,
+                    "ofType": {
+                      "kind": "INPUT_OBJECT",
+                      "name": "UpdateCommunityPointsCustomRewardRedemptionStatusesByChannelInput",
+                      "ofType": null
+                    }
+                  },
+                  "defaultValue": null
+                }
+              ],
+              "type": {
+                "kind": "OBJECT",
+                "name": "UpdateCommunityPointsCustomRewardRedemptionStatusesByChannelPayload",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "updateCommunityPointsCustomRewardRedemptionStatusesByRedemptions",
+              "description": "Update the status of the Community Points redemptions from the provided list.",
+              "args": [
+                {
+                  "name": "input",
+                  "description": null,
+                  "type": {
+                    "kind": "NON_NULL",
+                    "name": null,
+                    "ofType": {
+                      "kind": "INPUT_OBJECT",
+                      "name": "UpdateCommunityPointsCustomRewardRedemptionStatusesByRedemptionsInput",
+                      "ofType": null
+                    }
+                  },
+                  "defaultValue": null
+                }
+              ],
+              "type": {
+                "kind": "OBJECT",
+                "name": "UpdateCommunityPointsCustomRewardRedemptionStatusesByRedemptionsPayload",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "updateCommunityPointsCustomRewardRedemptionStatusesByReward",
+              "description": "Update the status of all Community Points redemptions for a reward.",
+              "args": [
+                {
+                  "name": "input",
+                  "description": null,
+                  "type": {
+                    "kind": "NON_NULL",
+                    "name": null,
+                    "ofType": {
+                      "kind": "INPUT_OBJECT",
+                      "name": "UpdateCommunityPointsCustomRewardRedemptionStatusesByRewardInput",
+                      "ofType": null
+                    }
+                  },
+                  "defaultValue": null
+                }
+              ],
+              "type": {
+                "kind": "OBJECT",
+                "name": "UpdateCommunityPointsCustomRewardRedemptionStatusesByRewardPayload",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
               "name": "updateCommunityPointsEarlyAccessSettings",
               "description": "Allows users to sign up for or remove themselves from the Community Points early access program.",
               "args": [
@@ -106958,6 +107039,322 @@
           "inputFields": null,
           "interfaces": [],
           "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "INPUT_OBJECT",
+          "name": "UpdateCommunityPointsCustomRewardRedemptionStatusesByChannelInput",
+          "description": "Input for acting on all Community Points redemptions for a channel.",
+          "fields": null,
+          "inputFields": [
+            {
+              "name": "channelID",
+              "description": "The channel ID the redemptions were made in.",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "ID",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "newStatus",
+              "description": "The new status to set the redemptions to.",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "ENUM",
+                  "name": "CommunityPointsCustomRewardRedemptionStatus",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "oldStatus",
+              "description": "The old status redemptions are currently set to.",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "ENUM",
+                  "name": "CommunityPointsCustomRewardRedemptionStatus",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            }
+          ],
+          "interfaces": null,
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "OBJECT",
+          "name": "UpdateCommunityPointsCustomRewardRedemptionStatusesByChannelPayload",
+          "description": "The response from acting on all Community Points redemptions for a channel.\nMost of the work is done as an async task and redemption status changes are pushed over pubsub.",
+          "fields": [
+            {
+              "name": "error",
+              "description": "An error that occurred while updating the redemption statuses.",
+              "args": [],
+              "type": {
+                "kind": "OBJECT",
+                "name": "UpdateCommunityPointsCustomRewardRedemptionStatusesError",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "INPUT_OBJECT",
+          "name": "UpdateCommunityPointsCustomRewardRedemptionStatusesByRedemptionsInput",
+          "description": "Input for acting on the Community Points redemptions from the provided list.",
+          "fields": null,
+          "inputFields": [
+            {
+              "name": "channelID",
+              "description": "The channel ID the redemptions were made in.",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "ID",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "newStatus",
+              "description": "The new status to set the redemptions to.",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "ENUM",
+                  "name": "CommunityPointsCustomRewardRedemptionStatus",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "oldStatus",
+              "description": "The old status redemptions are currently set to.",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "ENUM",
+                  "name": "CommunityPointsCustomRewardRedemptionStatus",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "redemptionIDs",
+              "description": "The redemption IDs to update.",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "LIST",
+                  "name": null,
+                  "ofType": {
+                    "kind": "NON_NULL",
+                    "name": null,
+                    "ofType": {
+                      "kind": "SCALAR",
+                      "name": "ID",
+                      "ofType": null
+                    }
+                  }
+                }
+              },
+              "defaultValue": null
+            }
+          ],
+          "interfaces": null,
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "OBJECT",
+          "name": "UpdateCommunityPointsCustomRewardRedemptionStatusesByRedemptionsPayload",
+          "description": "The response from acting on the Community Points redemptions from the provided list.\nMost of the work is done as an async task and redemption status changes are pushed over pubsub.",
+          "fields": [
+            {
+              "name": "error",
+              "description": "An error that occurred while updating the redemption statuses.",
+              "args": [],
+              "type": {
+                "kind": "OBJECT",
+                "name": "UpdateCommunityPointsCustomRewardRedemptionStatusesError",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "INPUT_OBJECT",
+          "name": "UpdateCommunityPointsCustomRewardRedemptionStatusesByRewardInput",
+          "description": "Input for acting on all Community Points redemptions for a reward.",
+          "fields": null,
+          "inputFields": [
+            {
+              "name": "channelID",
+              "description": "The channel ID the redemptions were made in.",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "ID",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "newStatus",
+              "description": "The new status to set the redemptions to.",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "ENUM",
+                  "name": "CommunityPointsCustomRewardRedemptionStatus",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "oldStatus",
+              "description": "The old status redemptions are currently set to.",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "ENUM",
+                  "name": "CommunityPointsCustomRewardRedemptionStatus",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "rewardID",
+              "description": "The reward ID to update all redemptions with oldStatus for.",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "ID",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            }
+          ],
+          "interfaces": null,
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "OBJECT",
+          "name": "UpdateCommunityPointsCustomRewardRedemptionStatusesByRewardPayload",
+          "description": "The response from acting on all Community Points redemptions for a reward.\nMost of the work is done as an async task and redemption status changes are pushed over pubsub.",
+          "fields": [
+            {
+              "name": "error",
+              "description": "An error that occurred while updating the redemption statuses.",
+              "args": [],
+              "type": {
+                "kind": "OBJECT",
+                "name": "UpdateCommunityPointsCustomRewardRedemptionStatusesError",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "OBJECT",
+          "name": "UpdateCommunityPointsCustomRewardRedemptionStatusesError",
+          "description": "An error from acting on a Community Points redemption.",
+          "fields": [
+            {
+              "name": "code",
+              "description": "An identifier for the error that occurred.",
+              "args": [],
+              "type": {
+                "kind": "ENUM",
+                "name": "UpdateCommunityPointsCustomRewardRedemptionStatusesErrorCode",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "ENUM",
+          "name": "UpdateCommunityPointsCustomRewardRedemptionStatusesErrorCode",
+          "description": "The possible reasons acting on a Community Points redemption could fail.",
+          "fields": null,
+          "inputFields": null,
+          "interfaces": null,
+          "enumValues": [
+            {
+              "name": "UNKNOWN",
+              "description": "An unexpected error occured.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "FORBIDDEN",
+              "description": "The current user is not allowed to update the statuses of these redemptions.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "IN_PROGRESS",
+              "description": "There is already a bulk update in progress for this reward / all rewards. Only one can be\tprocessed at a time.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
           "possibleTypes": null
         },
         {
