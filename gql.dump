@@ -38634,6 +38634,96 @@
           "possibleTypes": null
         },
         {
+          "kind": "INPUT_OBJECT",
+          "name": "EmoteModifierGroupInput",
+          "description": "A set of modifications to apply to a tier of emotes for a creator.",
+          "fields": null,
+          "inputFields": [
+            {
+              "name": "modifiers",
+              "description": "The modifiers to set.",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "LIST",
+                  "name": null,
+                  "ofType": {
+                    "kind": "NON_NULL",
+                    "name": null,
+                    "ofType": {
+                      "kind": "ENUM",
+                      "name": "PermanentEmoteModifier",
+                      "ofType": null
+                    }
+                  }
+                }
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "productID",
+              "description": "The ID of the product to set the modifiers for.",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "ID",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            }
+          ],
+          "interfaces": null,
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "OBJECT",
+          "name": "EmoteModifierGroupPayload",
+          "description": "A set of modifiers that have been set on a tier of emotes for a creator.",
+          "fields": [
+            {
+              "name": "modifiers",
+              "description": "The modifiers that were set.",
+              "args": [],
+              "type": {
+                "kind": "LIST",
+                "name": null,
+                "ofType": {
+                  "kind": "NON_NULL",
+                  "name": null,
+                  "ofType": {
+                    "kind": "ENUM",
+                    "name": "PermanentEmoteModifier",
+                    "ofType": null
+                  }
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "product",
+              "description": "The product the modifiers were set for.",
+              "args": [],
+              "type": {
+                "kind": "OBJECT",
+                "name": "SubscriptionProduct",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
           "kind": "OBJECT",
           "name": "EmoteSet",
           "description": "Represents a group of emotes.",
@@ -60560,6 +60650,33 @@
               "deprecationReason": null
             },
             {
+              "name": "setEmoteModifierGroups",
+              "description": "Sets the emote modifier groups for a user.",
+              "args": [
+                {
+                  "name": "input",
+                  "description": null,
+                  "type": {
+                    "kind": "NON_NULL",
+                    "name": null,
+                    "ofType": {
+                      "kind": "INPUT_OBJECT",
+                      "name": "SetEmoteModifierGroupsInput",
+                      "ofType": null
+                    }
+                  },
+                  "defaultValue": null
+                }
+              ],
+              "type": {
+                "kind": "OBJECT",
+                "name": "SetEmoteModifierGroupsPayload",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
               "name": "setExtensionFeatureFlags",
               "description": "Sets the feature flag options on a specified extension installation.",
               "args": [
@@ -69349,6 +69466,53 @@
           "inputFields": null,
           "interfaces": [],
           "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "ENUM",
+          "name": "PermanentEmoteModifier",
+          "description": "The permanent emote modifiers available to set.",
+          "fields": null,
+          "inputFields": null,
+          "interfaces": null,
+          "enumValues": [
+            {
+              "name": "UNKNOWN",
+              "description": "Unknown emote modifier.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "BLACK_WHITE",
+              "description": "BlackWhite emote modifier.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "HORIZONTAL_FLIP",
+              "description": "HorizontalFlip emote modifier.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "SUNGLASSES",
+              "description": "Sunglasses emote modifier.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "THINKING",
+              "description": "Thinking emote modifier.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "SQUISHED",
+              "description": "Squished emote modifier.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
           "possibleTypes": null
         },
         {
@@ -90690,6 +90854,132 @@
                 "kind": "ENUM",
                 "name": "DeletedMessageDisplaySetting",
                 "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "OBJECT",
+          "name": "SetEmoteModifierGroupsError",
+          "description": "Possible errors from this mutation.",
+          "fields": [
+            {
+              "name": "code",
+              "description": "Error code from the mutation.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "ENUM",
+                  "name": "SetEmoteModifierGroupsErrorCode",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "ENUM",
+          "name": "SetEmoteModifierGroupsErrorCode",
+          "description": "Possible error codes from this mutation.",
+          "fields": null,
+          "inputFields": null,
+          "interfaces": null,
+          "enumValues": [
+            {
+              "name": "INVALID_ARGUMENT",
+              "description": "The provided input is invalid.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "UNKNOWN_ERROR",
+              "description": "Unknown error returned from service.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "possibleTypes": null
+        },
+        {
+          "kind": "INPUT_OBJECT",
+          "name": "SetEmoteModifierGroupsInput",
+          "description": "SetEmoteModifierGroupsInput is the input required when a creator sets their emote modifiers.",
+          "fields": null,
+          "inputFields": [
+            {
+              "name": "groups",
+              "description": "Emote modifier groups to set.",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "LIST",
+                  "name": null,
+                  "ofType": {
+                    "kind": "NON_NULL",
+                    "name": null,
+                    "ofType": {
+                      "kind": "INPUT_OBJECT",
+                      "name": "EmoteModifierGroupInput",
+                      "ofType": null
+                    }
+                  }
+                }
+              },
+              "defaultValue": null
+            }
+          ],
+          "interfaces": null,
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "OBJECT",
+          "name": "SetEmoteModifierGroupsPayload",
+          "description": "The result of setting emote modifier groups for a user.",
+          "fields": [
+            {
+              "name": "error",
+              "description": "Error from the mutation if it exists.",
+              "args": [],
+              "type": {
+                "kind": "OBJECT",
+                "name": "SetEmoteModifierGroupsError",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "groups",
+              "description": "The modified emote groups that were set.",
+              "args": [],
+              "type": {
+                "kind": "LIST",
+                "name": null,
+                "ofType": {
+                  "kind": "NON_NULL",
+                  "name": null,
+                  "ofType": {
+                    "kind": "OBJECT",
+                    "name": "EmoteModifierGroupPayload",
+                    "ofType": null
+                  }
+                }
               },
               "isDeprecated": false,
               "deprecationReason": null
