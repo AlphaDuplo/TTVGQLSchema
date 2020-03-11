@@ -109190,15 +109190,15 @@
         {
           "kind": "OBJECT",
           "name": "UpdateLeaderboardSettingsPayload",
-          "description": "Result of mutation is the updated leaderboard settings object.",
+          "description": "Result of mutation is the updated user object.",
           "fields": [
             {
-              "name": "leaderboard",
-              "description": "The updated leaderboard settings object.",
+              "name": "user",
+              "description": "The user whose settings were updated.",
               "args": [],
               "type": {
                 "kind": "OBJECT",
-                "name": "LeaderboardSettings",
+                "name": "User",
                 "ofType": null
               },
               "isDeprecated": false,
