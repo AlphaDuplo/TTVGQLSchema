@@ -30681,6 +30681,38 @@
               "deprecationReason": null
             },
             {
+              "name": "averageChatMessages",
+              "description": "Average chat messages for the time period.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Int",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "averageUniqueChatters",
+              "description": "Average number of unique chatters for the time period.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Int",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
               "name": "averageViewers",
               "description": "Average viewers for the time period.",
               "args": [],
@@ -30793,6 +30825,38 @@
               "deprecationReason": null
             },
             {
+              "name": "minutesStreamed",
+              "description": "Time streamed (in minutes) for the time period.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Int",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "minutesWatched",
+              "description": "Minutes watched for the time period.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Int",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
               "name": "newSubscriptions",
               "description": "New subscriptions for the time period.",
               "args": [],
@@ -30818,22 +30882,6 @@
                 "ofType": {
                   "kind": "SCALAR",
                   "name": "Time",
-                  "ofType": null
-                }
-              },
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
-              "name": "uniqueChatters",
-              "description": "Unique chatters for the time period.",
-              "args": [],
-              "type": {
-                "kind": "NON_NULL",
-                "name": null,
-                "ofType": {
-                  "kind": "SCALAR",
-                  "name": "Int",
                   "ofType": null
                 }
               },
@@ -101185,6 +101233,22 @@
               "deprecationReason": "Use user.timeseriesStats.follows instead."
             },
             {
+              "name": "minutesStreamed",
+              "description": "Streamed duration (in minutes).",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Int",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
               "name": "timestamp",
               "description": "Timestamp of the broken down time series.",
               "args": [],
@@ -101235,9 +101299,33 @@
                 "kind": "LIST",
                 "name": null,
                 "ofType": {
-                  "kind": "OBJECT",
-                  "name": "TimeseriesItem",
-                  "ofType": null
+                  "kind": "NON_NULL",
+                  "name": null,
+                  "ofType": {
+                    "kind": "OBJECT",
+                    "name": "TimeseriesItem",
+                    "ofType": null
+                  }
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "adTimePerHour",
+              "description": "Ad time (in seconds) per hour per time chunk.",
+              "args": [],
+              "type": {
+                "kind": "LIST",
+                "name": null,
+                "ofType": {
+                  "kind": "NON_NULL",
+                  "name": null,
+                  "ofType": {
+                    "kind": "OBJECT",
+                    "name": "TimeseriesItem",
+                    "ofType": null
+                  }
                 }
               },
               "isDeprecated": false,
@@ -101251,9 +101339,13 @@
                 "kind": "LIST",
                 "name": null,
                 "ofType": {
-                  "kind": "OBJECT",
-                  "name": "TimeseriesItem",
-                  "ofType": null
+                  "kind": "NON_NULL",
+                  "name": null,
+                  "ofType": {
+                    "kind": "OBJECT",
+                    "name": "TimeseriesItem",
+                    "ofType": null
+                  }
                 }
               },
               "isDeprecated": false,
@@ -101267,9 +101359,13 @@
                 "kind": "LIST",
                 "name": null,
                 "ofType": {
-                  "kind": "OBJECT",
-                  "name": "TimeseriesItem",
-                  "ofType": null
+                  "kind": "NON_NULL",
+                  "name": null,
+                  "ofType": {
+                    "kind": "OBJECT",
+                    "name": "TimeseriesItem",
+                    "ofType": null
+                  }
                 }
               },
               "isDeprecated": false,
@@ -101283,9 +101379,13 @@
                 "kind": "LIST",
                 "name": null,
                 "ofType": {
-                  "kind": "OBJECT",
-                  "name": "TimeseriesItem",
-                  "ofType": null
+                  "kind": "NON_NULL",
+                  "name": null,
+                  "ofType": {
+                    "kind": "OBJECT",
+                    "name": "TimeseriesItem",
+                    "ofType": null
+                  }
                 }
               },
               "isDeprecated": false,
@@ -101299,9 +101399,13 @@
                 "kind": "LIST",
                 "name": null,
                 "ofType": {
-                  "kind": "OBJECT",
-                  "name": "TimeseriesItem",
-                  "ofType": null
+                  "kind": "NON_NULL",
+                  "name": null,
+                  "ofType": {
+                    "kind": "OBJECT",
+                    "name": "TimeseriesItem",
+                    "ofType": null
+                  }
                 }
               },
               "isDeprecated": false,
@@ -101315,9 +101419,13 @@
                 "kind": "LIST",
                 "name": null,
                 "ofType": {
-                  "kind": "OBJECT",
-                  "name": "TimeseriesItem",
-                  "ofType": null
+                  "kind": "NON_NULL",
+                  "name": null,
+                  "ofType": {
+                    "kind": "OBJECT",
+                    "name": "TimeseriesItem",
+                    "ofType": null
+                  }
                 }
               },
               "isDeprecated": false,
@@ -101340,6 +101448,26 @@
               "deprecationReason": null
             },
             {
+              "name": "hostRaidViewers",
+              "description": "Host/Raid viewers per time chunk.",
+              "args": [],
+              "type": {
+                "kind": "LIST",
+                "name": null,
+                "ofType": {
+                  "kind": "NON_NULL",
+                  "name": null,
+                  "ofType": {
+                    "kind": "OBJECT",
+                    "name": "TimeseriesItem",
+                    "ofType": null
+                  }
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
               "name": "items",
               "description": "Deprecated: List of the number of follows within a time period, broken up by granularity.",
               "args": [],
@@ -101347,9 +101475,13 @@
                 "kind": "LIST",
                 "name": null,
                 "ofType": {
-                  "kind": "OBJECT",
-                  "name": "TimeseriesItem",
-                  "ofType": null
+                  "kind": "NON_NULL",
+                  "name": null,
+                  "ofType": {
+                    "kind": "OBJECT",
+                    "name": "TimeseriesItem",
+                    "ofType": null
+                  }
                 }
               },
               "isDeprecated": true,
@@ -101363,9 +101495,53 @@
                 "kind": "LIST",
                 "name": null,
                 "ofType": {
-                  "kind": "OBJECT",
-                  "name": "TimeseriesItem",
-                  "ofType": null
+                  "kind": "NON_NULL",
+                  "name": null,
+                  "ofType": {
+                    "kind": "OBJECT",
+                    "name": "TimeseriesItem",
+                    "ofType": null
+                  }
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "maxViewers",
+              "description": "Max viewers per time chunk.",
+              "args": [],
+              "type": {
+                "kind": "LIST",
+                "name": null,
+                "ofType": {
+                  "kind": "NON_NULL",
+                  "name": null,
+                  "ofType": {
+                    "kind": "OBJECT",
+                    "name": "TimeseriesItem",
+                    "ofType": null
+                  }
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "minutesWatched",
+              "description": "Minutes watched per time chunk.",
+              "args": [],
+              "type": {
+                "kind": "LIST",
+                "name": null,
+                "ofType": {
+                  "kind": "NON_NULL",
+                  "name": null,
+                  "ofType": {
+                    "kind": "OBJECT",
+                    "name": "TimeseriesItem",
+                    "ofType": null
+                  }
                 }
               },
               "isDeprecated": false,
@@ -101379,9 +101555,33 @@
                 "kind": "LIST",
                 "name": null,
                 "ofType": {
-                  "kind": "OBJECT",
-                  "name": "TimeseriesItem",
-                  "ofType": null
+                  "kind": "NON_NULL",
+                  "name": null,
+                  "ofType": {
+                    "kind": "OBJECT",
+                    "name": "TimeseriesItem",
+                    "ofType": null
+                  }
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "timeStreamed",
+              "description": "Time streamed per time chunk.",
+              "args": [],
+              "type": {
+                "kind": "LIST",
+                "name": null,
+                "ofType": {
+                  "kind": "NON_NULL",
+                  "name": null,
+                  "ofType": {
+                    "kind": "OBJECT",
+                    "name": "TimeseriesItem",
+                    "ofType": null
+                  }
                 }
               },
               "isDeprecated": false,
@@ -101395,9 +101595,33 @@
                 "kind": "LIST",
                 "name": null,
                 "ofType": {
-                  "kind": "OBJECT",
-                  "name": "TimeseriesItem",
-                  "ofType": null
+                  "kind": "NON_NULL",
+                  "name": null,
+                  "ofType": {
+                    "kind": "OBJECT",
+                    "name": "TimeseriesItem",
+                    "ofType": null
+                  }
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "uniqueViewers",
+              "description": "Number of unique people watching per time chunk.",
+              "args": [],
+              "type": {
+                "kind": "LIST",
+                "name": null,
+                "ofType": {
+                  "kind": "NON_NULL",
+                  "name": null,
+                  "ofType": {
+                    "kind": "OBJECT",
+                    "name": "TimeseriesItem",
+                    "ofType": null
+                  }
                 }
               },
               "isDeprecated": false,
