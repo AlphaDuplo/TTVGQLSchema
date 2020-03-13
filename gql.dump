@@ -30889,6 +30889,38 @@
               "deprecationReason": null
             },
             {
+              "name": "totalChatMessages",
+              "description": "Total chat messages for the time period.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Int",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "totalChatters",
+              "description": "Total chatters for the time period.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Int",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
               "name": "uniqueViewers",
               "description": "Unique viewers for the time period.",
               "args": [],
@@ -124206,6 +124238,12 @@
             {
               "name": "SELF_BITS_VOTE_NOT_ALLOWED",
               "description": "User is not allowed to vote in their own poll with bits.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "RATE_LIMITED",
+              "description": "User cannot vote because they have hit a per-user or per-poll rate limit. The user can try again later.",
               "isDeprecated": false,
               "deprecationReason": null
             },
