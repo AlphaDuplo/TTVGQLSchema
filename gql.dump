@@ -28556,7 +28556,7 @@
             },
             {
               "name": "subscriberMultiplier",
-              "description": "Denotes if subscribers receives bonus votes.",
+              "description": "Denotes if subscribers receives bonus votes.\nDeprecated: Subscriber multipliers are no longer supported.",
               "type": {
                 "kind": "SCALAR",
                 "name": "Boolean",
@@ -28566,7 +28566,7 @@
             },
             {
               "name": "subscriberOnly",
-              "description": "Denotes if the poll is only open to subscribers.",
+              "description": "Denotes if the poll is only open to subscribers.\nDeprecated: Subscriber-only polls are no longer supported.",
               "type": {
                 "kind": "SCALAR",
                 "name": "Boolean",
@@ -70870,8 +70870,8 @@
                   "ofType": null
                 }
               },
-              "isDeprecated": false,
-              "deprecationReason": null
+              "isDeprecated": true,
+              "deprecationReason": "Subscriber multipliers are no longer supported."
             },
             {
               "name": "subscriberOnly",
@@ -70886,8 +70886,8 @@
                   "ofType": null
                 }
               },
-              "isDeprecated": false,
-              "deprecationReason": null
+              "isDeprecated": true,
+              "deprecationReason": "Subscriber-only polls are no longer supported."
             }
           ],
           "inputFields": null,
@@ -71011,7 +71011,7 @@
         {
           "kind": "OBJECT",
           "name": "PollSettingsSubscriberMultiplier",
-          "description": "Subscriber multiplier poll settings.",
+          "description": "Subscriber multiplier poll settings.\nDeprecated: subscriber multipliers are no longer supported.",
           "fields": [
             {
               "name": "isEnabled",
@@ -71038,7 +71038,7 @@
         {
           "kind": "OBJECT",
           "name": "PollSettingsSubscriberOnly",
-          "description": "Subscriber only poll settings.",
+          "description": "Subscriber only poll settings.\nDeprecated: subscriber-only polls are no longer supported.",
           "fields": [
             {
               "name": "isEnabled",
@@ -124199,7 +124199,7 @@
             },
             {
               "name": "USER_FORBIDDEN",
-              "description": "User is not allowed to vote in poll (e.g. they're banned in the channel, poll is subscriber only).",
+              "description": "User is not allowed to vote in poll (e.g. they're banned in the channel).",
               "isDeprecated": false,
               "deprecationReason": null
             },
